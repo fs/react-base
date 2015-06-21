@@ -1,4 +1,5 @@
 import React from 'react';
-import HelloWorld from 'scripts/components/hello-world';
+import TodoStore from 'scripts/stores/todo';
+import TodoLayout from 'scripts/components/todo/layout';
 
-React.render(<HelloWorld />, document.body);
+React.render(<TodoLayout />, document.getElementById('app'));

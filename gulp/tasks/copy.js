@@ -4,7 +4,7 @@ var config = require('../config');
 
 gulp.task('copy', function() {
   return gulp.src([
-    config.appDir + "/images/**/*",
+    config.appDir + "/fixtures/**/*",
     config.appDir + "/index.html"
   ], {base: config.appDir + "/"})
     .pipe(plumber())
