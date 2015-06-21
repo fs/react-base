@@ -1,12 +1,10 @@
 import React from 'react';
-import Base from 'scripts/components/base';
 
-export default class HelloWorld extends Base {
+export default class HelloWorld extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = { counter: 0 };
-    this.bindMethods('increment');
   }
 
   componentDidMount() {
@@ -28,7 +26,7 @@ export default class HelloWorld extends Base {
 
   render() {
     return (
-      <p onClick={ this.increment.bind(this) }>
+      <p onClick={ this.increment }>
         { this.text() } { this.state.counter }
       </p>
     );
