@@ -1,6 +1,6 @@
 import React from 'react';
 
-var HelloWorld = React.createClass({
+var HelloWorldES5 = React.createClass({
   getInitialState: function() {
     return { counter: 0 };
   },
@@ -31,4 +31,4 @@ var HelloWorld = React.createClass({
   }
 })
 
-export default HelloWorld
+export default HelloWorldES5

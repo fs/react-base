@@ -28,7 +28,7 @@ export default class HelloWorld extends Base {
 
   render() {
     return (
-      <p onClick={ this.increment.bind(this) }>
+      <p onClick={ this.increment }>
         { this.text() } { this.state.counter }
       </p>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class HelloWorld extends React.Component {
+export default class HelloWorldES6 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +26,7 @@ export default class HelloWorld extends React.Component {
 
   render() {
     return (
-      <p onClick={ this.increment }>
+      <p onClick={ this.increment.bind(this) }>
         { this.text() } { this.state.counter }
       </p>
     );
