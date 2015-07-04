@@ -11,6 +11,8 @@
     "jeet": "^6.1.2",
     "jquery": "^2.1.4",
     "react": "^0.13.3",
+    "react-mixin": "^1.5.0",
+    "react-router": "^0.13.3",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

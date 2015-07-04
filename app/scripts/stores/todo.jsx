@@ -9,7 +9,7 @@ function notify() {
 
 class TodoStore {
   constructor() {
-    this.url = 'fixtures/todo.json';
+    this.url = 'http://localhost:8000/fixtures/todo.json';
     this.collection = [];
 
     $.get(this.url).then((data) => {
@@ -37,7 +37,7 @@ class TodoStore {
   }
 
   update(content) {
-    var found = _.find(this.collection, function(x) {
+    let found = _.find(this.collection, function(x) {
       return x.id === content.id;
     });
 

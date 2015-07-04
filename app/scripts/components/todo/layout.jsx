@@ -1,14 +1,13 @@
 import _ from 'underscore';
 import React from 'react';
 import Base from 'scripts/components/base/base';
-import TodoModal from 'scripts/components/todo/modal';
 import TodoList from 'scripts/components/todo/list';
 import dispatcher from 'scripts/dispatchers/dispatcher';
 import emitter from 'scripts/emitters/emitter';
 
 export default class TodoLayout extends Base {
-  constructor(props) {
-    super(props);
+  constructor(...props) {
+    super(...props);
 
     this.state = {
       todos: []
@@ -29,19 +28,19 @@ export default class TodoLayout extends Base {
     });
   }
 
-  componentsWillUnmount() {
-    emitter.off('all-todos');
+  componentWillUnmount() {
+    emitter.off('todos-changed');
   }
 
   create() {
-    this.refs.create.show();
+    emitter.emit('modal-show');
   }
 
   renderList(complete) {
     return(
       <TodoList todos={
-        _.filter(this.state.todos, function(x) {
-          return x.isComplete === complete;
+        _.filter(this.state.todos, function(todo) {
+          return todo.isComplete === complete;
         })
       } />
     )
@@ -55,7 +54,13 @@ export default class TodoLayout extends Base {
             <h2>Todo List</h2>
           </div>
           <div className="col-md-4">
-            <button type="button" className="btn btn-primary pull-right spacing-top" onClick={ this.create }>New Task</button>
+            <button
+              type="button"
+              className="btn btn-primary pull-right spacing-top"
+              onClick={ this.create }
+            >
+              New Task
+            </button>
           </div>
         </div>
 
@@ -69,8 +74,6 @@ export default class TodoLayout extends Base {
             { this.renderList(true) }
           </div>
         </div>
-
-        <TodoModal ref="create" />
       </div>
     )
   }
