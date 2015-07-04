@@ -1,4 +1,11 @@
 import React from 'react';
-import HelloWorld from 'scripts/components/hello-world';
+import Router from 'react-router';
+import Routes from 'scripts/routers/main';
+import emitter from 'scripts/emitters/emitter';
 
-React.render(<HelloWorld />, document.body);
+var { HistoryLocation } = Router;
+
+Router.run(Routes, HistoryLocation, (Root) => {
+  React.render(<Root/>, document.body);
+  emitter.emit('route-change');
+});
