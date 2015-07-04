@@ -6,8 +6,8 @@ import dispatcher from 'scripts/dispatchers/dispatcher';
 import emitter from 'scripts/emitters/emitter';
 
 export default class TodoModal extends Base {
-  constructor(props) {
-    super(props);
+  constructor(...props) {
+    super(...props);
 
     this.state = {
       visible: false,
@@ -65,6 +65,9 @@ export default class TodoModal extends Base {
               <h3 className="modal-title">New Task</h3>
             </div>
             <div className="modal-body">
+              <div>
+                <label>Task name: { this.state.value }</label>
+              </div>
               <input placeholder="Task name..." type="text" value={ this.state.value } onChange={ this.onChange } />
             </div>
             <div className="modal-footer">

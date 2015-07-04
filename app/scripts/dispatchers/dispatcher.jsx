@@ -1,3 +1,5 @@
 import Flux from 'flux';
 
-export default new Flux.Dispatcher();
+var { Dispatcher } = Flux;
+
+export default new Dispatcher();

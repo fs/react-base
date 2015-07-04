@@ -1,10 +1,12 @@
-import React from 'react';
+import React from 'react/addons';
 import Base from 'scripts/components/base/base';
 import dispatcher from 'scripts/dispatchers/dispatcher';
 
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
 export default class TodoItem extends Base {
-  constructor(props) {
-    super(props);
+  constructor(...props) {
+    super(...props);
 
     this.bindMethods('toggle');
   }
@@ -19,9 +21,11 @@ export default class TodoItem extends Base {
 
   render() {
     return (
-      <li className="list-group-item pointer" onClick={ this.toggle }>
-        { this.props.todo.name }
-      </li>
+      <ReactCSSTransitionGroup transitionName="example" transitionAppear={ true }>
+        <li className="list-group-item pointer" onClick={ this.toggle }>
+          { this.props.todo.name }
+        </li>
+      </ReactCSSTransitionGroup>
     );
   }
 }
