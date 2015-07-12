@@ -26,6 +26,7 @@
     "gulp": "~3.9.0",
     "gulp-cssimport": "~1.2.3",
     "gulp-jshint": "^1.9.2",
+    "gulp-jsonlint": "^1.1.0",
     "gulp-notify": "~2.0.0",
     "gulp-plumber": "~0.6.6",
     "gulp-rename": "^1.2.0",

@@ -9,10 +9,13 @@ function notify() {
 
 class TodoStore {
   constructor() {
-    this.url = 'http://localhost:8000/fixtures/todo.json';
     this.collection = [];
 
-    $.get(this.url).then((data) => {
+    $.ajax({
+      type: 'GET',
+      url: 'api/todos',
+      dataType: 'json',
+    }).then((data) => {
       this.collection = data;
       notify.call(this);
     });
