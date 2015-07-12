@@ -4,9 +4,9 @@ var config = require('../config');
 
 gulp.task('copy', function() {
   return gulp.src([
-    config.appDir + "/fixtures/**/*",
-    config.appDir + "/index.html"
-  ], { base: config.appDir + "/" })
+    config.appDir + '/fixtures/**/*',
+    config.appDir + '/index.html'
+  ], { base: config.appDir + '/' })
     .pipe(plumber())
     .pipe(gulp.dest(config.publicDir));
 });

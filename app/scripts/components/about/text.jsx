@@ -15,7 +15,7 @@ class AboutText extends Base {
     let params = this.props.params;
 
     if (typeof params !== 'undefined' && typeof params.id !== 'undefined') {
-      this.setState({id: params.id});
+      this.setState({ id: params.id });
     }
   }
 

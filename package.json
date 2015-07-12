@@ -37,7 +37,7 @@
   },
   "browser": {
     "jquery": "./node_modules/jquery/dist/jquery.js",
-    "bootstrap": "./vendor/scripts/bootstrap.js"
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
   },
   "browserify-shim": {
     "bootstrap": {
@@ -46,5 +46,10 @@
         "jquery:jQuery"
       ]
     }
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
   }
 }

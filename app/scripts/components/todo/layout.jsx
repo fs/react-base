@@ -24,7 +24,7 @@ export default class TodoLayout extends Base {
 
   componentWillMount() {
     emitter.on('todos-changed', (todos) => {
-      this.setState({ todos: todos });
+      this.setState({ todos });
     });
   }
 
