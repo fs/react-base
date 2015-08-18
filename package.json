@@ -13,6 +13,7 @@
     "react": "^0.13.3",
     "react-mixin": "^1.5.0",
     "react-router": "^0.13.3",
+    "reflux": "^0.2.12",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

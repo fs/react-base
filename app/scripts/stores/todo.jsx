@@ -1,61 +1,44 @@
 import $ from 'jquery';
 import _ from 'underscore';
-import dispatcher from 'scripts/dispatchers/dispatcher';
-import emitter from 'scripts/emitters/emitter';
+import Reflux from 'reflux';
+import Actions from 'scripts/actions/todo'
 
-function notify() {
-  emitter.emit('todos-changed', this.collection);
-};
+export default Reflux.createStore({
+  listenables: [Actions],
 
-class TodoStore {
-  constructor() {
+  onTodosGet(data) {
     this.collection = [];
 
-    $.ajax({
-      type: 'GET',
-      url: 'api/todos',
-      dataType: 'json',
-    }).then((data) => {
-      this.collection = data;
-      notify.call(this);
-    });
+    if (!this.collection.length) {
+      $.ajax({
+        type: 'GET',
+        url: 'api/todos',
+        dataType: 'json',
+      }).then((data) => {
+        this.collection = data;
+        this.notify();
+      });
+    }
 
-    dispatcher.register((payload) => {
-      switch (payload.type) {
-        case 'all-todos':
-          this.read();
-          break;
-        case 'update-todo':
-          this.update(payload.content);
-          break;
-        case 'create-todo':
-          this.create(payload.content);
-          break;
-      }
-    });
-  }
+  },
 
-  read() {
-    notify.call(this);
-  }
-
-  update(content) {
-    let found = _.find(this.collection, function(x) {
-      return x.id === content.id;
-    });
+  onTodoUpdate() {
+    let found = _.find(this.collection, (x) => x.id === content.id);
 
     for (let name in found) {
       found[name] = content[name];
     };
 
-    notify.call(this);
-  }
+    this.notify();
+  },
 
-  create(content) {
+  onTodoCreate(content) {
     content.id = _.max(this.collection, (x) => x.id).id + 1;
     this.collection.push(content);
-    notify.call(this);
-  }
-}
+    this.notify();
+  },
 
-export default new TodoStore();
+  notify() {
+    this.trigger(this.collection);
+  }
+});

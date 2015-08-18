@@ -2,7 +2,7 @@ import React from 'react/addons';
 import Base from 'scripts/components/base/base';
 import dispatcher from 'scripts/dispatchers/dispatcher';
 
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+let { CSSTransitionGroup } = React.addons;
 
 export default class TodoItem extends Base {
   constructor(...props) {
@@ -21,11 +21,11 @@ export default class TodoItem extends Base {
 
   render() {
     return (
-      <ReactCSSTransitionGroup transitionName="example" transitionAppear={ true }>
+      <CSSTransitionGroup transitionName="example" transitionAppear={ true }>
         <li className="list-group-item pointer" onClick={ this.toggle }>
           { this.props.todo.name }
         </li>
-      </ReactCSSTransitionGroup>
+      </CSSTransitionGroup>
     );
   }
 }

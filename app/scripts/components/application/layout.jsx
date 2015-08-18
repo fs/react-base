@@ -1,15 +1,15 @@
 import React from 'react';
 import Router from 'react-router';
+import ModalActions from 'scripts/actions/modal';
 import Base from 'scripts/components/base/base';
 import HeaderLayout from 'scripts/components/header/layout';
 import TodoModal from 'scripts/components/todo/modal';
-import emitter from 'scripts/emitters/emitter';
 
 var { RouteHandler } = Router;
 
 export default class App extends Base {
   componentDidMount() {
-    emitter.on('modal-show', () => {
+    ModalActions.show.listen(() => {
       this.refs.create.show();
     });
   }

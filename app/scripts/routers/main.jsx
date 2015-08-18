@@ -1,6 +1,5 @@
 import React from 'react';
 import Router from 'react-router';
-import TodoStore from 'scripts/stores/todo';
 import AppLayout from 'scripts/components/application/layout';
 import TodoLayout from 'scripts/components/todo/layout';
 import AboutLayout from 'scripts/components/about/layout';
