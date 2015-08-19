@@ -36,11 +36,9 @@ export default class TodoLayout extends Base {
   }
 
   renderList(complete) {
-    return(
+    return (
       <TodoList todos={
-        _.filter(this.state.todos, function(todo) {
-          return todo.isComplete === complete;
-        })
+        _.filter(this.state.todos, (todo) => todo.isComplete === complete)
       } />
     )
   }

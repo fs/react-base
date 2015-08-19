@@ -1,6 +1,6 @@
 import React from 'react/addons';
+import TodoActions from 'scripts/actions/todo';
 import Base from 'scripts/components/base/base';
-import dispatcher from 'scripts/dispatchers/dispatcher';
 
 let { CSSTransitionGroup } = React.addons;
 
@@ -13,10 +13,7 @@ export default class TodoItem extends Base {
 
   toggle() {
     this.props.todo.isComplete = !this.props.todo.isComplete;
-    dispatcher.dispatch({
-      type: 'update-todo',
-      content: this.props.todo
-    });
+    TodoActions.todoUpdate(this.props.todo);
   }
 
   render() {

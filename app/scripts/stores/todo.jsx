@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import _ from 'underscore';
 import Reflux from 'reflux';
-import Actions from 'scripts/actions/todo'
+import TodoActions from 'scripts/actions/todo'
 
 export default Reflux.createStore({
-  listenables: [Actions],
+  listenables: [TodoActions],
 
   onTodosGet(data) {
     this.collection = [];
@@ -13,17 +13,16 @@ export default Reflux.createStore({
       $.ajax({
         type: 'GET',
         url: 'api/todos',
-        dataType: 'json',
+        dataType: 'json'
       }).then((data) => {
         this.collection = data;
         this.notify();
       });
     }
-
   },
 
-  onTodoUpdate() {
-    let found = _.find(this.collection, (x) => x.id === content.id);
+  onTodoUpdate(content) {
+    let found = _.find(this.collection, (item) => item.id === content.id);
 
     for (let name in found) {
       found[name] = content[name];
@@ -33,7 +32,7 @@ export default Reflux.createStore({
   },
 
   onTodoCreate(content) {
-    content.id = _.max(this.collection, (x) => x.id).id + 1;
+    content.id = _.max(this.collection, (item) => item.id).id + 1;
     this.collection.push(content);
     this.notify();
   },

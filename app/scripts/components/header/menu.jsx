@@ -10,9 +10,7 @@ export default class Menu extends Base {
   }
 
   renderList() {
-    return this.props.items.map(function(item) {
-      return <MenuItem item={ item }/>
-    })
+    return this.props.items.map((item) => <MenuItem item={ item }/>);
   }
 
   render() {

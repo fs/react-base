@@ -7,7 +7,6 @@
   "dependencies": {
     "autoprefixer-stylus": "0.2.0",
     "bootstrap": "^3.3.5",
-    "flux": "^2.0.3",
     "jeet": "^6.1.2",
     "jquery": "^2.1.4",
     "react": "^0.13.3",

@@ -1,15 +1,15 @@
 # react-base
-Kick-start your new web application based on React.
+Kick-start your new web application based on React and Reflux technologies.
 
 ## NPM Dependencies:
     "autoprefixer-stylus"
     "bootstrap"
-    "flux"
     "jeet"
     "jquery"
     "react"
     "react-mixin"
     "react-router"
+    "reflux"
     "underscore"
 
 ## NPM Dev Dependencies:

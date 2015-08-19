@@ -5,7 +5,7 @@ import TodoLayout from 'scripts/components/todo/layout';
 import AboutLayout from 'scripts/components/about/layout';
 import AboutText from 'scripts/components/about/text';
 
-var { Route, Redirect } = Router;
+let { Route, Redirect } = Router;
 
 export default (
   <Route handler = { AppLayout }>

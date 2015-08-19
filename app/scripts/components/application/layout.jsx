@@ -5,7 +5,7 @@ import Base from 'scripts/components/base/base';
 import HeaderLayout from 'scripts/components/header/layout';
 import TodoModal from 'scripts/components/todo/modal';
 
-var { RouteHandler } = Router;
+let { RouteHandler } = Router;
 
 export default class App extends Base {
   componentDidMount() {

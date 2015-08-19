@@ -3,7 +3,7 @@ import Router from 'react-router';
 import Base from 'scripts/components/base/base';
 import AboutText from 'scripts/components/about/text';
 
-var { RouteHandler } = Router;
+let { RouteHandler } = Router;
 
 export default class AboutLayout extends Base {
   render() {
