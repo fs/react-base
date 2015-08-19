@@ -1,7 +1,6 @@
 import React from 'react';
 import Base from 'scripts/components/base/base';
 import TodoItem from 'scripts/components/todo/item';
-import dispatcher from 'scripts/dispatchers/dispatcher';
 
 export default class TodoList extends Base {
   constructor(...props) {
@@ -11,9 +10,7 @@ export default class TodoList extends Base {
   }
 
   renderItems() {
-    return this.props.todos.map(function(todo) {
-      return <TodoItem todo={ todo }/>
-    })
+    return this.props.todos.map((todo) => <TodoItem todo={ todo }/>);
   }
 
   render() {

@@ -1,9 +1,10 @@
 import _ from 'underscore';
 import React from 'react';
+import ModalActions from 'scripts/actions/modal';
+import TodoActions from 'scripts/actions/todo';
+import TodoStore from 'scripts/stores/todo';
 import Base from 'scripts/components/base/base';
 import TodoList from 'scripts/components/todo/list';
-import dispatcher from 'scripts/dispatchers/dispatcher';
-import emitter from 'scripts/emitters/emitter';
 
 export default class TodoLayout extends Base {
   constructor(...props) {
@@ -17,31 +18,27 @@ export default class TodoLayout extends Base {
   }
 
   componentDidMount() {
-    dispatcher.dispatch({
-      type: 'all-todos'
-    });
+    TodoActions.todosGet();
   }
 
   componentWillMount() {
-    emitter.on('todos-changed', (todos) => {
+    this.unsubscribe = TodoStore.listen((todos) => {
       this.setState({ todos });
     });
   }
 
   componentWillUnmount() {
-    emitter.off('todos-changed');
+    this.unsubscribe();
   }
 
   create() {
-    emitter.emit('modal-show');
+    ModalActions.show();
   }
 
   renderList(complete) {
-    return(
+    return (
       <TodoList todos={
-        _.filter(this.state.todos, function(todo) {
-          return todo.isComplete === complete;
-        })
+        _.filter(this.state.todos, (todo) => todo.isComplete === complete)
       } />
     )
   }

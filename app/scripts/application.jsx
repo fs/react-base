@@ -1,11 +1,11 @@
 import React from 'react';
 import Router from 'react-router';
 import Routes from 'scripts/routers/main';
-import emitter from 'scripts/emitters/emitter';
+import RouterActions from 'scripts/actions/router';
 
-var { HistoryLocation } = Router;
+let { HistoryLocation } = Router;
 
 Router.run(Routes, HistoryLocation, (Root) => {
   React.render(<Root/>, document.body);
-  emitter.emit('route-change');
+  RouterActions.routeChange();
 });

@@ -1,9 +1,9 @@
 import 'bootstrap';
 import $ from 'jquery';
 import React from 'react';
+import TodoActions from 'scripts/actions/todo';
+import TodoStore from 'scripts/stores/todo';
 import Base from 'scripts/components/base/base';
-import dispatcher from 'scripts/dispatchers/dispatcher';
-import emitter from 'scripts/emitters/emitter';
 
 export default class TodoModal extends Base {
   constructor(...props) {
@@ -21,13 +21,13 @@ export default class TodoModal extends Base {
     this.$el = $(React.findDOMNode(this));
     this.$el.on('hidden.bs.modal', this.reset);
 
-    emitter.on('todos-changed', () => {
+    this.unsubscribe = TodoStore.listen(() => {
       this.$el.modal('hide');
     });
   }
 
   componentWillUnmount() {
-    emitter.off('todos-changed');
+    this.unsubscribe();
   }
 
   show() {
@@ -39,12 +39,9 @@ export default class TodoModal extends Base {
   }
 
   save() {
-    dispatcher.dispatch({
-      type: 'create-todo',
-      content: {
-        name: this.state.value,
-        isComplete: false
-      }
+    TodoActions.todoCreate({
+      name: this.state.value,
+      isComplete: false
     });
   }
 

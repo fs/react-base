@@ -2,10 +2,10 @@ import _ from 'underscore';
 import $ from 'jquery';
 import React from 'react';
 import Router from 'react-router';
+import RouterActions from 'scripts/actions/router';
 import Base from 'scripts/components/base/base';
-import emitter from 'scripts/emitters/emitter';
 
-var { Link, Route } = Router;
+let { Link, Route } = Router;
 
 export default class MenuItem extends Base {
   constructor(...props) {
@@ -17,7 +17,7 @@ export default class MenuItem extends Base {
   }
 
   componentDidMount() {
-    emitter.on('route-change', () => {
+    RouterActions.routeChange.listen(() => {
       _.defer(() => { this.setActiveTab() });
     });
   }
