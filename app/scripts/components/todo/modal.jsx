@@ -3,23 +3,16 @@ import $ from 'jquery';
 import React from 'react';
 import TodoActions from 'scripts/actions/todo';
 import TodoStore from 'scripts/stores/todo';
-import Base from 'scripts/components/base/base';
 
-export default class TodoModal extends Base {
-  constructor(...props) {
-    super(...props);
-
-    this.state = {
-      visible: false,
-      value: ''
-    };
-
-    this.bindMethods('onChange', 'save', 'reset');
+export default class TodoModal extends React.Component {
+  state = {
+    visible: false,
+    value: ''
   }
 
   componentDidMount() {
     this.$el = $(React.findDOMNode(this));
-    this.$el.on('hidden.bs.modal', this.reset);
+    this.$el.on('hidden.bs.modal', ::this.reset);
 
     this.unsubscribe = TodoStore.listen(() => {
       this.$el.modal('hide');
@@ -65,13 +58,13 @@ export default class TodoModal extends Base {
               <div>
                 <label>Task name: { this.state.value }</label>
               </div>
-              <input placeholder="Task name..." type="text" value={ this.state.value } onChange={ this.onChange } />
+              <input placeholder="Task name..." type="text" value={ this.state.value } onChange={ ::this.onChange } />
             </div>
             <div className="modal-footer">
               <div className="row">
                 <div className="col col-md-12">
-                  <button type="button" className="btn btn-primary pull-right" onClick={ this.save }>Save</button>
-                  <button type="button" className="btn btn-default pull-right spacing-right" onClick={ this.reset } data-dismiss="modal">Close</button>
+                  <button type="button" className="btn btn-primary pull-right" onClick={ ::this.save }>Save</button>
+                  <button type="button" className="btn btn-default pull-right spacing-right" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>

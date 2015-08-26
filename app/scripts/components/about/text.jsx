@@ -1,14 +1,9 @@
 import React from 'react';
 import Router from 'react-router';
-import Base from 'scripts/components/base/base';
 
-class AboutText extends Base {
-  constructor(...props) {
-    super(...props);
-
-    this.state = {
-      id: ''
-    }
+export default class AboutText extends React.Component {
+  state = {
+    id: ''
   }
 
   componentDidMount() {
@@ -35,5 +30,3 @@ class AboutText extends Base {
     )
   }
 }
-
-export default AboutText;

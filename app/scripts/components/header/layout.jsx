@@ -1,9 +1,8 @@
 import React from 'react';
 import ModalActions from 'scripts/actions/modal';
-import Base from 'scripts/components/base/base';
 import Menu from 'scripts/components/header/menu';
 
-export default class HeaderLayout extends Base {
+export default class HeaderLayout extends React.Component {
   create() {
     ModalActions.show();
   }
