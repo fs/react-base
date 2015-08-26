@@ -21,9 +21,9 @@ gulp.task('server', () => {
     }
   });
 
-  server.use(express.static(config.publicDir));
+  server.use(historyApiFallback());
   server.use(prism.middleware);
-  server.use(historyApiFallback);
+  server.use(express.static(config.publicDir));
   server.listen(config.ports.server);
   notifier.log(`Listening on 0.0.0.0:${config.ports.server}`);
 });

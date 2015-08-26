@@ -12,7 +12,7 @@ export default class TodoModal extends React.Component {
 
   componentDidMount() {
     this.$el = $(React.findDOMNode(this));
-    this.$el.on('hidden.bs.modal', this.reset);
+    this.$el.on('hidden.bs.modal', ::this.reset);
 
     this.unsubscribe = TodoStore.listen(() => {
       this.$el.modal('hide');
@@ -64,7 +64,7 @@ export default class TodoModal extends React.Component {
               <div className="row">
                 <div className="col col-md-12">
                   <button type="button" className="btn btn-primary pull-right" onClick={ ::this.save }>Save</button>
-                  <button type="button" className="btn btn-default pull-right spacing-right" onClick={ ::this.reset } data-dismiss="modal">Close</button>
+                  <button type="button" className="btn btn-default pull-right spacing-right" data-dismiss="modal">Close</button>
                 </div>
               </div>
             </div>
