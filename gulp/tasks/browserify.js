@@ -1,38 +1,39 @@
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var browserify = require('browserify');
-var transform = require('vinyl-transform');
-var babelify = require('babelify');
-var watchify = require('watchify');
-var notify = require('gulp-notify');
-var config = require('../config');
-var entryPoint = './' + config.appDir + '/scripts/application.jsx';
+import gulp from 'gulp';
+import rename from 'gulp-rename';
+import browserify from 'browserify';
+import babelify from 'babelify';
+import watchify from 'watchify';
+import source from 'vinyl-source-stream';
+import notifier from '../helpers/notifier';
+import config from '../../config/app';
 
-gulp.task('browserify', function() {
-  var bundler = browserify({
-    cache: {},
-    packageCache: {},
-    fullPaths: true,
-    debug: true,
-    entries: entryPoint,
-    extensions: ['.jsx'],
-    paths: ['./' + config.appDir]
-  })
-  .transform(babelify.configure({ sourceMapRelative: './' + config.appDir }));
+gulp.task('browserify', () => {
+  const appPath = `./${config.appDir}`;
+  const entryPoint = `${appPath}/scripts/application.jsx`;
+  const bundler = watchify(
+    browserify({
+      cache: {},
+      packageCache: {},
+      fullPaths: true,
+      debug: true,
+      entries: entryPoint,
+      extensions: ['.jsx'],
+      paths: [appPath]
+    }).transform(babelify.configure({
+      stage: 0,
+      sourceMapRelative: appPath
+    }))
+  );
 
   function bundle() {
-    var bundleTransform = transform(function(filename) {
-      return bundler.bundle();
-    });
-
-    return gulp.src(entryPoint)
-      .pipe(bundleTransform)
-      .on('error', notify.onError())
+    return bundler
+      .bundle()
+      .on('error', notifier.errorHandler)
+      .pipe(source(entryPoint))
       .pipe(rename('application.js'))
       .pipe(gulp.dest(config.publicDir))
   };
 
-  watchify(bundler).on('update', bundle);
-
-  return bundle();
+  bundler.on('update', bundle);
+  bundle();
 });
