@@ -18,7 +18,7 @@ export default {
   },
 
   log(message) {
-    log(notify);
+    log(message);
   },
 
   errorHandler(error) {

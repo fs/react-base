@@ -13,33 +13,36 @@ Kick-start your new web application based on React and Reflux technologies.
     "underscore"
 
 ## NPM Dev Dependencies:
+    "babel-core"
     "babelify"
-    "browser-sync"
     "browserify"
     "browserify-shim"
     "connect-history-api-fallback"
     "connect-prism"
     "del"
+    "express"
     "gulp"
     "gulp-cssimport"
     "gulp-jshint"
-    "gulp-notify"
+    "gulp-jsonlint"
     "gulp-plumber"
     "gulp-rename"
     "gulp-stylus"
+    "gulp-util"
+    "node-notifier"
     "require-dir"
     "run-sequence"
-    "vinyl-transform"
+    "vinyl-source-stream"
     "watchify"
 
 ##Compiling
 
 ```shell
 npm install
-gulp
+npm start
 ```
 
-You should now have compiled Web files in public folder
+You should now have compiled Web files in `public` folder
 
 License
 -------

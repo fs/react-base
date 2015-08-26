@@ -2,8 +2,12 @@
   "name": "react-base",
   "version": "1.0.0",
   "authors": [
-    "Marat Fakhreev <marat.fakhreev@flatstack.com>"
+    "Marat Fakhreev <marat.fakhreev@gmail.com>"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:maratfakhreev/react-base.git"
+  },
   "scripts": {
     "start": "gulp build"
   },
