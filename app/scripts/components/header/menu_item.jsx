@@ -3,24 +3,23 @@ import $ from 'jquery';
 import React from 'react';
 import Router from 'react-router';
 import RouterActions from 'scripts/actions/router';
-import Base from 'scripts/components/base/base';
 
-let { Link, Route } = Router;
+const { Link, Route } = Router;
 
-export default class MenuItem extends Base {
+export default class MenuItem extends React.Component {
   state = {
     active: ''
   }
 
-  componentDidMount() {
+  componentWillMount() {
     RouterActions.routeChange.listen(() => {
-      _.defer(() => { this.setActiveTab() });
+      this.setActiveTab();
     });
   }
 
   setActiveTab() {
     this.setState({ active: '' });
-    let $menuItem = $(React.findDOMNode(this.refs.menuItem));
+    const $menuItem = $(React.findDOMNode(this.refs.menuItem));
 
     if ($menuItem.hasClass('active')) {
       this.setState({ active: 'active' });

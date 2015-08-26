@@ -3,18 +3,11 @@ import React from 'react';
 import ModalActions from 'scripts/actions/modal';
 import TodoActions from 'scripts/actions/todo';
 import TodoStore from 'scripts/stores/todo';
-import Base from 'scripts/components/base/base';
 import TodoList from 'scripts/components/todo/list';
 
-export default class TodoLayout extends Base {
+export default class TodoLayout extends React.Component {
   state = {
     todos: []
-  }
-
-  constructor(...props) {
-    super(...props);
-
-    this.bindMethods('renderList', 'create');
   }
 
   componentDidMount() {
@@ -54,7 +47,7 @@ export default class TodoLayout extends Base {
             <button
               type="button"
               className="btn btn-primary pull-right spacing-top"
-              onClick={ this.create }
+              onClick={ ::this.create }
             >
               New Task
             </button>
@@ -64,11 +57,11 @@ export default class TodoLayout extends Base {
         <div className="row">
           <div className="col-md-6">
             <h3 className="spacing-bottom">Incomplete</h3>
-            { this.renderList(false) }
+            { ::this.renderList(false) }
           </div>
           <div className="col-md-6">
             <h3 className="spacing-bottom">Complete</h3>
-            { this.renderList(true) }
+            { ::this.renderList(true) }
           </div>
         </div>
       </div>

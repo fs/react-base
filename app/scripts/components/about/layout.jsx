@@ -1,11 +1,10 @@
 import React from 'react';
 import Router from 'react-router';
-import Base from 'scripts/components/base/base';
 import AboutText from 'scripts/components/about/text';
 
-let { RouteHandler } = Router;
+const { RouteHandler } = Router;
 
-export default class AboutLayout extends Base {
+export default class AboutLayout extends React.Component {
   render() {
     return (
       <article>
