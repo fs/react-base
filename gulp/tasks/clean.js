@@ -1,7 +1,5 @@
-var gulp = require('gulp');
-var del = require('del');
-var config = require('../config');
+import gulp from 'gulp';
+import del from 'del';
+import config from '../../config/app';
 
-gulp.task('clean', function(cb) {
-  return del([config.publicDir], cb);
-});
+gulp.task('clean', (cb) => del([config.publicDir], cb));

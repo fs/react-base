@@ -1,12 +1,12 @@
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
-var config = require('../config');
+import gulp from 'gulp';
+import plumber from 'gulp-plumber';
+import config from '../../config/app';
 
-gulp.task('copy', function() {
+gulp.task('copy', () => {
   return gulp.src([
-    config.appDir + '/fixtures/**/*',
-    config.appDir + '/index.html'
-  ], { base: config.appDir + '/' })
+    `${config.appDir}/fixtures/**/*`,
+    `${config.appDir}/index.html`
+  ], { base: config.appDir })
     .pipe(plumber())
     .pipe(gulp.dest(config.publicDir));
 });
