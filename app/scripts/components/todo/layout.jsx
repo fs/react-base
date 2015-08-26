@@ -7,12 +7,12 @@ import Base from 'scripts/components/base/base';
 import TodoList from 'scripts/components/todo/list';
 
 export default class TodoLayout extends Base {
+  state = {
+    todos: []
+  }
+
   constructor(...props) {
     super(...props);
-
-    this.state = {
-      todos: []
-    };
 
     this.bindMethods('renderList', 'create');
   }

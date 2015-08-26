@@ -6,13 +6,13 @@ import TodoStore from 'scripts/stores/todo';
 import Base from 'scripts/components/base/base';
 
 export default class TodoModal extends Base {
+  state = {
+    visible: false,
+    value: ''
+  }
+
   constructor(...props) {
     super(...props);
-
-    this.state = {
-      visible: false,
-      value: ''
-    };
 
     this.bindMethods('onChange', 'save', 'reset');
   }

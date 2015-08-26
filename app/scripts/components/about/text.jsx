@@ -3,12 +3,8 @@ import Router from 'react-router';
 import Base from 'scripts/components/base/base';
 
 class AboutText extends Base {
-  constructor(...props) {
-    super(...props);
-
-    this.state = {
-      id: ''
-    }
+  state = {
+    id: ''
   }
 
   componentDidMount() {

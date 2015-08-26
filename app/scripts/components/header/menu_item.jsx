@@ -8,12 +8,8 @@ import Base from 'scripts/components/base/base';
 let { Link, Route } = Router;
 
 export default class MenuItem extends Base {
-  constructor(...props) {
-    super(...props);
-
-    this.state = {
-      active: ''
-    }
+  state = {
+    active: ''
   }
 
   componentDidMount() {
