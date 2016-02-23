@@ -3,7 +3,7 @@ import TodoItem from 'scripts/components/todo/item';
 
 export default class TodoList extends React.Component {
   renderItems() {
-    return this.props.todos.map((todo) => <TodoItem todo={ todo }/>);
+    return this.props.todos.map(todo => <TodoItem key={ todo.id } todo={ todo }/>);
   }
 
   render() {

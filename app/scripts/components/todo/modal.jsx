@@ -1,6 +1,7 @@
 import 'bootstrap';
 import $ from 'jquery';
 import React from 'react';
+import { findDOMNode } from 'react-dom';
 import TodoActions from 'scripts/actions/todo';
 import TodoStore from 'scripts/stores/todo';
 
@@ -11,7 +12,7 @@ export default class TodoModal extends React.Component {
   }
 
   componentDidMount() {
-    this.$el = $(React.findDOMNode(this));
+    this.$el = $(findDOMNode(this));
     this.$el.on('hidden.bs.modal', ::this.reset);
 
     this.unsubscribe = TodoStore.listen(() => {

@@ -2,18 +2,21 @@
 Kick-start your new web application based on React and Reflux technologies.
 
 ## NPM Dependencies:
-    "autoprefixer-stylus"
     "bootstrap"
-    "jeet"
     "jquery"
     "react"
-    "react-mixin"
+    "react-addons-css-transition-group"
+    "react-dom"
     "react-router"
     "reflux"
     "underscore"
 
 ## NPM Dev Dependencies:
+    "autoprefixer-stylus"
     "babel-core"
+    "babel-plugin-transform-decorators-legacy"
+    "babel-preset-react"
+    "babel-preset-stage-0"
     "babelify"
     "browserify"
     "browserify-shim"
@@ -22,8 +25,7 @@ Kick-start your new web application based on React and Reflux technologies.
     "del"
     "express"
     "gulp"
-    "gulp-cssimport"
-    "gulp-jshint"
+    "gulp-import-css"
     "gulp-jsonlint"
     "gulp-plumber"
     "gulp-rename"

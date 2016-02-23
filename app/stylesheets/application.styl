@@ -1,4 +1,4 @@
-@import '../../node_modules/bootstrap/dist/css/bootstrap.css'
+@import url('../../node_modules/bootstrap/dist/css/bootstrap.css')
 
 .spacing-top
   margin-top: 15px
@@ -12,13 +12,6 @@
 header
   background-color: rgba(#efefef, 0.1)
 
-  .navbar-nav
-    a:focus
-      background-color: transparent
-
-    .active
-      background-color: #eee
-
   .new-task-button
     background-color: #eee
     cursor: pointer
@@ -28,6 +21,16 @@ header
 
       &:hover
         background-color: #ddd
+
+.navbar-nav
+  a
+    display: block
+
+    &:focus
+      background-color: transparent
+
+    &.active
+      background-color: #eee
 
 .list-group-item
   cursor: pointer

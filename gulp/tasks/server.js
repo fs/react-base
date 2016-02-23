@@ -8,6 +8,9 @@ import config from '../../config/app';
 gulp.task('server', () => {
   const server = express();
 
+  gulp.watch(`${config.appDir}/stylesheets/**/*.styl`, ['stylesheets']);
+  gulp.watch(`${config.appDir}/index.html`, ['copy']);
+
   prism.create({
     name: 'serve',
     mode: 'mock',

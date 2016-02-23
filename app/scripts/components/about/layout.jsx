@@ -1,8 +1,5 @@
 import React from 'react';
-import Router from 'react-router';
 import AboutText from 'scripts/components/about/text';
-
-const { RouteHandler } = Router;
 
 export default class AboutLayout extends React.Component {
   render() {
@@ -10,7 +7,7 @@ export default class AboutLayout extends React.Component {
       <article>
         <h1>About</h1>
         <AboutText/>
-        <RouteHandler/>
+        { this.props.children }
       </article>
     )
   }

@@ -1,10 +1,7 @@
 import React from 'react';
-import Router from 'react-router';
 import ModalActions from 'scripts/actions/modal';
 import HeaderLayout from 'scripts/components/header/layout';
 import TodoModal from 'scripts/components/todo/modal';
-
-const { RouteHandler } = Router;
 
 export default class App extends React.Component {
   componentDidMount() {
@@ -21,7 +18,7 @@ export default class App extends React.Component {
         </header>
         <div className="container content">
           <div id="app">
-            <RouteHandler/>
+            { this.props.children }
           </div>
           <TodoModal ref="create"/>
         </div>

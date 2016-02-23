@@ -3,7 +3,9 @@ import MenuItem from 'scripts/components/header/menu_item';
 
 export default class Menu extends React.Component {
   renderList() {
-    return this.props.items.map((item) => <MenuItem item={ item }/>);
+    return this.props.items.map((item, index) => {
+      return <MenuItem key={ index } item={ item }/>
+    });
   }
 
   render() {
