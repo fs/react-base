@@ -1,7 +1,6 @@
-import _ from 'underscore';
+import Alt from 'scripts/alt';
 import TodoActions from 'scripts/actions/todo';
 import TodosActions from 'scripts/actions/todos';
-import Alt from 'scripts/alt';
 
 export default Alt.createStore(class TodoStore {
   constructor() {

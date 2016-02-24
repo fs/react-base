@@ -1,4 +1,3 @@
-import _ from 'underscore';
 import React from 'react';
 import EventEmitter from 'scripts/emitter';
 import TodosActions from 'scripts/actions/todos';
@@ -28,7 +27,7 @@ export default class TodoLayout extends React.Component {
   renderList(complete) {
     return (
       <TodoList todos={
-        _.filter(this.state.todos, (todo) => todo.isComplete === complete)
+        this.state.todos.filter((todo) => todo.isComplete === complete)
       } />
     )
   }

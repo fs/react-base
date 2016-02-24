@@ -1,6 +1,9 @@
-import _ from 'underscore';
 import TodosActions from 'scripts/actions/todos';
 import Alt from 'scripts/alt';
+
+function max(array, callback) {
+  return Math.max.apply(Math, array.map(callback));
+}
 
 export default Alt.createStore(class TodosStore {
   constructor() {
@@ -18,7 +21,7 @@ export default Alt.createStore(class TodosStore {
   }
 
   update(todo) {
-    let found = _.find(this.todos, (item) => item.id === todo.id);
+    const found = this.todos.find(item => item.id === todo.id);
 
     for (let name in found) {
       found[name] = todo[name];
@@ -26,7 +29,9 @@ export default Alt.createStore(class TodosStore {
   }
 
   create(todo) {
-    todo.id = _.max(this.todos, (item) => item.id).id + 1;
+    const found = max(this.todos, item => item.id);
+
+    todo.id = ++found.id;
     this.todos.push(todo);
   }
 }, 'TodosStore');
