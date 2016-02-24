@@ -6,41 +6,32 @@ import TodoActions from 'scripts/actions/todo';
 import TodoStore from 'scripts/stores/todo';
 
 export default class TodoModal extends React.Component {
-  state = {
-    visible: false,
-    value: ''
-  }
+  state = TodoStore.getState()
 
   componentDidMount() {
     this.$el = $(findDOMNode(this));
-    this.$el.on('hidden.bs.modal', ::this.reset);
-
-    this.unsubscribe = TodoStore.listen(() => {
-      this.$el.modal('hide');
-    });
+    this.$el.on('hidden.bs.modal', TodoActions.reset);
+    TodoStore.listen(::this.changeState);
   }
 
   componentWillUnmount() {
-    this.unsubscribe();
+    TodoStore.unlisten(::this.changeState);
+  }
+
+  changeState(state) {
+    this.setState(state);
   }
 
   show() {
     this.$el.modal('show');
   }
 
-  reset() {
-    this.setState({ value: '' });
+  setName(event) {
+    TodoActions.setName(event.target.value);
   }
 
-  save() {
-    TodoActions.todoCreate({
-      name: this.state.value,
-      isComplete: false
-    });
-  }
-
-  onChange(e) {
-    this.setState({ value: e.target.value });
+  saveTodo() {
+    TodoActions.create();
   }
 
   render() {
@@ -57,14 +48,14 @@ export default class TodoModal extends React.Component {
             </div>
             <div className="modal-body">
               <div>
-                <label>Task name: { this.state.value }</label>
+                <label>Task name: { this.state.todo.name }</label>
               </div>
-              <input placeholder="Task name..." type="text" value={ this.state.value } onChange={ ::this.onChange } />
+              <input placeholder="Task name..." type="text" value={ this.state.todo.name } onChange={ ::this.setName } />
             </div>
             <div className="modal-footer">
               <div className="row">
                 <div className="col col-md-12">
-                  <button type="button" className="btn btn-primary pull-right" onClick={ ::this.save }>Save</button>
+                  <button type="button" className="btn btn-primary pull-right" onClick={ ::this.saveTodo }>Save</button>
                   <button type="button" className="btn btn-default pull-right spacing-right" data-dismiss="modal">Close</button>
                 </div>
               </div>

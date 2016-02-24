@@ -15,11 +15,11 @@ gulp.task('browserify', () => {
     fullPaths: true,
     debug: true,
     entries: entryPoint,
-    extensions: ['.jsx'],
+    extensions: ['.jsx', '.js'],
     paths: [config.appDir]
   })
   .transform(babelify.configure({
-    presets: ['stage-0', 'react'],
+    presets: ['es2015', 'stage-0', 'react'],
     plugins: ['transform-decorators-legacy'],
     sourceMapRelative: config.appDir
   }))

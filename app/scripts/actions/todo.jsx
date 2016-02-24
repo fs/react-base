@@ -1,7 +1,15 @@
-import Reflux from 'reflux';
+import Alt from 'scripts/alt';
 
-export default Reflux.createActions([
-  'todosGet',
-  'todoUpdate',
-  'todoCreate'
-]);
+export default Alt.createActions(class TodoActions {
+  setName(name) {
+    return name;
+  }
+
+  reset() {
+    return true;
+  }
+
+  create() {
+    return true;
+  }
+});
