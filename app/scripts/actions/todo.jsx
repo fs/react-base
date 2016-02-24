@@ -9,7 +9,7 @@ export default Alt.createActions(class TodoActions {
     return true;
   }
 
-  create() {
-    return true;
+  create(newTodo) {
+    return newTodo;
   }
 });

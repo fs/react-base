@@ -1,6 +1,5 @@
 import Alt from 'scripts/alt';
 import TodoActions from 'scripts/actions/todo';
-import TodosActions from 'scripts/actions/todos';
 
 export default Alt.createStore(class TodoStore {
   constructor() {
@@ -11,8 +10,7 @@ export default Alt.createStore(class TodoStore {
 
     this.bindListeners({
       setName: TodoActions.SET_NAME,
-      reset: TodoActions.RESET,
-      create: TodoActions.CREATE
+      reset: TodoActions.RESET
     });
   }
 
@@ -22,9 +20,5 @@ export default Alt.createStore(class TodoStore {
 
   reset() {
     this.todo.name = '';
-  }
-
-  create() {
-    TodosActions.create(this.todo);
   }
 }, 'TodoStore');

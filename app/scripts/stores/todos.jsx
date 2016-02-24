@@ -1,3 +1,4 @@
+import TodoActions from 'scripts/actions/todo';
 import TodosActions from 'scripts/actions/todos';
 import Alt from 'scripts/alt';
 
@@ -12,7 +13,7 @@ export default Alt.createStore(class TodosStore {
     this.bindListeners({
       set: TodosActions.SET,
       update: TodosActions.UPDATE,
-      create: TodosActions.CREATE
+      create: TodoActions.CREATE
     });
   }
 
@@ -29,9 +30,9 @@ export default Alt.createStore(class TodosStore {
   }
 
   create(todo) {
-    const found = max(this.todos, item => item.id);
+    let found = max(this.todos, item => item.id);
 
-    todo.id = ++found.id;
+    todo.id = ++found;
     this.todos.push(todo);
   }
 }, 'TodosStore');

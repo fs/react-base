@@ -26,12 +26,17 @@ export default class TodoModal extends React.Component {
     this.$el.modal('show');
   }
 
+  hide() {
+    this.$el.modal('hide');
+  }
+
   setName(event) {
     TodoActions.setName(event.target.value);
   }
 
   saveTodo() {
-    TodoActions.create();
+    TodoActions.create(this.state.todo);
+    this.hide();
   }
 
   render() {
