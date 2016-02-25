@@ -1,4 +1,5 @@
-import $ from 'jquery';
+import 'es6-promise';
+import 'whatwg-fetch';
 import Alt from 'scripts/alt';
 
 export default Alt.createActions(class TodosActions {
@@ -7,12 +8,15 @@ export default Alt.createActions(class TodosActions {
       dispatch();
 
       if (!todos.length) {
-        $.ajax({
-          type: 'GET',
-          url: 'api/todos',
-          dataType: 'json'
+        fetch('api/todos', {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
         })
-        .then(data => this.set(data));
+        .then(result => result.json())
+        .then(result => this.set(result));
       }
     };
   }
