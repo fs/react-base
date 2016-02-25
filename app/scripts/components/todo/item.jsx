@@ -1,11 +1,11 @@
 import React from 'react';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
-import TodoActions from 'scripts/actions/todo';
+import TodosActions from 'scripts/actions/todos';
 
 export default class TodoItem extends React.Component {
   toggle() {
     this.props.todo.isComplete = !this.props.todo.isComplete;
-    TodoActions.todoUpdate(this.props.todo);
+    TodosActions.update(this.props.todo);
   }
 
   render() {

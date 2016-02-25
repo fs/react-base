@@ -1,13 +1,13 @@
 import React from 'react';
-import ModalActions from 'scripts/actions/modal';
+import EventEmitter from 'scripts/emitter';
 import HeaderLayout from 'scripts/components/header/layout';
 import TodoModal from 'scripts/components/todo/modal';
 
 export default class App extends React.Component {
   componentDidMount() {
-    ModalActions.show.listen(() => {
-      this.refs.create.show();
-    });
+    EventEmitter.on('modal:show', () => {
+      this.refs.modal.show();
+    })
   }
 
   render() {
@@ -20,14 +20,9 @@ export default class App extends React.Component {
           <div id="app">
             { this.props.children }
           </div>
-          <TodoModal ref="create"/>
+          <TodoModal ref="modal"/>
         </div>
       </div>
     )
-  }
-
-  static willTransitionTo(transition, params, query, callback) {
-    console.log('App on Root route');
-    callback();
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "react-base",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "authors": [
     "Marat Fakhreev <marat.fakhreev@gmail.com>"
   ],
@@ -12,14 +12,13 @@
     "start": "gulp build"
   },
   "dependencies": {
+    "alt": "^0.18.2",
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.1",
     "react": "^0.14.7",
     "react-addons-css-transition-group": "^0.14.7",
     "react-dom": "^0.14.7",
-    "react-router": "^2.0.0",
-    "reflux": "^0.3.0",
-    "underscore": "^1.8.3"
+    "react-router": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer-stylus": "^0.9.1",

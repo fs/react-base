@@ -1,7 +1,4 @@
-import _ from 'underscore';
-import $ from 'jquery';
 import React from 'react';
-import { findDOMNode } from 'react-dom';
 import { Link } from 'react-router'
 
 export default class MenuItem extends React.Component {

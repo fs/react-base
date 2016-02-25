@@ -1,10 +1,10 @@
 import React from 'react';
-import ModalActions from 'scripts/actions/modal';
+import EventEmitter from 'scripts/emitter';
 import Menu from 'scripts/components/header/menu';
 
 export default class HeaderLayout extends React.Component {
   create() {
-    ModalActions.show();
+    EventEmitter.emit('modal:show');
   }
 
   render() {

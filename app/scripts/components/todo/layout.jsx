@@ -1,37 +1,33 @@
-import _ from 'underscore';
 import React from 'react';
-import ModalActions from 'scripts/actions/modal';
-import TodoActions from 'scripts/actions/todo';
-import TodoStore from 'scripts/stores/todo';
+import EventEmitter from 'scripts/emitter';
+import TodosActions from 'scripts/actions/todos';
+import TodosStore from 'scripts/stores/todos';
 import TodoList from 'scripts/components/todo/list';
 
 export default class TodoLayout extends React.Component {
-  state = {
-    todos: []
-  }
+  state = TodosStore.getState()
 
   componentDidMount() {
-    TodoActions.todosGet();
-  }
-
-  componentWillMount() {
-    this.unsubscribe = TodoStore.listen((todos) => {
-      this.setState({ todos });
-    });
+    TodosStore.listen(::this.changeState);
+    TodosActions.get(this.state.todos);
   }
 
   componentWillUnmount() {
-    this.unsubscribe();
+    TodosStore.unlisten(::this.changeState);
+  }
+
+  changeState(state) {
+    this.setState(state);
   }
 
   create() {
-    ModalActions.show();
+    EventEmitter.emit('modal:show');
   }
 
   renderList(complete) {
     return (
       <TodoList todos={
-        _.filter(this.state.todos, (todo) => todo.isComplete === complete)
+        this.state.todos.filter((todo) => todo.isComplete === complete)
       } />
     )
   }
