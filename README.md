@@ -16,6 +16,7 @@ Kick-start your new web application based on React and Reflux technologies.
     "autoprefixer-stylus"
     "babel-core"
     "babel-plugin-transform-decorators-legacy"
+    "babel-preset-es2015"
     "babel-preset-react"
     "babel-preset-stage-0"
     "babelify"

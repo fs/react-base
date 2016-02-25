@@ -32,8 +32,6 @@ export default class HeaderLayout extends React.Component {
           </NavItem>
         </Nav>
       </Navbar>
-
-
     )
   }
 }
