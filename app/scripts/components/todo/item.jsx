@@ -1,5 +1,6 @@
 import React from 'react';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
+import { ListGroupItem } from 'react-bootstrap';
 import TodosActions from 'scripts/actions/todos';
 
 export default class TodoItem extends React.Component {
@@ -17,12 +18,9 @@ export default class TodoItem extends React.Component {
         transitionLeaveTimeout={ 0 }
         transitionAppearTimeout={ 0 }
       >
-        <li
-          className="list-group-item pointer"
-          onClick={ ::this.toggle }
-        >
+        <ListGroupItem onClick={ ::this.toggle }>
           { this.props.todo.name }
-        </li>
+        </ListGroupItem>
       </CSSTransitionGroup>
     );
   }

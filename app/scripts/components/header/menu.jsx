@@ -1,4 +1,5 @@
 import React from 'react';
+import { Nav } from 'react-bootstrap';
 import MenuItem from 'scripts/components/header/menu_item';
 
 export default class Menu extends React.Component {
@@ -10,9 +11,9 @@ export default class Menu extends React.Component {
 
   render() {
     return (
-      <ul className="nav navbar-nav">
+      <Nav>
         { ::this.renderList() }
-      </ul>
+      </Nav>
     )
   }
 }

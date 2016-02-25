@@ -1,4 +1,5 @@
 import React from 'react';
+import { ListGroup } from 'react-bootstrap';
 import TodoItem from 'scripts/components/todo/item';
 
 export default class TodoList extends React.Component {
@@ -8,9 +9,9 @@ export default class TodoList extends React.Component {
 
   render() {
     return(
-      <div className="list-group">
+      <ListGroup>
         { ::this.renderItems() }
-      </div>
+      </ListGroup>
     );
   }
 }

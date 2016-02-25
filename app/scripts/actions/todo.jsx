@@ -5,6 +5,14 @@ export default Alt.createActions(class TodoActions {
     return name;
   }
 
+  show() {
+    return true;
+  }
+
+  hide() {
+    return true;
+  }
+
   reset() {
     return true;
   }

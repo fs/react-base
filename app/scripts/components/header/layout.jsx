@@ -1,33 +1,39 @@
 import React from 'react';
-import EventEmitter from 'scripts/emitter';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import TodoActions from 'scripts/actions/todo';
 import Menu from 'scripts/components/header/menu';
 
 export default class HeaderLayout extends React.Component {
   create() {
-    EventEmitter.emit('modal:show');
+    TodoActions.show()
   }
 
   render() {
     return (
-      <div className="container">
-        <div className="navbar-header">
-          <div className="navbar-brand">React Base</div>
-        </div>
-        <nav id="bs-navbar" className="collapse navbar-collapse">
-          <Menu items={
-            [
-              { title: 'Home', route: '/' },
-              { title: 'About', route: '/about' },
-              { title: 'About Extended', route: '/about/extended' }
-            ]
-          }/>
-          <ul className="nav navbar-nav navbar-right">
-            <li className="new-task-button">
-              <a onClick={ this.create }>New Task</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      <Navbar>
+        <Navbar.Header>
+          <Navbar.Brand>
+            React-Base
+          </Navbar.Brand>
+        </Navbar.Header>
+        <Menu items={
+          [
+            { title: 'Home', route: '/' },
+            { title: 'About', route: '/about' },
+            { title: 'About Extended', route: '/about/extended' }
+          ]
+        }/>
+        <Nav pullRight>
+          <NavItem
+            className="new-task-button"
+            onClick={ this.create }
+          >
+            New Task
+          </NavItem>
+        </Nav>
+      </Navbar>
+
+
     )
   }
 }

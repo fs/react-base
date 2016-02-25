@@ -17,6 +17,7 @@
     "jquery": "^2.2.1",
     "react": "^0.14.7",
     "react-addons-css-transition-group": "^0.14.7",
+    "react-bootstrap": "^0.28.3",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0"
   },
@@ -28,7 +29,6 @@
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
-    "browserify-shim": "^3.8.12",
     "connect-history-api-fallback": "^1.1.0",
     "connect-prism": "^1.0.5",
     "del": "^2.2.0",
@@ -45,22 +45,5 @@
     "run-sequence": "^1.1.5",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
-  },
-  "browser": {
-    "jquery": "./node_modules/jquery/dist/jquery.js",
-    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js"
-  },
-  "browserify-shim": {
-    "bootstrap": {
-      "exports": "bootstrap",
-      "depends": [
-        "jquery:jQuery"
-      ]
-    }
-  },
-  "browserify": {
-    "transform": [
-      "browserify-shim"
-    ]
   }
 }

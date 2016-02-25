@@ -3,15 +3,26 @@ import TodoActions from 'scripts/actions/todo';
 
 export default Alt.createStore(class TodoStore {
   constructor() {
+    this.showModal = false;
     this.todo = {
       name: '',
       isComplete: false
     };
 
     this.bindListeners({
+      show: TodoActions.SHOW,
+      hide: TodoActions.HIDE,
       setName: TodoActions.SET_NAME,
       reset: TodoActions.RESET
     });
+  }
+
+  show() {
+    this.showModal = true;
+  }
+
+  hide() {
+    this.showModal = false;
   }
 
   setName(name) {

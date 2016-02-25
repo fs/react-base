@@ -1,5 +1,6 @@
 import React from 'react';
-import EventEmitter from 'scripts/emitter';
+import { Grid, Row, Col, Button } from 'react-bootstrap';
+import TodoActions from 'scripts/actions/todo';
 import TodosActions from 'scripts/actions/todos';
 import TodosStore from 'scripts/stores/todos';
 import TodoList from 'scripts/components/todo/list';
@@ -21,7 +22,7 @@ export default class TodoLayout extends React.Component {
   }
 
   create() {
-    EventEmitter.emit('modal:show');
+    TodoActions.show();
   }
 
   renderList(complete) {
@@ -34,33 +35,33 @@ export default class TodoLayout extends React.Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8">
+      <Grid>
+        <Row className="show-grid">
+          <Col md={8}>
             <h2>Todo List</h2>
-          </div>
-          <div className="col-md-4">
-            <button
-              type="button"
+          </Col>
+          <Col md={4}>
+            <Button
+              bsStyle="primary"
               className="btn btn-primary pull-right spacing-top"
               onClick={ ::this.create }
             >
               New Task
-            </button>
-          </div>
-        </div>
+            </Button>
+          </Col>
+        </Row>
 
-        <div className="row">
-          <div className="col-md-6">
+        <Row className="show-grid">
+          <Col md={6}>
             <h3 className="spacing-bottom">Incomplete</h3>
             { ::this.renderList(false) }
-          </div>
-          <div className="col-md-6">
+          </Col>
+          <Col md={6}>
             <h3 className="spacing-bottom">Complete</h3>
             { ::this.renderList(true) }
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }
