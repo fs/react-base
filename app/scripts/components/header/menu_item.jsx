@@ -5,7 +5,7 @@ export default class MenuItem extends React.Component {
   render() {
     return (
       <li>
-        <Link ref="menuItem" to={ this.props.item.route } activeClassName="active">
+        <Link to={ this.props.item.route } activeClassName="active">
           { this.props.item.title }
         </Link>
       </li>

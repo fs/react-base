@@ -19,8 +19,7 @@ export default class HeaderLayout extends React.Component {
         <Menu items={
           [
             { title: 'Home', route: '/' },
-            { title: 'About', route: '/about' },
-            { title: 'About Extended', route: '/about/extended' }
+            { title: 'About', route: '/about' }
           ]
         }/>
         <Nav pullRight>
