@@ -8,13 +8,19 @@ import TodoList from 'scripts/components/todo/list';
 export default class TodoLayout extends React.Component {
   state = TodosStore.getState()
 
+  constructor() {
+    super();
+
+    this.changeState = ::this.changeState;
+  }
+
   componentDidMount() {
-    TodosStore.listen(::this.changeState);
+    TodosStore.listen(this.changeState);
     TodosActions.get(this.state.todos);
   }
 
   componentWillUnmount() {
-    TodosStore.unlisten(::this.changeState);
+    TodosStore.unlisten(this.changeState);
   }
 
   changeState(state) {

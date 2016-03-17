@@ -7,12 +7,18 @@ import TodoStore from 'scripts/stores/todo';
 export default class TodoModal extends React.Component {
   state = TodoStore.getState()
 
+  constructor() {
+    super();
+
+    this.changeState = ::this.changeState;
+  }
+
   componentDidMount() {
-    TodoStore.listen(::this.changeState);
+    TodoStore.listen(this.changeState);
   }
 
   componentWillUnmount() {
-    TodoStore.unlisten(::this.changeState);
+    TodoStore.unlisten(this.changeState);
   }
 
   changeState(state) {
