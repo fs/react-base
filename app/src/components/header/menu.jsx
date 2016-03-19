@@ -5,7 +5,9 @@ import MenuItem from 'components/header/menu_item';
 export default class Menu extends React.Component {
   renderList() {
     return this.props.items.map((item, index) => {
-      return <MenuItem key={ index } item={ item }/>
+      return (
+        <MenuItem key={ index } item={ item }/>
+      );
     });
   }
 
@@ -14,6 +16,6 @@ export default class Menu extends React.Component {
       <Nav>
         { ::this.renderList() }
       </Nav>
-    )
+    );
   }
 }

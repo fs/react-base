@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 export default class MenuItem extends React.Component {
   render() {
@@ -9,6 +9,6 @@ export default class MenuItem extends React.Component {
           { this.props.item.title }
         </Link>
       </li>
-    )
+    );
   }
 }

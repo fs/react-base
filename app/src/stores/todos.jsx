@@ -4,7 +4,7 @@ import Alt from 'alt_flux';
 
 const max = (array, callback) => {
   return Math.max.apply(Math, array.map(callback));
-}
+};
 
 export default Alt.createStore(class TodosStore {
   constructor() {
@@ -24,7 +24,7 @@ export default Alt.createStore(class TodosStore {
   update(todo) {
     const found = this.todos.find(item => item.id === todo.id);
 
-    for (let name in found) {
+    for (const name in found) {
       found[name] = todo[name];
     };
   }

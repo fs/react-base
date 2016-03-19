@@ -10,6 +10,6 @@ export default class App extends React.Component {
         { this.props.children }
         <TodoModal/>
       </div>
-    )
+    );
   }
 }

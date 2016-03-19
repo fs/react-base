@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 import { Grid } from 'react-bootstrap';
 import AboutText from 'components/about/text';
 
@@ -16,6 +16,6 @@ export default class AboutLayout extends React.Component {
           { this.props.children }
         </article>
       </Grid>
-    )
+    );
   }
 }

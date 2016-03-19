@@ -5,10 +5,15 @@ import Menu from 'components/header/menu';
 
 export default class HeaderLayout extends React.Component {
   create() {
-    TodoActions.show()
+    TodoActions.show();
   }
 
   render() {
+    const links = [
+      { title: 'Home', route: '/' },
+      { title: 'About', route: '/about' }
+    ];
+
     return (
       <Navbar>
         <Navbar.Header>
@@ -16,21 +21,13 @@ export default class HeaderLayout extends React.Component {
             React-Base
           </Navbar.Brand>
         </Navbar.Header>
-        <Menu items={
-          [
-            { title: 'Home', route: '/' },
-            { title: 'About', route: '/about' }
-          ]
-        }/>
+        <Menu items={ links }/>
         <Nav pullRight>
-          <NavItem
-            className="new-task-button"
-            onClick={ this.create }
-          >
+          <NavItem className="new-task-button" onClick={ this.create }>
             New Task
           </NavItem>
         </Nav>
       </Navbar>
-    )
+    );
   }
 }

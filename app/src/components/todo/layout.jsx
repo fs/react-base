@@ -33,20 +33,22 @@ export default class TodoLayout extends React.Component {
 
   renderList(complete) {
     return (
-      <TodoList todos={
-        this.state.todos.filter((todo) => todo.isComplete === complete)
-      } />
-    )
+      <TodoList
+        todos={
+          this.state.todos.filter((todo) => todo.isComplete === complete)
+        }
+      />
+    );
   }
 
   render() {
     return (
       <Grid>
         <Row className="show-grid">
-          <Col md={8}>
+          <Col md={ 8 }>
             <h2>Todo List</h2>
           </Col>
-          <Col md={4}>
+          <Col md={ 4 }>
             <Button
               bsStyle="primary"
               className="btn btn-primary pull-right spacing-top"
@@ -58,16 +60,16 @@ export default class TodoLayout extends React.Component {
         </Row>
 
         <Row className="show-grid">
-          <Col md={6}>
+          <Col md={ 6 }>
             <h3 className="spacing-bottom">Incomplete</h3>
             { ::this.renderList(false) }
           </Col>
-          <Col md={6}>
+          <Col md={ 6 }>
             <h3 className="spacing-bottom">Complete</h3>
             { ::this.renderList(true) }
           </Col>
         </Row>
       </Grid>
-    )
+    );
   }
 }

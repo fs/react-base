@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   appDir: 'app',
   distDir: 'dist',
   configDir: 'config',
