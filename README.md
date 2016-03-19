@@ -1,5 +1,5 @@
 # react-base
-Kick-start your new web application based on React and Reflux technologies.
+Kick-start your new web application based on React and Flux technologies.
 
 ## NPM Dependencies:
     "alt"
@@ -15,6 +15,7 @@ Kick-start your new web application based on React and Reflux technologies.
 ## NPM Dev Dependencies:
     "autoprefixer-stylus"
     "babel-core"
+    "babel-eslint"
     "babel-plugin-transform-decorators-legacy"
     "babel-preset-es2015"
     "babel-preset-react"
@@ -24,8 +25,11 @@ Kick-start your new web application based on React and Reflux technologies.
     "connect-history-api-fallback"
     "connect-prism"
     "del"
+    "eslint"
+    "eslint-plugin-react"
     "express"
     "gulp"
+    "gulp-eslint"
     "gulp-import-css"
     "gulp-jsonlint"
     "gulp-plumber"
@@ -38,14 +42,20 @@ Kick-start your new web application based on React and Reflux technologies.
     "vinyl-source-stream"
     "watchify"
 
+Run bootstrap script
+
+##Setup
+```bash
+bin/setup
+```
+
 ##Compiling
 
 ```shell
-npm install
 npm start
 ```
 
-You should now have compiled Web files in `public` folder
+You should now have compiled Web files in `dist` folder
 
 License
 -------

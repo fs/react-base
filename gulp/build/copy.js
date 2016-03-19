@@ -4,7 +4,6 @@ import config from '../../config/gulp';
 
 gulp.task('copy', () => {
   return gulp.src([
-    `${config.appDir}/fixtures/**/*`,
     `${config.appDir}/index.html`
   ], { base: config.appDir })
     .pipe(plumber())
