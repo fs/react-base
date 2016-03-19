@@ -2,24 +2,25 @@
 Kick-start your new web application based on React and Reflux technologies.
 
 ## NPM Dependencies:
+    "alt"
     "bootstrap"
-    "jquery"
+    "es6-promise"
     "react"
     "react-addons-css-transition-group"
+    "react-bootstrap"
     "react-dom"
     "react-router"
-    "reflux"
-    "underscore"
+    "whatwg-fetch"
 
 ## NPM Dev Dependencies:
     "autoprefixer-stylus"
     "babel-core"
     "babel-plugin-transform-decorators-legacy"
+    "babel-preset-es2015"
     "babel-preset-react"
     "babel-preset-stage-0"
     "babelify"
     "browserify"
-    "browserify-shim"
     "connect-history-api-fallback"
     "connect-prism"
     "del"
