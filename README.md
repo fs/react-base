@@ -1,4 +1,7 @@
-# react-base
+# Skeleton for React based application
+
+[![Build Status](https://travis-ci.org/maratfakhreev/react-base.svg?branch=master)](https://travis-ci.org/maratfakhreev/react-base)
+
 Kick-start your new web application based on React and Flux technologies.
 
 ## NPM Dependencies:
@@ -25,6 +28,7 @@ Kick-start your new web application based on React and Flux technologies.
     "connect-history-api-fallback"
     "connect-prism"
     "del"
+    "dotenv"
     "eslint"
     "eslint-plugin-react"
     "express"
@@ -42,20 +46,25 @@ Kick-start your new web application based on React and Flux technologies.
     "vinyl-source-stream"
     "watchify"
 
+##Setup
+
 Run bootstrap script
 
-##Setup
 ```bash
 bin/setup
 ```
 
-##Compiling
+##Run
 
 ```shell
-npm start
+gulp
 ```
 
-You should now have compiled Web files in `dist` folder
+You should now have compiled Web files in `dist` folder. Start to use application on browser:
+
+```bash
+localhost:8000
+```
 
 License
 -------

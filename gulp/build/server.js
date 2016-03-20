@@ -7,6 +7,7 @@ import config from '../../config/gulp';
 
 gulp.task('server', () => {
   const server = express();
+  const port = process.env.PORT;
 
   gulp.watch(`${config.appDir}/stylesheets/**/*.styl`, ['stylesheets']);
   gulp.watch(`${config.appDir}/index.html`, ['copy']);
@@ -16,7 +17,7 @@ gulp.task('server', () => {
     mode: 'mock',
     context: '/api',
     host: 'localhost',
-    port: 8001,
+    port: config.ports.mocks,
     delay: 0,
     rewrite: {},
     mockFilenameGenerator: (config, req) => {
@@ -27,6 +28,6 @@ gulp.task('server', () => {
   server.use(historyApiFallback());
   server.use(prism.middleware);
   server.use(express.static(config.distDir));
-  server.listen(config.ports.server);
-  notifier.log(`Listening on 0.0.0.0:${config.ports.server}`);
+  server.listen(port);
+  notifier.log(`Listening on 0.0.0.0:${port}`);
 });
