@@ -26,6 +26,9 @@ export default class HeaderLayout extends React.Component {
           <NavItem className="new-task-button" onClick={ this.create }>
             New Task
           </NavItem>
+          <NavItem className="new-task-button" onClick={ this.create }>
+            New Task
+          </NavItem>
         </Nav>
       </Navbar>
     );

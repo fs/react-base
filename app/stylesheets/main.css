@@ -1,0 +1,81 @@
+@import "bootstrap";
+
+.spacing-top {
+  margin-top: 15px;
+}
+
+.spacing-right {
+  margin-right: 15px;
+}
+
+.modal-dialog {
+  z-index: 10000;
+}
+
+header {
+  background-color: rgba(#efefef, 0.1);
+
+  .new-task-button {
+    background-color: #eee;
+    cursor: pointer;
+
+    a {
+      color: #337ab7;
+
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+  }
+}
+
+.navbar-default .navbar-nav {
+  li > a {
+    display: block;
+
+    &:focus {
+      background-color: transparent;
+    }
+
+    &:hover,
+    &.active {
+      background-color: #eee;
+    }
+  }
+}
+
+button.list-group-item {
+  cursor: pointer;
+
+  &:hover {
+    background-color: #337ab7;
+    color: #fff;
+  }
+}
+
+.example-enter {
+  opacity: 0.01;
+  transition: opacity 0.3s ease-in;
+
+  &.example-enter-active {
+    opacity: 1;
+  }
+}
+
+.example-leave {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+
+  &.example-leave-active {
+    opacity: 0.01;
+  }
+}
+
+.example-appear {
+  opacity: 0.01;
+  transition: opacity 0.3s ease-in;
+
+  &.example-appear-active {
+    opacity: 1;
+  }
+}

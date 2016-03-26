@@ -1,10 +1,3 @@
 import gulp from 'gulp';
-import runSequence from 'run-sequence';
 
-gulp.task('default', (callback) => {
-  runSequence(
-    'build',
-    'server',
-    callback
-  );
-});
+gulp.task('default', ['webpack-dev-server']);
