@@ -1,8 +1,5 @@
 {
-  "requestUrl": "/api/todos",
-  "contentType": "application/javascript",
-  "statusCode": 200,
-  "data": [
+  "todos": [
     {
       "id": 1,
       "name": "Pick up milk",

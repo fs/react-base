@@ -1,5 +1,4 @@
 import autoprefixer from 'autoprefixer';
-import postcssSorting from 'postcss-sorting';
 import postcssInlineComment from 'postcss-inline-comment';
 import postcssImport from 'postcss-import';
 import postcssMixins from 'postcss-mixins';
@@ -13,7 +12,6 @@ import postcssGlobalVariables from './variables';
 
 export default function() {
   return [
-    // postcssSorting(postcssSortingConfig),
     postcssInlineComment,
     postcssImport,
     postcssMixins,
