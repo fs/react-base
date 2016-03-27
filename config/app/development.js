@@ -9,4 +9,4 @@ module.exports = {
     path: '/v1',
     port: 8001
   }
-}
+};

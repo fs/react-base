@@ -7,24 +7,27 @@ import postcssConfig from '../postcss/config';
 export default {
   resolve: {
     root: [
-      path.resolve(`./${config.appDir}`)
+      path.resolve(config.appDir)
     ],
     alias: {
-      config: path.resolve(`./${config.configDir}/app/${config.env}`)
+      config: path.resolve(config.configDir, 'app', config.env)
     },
     extensions: ['', '.js', '.jsx', '.css']
   },
   entry: [
-    'webpack/hot/only-dev-server',
-    `./${config.appDir}/application.jsx`
+    `webpack-dev-server/client?${config.target}/`,
+    `webpack/hot/only-dev-server`,
+    path.resolve(config.appDir, 'application.jsx')
   ],
   output: {
-    path: '/'
+    path: '/',
+    filename: 'application.js',
+    publicPath: config.target
   },
   devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(`./${config.appDir}/index.html`)
+      template: path.resolve(config.appDir, 'index.html')
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()

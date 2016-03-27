@@ -8,21 +8,22 @@ import postcssConfig from '../postcss/config';
 export default {
   resolve: {
     root: [
-      path.resolve(`./${config.appDir}`)
+      path.resolve(config.appDir)
     ],
     alias: {
-      config: path.resolve(`./${config.configDir}/app/${config.env}`)
+      config: path.resolve(config.configDir, 'app', config.env)
     },
     extensions: ['', '.js', '.jsx', '.css']
   },
-  entry: `./${config.appDir}/application.jsx`,
+  entry: path.resolve(config.appDir, 'application.jsx'),
   output: {
     path: path.resolve(config.distDir),
-    filename: 'application.js'
+    filename: 'application.js',
+    publicPath: config.target
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(`./${config.appDir}/index.html`)
+      template: path.resolve(config.appDir, 'index.html')
     }),
     new ExtractTextPlugin('application.css'),
     new webpack.optimize.UglifyJsPlugin()

@@ -5,7 +5,7 @@ import AppLayout from 'components/application/layout';
 import TodoLayout from 'components/todo/layout';
 import AboutLayout from 'components/about/layout';
 import AboutText from 'components/about/text';
-import globalStyles from "stylesheets/main";
+import globalStyles from 'stylesheets/main';
 
 render((
   <Router history={ browserHistory }>

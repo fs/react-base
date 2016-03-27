@@ -11,5 +11,5 @@ module.exports = {
   },
   test: {
     port: 9999
-  },
-}
+  }
+};

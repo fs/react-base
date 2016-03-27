@@ -13,9 +13,9 @@ gulp.task('connect', () => {
   server.use(proxyMiddleware(config.api.path, {
     target: config.api.target,
     pathRewrite: {
-      [config.api.path] : ''
-    },
-  }))
+      [config.api.path]: ''
+    }
+  }));
   server.use(serveStatic(config.distDir));
   server.listen(port);
   console.log(`Listening on 0.0.0.0:${port}`);
