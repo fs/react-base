@@ -2,18 +2,10 @@ import gulp from 'gulp';
 import gutil from 'gulp-util';
 import webpack from 'webpack';
 import WebpackDevServer from 'webpack-dev-server';
-import config from '../../config/build';
-
-gulp.task('webpack', (callback) => {
-  webpack(config, (err, stats) => {
-    if (err) throw new gutil.PluginError('webpack', err);
-    callback();
-  });
-});
+import webpackConfig from '../../config/webpack/server';
 
 gulp.task('webpack-dev-server', (callback) => {
-  const compiler = webpack(config);
-
+  const compiler = webpack(webpackConfig);
   const server = new WebpackDevServer(compiler, {
     historyApiFallback: true,
     hot: true,

@@ -1,4 +1,4 @@
-import reactOrder from './react_order';
+import reactOrder from './react-order';
 
 export default {
   'parser': 'babel-eslint',
@@ -7,7 +7,7 @@ export default {
     'es6': true
   },
   'plugins': [
-    'react',
+    'react'
   ],
   'rules': {
     'array-bracket-spacing': 2,
@@ -61,6 +61,6 @@ export default {
     'react/self-closing-comp': 2,
     'react/sort-comp': [2, reactOrder],
     'react/sort-prop-types': 2,
-    'react/wrap-multilines': 2,
-  },
+    'react/wrap-multilines': 2
+  }
 };

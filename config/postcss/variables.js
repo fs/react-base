@@ -5,4 +5,4 @@ export default {
   'screen-lg': '1200px',
   'primary-color': '#00bbb7',
   'grey': '#e7e7e7'
-}
+};

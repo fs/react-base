@@ -5,10 +5,10 @@ dotenv.load();
 export default {
   appDir: 'app',
   distDir: 'dist',
+  tasksDir: 'tasks',
   configDir: 'config',
-  mocksDir: 'mocks',
+  dbDir: 'db',
   ports: {
-    mocks: 8001
-  },
-  [process.env.NODE_ENV]: true
+    api: 8001
+  }
 };

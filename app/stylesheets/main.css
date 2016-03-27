@@ -13,7 +13,7 @@
 }
 
 header {
-  background-color: rgba(#efefef, 0.1);
+  background-color: rgba(#efefef, .1);
 
   .new-task-button {
     background-color: #eee;
@@ -54,8 +54,8 @@ button.list-group-item {
 }
 
 .example-enter {
-  opacity: 0.01;
-  transition: opacity 0.3s ease-in;
+  opacity: .01;
+  transition: opacity .3s ease-in;
 
   &.example-enter-active {
     opacity: 1;
@@ -64,16 +64,16 @@ button.list-group-item {
 
 .example-leave {
   opacity: 1;
-  transition: opacity 0.3s ease-in;
+  transition: opacity .3s ease-in;
 
   &.example-leave-active {
-    opacity: 0.01;
+    opacity: .01;
   }
 }
 
 .example-appear {
-  opacity: 0.01;
-  transition: opacity 0.3s ease-in;
+  opacity: .01;
+  transition: opacity .3s ease-in;
 
   &.example-appear-active {
     opacity: 1;

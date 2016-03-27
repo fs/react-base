@@ -6,8 +6,6 @@ import postcssNested from 'postcss-nested';
 import postcssSimpleVars from 'postcss-simple-vars';
 import postcssColorFunction from 'postcss-color-function';
 import postcssPxtorem from 'postcss-pxtorem';
-
-import postcssSortingConfig from './sorting';
 import postcssGlobalVariables from './variables';
 
 export default function() {

@@ -1,7 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import postcssConfig from './postcss/config';
+import postcssConfig from '../postcss/config';
 
 export default {
   resolve: {
@@ -13,7 +13,7 @@ export default {
   entry: [
     'webpack-dev-server/client?http://localhost:8000',
     'webpack/hot/only-dev-server',
-    './app/application.jsx',
+    './app/application.jsx'
   ],
   output: {
     path: path.resolve('dist'),

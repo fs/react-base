@@ -6,7 +6,8 @@ import eslintConfig from '../../config/eslint';
 gulp.task('eslint', () => {
   return gulp.src([
     `${config.appDir}/src/**/*.jsx`,
-    `${config.gulpDir}/**/*.js`,
+    `${config.tasksDir}/**/*.js`,
+    `${config.configDir}/**/*.js`
   ])
     .pipe(eslint(eslintConfig))
     .pipe(eslint.format())
