@@ -18,7 +18,7 @@ export default class HeaderLayout extends React.Component {
       <Navbar>
         <Navbar.Header>
           <Navbar.Brand>
-            React-Base
+            React-base
           </Navbar.Brand>
         </Navbar.Header>
         <MenuLayout items={ links }/>

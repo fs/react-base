@@ -21,8 +21,8 @@ export default {
   ],
   output: {
     path: '/',
-    filename: 'application.js',
-    publicPath: config.target
+    publicPath: '/',
+    filename: 'application.js'
   },
   devtool: 'source-map',
   plugins: [
