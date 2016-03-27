@@ -18,8 +18,8 @@ export default {
   entry: path.resolve(config.appDir, 'application.jsx'),
   output: {
     path: path.resolve(config.distDir),
-    filename: 'application.js',
-    publicPath: config.target
+    publicPath: '/',
+    filename: 'application.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -32,12 +32,18 @@ export default {
     loaders: [
       {
         test: /\.js[x]$/,
-        loader: 'react-hot!babel',
+        loader: 'babel',
         exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style!css?importLoaders=1!postcss')
+        include: [/app\/stylesheets\//],
+        loader: ExtractTextPlugin.extract('style!css!postcss')
+      },
+      {
+        test: /\.css$/,
+        exclude: [/app\/stylesheets\//],
+        loader: ExtractTextPlugin.extract('style!css?modules&importLoaders=1!postcss')
       },
       {
         test: /\.(jpg|png|ttf|eot|svg|woff2|woff)$/,
