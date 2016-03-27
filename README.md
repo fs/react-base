@@ -1,8 +1,10 @@
 # Skeleton for React based application
 
 [![Build Status](https://travis-ci.org/maratfakhreev/react-base.svg?branch=master)](https://travis-ci.org/maratfakhreev/react-base)
+[![Dependency Status](https://david-dm.org/maratfakhreev/react-base.svg?branch=master)](https://david-dm.org/maratfakhreev/react-base)
+[![devDependency Status](https://david-dm.org/maratfakhreev/react-base/dev-status.svg?branch=master)](https://david-dm.org/maratfakhreev/react-base#info=devDependencies)
 
-Kick-start your new web application based on React and Flux technologies.
+Kick-start your new web application based on React and Flux technologies. It also includes Gulp, Webpack, React hot loader, PostCSS, JSON-server tools for even more rapid development.
 
 ## NPM Dependencies:
     "alt"
@@ -16,37 +18,81 @@ Kick-start your new web application based on React and Flux technologies.
     "whatwg-fetch"
 
 ## NPM Dev Dependencies:
-    "autoprefixer-stylus"
+    "autoprefixer"
     "babel-core"
     "babel-eslint"
-    "babel-plugin-transform-decorators-legacy"
+    "babel-loader"
     "babel-preset-es2015"
     "babel-preset-react"
     "babel-preset-stage-0"
-    "babelify"
-    "browserify"
+    "connect"
     "connect-history-api-fallback"
-    "connect-prism"
-    "del"
+    "css-loader"
     "dotenv"
-    "eslint"
     "eslint-plugin-react"
-    "express"
+    "extract-text-webpack-plugin"
+    "file-loader"
     "gulp"
     "gulp-eslint"
-    "gulp-import-css"
+    "gulp-json-srv"
     "gulp-jsonlint"
-    "gulp-plumber"
-    "gulp-rename"
-    "gulp-stylus"
-    "gulp-util"
-    "node-notifier"
+    "gulp-postcss"
+    "gutil"
+    "html-webpack-plugin"
+    "http-proxy-middleware"
+    "postcss-color-function"
+    "postcss-import"
+    "postcss-inline-comment"
+    "postcss-loader"
+    "postcss-mixins"
+    "postcss-nested"
+    "postcss-pxtorem"
+    "postcss-reporter"
+    "postcss-simple-vars"
+    "postcss-sorting"
+    "react-hot-loader"
     "require-dir"
     "run-sequence"
-    "vinyl-source-stream"
-    "watchify"
+    "serve-static"
+    "style-loader"
+    "stylelint"
+    "stylelint-statement-max-nesting-depth"
+    "url-loader"
+    "webpack"
+    "webpack-dev-server"
 
-##Setup
+## Install
+### OSX
+
+Install Node.js
+
+Via brew:
+```bash
+brew install node
+```
+
+Via nvm:
+```bash
+brew install nvm
+nvm install node
+nvm alias default node
+```
+
+## Quick start
+
+Clone application as new project with original repository named "react-base"
+
+```bash
+git clone git@github.com:maratfakhreev/react-base.git --origin react-base [MY-NEW-PROJECT]
+```
+
+Create your new repo on GitHub and push master into it.
+Make sure master branch is tracking origin repo.
+
+```bash
+git remote add origin git@github.com:[MY-GITHUB-ACCOUNT]/[MY-NEW-PROJECT].git
+git push -u origin master
+```
 
 Run bootstrap script
 
@@ -54,19 +100,50 @@ Run bootstrap script
 bin/setup
 ```
 
-##Run
+## Run application
 
-```shell
+Run app (by default environment is 'development', port is 8000)
+
+```bash
 gulp
 ```
 
-You should now have compiled Web files in `dist` folder. Start to use application on browser:
+Run app with options
+
+```bash
+[<options>] gulp
+```
+
+```bash
+NODE_ENV=development # build app with development environment
+NODE_ENV=production # build app with production environment
+NODE_ENV=test # build app with test environment
+PORT=8000 # run server on 8000 port
+```
+
+Start to use application in browser:
 
 ```bash
 localhost:8000
 ```
 
-License
--------
+## Code linting tasks
 
-React-base is licensed under the MIT License.
+Run javascript linter
+```bash
+gulp eslint
+```
+
+Run json linter
+```bash
+gulp jsonlint
+```
+
+Run stylesheets linter
+```bash
+gulp stylelint
+```
+
+## Credits
+
+React base is maintained by [Marat Fakhreev](http://github.com/maratfakhreev).
