@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'react-router';
 
-export default class AboutText extends React.Component {
+export default class AboutView extends React.Component {
   state = {
     id: ''
   }

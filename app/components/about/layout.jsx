@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Grid } from 'react-bootstrap';
-import AboutText from 'components/about/text';
+import AboutText from 'components/about/view';
 
 export default class AboutLayout extends React.Component {
   render() {

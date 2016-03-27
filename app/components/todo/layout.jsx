@@ -4,6 +4,7 @@ import TodoActions from 'actions/todo';
 import TodosActions from 'actions/todos';
 import TodosStore from 'stores/todos';
 import TodoList from 'components/todo/list';
+import styles from './styles';
 
 export default class TodoLayout extends React.Component {
   state = TodosStore.getState()
@@ -51,7 +52,7 @@ export default class TodoLayout extends React.Component {
           <Col md={ 4 }>
             <Button
               bsStyle="primary"
-              className="btn btn-primary pull-right spacing-top"
+              className={ `btn btn-primary pull-right ${styles.spacingTop}` }
               onClick={ ::this.create }
             >
               New Task

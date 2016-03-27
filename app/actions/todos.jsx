@@ -1,5 +1,3 @@
-import 'es6-promise';
-import 'whatwg-fetch';
 import Alt from 'alt_flux';
 import config from 'config';
 

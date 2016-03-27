@@ -41,7 +41,13 @@ export default {
       },
       {
         test: /\.css$/,
-        loader: 'style!css?importLoaders=1!postcss'
+        include: [/app\/stylesheets\//],
+        loader: 'style!css!postcss'
+      },
+      {
+        test: /\.css$/,
+        exclude: [/app\/stylesheets\//],
+        loader: 'style!css?modules&importLoaders=1!postcss'
       },
       {
         test: /\.(jpg|png|ttf|eot|svg|woff2|woff)$/,

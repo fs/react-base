@@ -3,7 +3,7 @@ import CSSTransitionGroup from 'react-addons-css-transition-group';
 import { ListGroupItem } from 'react-bootstrap';
 import TodosActions from 'actions/todos';
 
-export default class TodoItem extends React.Component {
+export default class TodoView extends React.Component {
   toggle() {
     this.props.todo.isComplete = !this.props.todo.isComplete;
     TodosActions.update(this.props.todo);
@@ -12,7 +12,7 @@ export default class TodoItem extends React.Component {
   render() {
     return (
       <CSSTransitionGroup
-        transitionName="example"
+        transitionName="todo"
         transitionAppear={ true }
         transitionEnterTimeout={ 0 }
         transitionLeaveTimeout={ 0 }

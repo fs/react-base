@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import TodoItem from 'components/todo/item';
+import TodoItem from 'components/todo/view';
 
 export default class TodoList extends React.Component {
   renderItems() {

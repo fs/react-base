@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import TodoActions from 'actions/todo';
-import Menu from 'components/header/menu';
+import MenuLayout from 'components/menu/layout';
 
 export default class HeaderLayout extends React.Component {
   create() {
@@ -21,7 +21,7 @@ export default class HeaderLayout extends React.Component {
             React-Base
           </Navbar.Brand>
         </Navbar.Header>
-        <Menu items={ links }/>
+        <MenuLayout items={ links }/>
         <Nav pullRight>
           <NavItem className="new-task-button" onClick={ this.create }>
             New Task

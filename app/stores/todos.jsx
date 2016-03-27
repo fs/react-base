@@ -13,7 +13,7 @@ export default Alt.createStore(class TodosStore {
     this.bindListeners({
       set: TodosActions.SET,
       update: TodosActions.UPDATE,
-      create: TodoActions.CREATE
+      create: TodoActions.SET
     });
   }
 
