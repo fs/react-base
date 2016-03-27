@@ -1,7 +1,7 @@
 import React from 'react';
 import Router from 'react-router';
 
-export default class AboutView extends React.Component {
+export default class About extends React.Component {
   render() {
     return (
       <article>

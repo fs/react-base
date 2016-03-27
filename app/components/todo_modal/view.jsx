@@ -4,7 +4,7 @@ import { findDOMNode } from 'react-dom';
 import TodoActions from 'actions/todo';
 import TodoStore from 'stores/todo';
 
-export default class TodoModalView extends React.Component {
+export default class TodoModal extends React.Component {
   state = TodoStore.getState()
 
   constructor() {

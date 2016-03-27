@@ -4,7 +4,7 @@ import { ListGroupItem, Button, Glyphicon } from 'react-bootstrap';
 import TodosActions from 'actions/todos';
 import styles from './styles';
 
-export default class TodoView extends React.Component {
+export default class Todo extends React.Component {
   toggle() {
     this.props.todo.isComplete = !this.props.todo.isComplete;
     TodosActions.updateTodo(this.props.todo);
