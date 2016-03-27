@@ -16,7 +16,7 @@ gulp.task('webpack-dev-server', (callback) => {
       progress: true
     },
     proxy: {
-      [${config.api.path}]: {
+      [`${config.api.path}/*`]: {
         target: config.api.target,
         rewrite(req) {
           const re = new RegExp(config.api.path, 'g');
