@@ -1,6 +1,6 @@
 module.exports = {
-  target: 'http://localhost:8000',
-  apiPath: 'http://localhost:8000/v1',
+  target: 'http://react-base.herokuapp.com',
+  apiPath: 'http://react-base.herokuapp.com/v1',
   rootPath: '/',
   sessionKey: 'authentication_token',
   storageKey: 'user_session',
