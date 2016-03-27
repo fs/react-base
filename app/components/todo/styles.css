@@ -1,3 +1,9 @@
 .spacingTop {
   margin-top: 20px;
 }
+
+.trashIcon {
+  float: right;
+  z-index: 10;
+  margin-top: 2px;
+}

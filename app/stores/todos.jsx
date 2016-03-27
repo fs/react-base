@@ -11,9 +11,10 @@ export default Alt.createStore(class TodosStore {
     this.todos = [];
 
     this.bindListeners({
+      create: TodoActions.CREATE,
       set: TodosActions.SET,
       update: TodosActions.UPDATE,
-      create: TodoActions.SET
+      delete: TodosActions.DELETE
     });
   }
 
@@ -34,5 +35,9 @@ export default Alt.createStore(class TodosStore {
 
     todo = Object.assign({ id: ++found }, todo);
     this.todos.push(todo);
+  }
+
+  delete(todo) {
+    this.todos.splice(this.todos.findIndex(item => item === todo.id), 1);
   }
 }, 'TodosStore');

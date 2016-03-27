@@ -30,7 +30,7 @@ export default class TodoModal extends React.Component {
   }
 
   saveTodo() {
-    TodoActions.create(this.state.todo);
+    TodoActions.createTodo(this.state.todo);
     TodoActions.hide();
   }
 

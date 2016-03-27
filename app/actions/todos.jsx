@@ -24,8 +24,43 @@ export default Alt.createActions(class TodosActions {
     return todos;
   }
 
+  updateTodo(todo) {
+    return (dispatch) => {
+      dispatch();
+
+      fetch(`${config.apiPath}/todos/${todo.id}`, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(todo)
+      })
+      .then(result => this.update(todo));
+    };
+  }
+
+  deleteTodo(todo) {
+    return (dispatch) => {
+      dispatch();
+
+      fetch(`${config.apiPath}/todos/${todo.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(result => this.delete(todo));
+    };
+  }
+
   update(todo) {
     return todo;
+  }
+
+  delete(todo) {
+    return todo
   }
 
   create(newTodo) {

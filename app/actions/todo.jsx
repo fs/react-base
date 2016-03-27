@@ -18,7 +18,7 @@ export default Alt.createActions(class TodoActions {
     return true;
   }
 
-  create(newTodo) {
+  createTodo(newTodo) {
     return (dispatch) => {
       dispatch();
 
@@ -30,11 +30,11 @@ export default Alt.createActions(class TodoActions {
         },
         body: JSON.stringify(newTodo)
       })
-      .then(result => this.set(newTodo));
+      .then(result => this.create(newTodo));
     };
   }
 
-  set(newTodo) {
+  create(newTodo) {
     return newTodo;
   }
 });
