@@ -5,8 +5,8 @@ module.exports = {
   sessionKey: 'authentication_token',
   storageKey: 'user_session',
   api: {
-    'target': 'http://localhost:8001',
-    'path': '/v1',
-    'port': 8001
+    target: 'http://localhost:8001',
+    path: '/v1',
+    port: 8001
   }
 }

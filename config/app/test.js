@@ -8,5 +8,8 @@ module.exports = {
     target: 'http://localhost:8001',
     path: '/v1',
     port: 8001
-  }
+  },
+  test: {
+    port: 9999
+  },
 }
