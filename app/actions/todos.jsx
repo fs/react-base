@@ -60,7 +60,7 @@ export default Alt.createActions(class TodosActions {
   }
 
   delete(todo) {
-    return todo
+    return todo;
   }
 
   create(newTodo) {

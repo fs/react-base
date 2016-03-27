@@ -5,7 +5,7 @@ import eslintConfig from '../../config/eslint';
 
 gulp.task('eslint', () => {
   return gulp.src([
-    `${config.appDir}/src/**/*.jsx`,
+    `${config.appDir}/**/*.jsx`,
     `${config.tasksDir}/**/*.js`,
     `${config.configDir}/**/*.js`
   ])

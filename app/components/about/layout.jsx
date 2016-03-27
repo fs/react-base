@@ -11,7 +11,7 @@ export default class AboutLayout extends React.Component {
           <h1>About</h1>
           <AboutText/>
           <Link to="/about/extended/test_id">
-            Subroute link
+            show details...
           </Link>
           { this.props.children }
         </article>

@@ -29,7 +29,7 @@ export default class TodoView extends React.Component {
             { this.props.todo.name }
           </span>
           <span
-            className={`glyphicon glyphicon-trash ${styles.trashIcon}`}
+            className={ `glyphicon glyphicon-trash ${styles.trashIcon}` }
             onClick={ ::this.delete }
           >
           </span>
