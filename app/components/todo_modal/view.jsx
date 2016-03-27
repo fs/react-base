@@ -1,10 +1,10 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Input } from 'react-bootstrap';
 import { findDOMNode } from 'react-dom';
 import TodoActions from 'actions/todo';
 import TodoStore from 'stores/todo';
 
-export default class TodoModal extends React.Component {
+export default class TodoModalView extends React.Component {
   state = TodoStore.getState()
 
   constructor() {
@@ -30,8 +30,18 @@ export default class TodoModal extends React.Component {
   }
 
   saveTodo() {
-    TodoActions.createTodo(this.state.todo);
-    TodoActions.hide();
+    if (this.validationState() !== 'error') {
+      TodoActions.createTodo(this.state.todo);
+      TodoActions.hide();
+    }
+  }
+
+  validationState() {
+    const length = this.state.todo.name.length;
+
+    if (length > 6) return 'success';
+    if (length > 3) return 'warning';
+    return 'error';
   }
 
   render() {
@@ -47,13 +57,15 @@ export default class TodoModal extends React.Component {
         </Modal.Header>
 
         <Modal.Body>
-          <div>
-            <label>Task name: { this.state.todo.name }</label>
-          </div>
-          <input
-            placeholder="Task name..."
+          <Input
             type="text"
             value={ this.state.todo.name }
+            placeholder="Task name..."
+            bsStyle={ ::this.validationState() }
+            label={ `Task name: ${this.state.todo.name}` }
+            ref="input"
+            groupClassName="group-class"
+            labelClassName="label-class"
             onChange={ ::this.setName }
           />
         </Modal.Body>

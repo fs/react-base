@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderLayout from 'components/header/layout';
-import TodoModal from 'components/todo/modal';
+import TodoModal from 'components/todo_modal/view';
 import Footer from 'components/footer/view';
 import styles from './styles';
 
