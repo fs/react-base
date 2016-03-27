@@ -1,0 +1,29 @@
+.navbar-default {
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid $default-grey;
+
+  .navbar-nav {
+    li > a {
+      display: block;
+
+      &:focus {
+        background-color: transparent;
+      }
+
+      &:hover,
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+button.list-group-item {
+  cursor: pointer;
+
+  &:hover {
+    background-color: #337ab7;
+    color: #fff;
+  }
+}

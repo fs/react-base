@@ -1,0 +1,14 @@
+.footer {
+  position: relative;
+  margin-top: -60px;
+  height: 60px;
+  clear: both;
+  border-top: 1px solid $default-grey;
+  box-sizing: border-box;
+  line-height: 60px;
+
+  p {
+    text-align: center;
+    margin: 0;
+  }
+}

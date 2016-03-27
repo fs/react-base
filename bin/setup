@@ -7,3 +7,13 @@ fi
 
 # Install all dependencies
 npm install --ignore-scripts
+
+# Setup configurable environment variables
+if [ ! -f .env ]; then
+  cp .env.example .env
+fi
+
+# Setup db.json
+if [ ! -f db/db.json ]; then
+  cp db/db.json.example db/db.json
+fi

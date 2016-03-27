@@ -1,4 +1,4 @@
 import requireDir from 'require-dir';
 
-requireDir('./gulp/build');
-requireDir('./gulp/test');
+requireDir('./tasks/build');
+requireDir('./tasks/test');
