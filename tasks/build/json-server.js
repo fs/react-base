@@ -5,6 +5,6 @@ import config from '../../config/gulp';
 gulp.task('json-server', () => {
   return jsonServer.start({
     data: `${config.dbDir}/db.json`,
-    port: config.ports.api
+    port: config.api.port
   });
 });

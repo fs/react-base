@@ -1,28 +1,30 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import config from '../gulp';
 import postcssConfig from '../postcss/config';
 
 export default {
   resolve: {
     root: [
-      path.resolve('./app')
+      path.resolve(`./${config.appDir}`)
     ],
+    alias: {
+      config: path.resolve(`./${config.configDir}/app/${config.env}`)
+    },
     extensions: ['', '.js', '.jsx', '.css']
   },
   entry: [
-    'webpack-dev-server/client?http://localhost:8000',
     'webpack/hot/only-dev-server',
-    './app/application.jsx'
+    `./${config.appDir}/application.jsx`
   ],
   output: {
-    path: path.resolve('dist'),
-    filename: 'application.js'
+    path: '/'
   },
   devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve('./app/index.html')
+      template: path.resolve(`./${config.appDir}/index.html`)
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
@@ -40,7 +42,7 @@ export default {
       },
       {
         test: /\.(jpg|png|ttf|eot|svg|woff2|woff)$/,
-        loader: 'url?limit=100000!file'
+        loader: 'file'
       }
     ]
   },

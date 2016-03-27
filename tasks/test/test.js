@@ -1,10 +1,9 @@
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 
-gulp.task('development', (callback) => {
+gulp.task('test', (callback) => {
   runSequence(
-    'json-server',
-    'webpack-dev-server',
+    'lint',
     callback
   );
 });

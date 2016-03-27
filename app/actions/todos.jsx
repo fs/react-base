@@ -1,6 +1,7 @@
 import 'es6-promise';
 import 'whatwg-fetch';
 import Alt from 'alt_flux';
+import config from 'config';
 
 export default Alt.createActions(class TodosActions {
   get(todos) {
@@ -8,7 +9,7 @@ export default Alt.createActions(class TodosActions {
       dispatch();
 
       if (!todos.length) {
-        fetch('api/todos', {
+        fetch(`${config.apiPath}/todos`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
