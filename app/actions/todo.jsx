@@ -30,7 +30,8 @@ export default Alt.createActions(class TodoActions {
         },
         body: JSON.stringify(newTodo)
       })
-      .then(result => this.create(newTodo));
+      .then(result => result.json())
+      .then(result => this.create(result));
     };
   }
 

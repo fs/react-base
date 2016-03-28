@@ -35,8 +35,9 @@ export default Alt.createActions(class TodosActions {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(todo)
-      })
-      .then(result => this.update(todo));
+      });
+
+      this.update(todo);
     };
   }
 
@@ -50,8 +51,9 @@ export default Alt.createActions(class TodosActions {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         }
-      })
-      .then(result => this.delete(todo));
+      });
+
+      this.delete(todo);
     };
   }
 
