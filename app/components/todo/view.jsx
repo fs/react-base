@@ -7,11 +7,11 @@ import styles from './styles';
 export default class Todo extends React.Component {
   toggle() {
     this.props.todo.isComplete = !this.props.todo.isComplete;
-    TodosActions.updateTodo(this.props.todo);
+    TodosActions.update(this.props.todo);
   }
 
   delete(event) {
-    TodosActions.deleteTodo(this.props.todo);
+    TodosActions.delete(this.props.todo);
     event.stopPropagation();
   }
 

@@ -12,13 +12,13 @@ export default Alt.createStore(class TodosStore {
 
     this.bindListeners({
       create: TodoActions.CREATE,
-      set: TodosActions.SET,
+      get: TodosActions.GET,
       update: TodosActions.UPDATE,
       delete: TodosActions.DELETE
     });
   }
 
-  set(todos) {
+  get(todos) {
     this.todos = todos;
   }
 

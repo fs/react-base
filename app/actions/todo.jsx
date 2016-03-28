@@ -1,5 +1,5 @@
 import Alt from 'alt_flux';
-import config from 'config';
+import todosSource from 'sources/todos';
 
 export default Alt.createActions(class TodoActions {
   setName(name) {
@@ -18,24 +18,9 @@ export default Alt.createActions(class TodoActions {
     return true;
   }
 
-  createTodo(newTodo) {
+  create(todo) {
     return (dispatch) => {
-      dispatch();
-
-      fetch(`${config.apiPath}/todos`, {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newTodo)
-      })
-      .then(result => result.json())
-      .then(result => this.create(result));
+      todosSource.create(todo).then(result => dispatch(result));
     };
-  }
-
-  create(newTodo) {
-    return newTodo;
   }
 });

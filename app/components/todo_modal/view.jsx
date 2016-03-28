@@ -31,7 +31,7 @@ export default class TodoModal extends React.Component {
 
   saveTodo() {
     if (this.validationState() !== 'error') {
-      TodoActions.createTodo(this.state.todo);
+      TodoActions.create(this.state.todo);
       TodoActions.hide();
     }
   }
