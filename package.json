@@ -50,7 +50,6 @@
     "gulp-postcss": "~6.1.0",
     "gutil": "~1.6.4",
     "html-webpack-plugin": "~2.14.0",
-    "http-proxy-middleware": "~0.13.0",
     "postcss-color-function": "~2.0.1",
     "postcss-import": "~8.0.2",
     "postcss-inline-comment": "~2.0.0",

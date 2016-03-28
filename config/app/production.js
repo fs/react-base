@@ -1,12 +1,7 @@
 module.exports = {
   target: 'http://react-base.herokuapp.com',
-  apiPath: 'http://react-base.herokuapp.com/v1',
+  apiPath: 'http://react-base-api.herokuapp.com',
   rootPath: '/',
   sessionKey: 'authentication_token',
-  storageKey: 'user_session',
-  api: {
-    target: 'http://localhost:8001',
-    path: '/v1',
-    port: 8001
-  }
+  storageKey: 'user_session'
 };

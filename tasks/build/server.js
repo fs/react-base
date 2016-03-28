@@ -12,7 +12,6 @@ gulp.task('server', (callback) => {
   }
   else {
     runSequence(
-      'json-server',
       'connect',
       callback
     );
