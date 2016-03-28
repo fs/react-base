@@ -1,8 +1,8 @@
 # Skeleton for React based application
 
-[![Build Status](https://travis-ci.org/maratfakhreev/react-base.svg?branch=master)](https://travis-ci.org/maratfakhreev/react-base)
-[![Dependency Status](https://david-dm.org/maratfakhreev/react-base.svg?branch=master)](https://david-dm.org/maratfakhreev/react-base)
-[![devDependency Status](https://david-dm.org/maratfakhreev/react-base/dev-status.svg?branch=master)](https://david-dm.org/maratfakhreev/react-base#info=devDependencies)
+[![Build Status](https://travis-ci.org/fs/react-base.svg?branch=master)](https://travis-ci.org/fs/react-base)
+[![Dependency Status](https://david-dm.org/fs/react-base.svg?branch=master)](https://david-dm.org/fs/react-base)
+[![devDependency Status](https://david-dm.org/fs/react-base/dev-status.svg?branch=master)](https://david-dm.org/fs/react-base#info=devDependencies)
 
 Kick-start your new web application based on React and Flux technologies. It also includes Gulp, Webpack, React hot loader, PostCSS, JSON-server tools for even more rapid development.
 
@@ -39,7 +39,6 @@ Kick-start your new web application based on React and Flux technologies. It als
     "gulp-postcss"
     "gutil"
     "html-webpack-plugin"
-    "http-proxy-middleware"
     "postcss-color-function"
     "postcss-import"
     "postcss-inline-comment"
@@ -83,7 +82,7 @@ nvm alias default node
 Clone application as new project with original repository named "react-base"
 
 ```bash
-git clone git@github.com:maratfakhreev/react-base.git --origin react-base [MY-NEW-PROJECT]
+git clone git@github.com:fs/react-base.git --origin react-base [MY-NEW-PROJECT]
 ```
 
 Create your new repo on GitHub and push master into it.
@@ -147,3 +146,7 @@ gulp stylelint
 ## Credits
 
 React base is maintained by [Marat Fakhreev](http://github.com/maratfakhreev).
+It was written by [Flatstack](http://www.flatstack.com) with the help of our
+[contributors](http://github.com/fs/react-base/contributors).
+
+[<img src="http://www.flatstack.com/logo.svg" width="100"/>](http://www.flatstack.com)
