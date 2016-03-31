@@ -1,6 +1,5 @@
 import React from 'react';
 import { Modal, Button, Input } from 'react-bootstrap';
-import { findDOMNode } from 'react-dom';
 import TodoActions from 'actions/todo';
 import TodoStore from 'stores/todo';
 
