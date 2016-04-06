@@ -1,12 +1,12 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
-import MenuItem from 'components/menu/view';
+import NavigationItem from 'components/navigation/view';
 
-export default class MenuLayout extends React.Component {
+export default class NavigationLeft extends React.Component {
   renderList() {
     return this.props.items.map((item, index) => {
       return (
-        <MenuItem key={ index } item={ item }/>
+        <NavigationItem key={ index } item={ item }/>
       );
     });
   }
