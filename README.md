@@ -8,7 +8,9 @@ Kick-start your new web application based on React and Flux technologies. It als
 
 ## NPM Dependencies:
     "alt"
+    "alt-utils"
     "bootstrap"
+    "deep-assign"
     "es6-promise"
     "react"
     "react-addons-css-transition-group"
@@ -22,6 +24,7 @@ Kick-start your new web application based on React and Flux technologies. It als
     "babel-core"
     "babel-eslint"
     "babel-loader"
+    "babel-plugin-transform-decorators-legacy"
     "babel-preset-es2015"
     "babel-preset-react"
     "babel-preset-stage-0"
