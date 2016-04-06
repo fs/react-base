@@ -8,17 +8,8 @@ import Main from 'components/main/view';
 import AboutLayout from 'components/about/layout';
 import About from 'components/about/view';
 import Detailed from 'components/about/detailed';
-import session from 'services/session';
+import { requireAuth } from 'helpers/routes';
 import globalStyles from 'stylesheets/main';
-
-const requireAuth = (nextState, replace) => {
-  if (!session.loggedIn()) {
-    replace({
-      pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
-    });
-  }
-};
 
 render((
   <Router history={ browserHistory }>
