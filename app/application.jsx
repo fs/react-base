@@ -1,5 +1,3 @@
-import 'es6-promise';
-import 'whatwg-fetch';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Redirect, browserHistory } from 'react-router';

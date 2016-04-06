@@ -10,7 +10,7 @@ export default class SessionActions {
     };
   }
 
-  destroy(user) {
+  delete(user) {
     return (dispatch) => {
       sessionSource.delete(user);
       dispatch(user);

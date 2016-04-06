@@ -26,7 +26,7 @@ export default class HeaderLayout extends React.Component {
   }
 
   signOut() {
-    SessionActions.destroy(session.currentUser());
+    SessionActions.delete(session.currentUser());
   }
 
   renderRightNav() {

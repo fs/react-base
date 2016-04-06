@@ -13,7 +13,7 @@ export default class SessionStore {
 
     this.bindListeners({
       create: SessionActions.CREATE,
-      destroy: SessionActions.DESTROY
+      delete: SessionActions.DELETE
     });
   }
 
@@ -23,7 +23,7 @@ export default class SessionStore {
     Storage.set(STORAGE_KEY, user);
   }
 
-  destroy() {
+  delete() {
     this.currentUser = {};
     Storage.remove(STORAGE_KEY);
   }
