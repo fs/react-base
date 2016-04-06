@@ -7,7 +7,7 @@ export default class Session {
   }
 
   static currentUser() {
-    return this.store().state.currentUser;
+    return this.store().getState().currentUser;
   }
 
   static loggedIn() {

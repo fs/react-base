@@ -1,29 +1,18 @@
-import session from 'services/session';
+import { requestAuth } from 'lib/request-auth';
 import config from 'config';
 
 export default class TodosSource {
   static urlRoot = `${config.apiPath}/todos`
 
-  static headers() {
-    return {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-      'X-User-Token': session.token,
-      'X-User-Email': session.email
-    };
-  }
-
   static get(todos) {
-    return fetch(this.urlRoot, {
-      headers: this.headers(),
+    return requestAuth(this.urlRoot, {
       method: 'GET'
     })
     .then(result => result.json());
   }
 
   static create(todo) {
-    return fetch(this.urlRoot, {
-      headers: this.headers(),
+    return requestAuth(this.urlRoot, {
       method: 'POST',
       body: JSON.stringify(todo)
     })
@@ -31,16 +20,14 @@ export default class TodosSource {
   }
 
   static update(todo) {
-    return fetch(`${this.urlRoot}/${todo.id}`, {
-      headers: this.headers(),
+    return requestAuth(`${this.urlRoot}/${todo.id}`, {
       method: 'PUT',
       body: JSON.stringify(todo)
     });
   }
 
   static delete(todo) {
-    return fetch(`${this.urlRoot}/${todo.id}`, {
-      headers: this.headers(),
+    return requestAuth(`${this.urlRoot}/${todo.id}`, {
       method: 'DELETE'
     });
   }

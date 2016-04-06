@@ -18,7 +18,7 @@ export default class TodoLayout extends React.Component {
   }
 
   componentDidMount() {
-    TodosActions.get(this.props.todos);
+    TodosActions.get.defer(this.props.todos);
   }
 
   create() {

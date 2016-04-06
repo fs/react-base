@@ -1,6 +1,6 @@
 import Alt from 'alt_flux';
 import { createStore } from 'alt-utils/lib/decorators';
-import Storage from 'services/storage';
+import Storage from 'lib/storage';
 import SessionActions from 'actions/session';
 import config from 'config';
 

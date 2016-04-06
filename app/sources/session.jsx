@@ -1,16 +1,11 @@
 import config from 'config';
+import { request } from 'lib/request';
 
 export default class SessionSource {
   static urlRoot = `${config.apiPath}/users`
 
-  static headers = {
-    'Accept': 'application/json',
-    'Content-Type': 'application/json'
-  }
-
   static create(user) {
-    return fetch(this.urlRoot, {
-      headers: this.headers,
+    return request(this.urlRoot, {
       method: 'POST',
       body: JSON.stringify(user)
     })
@@ -18,8 +13,7 @@ export default class SessionSource {
   }
 
   static delete(user) {
-    return fetch(`${this.urlRoot}/${user.id}`, {
-      headers: this.headers,
+    return request(`${this.urlRoot}/${user.id}`, {
       method: 'DELETE'
     });
   }
