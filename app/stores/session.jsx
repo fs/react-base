@@ -19,16 +19,9 @@ export default class SessionStore {
 
   create(user) {
     this.currentUser = user;
-    this.unsetPassword();
-    Storage.set(STORAGE_KEY, user);
   }
 
   delete() {
     this.currentUser = {};
-    Storage.remove(STORAGE_KEY);
-  }
-
-  unsetPassword() {
-    delete this.currentUser.password;
   }
 }
