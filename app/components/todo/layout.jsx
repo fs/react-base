@@ -1,4 +1,5 @@
 import React from 'react';
+import connectToStores from 'alt-utils/lib/connectToStores';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 import TodoActions from 'actions/todo';
 import TodosActions from 'actions/todos';
@@ -6,26 +7,18 @@ import TodosStore from 'stores/todos';
 import TodoList from 'components/todo/list';
 import styles from './styles';
 
+@connectToStores
 export default class TodoLayout extends React.Component {
-  state = TodosStore.getState()
+  static getStores(props) {
+    return [TodosStore];
+  }
 
-  constructor() {
-    super();
-
-    this.changeState = ::this.changeState;
+  static getPropsFromStores(props) {
+    return TodosStore.getState();
   }
 
   componentDidMount() {
-    TodosStore.listen(this.changeState);
-    TodosActions.get(this.state.todos);
-  }
-
-  componentWillUnmount() {
-    TodosStore.unlisten(this.changeState);
-  }
-
-  changeState(state) {
-    this.setState(state);
+    TodosActions.get.defer(this.props.todos);
   }
 
   create() {
@@ -36,7 +29,7 @@ export default class TodoLayout extends React.Component {
     return (
       <TodoList
         todos={
-          this.state.todos.filter((todo) => todo.isComplete === complete)
+          this.props.todos.filter((todo) => todo.isComplete === complete)
         }
       />
     );

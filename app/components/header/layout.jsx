@@ -1,13 +1,9 @@
 import React from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import TodoActions from 'actions/todo';
-import MenuLayout from 'components/menu/layout';
+import { Navbar } from 'react-bootstrap';
+import NavigationLeft from 'components/navigation/left';
+import NavigationRight from 'components/navigation/right';
 
 export default class HeaderLayout extends React.Component {
-  create() {
-    TodoActions.show();
-  }
-
   render() {
     const links = [
       { title: 'Home', route: '/' },
@@ -21,12 +17,8 @@ export default class HeaderLayout extends React.Component {
             React-base
           </Navbar.Brand>
         </Navbar.Header>
-        <MenuLayout items={ links }/>
-        <Nav pullRight>
-          <NavItem className="new-task-button" onClick={ this.create }>
-            New Task
-          </NavItem>
-        </Nav>
+        <NavigationLeft items={ links }/>
+        <NavigationRight/>
       </Navbar>
     );
   }

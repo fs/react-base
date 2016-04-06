@@ -1,28 +1,17 @@
 import React from 'react';
+import connectToStores from 'alt-utils/lib/connectToStores';
 import { Modal, Button, Input } from 'react-bootstrap';
-import { findDOMNode } from 'react-dom';
 import TodoActions from 'actions/todo';
 import TodoStore from 'stores/todo';
 
+@connectToStores
 export default class TodoModal extends React.Component {
-  state = TodoStore.getState()
-
-  constructor() {
-    super();
-
-    this.changeState = ::this.changeState;
+  static getStores(props) {
+    return [TodoStore];
   }
 
-  componentDidMount() {
-    TodoStore.listen(this.changeState);
-  }
-
-  componentWillUnmount() {
-    TodoStore.unlisten(this.changeState);
-  }
-
-  changeState(state) {
-    this.setState(state);
+  static getPropsFromStores(props) {
+    return TodoStore.getState();
   }
 
   setName(event) {
@@ -31,13 +20,13 @@ export default class TodoModal extends React.Component {
 
   saveTodo() {
     if (this.validationState() !== 'error') {
-      TodoActions.create(this.state.todo);
+      TodoActions.create(this.props.todo);
       TodoActions.hide();
     }
   }
 
   validationState() {
-    const length = this.state.todo.name.length;
+    const length = this.props.todo.name.length;
 
     if (length > 6) return 'success';
     if (length > 3) return 'warning';
@@ -48,7 +37,7 @@ export default class TodoModal extends React.Component {
     return (
       <Modal
         bsSize="small"
-        show={ this.state.showModal }
+        show={ this.props.showModal }
         onHide={ TodoActions.hide }
         onExited={ TodoActions.reset }
       >
@@ -59,10 +48,10 @@ export default class TodoModal extends React.Component {
         <Modal.Body>
           <Input
             type="text"
-            value={ this.state.todo.name }
+            value={ this.props.todo.name }
             placeholder="Task name..."
             bsStyle={ ::this.validationState() }
-            label={ `Task name: ${this.state.todo.name}` }
+            label={ `Task name: ${this.props.todo.name}` }
             ref="input"
             groupClassName="group-class"
             labelClassName="label-class"

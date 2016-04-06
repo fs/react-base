@@ -1,12 +1,14 @@
+import Alt from 'alt_flux';
+import { createStore } from 'alt-utils/lib/decorators';
 import TodoActions from 'actions/todo';
 import TodosActions from 'actions/todos';
-import Alt from 'alt_flux';
 
 const max = (array, callback) => {
   return Math.max.apply(Math, array.map(callback));
 };
 
-export default Alt.createStore(class TodosStore {
+@createStore(Alt)
+export default class TodosStore {
   constructor() {
     this.todos = [];
 
@@ -40,4 +42,4 @@ export default Alt.createStore(class TodosStore {
   delete(todo) {
     this.todos.splice(this.todos.findIndex(item => item === todo.id), 1);
   }
-}, 'TodosStore');
+}

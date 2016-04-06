@@ -2,8 +2,11 @@ module.exports = {
   target: 'http://localhost:8000',
   apiPath: 'http://localhost:8000/v1',
   rootPath: '/',
-  sessionKey: 'authentication_token',
   storageKey: 'user_session',
+  session: {
+    tokenKey: 'authentication_token',
+    emailKey: 'email'
+  },
   api: {
     target: 'http://localhost:8001',
     path: '/v1',

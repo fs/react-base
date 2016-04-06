@@ -1,7 +1,9 @@
 import Alt from 'alt_flux';
+import { createActions } from 'alt-utils/lib/decorators';
 import todosSource from 'sources/todos';
 
-export default Alt.createActions(class TodosActions {
+@createActions(Alt)
+export default class TodosActions {
   get(todos) {
     return (dispatch) => {
       if (!todos.length) {
@@ -26,4 +28,4 @@ export default Alt.createActions(class TodosActions {
       dispatch(todo);
     };
   }
-});
+}

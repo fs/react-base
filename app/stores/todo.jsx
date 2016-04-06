@@ -1,7 +1,9 @@
 import Alt from 'alt_flux';
+import { createStore } from 'alt-utils/lib/decorators';
 import TodoActions from 'actions/todo';
 
-export default Alt.createStore(class TodoStore {
+@createStore(Alt)
+export default class TodosStore {
   constructor() {
     this.showModal = false;
     this.todo = {
@@ -32,4 +34,4 @@ export default Alt.createStore(class TodoStore {
   reset() {
     this.todo.name = '';
   }
-}, 'TodoStore');
+}
