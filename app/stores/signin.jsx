@@ -1,7 +1,9 @@
 import Alt from 'alt_flux';
+import { createStore } from 'alt-utils/lib/decorators';
 import SigninActions from 'actions/signin';
 
-export default Alt.createStore(class SigninStore {
+@createStore(Alt)
+export default class SigninStore {
   constructor() {
     this.showModal = false;
     this.user = {
@@ -40,4 +42,4 @@ export default Alt.createStore(class SigninStore {
   setPassword(password) {
     this.user.password = password;
   }
-}, 'SigninStore');
+}

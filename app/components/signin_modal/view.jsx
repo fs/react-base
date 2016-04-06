@@ -1,28 +1,18 @@
 import React from 'react';
+import connectToStores from 'alt-utils/lib/connectToStores';
 import { Modal, Button, Input } from 'react-bootstrap';
 import SessionActions from 'actions/session';
 import SigninActions from 'actions/signin';
 import SigninStore from 'stores/signin';
 
+@connectToStores
 export default class SigninModal extends React.Component {
-  state = SigninStore.getState()
-
-  constructor() {
-    super();
-
-    this.changeState = ::this.changeState;
+  static getStores(props) {
+    return [SigninStore];
   }
 
-  componentDidMount() {
-    SigninStore.listen(this.changeState);
-  }
-
-  componentWillUnmount() {
-    SigninStore.unlisten(this.changeState);
-  }
-
-  changeState(state) {
-    this.setState(state);
+  static getPropsFromStores(props) {
+    return SigninStore.getState();
   }
 
   setEmail(event) {
@@ -34,7 +24,7 @@ export default class SigninModal extends React.Component {
   }
 
   signUp() {
-    SessionActions.create(this.state.user);
+    SessionActions.create(this.props.user);
     SigninActions.hide();
   }
 
@@ -42,7 +32,7 @@ export default class SigninModal extends React.Component {
     return (
       <Modal
         bsSize="small"
-        show={ this.state.showModal }
+        show={ this.props.showModal }
         onHide={ SigninActions.hide }
         onExited={ SigninActions.reset }
       >

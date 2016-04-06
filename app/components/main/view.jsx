@@ -1,27 +1,17 @@
 import React from 'react';
+import connectToStores from 'alt-utils/lib/connectToStores';
 import TodoLayout from 'components/todo/layout';
 import Dashboard from 'components/dashboard/view';
 import session from 'services/session';
 
+@connectToStores
 export default class HeaderLayout extends React.Component {
-  state = session.store().getState()
-
-  constructor() {
-    super();
-
-    this.changeState = ::this.changeState;
+  static getStores(props) {
+    return [session.store()];
   }
 
-  componentDidMount() {
-    session.store().listen(this.changeState);
-  }
-
-  componentWillUnmount() {
-    session.store().unlisten(this.changeState);
-  }
-
-  changeState(state) {
-    this.setState(state);
+  static getPropsFromStores(props) {
+    return session.store().getState();
   }
 
   render() {

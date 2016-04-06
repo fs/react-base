@@ -1,7 +1,9 @@
 import Alt from 'alt_flux';
+import { createActions } from 'alt-utils/lib/decorators';
 import sessionSource from 'sources/session';
 
-export default Alt.createActions(class SessionActions {
+@createActions(Alt)
+export default class SessionActions {
   create(user) {
     return (dispatch) => {
       sessionSource.create(user).then(result => dispatch(result));
@@ -14,4 +16,4 @@ export default Alt.createActions(class SessionActions {
       dispatch(user);
     };
   }
-});
+}

@@ -1,6 +1,8 @@
 import Alt from 'alt_flux';
+import { createActions } from 'alt-utils/lib/decorators';
 
-export default Alt.createActions(class SigninActions {
+@createActions(Alt)
+export default class SigninActions {
   show() {
     return true;
   }
@@ -24,4 +26,4 @@ export default Alt.createActions(class SigninActions {
   create(user) {
     return user;
   }
-});
+}

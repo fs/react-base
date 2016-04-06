@@ -1,4 +1,5 @@
 import React from 'react';
+import connectToStores from 'alt-utils/lib/connectToStores';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import SessionActions from 'actions/session';
 import SigninActions from 'actions/signin';
@@ -6,25 +7,14 @@ import TodoActions from 'actions/todo';
 import MenuLayout from 'components/menu/layout';
 import session from 'services/session';
 
+@connectToStores
 export default class HeaderLayout extends React.Component {
-  state = session.store().getState()
-
-  constructor() {
-    super();
-
-    this.changeState = ::this.changeState;
+  static getStores(props) {
+    return [session.store()];
   }
 
-  componentDidMount() {
-    session.store().listen(this.changeState);
-  }
-
-  componentWillUnmount() {
-    session.store().unlisten(this.changeState);
-  }
-
-  changeState(state) {
-    this.setState(state);
+  static getPropsFromStores(props) {
+    return session.store().getState();
   }
 
   create() {

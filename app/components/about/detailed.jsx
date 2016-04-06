@@ -7,13 +7,11 @@ export default class Detailed extends React.Component {
   }
 
   componentDidMount() {
-    this.setArticleId(this.props.params);
+    this.setArticleId(this.props.params.id);
   }
 
-  setArticleId(params) {
-    if (typeof params !== 'undefined' && typeof params.id !== 'undefined') {
-      this.setState({ id: params.id });
-    }
+  setArticleId(id) {
+    this.setState({ id });
   }
 
   render() {

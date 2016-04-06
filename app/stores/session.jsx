@@ -1,11 +1,13 @@
 import Alt from 'alt_flux';
+import { createStore } from 'alt-utils/lib/decorators';
 import Storage from 'services/storage';
 import SessionActions from 'actions/session';
 import config from 'config';
 
 const STORAGE_KEY = config.storageKey;
 
-export default Alt.createStore(class SessionStore {
+@createStore(Alt)
+export default class SessionStore {
   constructor() {
     this.currentUser = Storage.get(STORAGE_KEY) || {};
 
@@ -29,4 +31,4 @@ export default Alt.createStore(class SessionStore {
   unsetPassword() {
     delete this.currentUser.password;
   }
-}, 'SessionStore');
+}
