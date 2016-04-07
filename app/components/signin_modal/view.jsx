@@ -51,7 +51,7 @@ export default class SigninModal extends React.Component {
           />
           <Input
             type="password"
-            placeholder="Login"
+            placeholder="Password"
             ref="input"
             groupClassName="group-class"
             labelClassName="label-class"
