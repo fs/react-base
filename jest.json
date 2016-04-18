@@ -1,0 +1,13 @@
+{
+  "setupEnvScriptFile": "<rootDir>/__bundled_tests__/common.js",
+  "testPathDirs": ["<rootDir>/__bundled_tests__"],
+  "unmockedModulePathPatterns": [
+    "<rootDir>/node_modules/react-addons-test-utils",
+    "<rootDir>/node_modules/react-dom",
+    "<rootDir>/node_modules/react"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "jsx"
+  ]
+}
