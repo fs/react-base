@@ -9,6 +9,16 @@ import styles from './styles';
 
 @connectToStores
 export default class TodoLayout extends React.Component {
+  static propTypes = {
+    todos: React.PropTypes.arrayOf(
+      React.PropTypes.shape({
+        id: React.PropTypes.id,
+        isComplete: React.PropTypes.bool,
+        name: React.PropTypes.string
+      })
+    )
+  }
+
   static getStores(props) {
     return [TodosStore];
   }
