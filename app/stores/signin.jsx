@@ -15,8 +15,7 @@ export default class SigninStore {
       show: SigninActions.SHOW,
       hide: SigninActions.HIDE,
       reset: SigninActions.RESET,
-      setEmail: SigninActions.SET_EMAIL,
-      setPassword: SigninActions.SET_PASSWORD
+      setValue: SigninActions.SET_VALUE
     });
   }
 
@@ -35,11 +34,7 @@ export default class SigninStore {
     };
   }
 
-  setEmail(email) {
-    this.user.email = email;
-  }
-
-  setPassword(password) {
-    this.user.password = password;
+  setValue(obj) {
+    this.user[obj.name] = obj.value;
   }
 }

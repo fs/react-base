@@ -1,6 +1,6 @@
 import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
-import { Modal, Button, Input } from 'react-bootstrap';
+import { Modal, Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import TodoActions from 'actions/todo';
 import TodoStore from 'stores/todo';
 
@@ -45,28 +45,30 @@ export default class TodoModal extends React.Component {
           <h3 className="modal-title">New Task</h3>
         </Modal.Header>
 
-        <Modal.Body>
-          <Input
-            type="text"
-            value={ this.props.todo.name }
-            placeholder="Task name..."
-            bsStyle={ ::this.validationState() }
-            label={ `Task name: ${this.props.todo.name}` }
-            ref="input"
-            groupClassName="group-class"
-            labelClassName="label-class"
-            onChange={ ::this.setName }
-          />
-        </Modal.Body>
+        <form>
+          <Modal.Body>
+            <FormGroup
+              controlId="taskName"
+              validationState={ ::this.validationState() }
+            >
+              <ControlLabel>Task name: { this.props.todo.name }</ControlLabel>
+              <FormControl
+                type="text"
+                placeholder="Task name..."
+                onChange={ ::this.setName }
+              />
+            </FormGroup>
+          </Modal.Body>
 
-        <Modal.Footer>
-          <Button
-            bsStyle="primary"
-            onClick={ ::this.saveTodo }
-          >
-            Save
-          </Button>
-        </Modal.Footer>
+          <Modal.Footer>
+            <Button
+              bsStyle="primary"
+              onClick={ ::this.saveTodo }
+            >
+              Save
+            </Button>
+          </Modal.Footer>
+        </form>
       </Modal>
     );
   }

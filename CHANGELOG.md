@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Replace deprecated Input on FormGroup in react-bootstrap
+([#7](https://github.com/fs/backbone-base/pull/7))
+- Implement sign in form validation
+([#7](https://github.com/fs/backbone-base/pull/7))
 - Fix setup script to avoid issue with application bootstraping
 ([#6](https://github.com/fs/backbone-base/pull/6))
 - Upgrade dependencies
