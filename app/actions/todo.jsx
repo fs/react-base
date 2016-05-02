@@ -1,23 +1,12 @@
 import Alt from 'alt_flux';
 import { createActions } from 'alt-utils/lib/decorators';
+import ModalActions from 'actions/abstract/modal';
 import todosSource from 'sources/todos';
 
 @createActions(Alt)
-export default class TodoActions {
+export default class TodoActions extends ModalActions {
   setName(name) {
     return name;
-  }
-
-  show() {
-    return true;
-  }
-
-  hide() {
-    return true;
-  }
-
-  reset() {
-    return true;
   }
 
   create(todo) {

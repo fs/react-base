@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Add sign up functionality
+([#8](https://github.com/fs/react-base/pull/8))
+- Introduce abstract actions and stores
+([#8](https://github.com/fs/react-base/pull/8))
 - Introduce props validation for components
 ([#10](https://github.com/fs/react-base/pull/10))
 - Upgrade Node.js version to 6.0.0

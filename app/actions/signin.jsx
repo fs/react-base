@@ -1,25 +1,10 @@
 import Alt from 'alt_flux';
 import { createActions } from 'alt-utils/lib/decorators';
+import ModalActions from 'actions/abstract/modal';
 
 @createActions(Alt)
-export default class SigninActions {
-  show() {
-    return true;
-  }
-
-  hide() {
-    return true;
-  }
-
-  reset() {
-    return true;
-  }
-
+export default class SigninActions extends ModalActions {
   setValue(name, value) {
     return { name, value };
-  }
-
-  create(user) {
-    return user;
   }
 }
