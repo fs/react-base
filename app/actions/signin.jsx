@@ -15,12 +15,8 @@ export default class SigninActions {
     return true;
   }
 
-  setEmail(email) {
-    return email;
-  }
-
-  setPassword(password) {
-    return password;
+  setValue(name, value) {
+    return { name, value };
   }
 
   create(user) {

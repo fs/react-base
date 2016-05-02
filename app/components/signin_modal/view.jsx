@@ -1,6 +1,6 @@
 import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
-import { Modal, Button, Input } from 'react-bootstrap';
+import { Modal, Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import SessionActions from 'actions/session';
 import SigninActions from 'actions/signin';
 import SigninStore from 'stores/signin';
@@ -15,17 +15,29 @@ export default class SigninModal extends React.Component {
     return SigninStore.getState();
   }
 
-  setEmail(event) {
-    SigninActions.setEmail(event.target.value);
+  setValue(event) {
+    SigninActions.setValue(event.target.name, event.target.value);
   }
 
-  setPassword(event) {
-    SigninActions.setPassword(event.target.value);
+  signIn() {
+    if (this.isValid()) {
+      SessionActions.create(this.props.user);
+      SigninActions.hide();
+    }
   }
 
-  signUp() {
-    SessionActions.create(this.props.user);
-    SigninActions.hide();
+  isValid() {
+    let valid = true;
+
+    Object.keys(this.props.user).forEach((key) => {
+      if (this.props.user[key].trim().length < 6) valid = false;
+    });
+
+    return valid;
+  }
+
+  validationState(value) {
+    return value.length >= 6 ? 'success' : 'error';
   }
 
   render() {
@@ -37,36 +49,44 @@ export default class SigninModal extends React.Component {
         onExited={ SigninActions.reset }
       >
         <Modal.Header closeButton>
-          <h3 className="modal-title">Sign Up</h3>
+          <h3 className="modal-title">Sign In</h3>
         </Modal.Header>
 
-        <Modal.Body>
-          <Input
-            type="text"
-            placeholder="Login"
-            ref="input"
-            groupClassName="group-class"
-            labelClassName="label-class"
-            onChange={ ::this.setEmail }
-          />
-          <Input
-            type="password"
-            placeholder="Password"
-            ref="input"
-            groupClassName="group-class"
-            labelClassName="label-class"
-            onChange={ ::this.setPassword }
-          />
-        </Modal.Body>
+        <form>
+          <Modal.Body>
+            <FormGroup
+              controlId="email"
+              validationState={ ::this.validationState(this.props.user.email) }
+            >
+              <ControlLabel>Email</ControlLabel>
+              <FormControl
+                type="text"
+                name="email"
+                onChange={ ::this.setValue }
+              />
+            </FormGroup>
+            <FormGroup
+              controlId="password"
+              validationState={ ::this.validationState(this.props.user.password) }
+            >
+              <ControlLabel>Password</ControlLabel>
+              <FormControl
+                type="text"
+                name="password"
+                onChange={ ::this.setValue }
+              />
+            </FormGroup>
+          </Modal.Body>
 
-        <Modal.Footer>
-          <Button
-            bsStyle="primary"
-            onClick={ ::this.signUp }
-          >
-            Save
-          </Button>
-        </Modal.Footer>
+          <Modal.Footer>
+            <Button
+              bsStyle="primary"
+              onClick={ ::this.signIn }
+            >
+              Save
+            </Button>
+          </Modal.Footer>
+        </form>
       </Modal>
     );
   }
