@@ -3,8 +3,7 @@ import runSequence from 'run-sequence';
 
 gulp.task('test', (callback) => {
   runSequence(
-    'test-prepare',
-    'jest',
+    'karma-start',
     'lint',
     callback
   );
