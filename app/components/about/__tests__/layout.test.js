@@ -1,7 +1,5 @@
 'use strict';
 
-jest.unmock('components/about/layout');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
