@@ -7,6 +7,14 @@ import SigninStore from 'stores/signin';
 
 @connectToStores
 export default class SigninModal extends React.Component {
+  static propTypes = {
+    showModal: React.PropTypes.bool,
+    user: React.PropTypes.shape({
+      email: React.PropTypes.string,
+      password: React.PropTypes.string
+    })
+  }
+
   static getStores(props) {
     return [SigninStore];
   }

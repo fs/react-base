@@ -5,6 +5,14 @@ import TodosActions from 'actions/todos';
 import styles from './styles';
 
 export default class Todo extends React.Component {
+  static propTypes = {
+    todo: React.PropTypes.shape({
+      id: React.PropTypes.number,
+      isComplete: React.PropTypes.bool,
+      name: React.PropTypes.string
+    })
+  }
+
   toggle() {
     this.props.todo.isComplete = !this.props.todo.isComplete;
     TodosActions.update(this.props.todo);

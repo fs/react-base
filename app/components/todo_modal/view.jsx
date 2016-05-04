@@ -6,6 +6,14 @@ import TodoStore from 'stores/todo';
 
 @connectToStores
 export default class TodoModal extends React.Component {
+  static propTypes = {
+    showModal: React.PropTypes.bool,
+    todo: React.PropTypes.shape({
+      name: React.PropTypes.string,
+      isComplete: React.PropTypes.bool
+    })
+  }
+
   static getStores(props) {
     return [TodoStore];
   }

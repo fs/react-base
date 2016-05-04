@@ -3,6 +3,15 @@ import { Nav } from 'react-bootstrap';
 import NavigationItem from 'components/navigation/view';
 
 export default class NavigationLeft extends React.Component {
+  static propTypes = {
+    items: React.PropTypes.arrayOf(
+      React.PropTypes.shape({
+        route: React.PropTypes.string,
+        title: React.PropTypes.string
+      })
+    )
+  }
+
   renderList() {
     return this.props.items.map((item, index) => {
       return (
