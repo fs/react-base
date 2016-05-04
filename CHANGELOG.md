@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Introduce props validation for components
+([#10](https://github.com/fs/react-base/pull/10))
 - Upgrade Node.js version to 6.0.0
 ([#9](https://github.com/fs/react-base/pull/9))
 - Replace deprecated Input on FormGroup in react-bootstrap
