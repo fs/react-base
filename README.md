@@ -130,6 +130,12 @@ Start to use application in browser:
 localhost:8000
 ```
 
+## Run tests
+
+```bash
+npm test
+```
+
 ## Code linting tasks
 
 Run javascript linter
