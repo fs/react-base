@@ -6,16 +6,17 @@ module.exports = function (config) {
     coverageReporter: {
       dir: '../coverage/'
     },
+    basePath: path.resolve('app'),
     files: [
-      'tests.webpack.js'
+      '**/tests/*.test.js'
     ],
     frameworks: [
       'jasmine'
     ],
     preprocessors: {
-      'tests.webpack.js': ['webpack', 'sourcemap']
+      '**/tests/*.test.js': ['webpack']
     },
-    reporters: ['progress', 'coverage'],
+    reporters: ['dots', 'coverage'],
     webpack: {
       resolve: {
         root: [
@@ -27,17 +28,16 @@ module.exports = function (config) {
         extensions: ['', '.js', '.jsx']
       },
       cache: true,
-      devtool: 'inline-source-map',
       module: {
         preLoaders: [
           {
             test: /\.jsx$/,
-            loader: 'isparta-instrumenter-loader'
+            loader: 'babel'
           },
           {
             test: /.test\.js$/,
-            exclude: /(node_modules|bower_components)\//,
-            loader: 'babel-loader'
+            exclude: /(node_modules)\//,
+            loader: 'babel'
           }
         ]
       }
