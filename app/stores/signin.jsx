@@ -5,13 +5,15 @@ import ModalStore from 'stores/abstract/modal';
 
 @createStore(Alt)
 export default class SigninStore extends ModalStore {
+  defaultProps = {
+    email: '',
+    password: ''
+  }
+
   constructor() {
     super();
 
-    this.user = {
-      email: '',
-      password: ''
-    };
+    this.user = Object.assign({}, this.defaultProps);
 
     this.bindListeners({
       show: SigninActions.SHOW,
@@ -22,10 +24,7 @@ export default class SigninStore extends ModalStore {
   }
 
   reset() {
-    this.user = {
-      email: '',
-      password: ''
-    };
+    this.user = Object.assign({}, this.defaultProps);
   }
 
   setValue(obj) {

@@ -5,13 +5,15 @@ import ModalStore from 'stores/abstract/modal';
 
 @createStore(Alt)
 export default class TodosStore extends ModalStore {
+  defaultProps = {
+    name: '',
+    isComplete: false
+  }
+
   constructor() {
     super();
 
-    this.todo = {
-      name: '',
-      isComplete: false
-    };
+    this.todo = Object.assign({}, this.defaultProps);
 
     this.bindListeners({
       show: TodoActions.SHOW,
@@ -22,7 +24,7 @@ export default class TodosStore extends ModalStore {
   }
 
   reset() {
-    this.todo.name = '';
+    this.todo = Object.assign({}, this.defaultProps);
   }
 
   setName(name) {
