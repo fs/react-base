@@ -1,13 +1,15 @@
 import Alt from 'alt_flux';
 import { createStore } from 'alt-utils/lib/decorators';
-import SigninActions from 'actions/signin';
+import SignupActions from 'actions/signup';
 import ModalStore from 'stores/abstract/modal';
 
 @createStore(Alt)
-export default class SigninStore extends ModalStore {
+export default class SignupStore extends ModalStore {
   defaultProps = {
+    name: '',
     email: '',
-    password: ''
+    password: '',
+    passwordConfirmation: ''
   }
 
   constructor() {
@@ -16,10 +18,10 @@ export default class SigninStore extends ModalStore {
     this.user = Object.assign({}, this.defaultProps);
 
     this.bindListeners({
-      show: SigninActions.SHOW,
-      hide: SigninActions.HIDE,
-      reset: SigninActions.RESET,
-      setValue: SigninActions.SET_VALUE
+      show: SignupActions.SHOW,
+      hide: SignupActions.HIDE,
+      reset: SignupActions.RESET,
+      setValue: SignupActions.SET_VALUE
     });
   }
 

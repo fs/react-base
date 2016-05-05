@@ -26,12 +26,13 @@
       "isComplete": true
     }
   ],
-  "users": [
+  "session": [
     {
       "id": 1,
       "name": "User",
       "email": "user@example.com",
       "authentication_token": "12937698127698712936"
     }
-  ]
+  ],
+  "users": []
 }

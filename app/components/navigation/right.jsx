@@ -3,6 +3,7 @@ import connectToStores from 'alt-utils/lib/connectToStores';
 import { Nav, NavItem } from 'react-bootstrap';
 import SessionActions from 'actions/session';
 import SigninActions from 'actions/signin';
+import SignupActions from 'actions/signup';
 import TodoActions from 'actions/todo';
 import session from 'services/session';
 
@@ -22,6 +23,10 @@ export default class NavigationRight extends React.Component {
 
   signIn() {
     SigninActions.show();
+  }
+
+  signUp() {
+    SignupActions.show();
   }
 
   signOut() {
@@ -44,6 +49,9 @@ export default class NavigationRight extends React.Component {
     else {
       return (
         <Nav pullRight>
+          <NavItem onClick={ ::this.signUp }>
+            Sign up
+          </NavItem>
           <NavItem onClick={ ::this.signIn }>
             Sign in
           </NavItem>

@@ -27,7 +27,9 @@ export default class SigninModal extends React.Component {
     SigninActions.setValue(event.target.name, event.target.value);
   }
 
-  signIn() {
+  signIn(event) {
+    event.preventDefault();
+
     if (this.isValid()) {
       SessionActions.create(this.props.user);
       SigninActions.hide();
@@ -35,13 +37,9 @@ export default class SigninModal extends React.Component {
   }
 
   isValid() {
-    let valid = true;
+    const user = this.props.user;
 
-    Object.keys(this.props.user).forEach((key) => {
-      if (this.props.user[key].trim().length < 6) valid = false;
-    });
-
-    return valid;
+    return user.email.length >= 6 && user.password.length >= 6;
   }
 
   validationState(value) {
@@ -60,7 +58,7 @@ export default class SigninModal extends React.Component {
           <h3 className="modal-title">Sign In</h3>
         </Modal.Header>
 
-        <form>
+        <form onSubmit={ ::this.signIn }>
           <Modal.Body>
             <FormGroup
               controlId="email"
@@ -89,7 +87,7 @@ export default class SigninModal extends React.Component {
           <Modal.Footer>
             <Button
               bsStyle="primary"
-              onClick={ ::this.signIn }
+              type="submit"
             >
               Save
             </Button>

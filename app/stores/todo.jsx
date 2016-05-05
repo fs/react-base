@@ -1,15 +1,19 @@
 import Alt from 'alt_flux';
 import { createStore } from 'alt-utils/lib/decorators';
 import TodoActions from 'actions/todo';
+import ModalStore from 'stores/abstract/modal';
 
 @createStore(Alt)
-export default class TodosStore {
+export default class TodosStore extends ModalStore {
+  defaultProps = {
+    name: '',
+    isComplete: false
+  }
+
   constructor() {
-    this.showModal = false;
-    this.todo = {
-      name: '',
-      isComplete: false
-    };
+    super();
+
+    this.todo = Object.assign({}, this.defaultProps);
 
     this.bindListeners({
       show: TodoActions.SHOW,
@@ -19,19 +23,11 @@ export default class TodosStore {
     });
   }
 
-  show() {
-    this.showModal = true;
-  }
-
-  hide() {
-    this.showModal = false;
+  reset() {
+    this.todo = Object.assign({}, this.defaultProps);
   }
 
   setName(name) {
     this.todo.name = name;
-  }
-
-  reset() {
-    this.todo.name = '';
   }
 }
