@@ -39,7 +39,6 @@ Kick-start your new web application based on React and Flux technologies. It als
     "gulp"
     "gulp-eslint"
     "gulp-json-srv"
-    "gulp-jsonlint"
     "gulp-postcss"
     "gutil"
     "html-webpack-plugin"
@@ -130,7 +129,7 @@ Start to use application in browser:
 localhost:8000
 ```
 
-## Run tests
+## Run tests and linters
 
 ```bash
 npm test
@@ -143,14 +142,16 @@ Run javascript linter
 gulp eslint
 ```
 
-Run json linter
-```bash
-gulp jsonlint
-```
-
 Run stylesheets linter
 ```bash
 gulp stylelint
+```
+
+## Test tasks
+
+Run karma tests
+```bash
+gulp karma
 ```
 
 ## Credits
