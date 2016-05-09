@@ -9,8 +9,7 @@
     "url": "git://github.com:fs/react-base.git"
   },
   "scripts": {
-    "karma-start": "karma start --single-run --no-auto-watch ./config/karma.config.js",
-  "test": "npm run karma-start && gulp lint",
+    "test": "gulp lint && gulp karma",
     "postinstall": "gulp build",
     "start": "gulp server"
   },
