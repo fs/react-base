@@ -3,9 +3,8 @@ import path from 'path';
 export default {
   browsers: ['PhantomJS'],
   singleRun: true,
-  autoWatch: false,
   coverageReporter: {
-    dir: '../coverage/'
+    dir: '../coverage'
   },
   basePath: path.resolve('app'),
   files: [
@@ -32,12 +31,13 @@ export default {
     module: {
       preLoaders: [
         {
-          test: /\.jsx$/,
-          loader: 'babel'
+          test: /\.jsx?$/,
+          exclude: [/node_modules/, /\.test\.js/],
+          loader: 'isparta-instrumenter-loader'
         },
         {
-          test: /.test\.js$/,
-          exclude: /(node_modules)\//,
+          test: /\.test\.js$/,
+          exclude: [/node_modules/],
           loader: 'babel'
         }
       ]

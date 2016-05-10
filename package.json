@@ -56,6 +56,7 @@
     "gutil": "~1.6.4",
     "html-webpack-plugin": "~2.16.1",
     "lodash": "~4.12.0",
+    "isparta-instrumenter-loader": "~1.0.0",
     "jasmine-core": "~2.4.1",
     "karma": "~0.13.22",
     "karma-cli": "~0.1.2",
