@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node.js version to 6.1.0
+([#18](https://github.com/fs/react-base/pull/18))
 - Remove stylelint-statement-max-nesting-depth since stylelint contains this option
 ([#17](https://github.com/fs/react-base/pull/17))
 - Upgrade dependencies
