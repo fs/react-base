@@ -1,18 +1,18 @@
 import Alt from 'alt_flux';
 import { createStore } from 'alt-utils/lib/decorators';
+import { mixin } from 'core-decorators';
+import { ModalStoreMixin } from 'mixins/modal/store';
 import TodoActions from 'actions/todo';
-import ModalStore from 'stores/abstract/modal';
 
 @createStore(Alt)
-export default class TodosStore extends ModalStore {
+@mixin(ModalStoreMixin)
+export default class TodosStore {
   defaultProps = {
     name: '',
     isComplete: false
   }
 
   constructor() {
-    super();
-
     this.todo = Object.assign({}, this.defaultProps);
 
     this.bindListeners({

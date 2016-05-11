@@ -1,10 +1,12 @@
 import Alt from 'alt_flux';
 import { createStore } from 'alt-utils/lib/decorators';
+import { mixin } from 'core-decorators';
+import { ModalStoreMixin } from 'mixins/modal/store';
 import SignupActions from 'actions/signup';
-import ModalStore from 'stores/abstract/modal';
 
 @createStore(Alt)
-export default class SignupStore extends ModalStore {
+@mixin(ModalStoreMixin)
+export default class SignupStore {
   defaultProps = {
     name: '',
     email: '',
@@ -13,8 +15,6 @@ export default class SignupStore extends ModalStore {
   }
 
   constructor() {
-    super();
-
     this.user = Object.assign({}, this.defaultProps);
 
     this.bindListeners({

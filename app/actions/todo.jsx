@@ -1,10 +1,12 @@
 import Alt from 'alt_flux';
 import { createActions } from 'alt-utils/lib/decorators';
-import ModalActions from 'actions/abstract/modal';
+import { mixin } from 'core-decorators';
+import { ModalActionsMixin } from 'mixins/modal/actions';
 import todosSource from 'sources/todos';
 
 @createActions(Alt)
-export default class TodoActions extends ModalActions {
+@mixin(ModalActionsMixin)
+export default class TodoActions {
   setName(name) {
     return name;
   }

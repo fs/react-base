@@ -1,11 +1,13 @@
 import Alt from 'alt_flux';
 import { createActions } from 'alt-utils/lib/decorators';
-import ModalActions from 'actions/abstract/modal';
+import { mixin } from 'core-decorators';
+import { ModalActionsMixin } from 'mixins/modal/actions';
 import SessionActions from 'actions/session';
 import signupSource from 'sources/signup';
 
 @createActions(Alt)
-export default class SignupActions extends ModalActions {
+@mixin(ModalActionsMixin)
+export default class SignupActions {
   setValue(name, value) {
     return { name, value };
   }
