@@ -1,5 +1,3 @@
-import reactOrder from './react-order';
-
 export default {
   'parser': 'babel-eslint',
   'env': {
@@ -60,7 +58,40 @@ export default {
     'react/react-in-jsx-scope': 2,
     'react/require-extension': 2,
     'react/self-closing-comp': 2,
-    'react/sort-comp': [2, reactOrder],
+    'react/sort-comp': [
+      2,
+      {
+        order: [
+          'static-methods',
+          'lifecycle',
+          'everything-else',
+          'render'
+        ],
+        groups: {
+          lifecycle: [
+            'displayName',
+            'propTypes',
+            'contextTypes',
+            'childContextTypes',
+            'mixins',
+            'statics',
+            'defaultProps',
+            'state',
+            'getDefaultProps',
+            'getInitialState',
+            'getChildContext',
+            'constructor',
+            'componentWillMount',
+            'componentDidMount',
+            'componentWillReceiveProps',
+            'shouldComponentUpdate',
+            'componentWillUpdate',
+            'componentDidUpdate',
+            'componentWillUnmount'
+          ]
+        }
+      }
+    ],
     'react/sort-prop-types': 2,
     'react/wrap-multilines': 2
   }

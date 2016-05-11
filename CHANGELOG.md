@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Remove stylelint-statement-max-nesting-depth since stylelint contains this option
+([#17](https://github.com/fs/react-base/pull/17))
+- Upgrade dependencies
+([#17](https://github.com/fs/react-base/pull/17))
 - Replace abstract actions/stores with their decorator analogs
 ([#12](https://github.com/fs/react-base/pull/12))
 - Add lodash to the devDependencies to avoid problem with json-server's resolved lodash version
