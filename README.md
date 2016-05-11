@@ -60,7 +60,6 @@ Kick-start your new web application based on React and Flux technologies. It als
     "serve-static"
     "style-loader"
     "stylelint"
-    "stylelint-statement-max-nesting-depth"
     "url-loader"
     "webpack"
     "webpack-dev-server"
