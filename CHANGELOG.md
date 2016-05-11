@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add lodash to the devDependencies to avoid problem with json-server's resolved lodash version
+([#11](https://github.com/fs/react-base/pull/11))
 - Add sign up functionality
 ([#8](https://github.com/fs/react-base/pull/8))
 - Introduce abstract actions and stores
