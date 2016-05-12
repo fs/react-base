@@ -5,3 +5,4 @@ access_logs.db
 npm-debug.log
 dist
 db/db.json
+coverage

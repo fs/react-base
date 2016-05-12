@@ -39,11 +39,20 @@ Kick-start your new web application based on React and Flux technologies. It als
     "gulp"
     "gulp-eslint"
     "gulp-json-srv"
-    "gulp-jsonlint"
     "gulp-postcss"
+    "gulp-shell"
     "gutil"
     "html-webpack-plugin"
+    "isparta-instrumenter-loader"
+    "jasmine-core"
+    "karma"
+    "karma-cli"
+    "karma-coverage"
+    "karma-jasmine"
+    "karma-phantomjs-launcher"
+    "karma-webpack"
     "lodash"
+    "phantomjs-prebuilt"
     "postcss-color-function"
     "postcss-import"
     "postcss-inline-comment"
@@ -54,6 +63,7 @@ Kick-start your new web application based on React and Flux technologies. It als
     "postcss-reporter"
     "postcss-simple-vars"
     "postcss-sorting"
+    "react-addons-test-utils"
     "react-hot-loader"
     "require-dir"
     "run-sequence"
@@ -130,6 +140,12 @@ Start to use application in browser:
 localhost:8000
 ```
 
+## Run tests and linters
+
+```bash
+npm test
+```
+
 ## Code linting tasks
 
 Run javascript linter
@@ -137,14 +153,16 @@ Run javascript linter
 gulp eslint
 ```
 
-Run json linter
-```bash
-gulp jsonlint
-```
-
 Run stylesheets linter
 ```bash
 gulp stylelint
+```
+
+## Test tasks
+
+Run karma tests
+```bash
+gulp karma
 ```
 
 ## Credits
