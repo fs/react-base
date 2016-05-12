@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade es6-promise polyfill lib
+([#19](https://github.com/fs/react-base/pull/19))
 - Setup karma and jasmine for test environment
 ([#11](https://github.com/fs/react-base/pull/11))
 - Upgrade Node.js version to 6.1.0
