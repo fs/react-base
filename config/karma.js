@@ -43,9 +43,8 @@ export default {
         },
         {
           test: /\.css$/,
-          exclude: [/app\/stylesheets\//],
           loader: 'style!css?modules&importLoaders=1!postcss'
-        },
+        }
       ]
     }
   },

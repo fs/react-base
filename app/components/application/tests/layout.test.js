@@ -8,11 +8,11 @@ describe('ApplicationLayout', () => {
 
   it('wraps layout with <div>', () => {
     const applicationNode = ReactDOM.findDOMNode(applicationComponent);
-    
+
     expect(applicationNode.tagName).toEqual('DIV');
   });
 
-  it('wraps layout with <div>', () => {
+  it('renders <main> container', () => {
     const mainComponent = TestUtils.findRenderedDOMComponentWithTag(applicationComponent, 'main');
     const mainNode = ReactDOM.findDOMNode(mainComponent);
 
