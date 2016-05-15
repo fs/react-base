@@ -5,11 +5,10 @@ import AboutLayout from 'components/about/layout';
 
 describe('AboutLayout', () => {
   it('renders proper link', () => {
-    const aboutLayout = TestUtils.renderIntoDocument(<AboutLayout/>);
-    const linkTo = TestUtils.findRenderedDOMComponentWithTag(aboutLayout, 'a');
-    const linkToNode = ReactDOM.findDOMNode(linkTo);
-    const linkText = 'show details...';
+    const aboutLayoutComponent = TestUtils.renderIntoDocument(<AboutLayout/>);
+    const linkToComponent = TestUtils.findRenderedDOMComponentWithTag(aboutLayoutComponent, 'a');
+    const linkToNode = ReactDOM.findDOMNode(linkToComponent);
 
-    expect(linkToNode.textContent).toEqual(linkText);
+    expect(linkToNode.textContent).toEqual('show details...');
   });
 });

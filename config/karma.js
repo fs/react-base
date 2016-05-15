@@ -11,7 +11,8 @@ export default {
     '**/tests/*.test.js'
   ],
   frameworks: [
-    'jasmine'
+    'jasmine',
+    'es6-shim'
   ],
   preprocessors: {
     '**/tests/*.test.js': ['webpack']
@@ -25,7 +26,7 @@ export default {
       alias: {
         config: path.resolve('config', 'app', 'test')
       },
-      extensions: ['', '.js', '.jsx']
+      extensions: ['', '.js', '.jsx', '.css']
     },
     cache: true,
     module: {
@@ -39,7 +40,12 @@ export default {
           test: /\.test\.js$/,
           exclude: [/node_modules/],
           loader: 'babel'
-        }
+        },
+        {
+          test: /\.css$/,
+          exclude: [/app\/stylesheets\//],
+          loader: 'style!css?modules&importLoaders=1!postcss'
+        },
       ]
     }
   },

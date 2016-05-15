@@ -5,8 +5,8 @@ import AboutText from 'components/about/view';
 
 describe('AboutText', () => {
   it('renders about text', () => {
-    const aboutText = TestUtils.renderIntoDocument(<AboutText/>);
-    const aboutTextNode = ReactDOM.findDOMNode(aboutText);
+    const aboutTextComponent = TestUtils.renderIntoDocument(<AboutText/>);
+    const aboutTextNode = ReactDOM.findDOMNode(aboutTextComponent);
     const innerText = 'Kick-start your new web application based on React and Flux technologies.';
 
     expect(aboutTextNode.textContent).toEqual(innerText);
