@@ -46,6 +46,12 @@ export default {
           loader: 'style!css?modules&importLoaders=1!postcss'
         }
       ]
+    },
+    externals: {
+      'cheerio': 'window',
+      'react/addons': true,
+      'react/lib/ExecutionEnvironment': true,
+      'react/lib/ReactContext': true
     }
   },
   webpackMiddleware: {

@@ -1,17 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import { mount } from 'enzyme';
 import Footer from 'components/footer/view';
 
 describe('Footer', () => {
-  const footer = TestUtils.renderIntoDocument(<Footer/>);
-  const footerNode = ReactDOM.findDOMNode(footer);
-
-  it('wraps footer with <footer>', () => {
-    expect(footerNode.tagName).toEqual('FOOTER');
-  });
+  const footerComponent = mount(<Footer/>);
 
   it('renders text', () => {
-    expect(footerNode.textContent).toEqual('React-base');
+    expect(footerComponent.find('p').text()).toEqual('React-base');
   });
 });

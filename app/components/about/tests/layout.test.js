@@ -1,14 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import { shallow, mount } from 'enzyme';
+import { Link } from 'react-router';
 import AboutLayout from 'components/about/layout';
+import AboutText from 'components/about/view';
 
 describe('AboutLayout', () => {
-  it('renders proper link', () => {
-    const aboutLayoutComponent = TestUtils.renderIntoDocument(<AboutLayout/>);
-    const linkToComponent = TestUtils.findRenderedDOMComponentWithTag(aboutLayoutComponent, 'a');
-    const linkToNode = ReactDOM.findDOMNode(linkToComponent);
+  it('renders AboutText component', () => {
+    const aboutLayoutComponent = shallow(<AboutLayout/>);
 
-    expect(linkToNode.textContent).toEqual('show details...');
+    expect(aboutLayoutComponent.contains(<AboutText/>)).toEqual(true);
+  });
+
+  it('renders Link component', () => {
+    const aboutLayoutComponent = shallow(<AboutLayout/>);
+
+    expect(aboutLayoutComponent.find(Link).length).toEqual(1);
+  });
+
+  it('renders proper link inside Link component', () => {
+    const aboutLayoutComponent = mount(<AboutLayout/>);
+
+    expect(aboutLayoutComponent.find(Link).text()).toContain('show details...');
   });
 });

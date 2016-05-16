@@ -1,23 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import TestUtils from 'react-addons-test-utils';
+import { mount } from 'enzyme';
 import Dashboard from 'components/dashboard/view';
 
 describe('Dashboard', () => {
-  const dashboardComponent = TestUtils.renderIntoDocument(<Dashboard/>);
+  const dashboardComponent = mount(<Dashboard/>);
 
   it('renders title', () => {
-    const h1Component = TestUtils.findRenderedDOMComponentWithTag(dashboardComponent, 'h1');
-    const h1Node = ReactDOM.findDOMNode(h1Component);
-
-    expect(h1Node.textContent).toEqual('React-base');
+    expect(dashboardComponent.find('h1').text()).toEqual('React-base');
   });
 
   it('renders description text', () => {
-    const pComponent = TestUtils.findRenderedDOMComponentWithTag(dashboardComponent, 'p');
-    const pNode = ReactDOM.findDOMNode(pComponent);
     const innerText = 'Kick-start your new web application based on React and Flux technologies.';
 
-    expect(pNode.textContent).toContain(innerText);
+    expect(dashboardComponent.find('p').text()).toContain(innerText);
   });
 });
