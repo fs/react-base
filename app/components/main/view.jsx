@@ -5,7 +5,7 @@ import Dashboard from 'components/dashboard/view';
 import session from 'services/session';
 
 @connectToStores
-export default class HeaderLayout extends React.Component {
+export default class MainLayout extends React.Component {
   static getStores(props) {
     return [session.store()];
   }

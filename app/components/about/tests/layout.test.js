@@ -5,15 +5,10 @@ import AboutLayout from 'components/about/layout';
 import AboutText from 'components/about/view';
 
 describe('AboutLayout', () => {
-  it('renders AboutText component', () => {
+  it('renders AboutLayout component with child components', () => {
     const aboutLayoutComponent = shallow(<AboutLayout/>);
 
     expect(aboutLayoutComponent.contains(<AboutText/>)).toEqual(true);
-  });
-
-  it('renders Link component', () => {
-    const aboutLayoutComponent = shallow(<AboutLayout/>);
-
     expect(aboutLayoutComponent.find(Link).length).toEqual(1);
   });
 

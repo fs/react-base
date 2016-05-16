@@ -10,27 +10,12 @@ import Footer from 'components/footer/view';
 describe('ApplicationLayout', () => {
   const applicationComponent = shallow(<ApplicationLayout/>);
 
-  it('renders main container', () => {
+  it('renders ApplicationLayout component with child components', () => {
     expect(applicationComponent.find('main').length).toEqual(1);
-  });
-
-  it('renders HeaderLayout component', () => {
     expect(applicationComponent.contains(<HeaderLayout/>)).toEqual(true);
-  });
-
-  it('renders TodoModal component', () => {
     expect(applicationComponent.contains(<TodoModal/>)).toEqual(true);
-  });
-
-  it('renders SigninModal component', () => {
     expect(applicationComponent.contains(<SigninModal/>)).toEqual(true);
-  });
-
-  it('renders SignupModal component', () => {
     expect(applicationComponent.contains(<SignupModal/>)).toEqual(true);
-  });
-
-  it('renders Footer component', () => {
     expect(applicationComponent.contains(<Footer/>)).toEqual(true);
   });
 });
