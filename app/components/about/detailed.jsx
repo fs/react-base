@@ -4,7 +4,7 @@ import Router from 'react-router';
 export default class Detailed extends React.Component {
   static propTypes = {
     params: React.PropTypes.shape({
-      id: React.PropTypes.number
+      id: React.PropTypes.string
     })
   }
 
