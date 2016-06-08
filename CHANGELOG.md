@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node.js to 6.2.x
+([#26](https://github.com/fs/react-base/pull/26))
 - Lock core-decorators package version to avoid tests errors.
 - Upgrade dependencies
 ([#25](https://github.com/fs/react-base/pull/25))
