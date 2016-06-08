@@ -9,7 +9,7 @@ export default {
     'declaration-colon-space-before': 'never',
     'declaration-no-important': true,
     'function-comma-space-after': 'always',
-    'function-url-quotes': 'double',
+    'function-url-quotes': 'always',
     'max-nesting-depth': [3, { ignore: ['at-rules-without-declaration-blocks'] }],
     'media-feature-colon-space-after': 'always',
     'media-feature-colon-space-before': 'never',
