@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Lock core-decorators package version to avoid tests errors.
 - Upgrade dependencies
 ([#25](https://github.com/fs/react-base/pull/25))
 - Upgrade dependencies
