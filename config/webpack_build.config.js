@@ -1,10 +1,11 @@
-import path from 'path';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import config from '../gulp';
-import postcssConfig from '../postcss/config';
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const config = require('./gulp');
+const postcssConfig = require('./postcss');
 
-export default {
+module.exports = {
   resolve: {
     root: [
       path.resolve(config.appDir)
@@ -14,44 +15,39 @@ export default {
     },
     extensions: ['', '.js', '.jsx', '.css']
   },
-  entry: [
-    `webpack-dev-server/client?${config.target}/`,
-    `webpack/hot/only-dev-server`,
-    path.resolve(config.appDir, 'application.jsx')
-  ],
+  entry: path.resolve(config.appDir, 'application.jsx'),
   output: {
-    path: '/',
+    path: path.resolve(config.distDir),
     publicPath: '/',
     filename: 'application.js'
   },
-  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(config.appDir, 'index.html')
     }),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new ExtractTextPlugin('application.css'),
+    new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
     loaders: [
       {
         test: /\.js[x]$/,
         exclude: [/node_modules/],
-        loader: 'react-hot!babel'
+        loader: 'babel'
       },
       {
         test: /\.css$/,
         include: [/app\/stylesheets\//],
-        loader: 'style!css!postcss'
+        loader: ExtractTextPlugin.extract('style!css!postcss')
       },
       {
         test: /\.css$/,
         exclude: [/app\/stylesheets\//],
-        loader: 'style!css?modules&importLoaders=1!postcss'
+        loader: ExtractTextPlugin.extract('style!css?modules&importLoaders=1!postcss')
       },
       {
         test: /\.(jpg|png|ttf|eot|svg|woff2|woff)$/,
-        loader: 'url'
+        loader: 'file'
       }
     ]
   },

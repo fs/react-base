@@ -1,11 +1,10 @@
-import path from 'path';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import config from '../gulp';
-import postcssConfig from '../postcss';
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const config = require('./gulp');
+const postcssConfig = require('./postcss');
 
-export default {
+module.exports = {
   resolve: {
     root: [
       path.resolve(config.appDir)
@@ -15,39 +14,43 @@ export default {
     },
     extensions: ['', '.js', '.jsx', '.css']
   },
-  entry: path.resolve(config.appDir, 'application.jsx'),
+  entry: [
+    'webpack-hot-middleware/client',
+    path.resolve(config.appDir, 'application.jsx')
+  ],
   output: {
-    path: path.resolve(config.distDir),
+    path: '/',
     publicPath: '/',
     filename: 'application.js'
   },
+  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(config.appDir, 'index.html')
     }),
-    new ExtractTextPlugin('application.css'),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
   ],
   module: {
     loaders: [
       {
         test: /\.js[x]$/,
         exclude: [/node_modules/],
-        loader: 'babel'
+        loader: 'react-hot!babel'
       },
       {
         test: /\.css$/,
         include: [/app\/stylesheets\//],
-        loader: ExtractTextPlugin.extract('style!css!postcss')
+        loader: 'style!css!postcss'
       },
       {
         test: /\.css$/,
         exclude: [/app\/stylesheets\//],
-        loader: ExtractTextPlugin.extract('style!css?modules&importLoaders=1!postcss')
+        loader: 'style!css?modules&importLoaders=1!postcss'
       },
       {
         test: /\.(jpg|png|ttf|eot|svg|woff2|woff)$/,
-        loader: 'file'
+        loader: 'url'
       }
     ]
   },

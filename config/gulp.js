@@ -1,5 +1,5 @@
-import fs from 'fs';
-import dotenv from 'dotenv';
+const fs = require('fs');
+const dotenv = require('dotenv');
 
 dotenv.load();
 
@@ -15,4 +15,4 @@ const gulpConfig = {
   [process.env.NODE_ENV]: true
 };
 
-export default Object.assign({}, appConfig, gulpConfig);
+module.exports = Object.assign({}, appConfig, gulpConfig);
