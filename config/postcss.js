@@ -6,7 +6,14 @@ import postcssNested from 'postcss-nested';
 import postcssSimpleVars from 'postcss-simple-vars';
 import postcssColorFunction from 'postcss-color-function';
 import postcssPxtorem from 'postcss-pxtorem';
-import postcssGlobalVariables from './variables';
+
+const variables = {
+  'screen-xs': '480px',
+  'screen-sm': '768px',
+  'screen-md': '992px',
+  'screen-lg': '1200px',
+  'default-grey': '#e7e7e7'
+};
 
 export default function() {
   return [
@@ -15,13 +22,15 @@ export default function() {
     postcssMixins,
     postcssNested,
     postcssSimpleVars({
-      variables: postcssGlobalVariables
+      variables
     }),
     postcssColorFunction,
     postcssPxtorem({
       root_value: 13,
       replace: false
     }),
-    autoprefixer({ browsers: ['last 2 versions'] })
+    autoprefixer({
+      browsers: ['last 2 versions']
+    })
   ];
 }

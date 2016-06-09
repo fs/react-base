@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import config from '../gulp';
-import postcssConfig from '../postcss/config';
+import postcssConfig from '../postcss';
 
 export default {
   resolve: {
