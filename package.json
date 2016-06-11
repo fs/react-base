@@ -11,8 +11,9 @@
   "scripts": {
     "stylelint": "stylelint ./app/**/*.css --config ./config/stylelint.js",
     "eslint": "eslint ./app ./config --ext .js,.jsx --config ./config/eslint.js",
+    "karma": "karma start ./config/karma.js",
     "lint": "npm run stylelint && npm run eslint",
-    "test": "npm run lint && gulp karma",
+    "test": "npm run lint && npm run karma",
     "start": "node ./server"
   },
   "license": "MIT",
@@ -50,7 +51,6 @@
     "express": "~4.13.4",
     "extract-text-webpack-plugin": "~1.0.1",
     "file-loader": "~0.8.5",
-    "gulp": "~3.9.1",
     "html-webpack-plugin": "~2.19.0",
     "isparta-instrumenter-loader": "~1.0.0",
     "jasmine-core": "~2.4.1",
@@ -73,8 +73,6 @@
     "postcss-pxtorem": "~3.3.1",
     "postcss-simple-vars": "~2.0.0",
     "react-addons-test-utils": "~15.1.0",
-    "require-dir": "~0.3.0",
-    "run-sequence": "~1.2.1",
     "style-loader": "~0.13.1",
     "stylelint": "~6.5.1",
     "url-loader": "~0.5.7",
