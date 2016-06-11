@@ -4,7 +4,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 const historyApiFallback = require('connect-history-api-fallback');
 const jsonServer = require('json-server');
-const config = require('./config/gulp');
+const config = require('./config/application');
 const webpackDevConfig = require('./config/webpack_dev.config');
 const webpackBuildConfig = require('./config/webpack_build.config');
 

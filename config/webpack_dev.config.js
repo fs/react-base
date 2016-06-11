@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const config = require('./gulp');
+const config = require('./application');
 const postcssConfig = require('./postcss');
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
       path.resolve(config.appDir)
     ],
     alias: {
-      config: path.resolve(config.configDir, 'app', config.env)
+      config: path.resolve(config.configDir, 'env', config.env)
     },
     extensions: ['', '.js', '.jsx', '.css']
   },

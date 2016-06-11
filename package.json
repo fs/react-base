@@ -9,7 +9,10 @@
     "url": "git://github.com:fs/react-base.git"
   },
   "scripts": {
-    "test": "gulp stylelint && gulp eslint && gulp karma",
+    "stylelint": "stylelint ./app/**/*.css --config ./config/stylelint.js",
+    "eslint": "eslint ./app ./config --ext .js,.jsx --config ./config/eslint.js",
+    "lint": "npm run stylelint && npm run eslint",
+    "test": "npm run lint && gulp karma",
     "start": "node ./server"
   },
   "license": "MIT",
@@ -48,8 +51,6 @@
     "extract-text-webpack-plugin": "~1.0.1",
     "file-loader": "~0.8.5",
     "gulp": "~3.9.1",
-    "gulp-eslint": "~2.0.0",
-    "gulp-postcss": "~6.1.1",
     "html-webpack-plugin": "~2.19.0",
     "isparta-instrumenter-loader": "~1.0.0",
     "jasmine-core": "~2.4.1",
@@ -70,7 +71,6 @@
     "postcss-mixins": "~4.0.2",
     "postcss-nested": "~1.0.0",
     "postcss-pxtorem": "~3.3.1",
-    "postcss-reporter": "~1.3.3",
     "postcss-simple-vars": "~2.0.0",
     "react-addons-test-utils": "~15.1.0",
     "require-dir": "~0.3.0",
