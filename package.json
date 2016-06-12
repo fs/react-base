@@ -9,9 +9,12 @@
     "url": "git://github.com:fs/react-base.git"
   },
   "scripts": {
-    "test": "gulp lint && gulp karma",
-    "postinstall": "gulp build",
-    "start": "gulp server"
+    "stylelint": "stylelint ./app/**/*.css --config ./config/stylelint.js",
+    "eslint": "eslint ./app ./config --ext .js,.jsx --config ./config/eslint.js",
+    "karma": "karma start ./config/karma.js",
+    "lint": "npm run stylelint && npm run eslint",
+    "test": "npm run lint && npm run karma",
+    "start": "node ./server"
   },
   "license": "MIT",
   "engines": {
@@ -40,22 +43,19 @@
     "babel-preset-es2015": "~6.9.0",
     "babel-preset-react": "~6.5.0",
     "babel-preset-stage-0": "~6.5.0",
-    "connect": "~3.4.1",
     "connect-history-api-fallback": "~1.2.0",
     "css-loader": "~0.23.1",
     "dotenv": "~2.0.0",
     "enzyme": "~2.3.0",
+    "eslint": "~2.12.0",
     "eslint-plugin-react": "~5.1.1",
+    "express": "~4.13.4",
     "extract-text-webpack-plugin": "~1.0.1",
     "file-loader": "~0.8.5",
-    "gulp": "~3.9.1",
-    "gulp-eslint": "~2.0.0",
-    "gulp-json-srv": "~0.2.0",
-    "gulp-postcss": "~6.1.1",
-    "gutil": "~1.6.4",
     "html-webpack-plugin": "~2.19.0",
     "isparta-instrumenter-loader": "~1.0.0",
     "jasmine-core": "~2.4.1",
+    "json-server": "~0.8.14",
     "karma": "~0.13.22",
     "karma-cli": "~1.0.0",
     "karma-coverage": "~1.0.0",
@@ -72,17 +72,14 @@
     "postcss-mixins": "~4.0.2",
     "postcss-nested": "~1.0.0",
     "postcss-pxtorem": "~3.3.1",
-    "postcss-reporter": "~1.3.3",
     "postcss-simple-vars": "~2.0.0",
     "react-addons-test-utils": "~15.1.0",
     "react-hot-loader": "~1.3.0",
-    "require-dir": "~0.3.0",
-    "run-sequence": "~1.2.1",
-    "serve-static": "~1.10.3",
     "style-loader": "~0.13.1",
     "stylelint": "~6.5.1",
     "url-loader": "~0.5.7",
     "webpack": "~1.13.1",
-    "webpack-dev-server": "~1.14.1"
+    "webpack-dev-middleware": "~1.6.1",
+    "webpack-hot-middleware": "~2.10.0"
   }
 }

@@ -10,7 +10,7 @@ export default class Dashboard extends React.Component {
           <p>
             Kick-start your new web application based on React and Flux technologies.
             <br/>
-            It also includes Gulp, Webpack, React hot loader, PostCSS,
+            It also includes Webpack, React hot loader, PostCSS,
             JSON-server tools for even more rapid development.
           </p>
         </Jumbotron>

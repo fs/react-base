@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/fs/react-base.svg?branch=master)](https://david-dm.org/fs/react-base)
 [![devDependency Status](https://david-dm.org/fs/react-base/dev-status.svg?branch=master)](https://david-dm.org/fs/react-base#info=devDependencies)
 
-Kick-start your new web application based on React and Flux technologies. It also includes Gulp, Webpack, React hot loader, PostCSS, JSON-server tools for even more rapid development.
+Kick-start your new web application based on React and Flux technologies. It also includes Webpack, React hot loader, PostCSS, JSON-server tools for even more rapid development.
 
 ## NPM Dependencies:
 
@@ -54,13 +54,13 @@ bin/setup
 Run app (by default environment is 'development', port is 8000)
 
 ```bash
-gulp
+npm start
 ```
 
 Run app with options
 
 ```bash
-[<options>] gulp
+[<options>] npm start
 ```
 
 ```bash
@@ -86,19 +86,24 @@ npm test
 
 Run javascript linter
 ```bash
-gulp eslint
+npm run eslint
 ```
 
 Run stylesheets linter
 ```bash
-gulp stylelint
+npm run stylelint
+```
+
+Run all linters
+```bash
+npm run lint
 ```
 
 ## Test tasks
 
 Run karma tests
 ```bash
-gulp karma
+npm run karma
 ```
 
 ## Credits
