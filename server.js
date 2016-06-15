@@ -35,6 +35,6 @@ else {
 
     server.use(historyApiFallback());
     server.use(express.static(config.distDir));
-    server.listen(port, 'localhost');
+    server.listen(port);
   });
 }

@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Fix issue related to server port for production server.
+([#28](https://github.com/fs/react-base/pull/28))
 - Rewrite all scripts without usage of gulp. Remove gulp from project.
 ([#27](https://github.com/fs/react-base/pull/27))
 - Upgrade Node.js to 6.2.x
