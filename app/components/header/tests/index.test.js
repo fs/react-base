@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { Navbar } from 'react-bootstrap';
-import Header from 'components/header/layout';
+import Header from 'components/header';
 import NavigationLeft from 'components/navigation/left';
 import NavigationRight from 'components/navigation/right';
 

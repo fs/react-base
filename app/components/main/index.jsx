@@ -1,11 +1,11 @@
 import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import TodoLayout from 'components/todo/layout';
-import Dashboard from 'components/dashboard/view';
+import Home from 'components/home';
 import session from 'services/session';
 
 @connectToStores
-export default class MainLayout extends React.Component {
+export default class Main extends React.Component {
   static getStores(props) {
     return [session.store()];
   }
@@ -15,6 +15,6 @@ export default class MainLayout extends React.Component {
   }
 
   render() {
-    return session.loggedIn() ? <TodoLayout/> : <Dashboard/>;
+    return session.loggedIn() ? <TodoLayout/> : <Home/>;
   }
 }

@@ -3,7 +3,7 @@ import { Navbar } from 'react-bootstrap';
 import NavigationLeft from 'components/navigation/left';
 import NavigationRight from 'components/navigation/right';
 
-export default class HeaderLayout extends React.Component {
+export default class Header extends React.Component {
   render() {
     const links = [
       { title: 'Home', route: '/' },

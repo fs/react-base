@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Reorganize components structure
+([#29](https://github.com/fs/react-base/pull/29))
 - Change javascript files extensions from .jsx to .js
 ([#29](https://github.com/fs/react-base/pull/29))
 - Fix stylesheets hot reloading issue.
