@@ -15,19 +15,18 @@ const variables = {
   'default-grey': '#e7e7e7'
 };
 
-module.exports = [
+module.exports = webpack => [
   postcssInlineComment,
-  postcssImport,
+  postcssImport({
+    addDependencyTo: webpack
+  }),
   postcssMixins,
   postcssNested,
   postcssSimpleVars({
     variables
   }),
   postcssColorFunction,
-  postcssPxtorem({
-    root_value: 13,
-    replace: false
-  }),
+  postcssPxtorem,
   autoprefixer({
     browsers: ['last 2 versions']
   })

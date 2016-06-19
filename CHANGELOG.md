@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Fix stylesheets hot reloading issue.
+([#29](https://github.com/fs/react-base/pull/29))
 - Fix issue related to server port for production server.
 ([#28](https://github.com/fs/react-base/pull/28))
 - Rewrite all scripts without usage of gulp. Remove gulp from project.

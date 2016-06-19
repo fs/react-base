@@ -1,3 +1,4 @@
+import 'stylesheets/application';
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Redirect, browserHistory } from 'react-router';
@@ -7,7 +8,6 @@ import AboutLayout from 'components/about/layout';
 import About from 'components/about/view';
 import Detailed from 'components/about/detailed';
 import { requireAuth } from 'helpers/routes';
-import globalStyles from 'stylesheets/main';
 
 render((
   <Router history={ browserHistory }>
