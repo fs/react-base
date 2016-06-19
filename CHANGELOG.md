@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Change javascript files extensions from .jsx to .js
+([#29](https://github.com/fs/react-base/pull/29))
 - Fix stylesheets hot reloading issue.
 ([#29](https://github.com/fs/react-base/pull/29))
 - Fix issue related to server port for production server.
