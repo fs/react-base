@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Footer from 'components/footer/view';
+import Footer from 'components/footer';
 
 describe('Footer', () => {
   const footerComponent = mount(<Footer/>);

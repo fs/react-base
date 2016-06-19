@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Navigation from 'components/navigation/view';
+import Navigation from 'components/navigation';
 import { Link } from 'react-router';
 
 describe('Navigation', () => {

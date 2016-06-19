@@ -1,6 +1,6 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
-import NavigationItem from 'components/navigation/view';
+import NavigationItem from 'components/navigation';
 
 export default class NavigationLeft extends React.Component {
   static propTypes = {

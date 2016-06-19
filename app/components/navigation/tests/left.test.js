@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import NavigationLeft from 'components/navigation/left';
-import NavigationItem from 'components/navigation/view';
+import NavigationItem from 'components/navigation';
 
 describe('NavigationLeft', () => {
   it('renders NavigationLeft with collection of NavigationItem', () => {

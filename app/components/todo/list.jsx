@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListGroup } from 'react-bootstrap';
-import Todo from 'components/todo/view';
+import Todo from 'components/todo';
 
 export default class TodoList extends React.Component {
   static propTypes = {

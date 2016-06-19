@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Grid } from 'react-bootstrap';
-import AboutText from 'components/about/view';
 
-export default class AboutLayout extends React.Component {
+export default class About extends React.Component {
   render() {
     return (
       <Grid>
         <article>
           <h1>About</h1>
-          <AboutText/>
+          <p>
+            Kick-start your new web application based on React and Flux technologies.
+          </p>
           <Link to="/about/extended/test_id">
             show details...
           </Link>
