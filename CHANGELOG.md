@@ -1,19 +1,23 @@
 # Changelog
 
 ## Unreleased
+- Add qs lib. Add ability to pass query parameters into request url
+([#32](https://github.com/fs/react-base/pull/32))
+- Add classnames utility for conditionally joining classNames together
+([#32](https://github.com/fs/react-base/pull/32))
 - Reorganize components structure
 ([#29](https://github.com/fs/react-base/pull/29))
 - Change javascript files extensions from .jsx to .js
 ([#29](https://github.com/fs/react-base/pull/29))
-- Fix stylesheets hot reloading issue.
+- Fix stylesheets hot reloading issue
 ([#29](https://github.com/fs/react-base/pull/29))
-- Fix issue related to server port for production server.
+- Fix issue related to server port for production server
 ([#28](https://github.com/fs/react-base/pull/28))
-- Rewrite all scripts without usage of gulp. Remove gulp from project.
+- Rewrite all scripts without usage of gulp. Remove gulp from project
 ([#27](https://github.com/fs/react-base/pull/27))
 - Upgrade Node.js to 6.2.x
 ([#26](https://github.com/fs/react-base/pull/26))
-- Lock core-decorators package version to avoid tests errors.
+- Lock core-decorators package version to avoid tests errors
 - Upgrade dependencies
 ([#25](https://github.com/fs/react-base/pull/25))
 - Upgrade dependencies
