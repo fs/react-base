@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add qs lib. Add ability to pass query parameters into request url
+([#32](https://github.com/fs/react-base/pull/32))
 - Add classnames utility for conditionally joining classNames together
 ([#32](https://github.com/fs/react-base/pull/32))
 - Reorganize components structure
