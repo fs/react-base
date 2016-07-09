@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Rewrite modals logic and add main Modals component. Clean up code
+([#33](https://github.com/fs/react-base/pull/33))
 - Upgrade dependencies
 ([#31](https://github.com/fs/react-base/pull/31))
 - Add qs lib. Add ability to pass query parameters into request url

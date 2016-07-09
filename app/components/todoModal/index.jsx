@@ -2,12 +2,14 @@ import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import { Modal, Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import TodoActions from 'actions/todo';
+import ApplicationActions from 'actions/application';
 import TodoStore from 'stores/todo';
+import ApplicationStore from 'stores/application';
 
 @connectToStores
 export default class TodoModal extends React.Component {
   static propTypes = {
-    showModal: React.PropTypes.bool,
+    isModalOpen: React.PropTypes.bool,
     todo: React.PropTypes.shape({
       name: React.PropTypes.string,
       isComplete: React.PropTypes.bool
@@ -15,11 +17,14 @@ export default class TodoModal extends React.Component {
   }
 
   static getStores(props) {
-    return [TodoStore];
+    return [TodoStore, ApplicationStore];
   }
 
   static getPropsFromStores(props) {
-    return TodoStore.getState();
+    return {
+      ...TodoStore.getState(),
+      ...ApplicationStore.getState()
+    };
   }
 
   setName(event) {
@@ -29,7 +34,7 @@ export default class TodoModal extends React.Component {
   saveTodo() {
     if (this.validationState() !== 'error') {
       TodoActions.create(this.props.todo);
-      TodoActions.hide();
+      ApplicationActions.closeModal();
     }
   }
 
@@ -45,9 +50,8 @@ export default class TodoModal extends React.Component {
     return (
       <Modal
         bsSize="small"
-        show={ this.props.showModal }
-        onHide={ TodoActions.hide }
-        onExited={ TodoActions.reset }
+        show={ this.props.isModalOpen }
+        onHide={ ApplicationActions.closeModal }
       >
         <Modal.Header closeButton>
           <h3 className="modal-title">New Task</h3>

@@ -4,7 +4,7 @@ import Navigation from 'components/navigation';
 import { Link } from 'react-router';
 
 describe('Navigation', () => {
-  const item = { title: 'cool story1', route: '/1'};
+  const item = { title: 'cool story1', route: '/1' };
   const navigationComponent = mount(<Navigation item={ item }/>);
 
   it('renders Link with Navigation item', () => {

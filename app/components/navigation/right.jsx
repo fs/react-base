@@ -1,10 +1,8 @@
 import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import { Nav, NavItem } from 'react-bootstrap';
+import ApplicationActions from 'actions/application';
 import SessionActions from 'actions/session';
-import SigninActions from 'actions/signin';
-import SignupActions from 'actions/signup';
-import TodoActions from 'actions/todo';
 import session from 'services/session';
 
 @connectToStores
@@ -18,15 +16,15 @@ export default class NavigationRight extends React.Component {
   }
 
   create() {
-    TodoActions.show();
+    ApplicationActions.openModal({ name: 'todo' });
   }
 
   signIn() {
-    SigninActions.show();
+    ApplicationActions.openModal({ name: 'signIn' });
   }
 
   signUp() {
-    SignupActions.show();
+    ApplicationActions.openModal({ name: 'signUp' });
   }
 
   signOut() {
@@ -46,17 +44,16 @@ export default class NavigationRight extends React.Component {
         </Nav>
       );
     }
-    else {
-      return (
-        <Nav pullRight>
-          <NavItem onClick={ ::this.signUp }>
-            Sign up
-          </NavItem>
-          <NavItem onClick={ ::this.signIn }>
-            Sign in
-          </NavItem>
-        </Nav>
-      );
-    }
+
+    return (
+      <Nav pullRight>
+        <NavItem onClick={ ::this.signUp }>
+          Sign up
+        </NavItem>
+        <NavItem onClick={ ::this.signIn }>
+          Sign in
+        </NavItem>
+      </Nav>
+    );
   }
 }

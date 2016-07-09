@@ -3,12 +3,10 @@ import { mount } from 'enzyme';
 import { Nav, NavItem } from 'react-bootstrap';
 import NavigationRight from 'components/navigation/right';
 import session from 'services/session';
-import TodoActions from 'actions/todo';
+import ApplicationActions from 'actions/application';
 import SessionActions from 'actions/session';
-import SigninActions from 'actions/signin';
-import SignupActions from 'actions/signup';
 
-describe('NavigationLeft', () => {
+describe('NavigationRight', () => {
   describe('when user is signed in', () => {
     beforeEach(() => {
       spyOn(session, 'loggedIn').and.returnValue(true);
@@ -25,15 +23,15 @@ describe('NavigationLeft', () => {
       expect(navItems.at(1).text()).toEqual('Sign out');
     });
 
-    it('calls TodoActions.show()', () => {
-      spyOn(TodoActions, 'show');
-      const navigationRightComponent = mount(<NavigationRight />);
+    it('calls ApplicationActions.openModal({ name: todo })', () => {
+      spyOn(ApplicationActions, 'openModal');
+      const navigationRightComponent = mount(<NavigationRight/>);
       navigationRightComponent.find('a').at(0).simulate('click');
 
-      expect(TodoActions.show).toHaveBeenCalled();
+      expect(ApplicationActions.openModal).toHaveBeenCalledWith({ name: 'todo' });
     });
 
-    it('calls SessionActions.delete', () => {
+    it('calls SessionActions.delete()', () => {
       spyOn(SessionActions, 'delete');
       const navigationRightComponent = mount(<NavigationRight />);
       navigationRightComponent.find('a').at(1).simulate('click');
@@ -54,20 +52,20 @@ describe('NavigationLeft', () => {
       expect(navItems.at(1).text()).toEqual('Sign in');
     });
 
-    it('calls SignupActions.show()', () => {
-      spyOn(SignupActions, 'show');
+    it('calls ApplicationActions.openModal({ name: signUp }', () => {
+      spyOn(ApplicationActions, 'openModal');
       const navigationRightComponent = mount(<NavigationRight />);
       navigationRightComponent.find('a').at(0).simulate('click');
 
-      expect(SignupActions.show).toHaveBeenCalled();
+      expect(ApplicationActions.openModal).toHaveBeenCalledWith({ name: 'signUp' });
     });
 
-    it('calls SessionActions.delete', () => {
-      spyOn(SigninActions, 'show');
+    it('calls ApplicationActions.openModal({ name: signIn })', () => {
+      spyOn(ApplicationActions, 'openModal');
       const navigationRightComponent = mount(<NavigationRight />);
       navigationRightComponent.find('a').at(1).simulate('click');
 
-      expect(SigninActions.show).toHaveBeenCalled();
+      expect(ApplicationActions.openModal).toHaveBeenCalledWith({ name: 'signIn' });
     });
   });
 });
