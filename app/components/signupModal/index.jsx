@@ -2,12 +2,14 @@ import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import { Modal, Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import SignupActions from 'actions/signup';
+import ApplicationActions from 'actions/application';
 import SignupStore from 'stores/signup';
+import ApplicationStore from 'stores/application';
 
 @connectToStores
 export default class SignupModal extends React.Component {
   static propTypes = {
-    showModal: React.PropTypes.bool,
+    isModalOpen: React.PropTypes.bool,
     user: React.PropTypes.shape({
       name: React.PropTypes.string,
       email: React.PropTypes.string,
@@ -17,11 +19,14 @@ export default class SignupModal extends React.Component {
   }
 
   static getStores(props) {
-    return [SignupStore];
+    return [SignupStore, ApplicationStore];
   }
 
   static getPropsFromStores(props) {
-    return SignupStore.getState();
+    return {
+      ...SignupStore.getState(),
+      ...ApplicationStore.getState()
+    };
   }
 
   setValue(event) {
@@ -33,7 +38,7 @@ export default class SignupModal extends React.Component {
 
     if (this.isValid()) {
       SignupActions.create(this.props.user);
-      SignupActions.hide();
+      ApplicationActions.closeModal();
     }
   }
 
@@ -69,9 +74,8 @@ export default class SignupModal extends React.Component {
     return (
       <Modal
         bsSize="small"
-        show={ this.props.showModal }
-        onHide={ SignupActions.hide }
-        onExited={ SignupActions.reset }
+        show={ this.props.isModalOpen }
+        onHide={ ApplicationActions.closeModal }
       >
         <Modal.Header closeButton>
           <h3 className="modal-title">Sign Up</h3>

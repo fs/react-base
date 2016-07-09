@@ -1,11 +1,8 @@
 import Alt from 'alt_flux';
 import { createStore } from 'alt-utils/lib/decorators';
+import { maxBy } from 'lodash';
 import TodoActions from 'actions/todo';
 import TodosActions from 'actions/todos';
-
-const max = (array, callback) => {
-  return Math.max.apply(Math, array.map(callback));
-};
 
 @createStore(Alt)
 export default class TodosStore {
@@ -33,7 +30,7 @@ export default class TodosStore {
   }
 
   create(todo) {
-    let found = max(this.todos, item => item.id);
+    let found = maxBy(this.todos, item => item.id);
 
     todo = Object.assign({ id: ++found }, todo);
     this.todos.push(todo);

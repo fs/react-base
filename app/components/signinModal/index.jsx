@@ -2,13 +2,15 @@ import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import { Modal, Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
 import SessionActions from 'actions/session';
+import ApplicationActions from 'actions/application';
 import SigninActions from 'actions/signin';
+import ApplicationStore from 'stores/application';
 import SigninStore from 'stores/signin';
 
 @connectToStores
 export default class SigninModal extends React.Component {
   static propTypes = {
-    showModal: React.PropTypes.bool,
+    isModalOpen: React.PropTypes.bool,
     user: React.PropTypes.shape({
       email: React.PropTypes.string,
       password: React.PropTypes.string
@@ -16,11 +18,14 @@ export default class SigninModal extends React.Component {
   }
 
   static getStores(props) {
-    return [SigninStore];
+    return [SigninStore, ApplicationStore];
   }
 
   static getPropsFromStores(props) {
-    return SigninStore.getState();
+    return {
+      ...SigninStore.getState(),
+      ...ApplicationStore.getState()
+    };
   }
 
   setValue(event) {
@@ -32,7 +37,7 @@ export default class SigninModal extends React.Component {
 
     if (this.isValid()) {
       SessionActions.create(this.props.user);
-      SigninActions.hide();
+      ApplicationActions.closeModal();
     }
   }
 
@@ -50,9 +55,8 @@ export default class SigninModal extends React.Component {
     return (
       <Modal
         bsSize="small"
-        show={ this.props.showModal }
-        onHide={ SigninActions.hide }
-        onExited={ SigninActions.reset }
+        show={ this.props.isModalOpen }
+        onHide={ ApplicationActions.closeModal }
       >
         <Modal.Header closeButton>
           <h3 className="modal-title">Sign In</h3>

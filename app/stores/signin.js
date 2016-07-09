@@ -1,11 +1,9 @@
 import Alt from 'alt_flux';
 import { createStore } from 'alt-utils/lib/decorators';
-import { mixin } from 'core-decorators';
-import { ModalStoreMixin } from 'mixins/modal/store';
 import SigninActions from 'actions/signin';
+import ApplicationActions from 'actions/application';
 
 @createStore(Alt)
-@mixin(ModalStoreMixin)
 export default class SigninStore {
   defaultProps = {
     email: '',
@@ -16,18 +14,16 @@ export default class SigninStore {
     this.user = Object.assign({}, this.defaultProps);
 
     this.bindListeners({
-      show: SigninActions.SHOW,
-      hide: SigninActions.HIDE,
-      reset: SigninActions.RESET,
-      setValue: SigninActions.SET_VALUE
+      setValue: SigninActions.SET_VALUE,
+      reset: ApplicationActions.CLOSE_MODAL
     });
-  }
-
-  reset() {
-    this.user = Object.assign({}, this.defaultProps);
   }
 
   setValue(obj) {
     this.user[obj.name] = obj.value;
+  }
+
+  reset() {
+    this.user = Object.assign({}, this.defaultProps);
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
-import TodoActions from 'actions/todo';
+import ApplicationActions from 'actions/application';
 import TodosActions from 'actions/todos';
 import TodosStore from 'stores/todos';
 import TodoList from 'components/todo/list';
@@ -32,7 +32,7 @@ export default class TodoLayout extends React.Component {
   }
 
   create() {
-    TodoActions.show();
+    ApplicationActions.openModal({ name: 'todo' });
   }
 
   renderList(complete) {
