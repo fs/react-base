@@ -81,9 +81,10 @@ export default class SigninModal extends React.Component {
             >
               <ControlLabel>Password</ControlLabel>
               <FormControl
-                type="text"
+                autoComplete="off"
                 name="password"
                 onChange={ ::this.setValue }
+                type="text"
               />
             </FormGroup>
           </Modal.Body>
