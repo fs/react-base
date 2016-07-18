@@ -10,6 +10,7 @@
   },
   "scripts": {
     "stylelint": "stylelint ./app/**/*.css --config ./config/stylelint.js",
+    "stylesort": "postcss -u postcss-sorting -c ./config/postcss-cli.js -r ./app/{**,**/**}/*.css",
     "eslint": "eslint ./app ./config --ext .js,.jsx --config ./config/eslint.js",
     "karma": "karma start ./config/karma.js",
     "lint": "npm run stylelint && npm run eslint",
@@ -66,6 +67,7 @@
     "karma-phantomjs-launcher": "~1.0.1",
     "karma-webpack": "~1.7.0",
     "phantomjs-prebuilt": "~2.1.7",
+    "postcss-cli": "~2.5.2",
     "postcss-color-function": "~2.0.1",
     "postcss-import": "~8.1.2",
     "postcss-inline-comment": "~3.0.0",
@@ -74,6 +76,7 @@
     "postcss-nested": "~1.0.0",
     "postcss-pxtorem": "~3.3.1",
     "postcss-simple-vars": "~3.0.0",
+    "postcss-sorting": "~1.6.1",
     "react-addons-test-utils": "~15.2.0",
     "react-hot-loader": "~1.3.0",
     "style-loader": "~0.13.1",

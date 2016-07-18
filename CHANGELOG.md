@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add postcss sorting config and rule for stylelint properties order
+([#35](https://github.com/fs/react-base/pull/35))
 - Rewrite modals logic and add main Modals component. Clean up code
 ([#33](https://github.com/fs/react-base/pull/33))
 - Upgrade dependencies

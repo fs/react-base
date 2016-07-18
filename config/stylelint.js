@@ -1,3 +1,5 @@
+const postcssCLIConfig = require('./postcss-cli');
+
 module.exports = {
   'rules': {
     'block-no-empty': true,
@@ -22,6 +24,7 @@ module.exports = {
     'selector-list-comma-newline-after': 'always-multi-line',
     'selector-no-id': true,
     'string-quotes': 'double',
-    'value-no-vendor-prefix': true
+    'value-no-vendor-prefix': true,
+    'declaration-block-properties-order': postcssCLIConfig['postcss-sorting']['sort-order'][2]
   }
 };
