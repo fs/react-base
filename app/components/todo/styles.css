@@ -3,7 +3,7 @@
 }
 
 .trashIcon {
+  margin-top: 2px;
   float: right;
   z-index: 10;
-  margin-top: 2px;
 }

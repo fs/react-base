@@ -1,6 +1,6 @@
 .todo-enter {
-  opacity: .01;
   transition: opacity .3s ease-in;
+  opacity: .01;
 
   &.todo-enter-active {
     opacity: 1;
@@ -8,8 +8,8 @@
 }
 
 .todo-leave {
-  opacity: 1;
   transition: opacity .3s ease-in;
+  opacity: 1;
 
   &.todo-leave-active {
     opacity: .01;
@@ -17,8 +17,8 @@
 }
 
 .todo-appear {
-  opacity: .01;
   transition: opacity .3s ease-in;
+  opacity: .01;
 
   &.todo-appear-active {
     opacity: 1;
