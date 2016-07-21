@@ -6,6 +6,8 @@ import TodosActions from 'actions/todos';
 
 @createStore(Alt)
 export default class TodosStore {
+  static displayName = 'TodosStore'
+
   constructor() {
     this.todos = [];
 

@@ -26,7 +26,12 @@ module.exports = {
       template: path.resolve(config.appDir, 'index.html')
     }),
     new ExtractTextPlugin('application.css'),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
   ],
   module: {
     loaders: [

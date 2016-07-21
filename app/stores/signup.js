@@ -5,6 +5,8 @@ import ApplicationActions from 'actions/application';
 
 @createStore(Alt)
 export default class SignupStore {
+  static displayName = 'SignupStore'
+
   defaultProps = {
     name: '',
     email: '',

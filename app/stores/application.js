@@ -4,6 +4,8 @@ import ApplicationActions from 'actions/application';
 
 @createStore(Alt)
 export default class ApplicationStore {
+  static displayName = 'ApplicationStore'
+
   constructor() {
     this.isModalOpen = false;
     this.modalName = '';
