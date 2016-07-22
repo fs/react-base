@@ -8,6 +8,8 @@ const STORAGE_KEY = config.storageKey;
 
 @createStore(Alt)
 export default class SessionStore {
+  static displayName = 'SessionStore'
+
   constructor() {
     this.currentUser = Storage.get(STORAGE_KEY) || {};
 

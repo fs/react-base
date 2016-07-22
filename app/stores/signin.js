@@ -5,6 +5,8 @@ import ApplicationActions from 'actions/application';
 
 @createStore(Alt)
 export default class SigninStore {
+  static displayName = 'SigninStore'
+
   defaultProps = {
     email: '',
     password: ''

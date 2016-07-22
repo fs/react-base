@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Remove warnings in production build and update react-bootstrap
+([#36](https://github.com/fs/react-base/pull/36))
 - Add postcss sorting config and rule for stylelint properties order
 ([#35](https://github.com/fs/react-base/pull/35))
 - Rewrite modals logic and add main Modals component. Clean up code

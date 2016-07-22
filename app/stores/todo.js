@@ -5,6 +5,8 @@ import ApplicationActions from 'actions/application';
 
 @createStore(Alt)
 export default class TodoStore {
+  static displayName = 'TodoStore'
+
   defaultProps = {
     name: '',
     isComplete: false
