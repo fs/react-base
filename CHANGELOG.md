@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node.js to 6.3.x
+([#38](https://github.com/fs/react-base/pull/38))
+- Upgrade dependencies
+([#37](https://github.com/fs/react-base/pull/37))
 - Remove warnings in production build and update react-bootstrap
 ([#36](https://github.com/fs/react-base/pull/36))
 - Add postcss sorting config and rule for stylelint properties order
