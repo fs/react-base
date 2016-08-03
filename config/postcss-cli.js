@@ -114,6 +114,7 @@ module.exports = {
         "text-shadow",
         "text-transform",
         "text-wrap",
+        "text-size-adjust",
         "white-space",
         "word-spacing",
         "border-collapse",
@@ -130,7 +131,9 @@ module.exports = {
         "table-layout",
         "vertical-align",
         "visibility",
-        "z-index"
+        "z-index",
+        "appearance",
+        "user-select"
       ],
       [">child"],
       ["@atrule"]
