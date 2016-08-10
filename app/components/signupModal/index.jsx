@@ -111,7 +111,7 @@ export default class SignupModal extends React.Component {
             >
               <ControlLabel>Password</ControlLabel>
               <FormControl
-                type="text"
+                type="password"
                 name="password"
                 onChange={ ::this.setValue }
               />
@@ -122,7 +122,7 @@ export default class SignupModal extends React.Component {
             >
               <ControlLabel>Password Confirmation</ControlLabel>
               <FormControl
-                type="text"
+                type="password"
                 name="passwordConfirmation"
                 onChange={ ::this.setValue }
               />
