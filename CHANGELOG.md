@@ -1,8 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Introduce appHistory service. Update custom request lib. Update routes helper
+([#42](https://github.com/fs/react-base/pull/42))
 - Extract session actions into session service
-([#40](https://github.com/fs/react-base/pull/40))
+([#41](https://github.com/fs/react-base/pull/41))
 - Add new rules in postcss sorting config
 ([#39](https://github.com/fs/react-base/pull/39))
 - Upgrade Node.js to 6.3.x

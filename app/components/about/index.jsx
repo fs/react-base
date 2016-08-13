@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Grid } from 'react-bootstrap';
+import { paths } from 'helpers/routes';
 
 export default class About extends React.Component {
+  id = 'test_id'
+
   render() {
     return (
       <Grid>
@@ -11,7 +14,7 @@ export default class About extends React.Component {
           <p>
             Kick-start your new web application based on React and Flux technologies.
           </p>
-          <Link to="/about/extended/test_id">
+          <Link to={ paths.aboutExtended(this.id) }>
             show details...
           </Link>
           { this.props.children }
