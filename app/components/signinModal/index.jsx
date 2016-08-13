@@ -1,7 +1,7 @@
 import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import { Modal, Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import SessionActions from 'actions/session';
+import session from 'services/session';
 import ApplicationActions from 'actions/application';
 import SigninActions from 'actions/signin';
 import ApplicationStore from 'stores/application';
@@ -36,7 +36,7 @@ export default class SigninModal extends React.Component {
     event.preventDefault();
 
     if (this.isValid()) {
-      SessionActions.create(this.props.user);
+      session.create(this.props.user);
       ApplicationActions.closeModal();
     }
   }
