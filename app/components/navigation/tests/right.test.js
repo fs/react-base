@@ -4,7 +4,6 @@ import { Nav, NavItem } from 'react-bootstrap';
 import NavigationRight from 'components/navigation/right';
 import session from 'services/session';
 import ApplicationActions from 'actions/application';
-import SessionActions from 'actions/session';
 
 describe('NavigationRight', () => {
   describe('when user is signed in', () => {
@@ -31,12 +30,12 @@ describe('NavigationRight', () => {
       expect(ApplicationActions.openModal).toHaveBeenCalledWith({ name: 'todo' });
     });
 
-    it('calls SessionActions.delete()', () => {
-      spyOn(SessionActions, 'delete');
+    it('calls session.delete()', () => {
+      spyOn(session, 'delete');
       const navigationRightComponent = mount(<NavigationRight />);
       navigationRightComponent.find('a').at(1).simulate('click');
 
-      expect(SessionActions.delete).toHaveBeenCalled();
+      expect(session.delete).toHaveBeenCalled();
     });
   });
 
