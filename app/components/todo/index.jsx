@@ -39,8 +39,7 @@ export default class Todo extends React.Component {
           <span
             className={ `glyphicon glyphicon-trash ${styles.trashIcon}` }
             onClick={ ::this.delete }
-          >
-          </span>
+          />
         </ListGroupItem>
       </CSSTransitionGroup>
     );

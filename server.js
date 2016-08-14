@@ -24,7 +24,7 @@ if (config.development) {
   }));
   server.use(webpackHotMiddleware(compiler));
   server.use(jsonServer.defaults());
-  server.use(config.api.path, jsonServer.router('./db/db.json'));
+  server.use(config.apiPath, jsonServer.router('./db/db.json'));
   server.listen(port, 'localhost', () => {
     console.log(`Server listening on port ${port}`);
   });
