@@ -5,7 +5,9 @@ import deepAssign from 'deep-assign';
 import { pickBy } from 'lodash';
 
 function filteredParams(params) {
-  return qs.stringify(pickBy(params, item => !!item));
+  const filteredParams = pickBy(params, item => !!item);
+
+  return `?${qs.stringify(filteredParams, { arrayFormat: 'brackets' })}`;
 }
 
 export function request(url, params, queryParams) {
@@ -17,7 +19,7 @@ export function request(url, params, queryParams) {
   };
 
   if (queryParams) {
-    url += `?${filteredParams(queryParams)}`;
+    url += filteredParams(queryParams);
   }
 
   return fetch(url, deepAssign({}, defaultParams, params));
