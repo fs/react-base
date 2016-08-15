@@ -38,9 +38,7 @@ export default class TodoLayout extends React.Component {
   renderList(complete) {
     return (
       <TodoList
-        todos={
-          this.props.todos.filter((todo) => todo.isComplete === complete)
-        }
+        todos={ this.props.todos.filter(todo => todo.isComplete === complete) }
       />
     );
   }

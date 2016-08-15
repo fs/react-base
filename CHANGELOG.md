@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies. Simplify environment configs
+([#43](https://github.com/fs/react-base/pull/43))
 - Introduce appHistory service. Update custom request lib. Update routes helper
 ([#42](https://github.com/fs/react-base/pull/42))
 - Extract session actions into session service

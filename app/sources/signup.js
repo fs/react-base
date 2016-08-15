@@ -2,7 +2,7 @@ import config from 'config';
 import { request } from 'lib/request';
 
 export default class SignupSource {
-  static urlRoot = `${config.apiPath}/users`;
+  static urlRoot = `${config.apiTarget}/users`;
 
   static create(user) {
     return request(this.urlRoot, {
