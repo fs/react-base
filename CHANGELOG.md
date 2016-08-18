@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node.js to 6.4.x
+- Add .gitattributes to avoid merge conflicts
+([#44](https://github.com/fs/react-base/pull/44))
 - Upgrade dependencies. Simplify environment configs
 ([#43](https://github.com/fs/react-base/pull/43))
 - Introduce appHistory service. Update custom request lib. Update routes helper
