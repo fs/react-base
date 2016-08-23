@@ -1,5 +1,4 @@
 import React from 'react';
-import Router from 'react-router';
 
 export default class Article extends React.Component {
   static propTypes = {

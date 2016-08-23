@@ -4,7 +4,7 @@ import qs from 'qs';
 
 const createAppHistory = useRouterHistory(createBrowserHistory);
 
-export const appHistory = createAppHistory({
+export default createAppHistory({
   parseQueryString: qs.parse,
   stringifyQuery: qs.stringify
 });

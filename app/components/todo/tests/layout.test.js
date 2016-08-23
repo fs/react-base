@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Grid, Row, Button } from 'react-bootstrap';
 import TodoLayout from 'components/todo/layout';
 import ApplicationActions from 'actions/application';
 

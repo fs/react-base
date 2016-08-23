@@ -10,7 +10,7 @@ function filteredParams(params) {
   return `?${qs.stringify(filteredParams, { arrayFormat: 'brackets' })}`;
 }
 
-export function request(url, params, queryParams) {
+export default function request(url, params, queryParams) {
   const defaultParams = {
     headers: {
       'Accept': 'application/json',

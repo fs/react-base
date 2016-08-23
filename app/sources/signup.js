@@ -1,5 +1,5 @@
 import config from 'config';
-import { request } from 'lib/request';
+import request from 'lib/request';
 
 export default class SignupSource {
   static urlRoot = `${config.apiTarget}/users`;

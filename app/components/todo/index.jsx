@@ -1,6 +1,6 @@
 import React from 'react';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
-import { ListGroupItem, Glyphicon } from 'react-bootstrap';
+import { ListGroupItem } from 'react-bootstrap';
 import TodosActions from 'actions/todos';
 import styles from './styles';
 
