@@ -5,7 +5,8 @@ module.exports = {
     'es6': true
   },
   'plugins': [
-    'react'
+    'react',
+    'import'
   ],
   'rules': {
     'array-bracket-spacing': 2,
@@ -16,6 +17,7 @@ module.exports = {
     'constructor-super': 2,
     'eol-last': 2,
     'indent': [2, 2],
+    'jsx-quotes': 2,
     'key-spacing': [2, { 'beforeColon': false, 'afterColon': true }],
     'max-depth': [2, 4],
     'max-len': [2, 120, 4],
@@ -23,20 +25,43 @@ module.exports = {
     'max-statements': [2, 10],
     'no-bitwise': 2,
     'no-class-assign': 2,
+    'no-cond-assign': ['error', 'always'],
     'no-confusing-arrow': 2,
     'no-const-assign': 2,
+    'no-constant-condition': 'error',
     'no-dupe-class-members': 2,
+    'no-dupe-keys': 'error',
+    'no-duplicate-case': 'error',
+    'no-extra-boolean-cast': 'error',
+    'no-fallthrough': 'error',
     'no-mixed-spaces-and-tabs': 2,
-    'no-multiple-empty-lines': [2, { 'max': 2, 'maxEOF': 1 }],
+    'no-multi-spaces': 'error',
+    'no-multiple-empty-lines': ['error', { 'max': 1 }],
     'no-nested-ternary': 2,
     'no-new-object': 2,
+    'no-redeclare': 'error',
+    'no-self-assign': 'error',
+    'no-sequences': 2,
+    'no-sparse-arrays': 'error',
     'no-this-before-super': 2,
     'no-trailing-spaces': 2,
+    'no-unexpected-multiline': 'error',
+    'no-unreachable': 'error',
+    'no-unused-vars': ['error', { 'vars': 'all', 'args': 'none' }],
+    'object-curly-spacing': ['error', 'always', { 'objectsInObjects': false }],
     'object-shorthand': [2, 'always'],
     'prefer-const': 2,
     'semi': [2, 'always'],
+    'use-isnan': 'error',
+    'valid-typeof': 'error',
 
-    'jsx-quotes': 2,
+    'import/export': 2,
+    'import/extensions': 2,
+    'import/imports-first': 2,
+    'import/newline-after-import': 2,
+    'import/no-duplicates': 2,
+    'import/prefer-default-export': 2,
+
     'react/jsx-closing-bracket-location': 2,
     'react/jsx-curly-spacing': [2, 'always', { 'spacing': { 'objectLiterals': 'never' }}],
     'react/jsx-indent-props': [2, 2],
@@ -45,6 +70,7 @@ module.exports = {
     'react/jsx-no-undef': 2,
     'react/jsx-uses-react': 2,
     'react/jsx-uses-vars': 2,
+    'react/jsx-wrap-multilines': 2,
     'react/no-danger': 2,
     'react/no-did-mount-set-state': 2,
     'react/no-did-update-set-state': 2,
@@ -54,7 +80,6 @@ module.exports = {
     'react/prefer-es6-class': 2,
     'react/prop-types': [2, { ignore: ['children'] }],
     'react/react-in-jsx-scope': 2,
-    'react/require-extension': 2,
     'react/self-closing-comp': 2,
     'react/sort-comp': [
       2,
@@ -90,7 +115,6 @@ module.exports = {
         }
       }
     ],
-    'react/sort-prop-types': 2,
-    'react/wrap-multilines': 2
+    'react/sort-prop-types': 2
   }
 };

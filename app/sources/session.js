@@ -1,5 +1,5 @@
 import config from 'config';
-import { request } from 'lib/request';
+import request from 'lib/request';
 
 export default class SessionSource {
   static urlRoot = `${config.apiTarget}/session`
