@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies
 - Remove functions binding inside jsx
 ([#46](https://github.com/fs/react-base/pull/46))
 - Upgrade Node.js to 6.4.x
