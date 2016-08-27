@@ -1,6 +1,12 @@
 import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
-import { Modal, Button, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import {
+  Modal,
+  Button,
+  FormGroup,
+  FormControl,
+  ControlLabel
+} from 'react-bootstrap';
 import TodoActions from 'actions/todo';
 import ApplicationActions from 'actions/application';
 import TodoStore from 'stores/todo';
@@ -31,14 +37,14 @@ export default class TodoModal extends React.Component {
     TodoActions.setName(event.target.value);
   }
 
-  saveTodo() {
+  saveTodo = () => {
     if (this.validationState() !== 'error') {
       TodoActions.create(this.props.todo);
       ApplicationActions.closeModal();
     }
   }
 
-  validationState() {
+  validationState = () => {
     const length = this.props.todo.name.length;
 
     if (length > 6) return 'success';
@@ -61,13 +67,13 @@ export default class TodoModal extends React.Component {
           <Modal.Body>
             <FormGroup
               controlId="taskName"
-              validationState={ ::this.validationState() }
+              validationState={ this.validationState() }
             >
               <ControlLabel>Task name: { this.props.todo.name }</ControlLabel>
               <FormControl
                 type="text"
                 placeholder="Task name..."
-                onChange={ ::this.setName }
+                onChange={ this.setName }
               />
             </FormGroup>
           </Modal.Body>
@@ -75,7 +81,7 @@ export default class TodoModal extends React.Component {
           <Modal.Footer>
             <Button
               bsStyle="primary"
-              onClick={ ::this.saveTodo }
+              onClick={ this.saveTodo }
             >
               Save
             </Button>

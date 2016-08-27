@@ -13,14 +13,14 @@ export default class TodoList extends React.Component {
     )
   }
 
-  renderItems() {
+  renderItems = () => {
     return this.props.todos.map(todo => <Todo key={ todo.id } todo={ todo }/>);
   }
 
   render() {
     return(
       <ListGroup>
-        { ::this.renderItems() }
+        { this.renderItems() }
       </ListGroup>
     );
   }

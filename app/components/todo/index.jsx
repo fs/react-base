@@ -13,12 +13,12 @@ export default class Todo extends React.Component {
     })
   }
 
-  toggle() {
+  toggle = () => {
     this.props.todo.isComplete = !this.props.todo.isComplete;
     TodosActions.update(this.props.todo);
   }
 
-  delete(event) {
+  delete = (event) => {
     TodosActions.delete(this.props.todo);
     event.stopPropagation();
   }
@@ -32,13 +32,13 @@ export default class Todo extends React.Component {
         transitionLeaveTimeout={ 0 }
         transitionAppearTimeout={ 0 }
       >
-        <ListGroupItem onClick={ ::this.toggle }>
+        <ListGroupItem onClick={ this.toggle }>
           <span>
             { this.props.todo.name }
           </span>
           <span
             className={ `glyphicon glyphicon-trash ${styles.trashIcon}` }
-            onClick={ ::this.delete }
+            onClick={ this.delete }
           />
         </ListGroupItem>
       </CSSTransitionGroup>

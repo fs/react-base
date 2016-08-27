@@ -34,10 +34,10 @@ export default class NavigationRight extends React.Component {
     if (session.loggedIn()) {
       return (
         <Nav pullRight>
-          <NavItem onClick={ ::this.create }>
+          <NavItem onClick={ this.create }>
             New Task
           </NavItem>
-          <NavItem onClick={ ::this.signOut }>
+          <NavItem onClick={ this.signOut }>
             Sign out
           </NavItem>
         </Nav>
@@ -46,10 +46,10 @@ export default class NavigationRight extends React.Component {
 
     return (
       <Nav pullRight>
-        <NavItem onClick={ ::this.signUp }>
+        <NavItem onClick={ this.signUp }>
           Sign up
         </NavItem>
-        <NavItem onClick={ ::this.signIn }>
+        <NavItem onClick={ this.signIn }>
           Sign in
         </NavItem>
       </Nav>

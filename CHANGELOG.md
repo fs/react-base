@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Remove functions binding inside jsx
+([#46](https://github.com/fs/react-base/pull/46))
 - Upgrade Node.js to 6.4.x
 - Add .gitattributes to avoid merge conflicts
 ([#44](https://github.com/fs/react-base/pull/44))
