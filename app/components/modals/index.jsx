@@ -25,7 +25,7 @@ export default class Modals extends React.Component {
     return ApplicationStore.getState();
   }
 
-  renderCurrentModal() {
+  renderCurrentModal = () => {
     if (this.props.modalName) {
       const CurrentModal = MODALS[this.props.modalName];
 
@@ -36,7 +36,7 @@ export default class Modals extends React.Component {
   render() {
     return (
       <div className="modals">
-        { ::this.renderCurrentModal() }
+        { this.renderCurrentModal() }
       </div>
     );
   }

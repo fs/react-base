@@ -12,7 +12,7 @@ export default class NavigationLeft extends React.Component {
     )
   }
 
-  renderList() {
+  renderList = () => {
     return this.props.items.map((item, index) => {
       return (
         <NavigationItem key={ index } item={ item }/>
@@ -23,7 +23,7 @@ export default class NavigationLeft extends React.Component {
   render() {
     return (
       <Nav>
-        { ::this.renderList() }
+        { this.renderList() }
       </Nav>
     );
   }

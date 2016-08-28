@@ -1,6 +1,11 @@
 import React from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import {
+  Grid,
+  Row,
+  Col,
+  Button
+} from 'react-bootstrap';
 import ApplicationActions from 'actions/application';
 import TodosActions from 'actions/todos';
 import TodosStore from 'stores/todos';
@@ -35,7 +40,7 @@ export default class TodoLayout extends React.Component {
     ApplicationActions.openModal({ name: 'todo' });
   }
 
-  renderList(complete) {
+  renderList = (complete) => {
     return (
       <TodoList
         todos={ this.props.todos.filter(todo => todo.isComplete === complete) }
@@ -54,7 +59,7 @@ export default class TodoLayout extends React.Component {
             <Button
               bsStyle="primary"
               className={ `btn btn-primary pull-right ${styles.spacingTop}` }
-              onClick={ ::this.create }
+              onClick={ this.create }
             >
               New Task
             </Button>
@@ -64,11 +69,11 @@ export default class TodoLayout extends React.Component {
         <Row className="show-grid">
           <Col md={ 6 }>
             <h3 className="spacing-bottom">Incomplete</h3>
-            { ::this.renderList(false) }
+            { this.renderList(false) }
           </Col>
           <Col md={ 6 }>
             <h3 className="spacing-bottom">Complete</h3>
-            { ::this.renderList(true) }
+            { this.renderList(true) }
           </Col>
         </Row>
       </Grid>
