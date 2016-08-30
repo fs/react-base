@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add new rules to stylelint config
+([#47](https://github.com/fs/react-base/pull/47))
 - Upgrade dependencies
 - Remove functions binding inside jsx
 ([#46](https://github.com/fs/react-base/pull/46))
