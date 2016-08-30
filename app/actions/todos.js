@@ -1,4 +1,4 @@
-import Alt from 'alt_flux';
+import Alt from 'altFlux';
 import { createActions } from 'alt-utils/lib/decorators';
 import todosSource from 'sources/todos';
 

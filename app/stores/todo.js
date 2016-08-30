@@ -1,4 +1,4 @@
-import Alt from 'alt_flux';
+import Alt from 'altFlux';
 import { createStore } from 'alt-utils/lib/decorators';
 import TodoActions from 'actions/todo';
 import ApplicationActions from 'actions/application';

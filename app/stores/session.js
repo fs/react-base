@@ -1,4 +1,4 @@
-import Alt from 'alt_flux';
+import Alt from 'altFlux';
 import { createStore } from 'alt-utils/lib/decorators';
 import Storage from 'lib/storage';
 import SessionActions from 'actions/session';
