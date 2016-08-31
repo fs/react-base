@@ -1,4 +1,4 @@
-import Alt from 'alt_flux';
+import Alt from 'altFlux';
 import { createStore } from 'alt-utils/lib/decorators';
 import SignupActions from 'actions/signup';
 import ApplicationActions from 'actions/application';

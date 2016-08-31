@@ -1,4 +1,4 @@
-import Alt from 'alt_flux';
+import Alt from 'altFlux';
 import { createActions } from 'alt-utils/lib/decorators';
 import session from 'services/session';
 import signupSource from 'sources/signup';

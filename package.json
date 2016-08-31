@@ -9,7 +9,7 @@
     "url": "git://github.com:fs/react-base.git"
   },
   "scripts": {
-    "stylelint": "stylelint ./app/**/*.css --config ./config/stylelint.js",
+    "stylelint": "stylelint ./app/{**,**/**}/*.css --config ./config/stylelint.js",
     "stylesort": "postcss -u postcss-sorting -c ./config/postcss-cli.js -r ./app/{**,**/**}/*.css",
     "eslint": "eslint ./app ./config --ext .js,.jsx --config ./config/eslint.js",
     "karma": "karma start ./config/karma.js",

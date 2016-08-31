@@ -1,5 +1,5 @@
 import config from 'config';
-import requestAuth from 'lib/request-auth';
+import requestAuth from 'lib/requestAuth';
 
 export default class TodosSource {
   static urlRoot = `${config.apiTarget}/todos`
