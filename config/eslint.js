@@ -116,6 +116,7 @@ module.exports = {
         }
       }
     ],
-    'react/sort-prop-types': 2
+    'react/sort-prop-types': 2,
+    'react/style-prop-object': 2
   }
 };
