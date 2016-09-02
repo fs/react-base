@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies. Add new stylelint/eslint rules.
+([#48](https://github.com/fs/react-base/pull/48))
 - Upgrade Node.js to 6.5.x
 - Prefer camelCase to js files
 - Add new rules to stylelint config
