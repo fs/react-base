@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
+const compression = require('compression');
 const historyApiFallback = require('connect-history-api-fallback');
 const jsonServer = require('json-server');
 const config = require('./config/application');
@@ -33,6 +34,7 @@ else {
   webpack(webpackBuildConfig, (err, stats) => {
     if (err) return console.log(err);
 
+    server.use(compression());
     server.use(historyApiFallback());
     server.use(express.static(config.distDir));
     server.listen(port);
