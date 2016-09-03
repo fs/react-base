@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add assets compression.
+([#49](https://github.com/fs/react-base/pull/49))
 - Upgrade dependencies. Add new stylelint/eslint rules.
 ([#48](https://github.com/fs/react-base/pull/48))
 - Upgrade Node.js to 6.5.x
