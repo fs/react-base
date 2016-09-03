@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Bring eslint rules to general view
+([#50](https://github.com/fs/react-base/pull/50))
 - Add assets compression.
 ([#49](https://github.com/fs/react-base/pull/49))
 - Upgrade dependencies. Add new stylelint/eslint rules.
