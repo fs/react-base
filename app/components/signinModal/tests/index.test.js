@@ -5,44 +5,50 @@ import ReactTestUtils from 'react/lib/ReactTestUtils';
 import SigninModal from 'components/signinModal';
 
 describe('Signin Modal', () => {
-  const state = {
-    isModalOpen: true,
-    user: {
-      email: '',
-      password: ''
-    }
-  };
+  const state = { isModalOpen: true };
   const signinModalComponent = mount(<SigninModal />);
-  signinModalComponent.setState(state);
-  const modalDialogContent = signinModalComponent.find(Modal).node._modal.getDialogElement();
+  let modalDialogContent;
+
+  beforeEach(() => {
+    signinModalComponent.setState(state);
+    modalDialogContent = signinModalComponent.find(Modal).node._modal.getDialogElement();
+  });
+
+  it('has Modal component', () => {
+    expect(signinModalComponent.find(Modal).length).toEqual(1);
+  });
 
   it('renders Modal with form fields', () => {
-    expect(signinModalComponent.find(Modal).length).toEqual(1);
-    expect(modalDialogContent.getElementsByClassName('form-group').length).toEqual(2);
     expect(modalDialogContent.getElementsByClassName('form-control').length).toEqual(2);
   });
 
-  it('input email has error class', () => {
-    const inputEmail = modalDialogContent.querySelector('[name=email]');
-    ReactTestUtils.Simulate.change(inputEmail, {
-      target: {
-        name: 'email',
-        value: 'short'
-      }
-    });
+  describe('when email is empty', () => {
+    it('includes error class', () => {
+      const inputEmail = modalDialogContent.querySelector('[name=email]');
 
-    expect(inputEmail.parentElement.classList.contains('has-error')).toEqual(true);
+      ReactTestUtils.Simulate.change(inputEmail, {
+        target: {
+          name: 'email',
+          value: ''
+        }
+      });
+
+      expect(inputEmail.parentElement.classList.contains('has-error')).toEqual(true);
+    });
   });
 
-  it('input email has success class', () => {
-    const inputEmail = modalDialogContent.querySelector('[name=email]');
-    ReactTestUtils.Simulate.change(inputEmail, {
-      target: {
-        name: 'email',
-        value: 'longString'
-      }
-    });
+  describe('when email is filled', () => {
+    it('includes success class', () => {
+      const inputEmail = modalDialogContent.querySelector('[name=email]');
 
-    expect(inputEmail.parentElement.classList.contains('has-success')).toEqual(true);
+      ReactTestUtils.Simulate.change(inputEmail, {
+        target: {
+          name: 'email',
+          value: 'longString'
+        }
+      });
+
+      expect(inputEmail.parentElement.classList.contains('has-success')).toEqual(true);
+    });
   });
 });
