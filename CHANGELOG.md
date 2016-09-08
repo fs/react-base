@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add Todo Modal test
+([#53](https://github.com/fs/react-base/pull/53))
 - Add Sign Up Modal test
 ([#52](https://github.com/fs/react-base/pull/52))
 - Add Sign In Modal test
