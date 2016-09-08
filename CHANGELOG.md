@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add Sign In Modal test
+([#51](https://github.com/fs/react-base/pull/51))
 - Bring eslint rules to general view
 ([#50](https://github.com/fs/react-base/pull/50))
 - Add assets compression.

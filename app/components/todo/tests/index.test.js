@@ -4,7 +4,7 @@ import { ListGroupItem } from 'react-bootstrap';
 import Todo from 'components/todo';
 import TodosActions from 'actions/todos';
 
-describe('Todo', function() {
+describe('Todo', () => {
   const todo = { id: 1, isComplete: false, name: "Something to do" };
 
   beforeEach(function() {
