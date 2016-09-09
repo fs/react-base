@@ -14,6 +14,10 @@ describe('Signin Modal', () => {
     modalDialogContent = signinModalComponent.find(Modal).node._modal.getDialogElement();
   });
 
+  afterAll(() => {
+    signinModalComponent.unmount();
+  });
+
   it('has Modal component', () => {
     expect(signinModalComponent.find(Modal).length).toEqual(1);
   });

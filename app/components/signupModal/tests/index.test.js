@@ -14,6 +14,10 @@ describe('Signup Modal', () => {
     modalDialogContent = signupModalComponent.find(Modal).node._modal.getDialogElement();
   });
 
+  afterAll(() => {
+    signupModalComponent.unmount();
+  });
+
   it('has Modal component', () => {
     expect(signupModalComponent.find(Modal).length).toEqual(1);
   });
