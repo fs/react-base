@@ -55,4 +55,27 @@ describe('Signup Modal', () => {
       expect(inputEmail.parentElement.classList.contains('has-success')).toEqual(true);
     });
   });
+
+  describe('when the passwords match', () => {
+    it('includes success class', () => {
+      const passwordInput = modalDialogContent.querySelector('[name=password]');
+      const passwordConfirmationInput = modalDialogContent.querySelector('[name=passwordConfirmation]');
+
+      ReactTestUtils.Simulate.change(passwordInput, {
+        target: {
+          name: 'password',
+          value: 'superSecurityPassword'
+        }
+      });
+
+      ReactTestUtils.Simulate.change(passwordConfirmationInput, {
+        target: {
+          name: 'passwordConfirmation',
+          value: 'superSecurityPassword'
+        }
+      });
+
+      expect(passwordConfirmationInput.parentElement.classList.contains('has-success')).toEqual(true);
+    });
+  });
 });
