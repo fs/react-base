@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         test: /\.jsx$/,
-        loader: 'react-hot!babel'
+        loader: 'babel'
       },
       {
         test: /\.css$/,
