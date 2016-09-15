@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 1.0.0 - 2016-09-15
 - Upgrade dependencies
 ([#55](https://github.com/fs/react-base/pull/55))
 - Upgrade dependencies
