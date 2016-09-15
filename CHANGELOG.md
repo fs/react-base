@@ -2,6 +2,8 @@
 
 ## Unreleased
 - Upgrade dependencies
+([#55](https://github.com/fs/react-base/pull/55))
+- Upgrade dependencies
 ([#54](https://github.com/fs/react-base/pull/54))
 - Add Todo Modal test
 ([#53](https://github.com/fs/react-base/pull/53))
