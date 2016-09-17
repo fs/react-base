@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import {
   Modal,
@@ -13,14 +13,14 @@ import SignupStore from 'stores/signup';
 import ApplicationStore from 'stores/application';
 
 @connectToStores
-export default class SignupModal extends React.Component {
+export default class SignupModal extends Component {
   static propTypes = {
-    isModalOpen: React.PropTypes.bool,
-    user: React.PropTypes.shape({
-      name: React.PropTypes.string,
-      email: React.PropTypes.string,
-      password: React.PropTypes.string,
-      passwordConfirmation: React.PropTypes.string
+    isModalOpen: PropTypes.bool,
+    user: PropTypes.shape({
+      name: PropTypes.string,
+      email: PropTypes.string,
+      password: PropTypes.string,
+      passwordConfirmation: PropTypes.string
     })
   }
 

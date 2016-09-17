@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import {
   Modal,
@@ -13,12 +13,12 @@ import TodoStore from 'stores/todo';
 import ApplicationStore from 'stores/application';
 
 @connectToStores
-export default class TodoModal extends React.Component {
+export default class TodoModal extends Component {
   static propTypes = {
-    isModalOpen: React.PropTypes.bool,
-    todo: React.PropTypes.shape({
-      name: React.PropTypes.string,
-      isComplete: React.PropTypes.bool
+    isModalOpen: PropTypes.bool,
+    todo: PropTypes.shape({
+      name: PropTypes.string,
+      isComplete: PropTypes.bool
     })
   }
 

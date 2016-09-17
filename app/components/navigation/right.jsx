@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import { Nav, NavItem } from 'react-bootstrap';
 import ApplicationActions from 'actions/application';
 import session from 'services/session';
 
 @connectToStores
-export default class NavigationRight extends React.Component {
+export default class NavigationRight extends Component {
   static getStores(props) {
     return [session.store()];
   }

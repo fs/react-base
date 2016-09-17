@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-export default class Article extends React.Component {
+export default class Article extends Component {
   static propTypes = {
-    params: React.PropTypes.shape({
-      id: React.PropTypes.string
+    params: PropTypes.shape({
+      id: PropTypes.string
     })
   }
 

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Grid } from 'react-bootstrap';
 import { paths } from 'helpers/routes';
 
-export default class About extends React.Component {
+export default class About extends Component {
   id = 'test_id'
 
   render() {

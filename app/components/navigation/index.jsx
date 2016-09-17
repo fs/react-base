@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 
-export default class Navigation extends React.Component {
+export default class Navigation extends Component {
   static propTypes = {
-    item: React.PropTypes.shape({
-      route: React.PropTypes.string,
-      title: React.PropTypes.string
+    item: PropTypes.shape({
+      route: PropTypes.string,
+      title: PropTypes.string
     })
   }
 

@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use react entities as self imported
+([#56](https://github.com/fs/react-base/pull/56))
 
 ## 1.0.0 - 2016-09-15
 - Upgrade dependencies

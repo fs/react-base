@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Grid, Jumbotron } from 'react-bootstrap';
 
-export default class Home extends React.Component {
+export default class Home extends Component {
   render() {
     return (
       <Grid>

@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import Todo from 'components/todo';
 
-export default class TodoList extends React.Component {
+export default class TodoList extends Component {
   static propTypes = {
-    todos: React.PropTypes.arrayOf(
-      React.PropTypes.shape({
-        id: React.PropTypes.id,
-        isComplete: React.PropTypes.bool,
-        name: React.PropTypes.string
+    todos: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.id,
+        isComplete: PropTypes.bool,
+        name: PropTypes.string
       })
     )
   }
