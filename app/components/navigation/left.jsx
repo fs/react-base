@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Nav } from 'react-bootstrap';
 import NavigationItem from 'components/navigation';
 
-export default class NavigationLeft extends React.Component {
+export default class NavigationLeft extends Component {
   static propTypes = {
-    items: React.PropTypes.arrayOf(
-      React.PropTypes.shape({
-        route: React.PropTypes.string,
-        title: React.PropTypes.string
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        route: PropTypes.string,
+        title: PropTypes.string
       })
     )
   }

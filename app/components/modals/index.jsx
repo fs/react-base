@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import ApplicationStore from 'stores/application';
 import TodoModal from 'components/todoModal';
@@ -12,9 +12,9 @@ const MODALS = {
 };
 
 @connectToStores
-export default class Modals extends React.Component {
+export default class Modals extends Component {
   static propTypes = {
-    modalName: React.PropTypes.string.isRequired
+    modalName: PropTypes.string.isRequired
   }
 
   static getStores(props) {

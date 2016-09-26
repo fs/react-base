@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 import { ListGroupItem } from 'react-bootstrap';
 import TodosActions from 'actions/todos';
 import styles from './styles';
 
-export default class Todo extends React.Component {
+export default class Todo extends Component {
   static propTypes = {
-    todo: React.PropTypes.shape({
-      id: React.PropTypes.number,
-      isComplete: React.PropTypes.bool,
-      name: React.PropTypes.string
+    todo: PropTypes.shape({
+      id: PropTypes.number,
+      isComplete: PropTypes.bool,
+      name: PropTypes.string
     })
   }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import connectToStores from 'alt-utils/lib/connectToStores';
 import {
   Grid,
@@ -13,13 +13,13 @@ import TodoList from 'components/todo/list';
 import styles from './styles';
 
 @connectToStores
-export default class TodoLayout extends React.Component {
+export default class TodoLayout extends Component {
   static propTypes = {
-    todos: React.PropTypes.arrayOf(
-      React.PropTypes.shape({
-        id: React.PropTypes.id,
-        isComplete: React.PropTypes.bool,
-        name: React.PropTypes.string
+    todos: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.id,
+        isComplete: PropTypes.bool,
+        name: PropTypes.string
       })
     )
   }
