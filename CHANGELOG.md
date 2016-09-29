@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node.js to 6.7.x
+([#57](https://github.com/fs/react-base/pull/57))
 - Upgrade eslint rules
 ([#57](https://github.com/fs/react-base/pull/57))
 - Upgrade dependencies
