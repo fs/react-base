@@ -1,9 +1,11 @@
 # Changelog
 
 ## Unreleased
+- Upgrade eslint rules
+([#57](https://github.com/fs/react-base/pull/57))
 - Upgrade dependencies
 ([#57](https://github.com/fs/react-base/pull/57))
-- Add json loader. Cleanup webpack configs. Change webpack logs mode
+- Add json loader. Cleanup webpack config files
 ([#57](https://github.com/fs/react-base/pull/57))
 - Use react entities as self imported
 ([#56](https://github.com/fs/react-base/pull/56))

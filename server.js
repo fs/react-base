@@ -29,8 +29,7 @@ if (config.development) {
   server.listen(port, 'localhost', () => {
     console.log(`Server listening on port ${port}`);
   });
-}
-else {
+} else {
   webpack(webpackBuildConfig, (err, stats) => {
     if (err) return console.log(err);
 
