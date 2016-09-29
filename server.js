@@ -18,8 +18,8 @@ if (config.development) {
   server.use(historyApiFallback());
   server.use(webpackDevMiddleware(compiler, {
     stats: {
-      colors: true,
-      progress: true
+      chunks: false,
+      colors: true
     },
     publicPath: webpackDevConfig.output.publicPath
   }));

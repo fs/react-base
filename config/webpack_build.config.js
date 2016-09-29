@@ -36,13 +36,13 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.js(x)?$/,
         exclude: [/node_modules/],
         loader: 'babel'
       },
       {
-        test: /\.jsx$/,
-        loader: 'babel'
+        test: /\.json$/,
+        loader: 'json'
       },
       {
         test: /\.css$/,
