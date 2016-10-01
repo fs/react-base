@@ -8,8 +8,7 @@ export default class TodosActions {
     return (dispatch) => {
       if (!todos.length) {
         todosSource.get().then(result => dispatch(result));
-      }
-      else {
+      } else {
         dispatch(todos);
       }
     };

@@ -18,8 +18,8 @@ if (config.development) {
   server.use(historyApiFallback());
   server.use(webpackDevMiddleware(compiler, {
     stats: {
-      colors: true,
-      progress: true
+      chunks: false,
+      colors: true
     },
     publicPath: webpackDevConfig.output.publicPath
   }));
@@ -29,8 +29,7 @@ if (config.development) {
   server.listen(port, 'localhost', () => {
     console.log(`Server listening on port ${port}`);
   });
-}
-else {
+} else {
   webpack(webpackBuildConfig, (err, stats) => {
     if (err) return console.log(err);
 

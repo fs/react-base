@@ -10,6 +10,7 @@ module.exports = {
   ],
   'rules': {
     'array-bracket-spacing': 2,
+    'brace-style': [2, '1tbs', { 'allowSingleLine': true }],
     'camelcase': [2, { 'properties': 'never' }],
     'comma-dangle': [1, 'never'],
     'comma-spacing': [2, { 'before': false, 'after': true }],
