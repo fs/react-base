@@ -140,7 +140,7 @@ export default class SignupModal extends Component {
               bsStyle="primary"
               type="submit"
             >
-              Save
+              Submit
             </Button>
           </Modal.Footer>
         </form>

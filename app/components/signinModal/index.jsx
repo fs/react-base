@@ -100,7 +100,7 @@ export default class SigninModal extends Component {
               bsStyle="primary"
               type="submit"
             >
-              Save
+              Submit
             </Button>
           </Modal.Footer>
         </form>
