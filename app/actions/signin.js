@@ -1,9 +1,7 @@
-import Alt from 'altFlux';
-import { createActions } from 'alt-utils/lib/decorators';
+export const SET_VALUE = 'SET_VALUE';
 
-@createActions(Alt)
-export default class SigninActions {
-  setValue(name, value) {
-    return { name, value };
-  }
-}
+export const setValue = (name, value) => ({
+  type: SET_VALUE,
+  name,
+  value
+});

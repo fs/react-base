@@ -1,7 +1,6 @@
 import Alt from 'altFlux';
 import { createStore } from 'alt-utils/lib/decorators';
 import SignupActions from 'actions/signup';
-import ApplicationActions from 'actions/application';
 
 @createStore(Alt)
 export default class SignupStore {
@@ -18,8 +17,7 @@ export default class SignupStore {
     this.user = Object.assign({}, this.defaultProps);
 
     this.bindListeners({
-      setValue: SignupActions.SET_VALUE,
-      reset: ApplicationActions.CLOSE_MODAL
+      setValue: SignupActions.SET_VALUE
     });
   }
 

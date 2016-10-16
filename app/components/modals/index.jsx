@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import connectToStores from 'alt-utils/lib/connectToStores';
-import ApplicationStore from 'stores/application';
+import { connect } from 'react-redux';
 import TodoModal from 'components/todoModal';
 import SigninModal from 'components/signinModal';
 import SignupModal from 'components/signupModal';
@@ -11,18 +10,10 @@ const MODALS = {
   signUp: SignupModal
 };
 
-@connectToStores
-export default class Modals extends Component {
+class Modals extends Component {
   static propTypes = {
+    dispatch: PropTypes.func.isRequired,
     modalName: PropTypes.string.isRequired
-  }
-
-  static getStores(props) {
-    return [ApplicationStore];
-  }
-
-  static getPropsFromStores(props) {
-    return ApplicationStore.getState();
   }
 
   renderCurrentModal = () => {
@@ -41,3 +32,7 @@ export default class Modals extends Component {
     );
   }
 }
+
+const mapStateToProps = state => state.application;
+
+export default connect(mapStateToProps)(Modals);

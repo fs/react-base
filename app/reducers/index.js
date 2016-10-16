@@ -1,20 +1,10 @@
 import { combineReducers } from 'redux';
-
-function reducer(state = {
-  todos: []
-}, action) {
-  switch (action.type) {
-  case "ACTION":
-    return {
-      ...state
-    };
-  default:
-    return state;
-  }
-}
+import application from './application';
+import signin from './signin';
 
 const rootReducer = combineReducers({
-  reducer
+  application,
+  signin
 });
 
 export default rootReducer;
