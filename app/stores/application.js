@@ -1,6 +1,5 @@
 import Alt from 'altFlux';
 import { createStore } from 'alt-utils/lib/decorators';
-import ApplicationActions from 'actions/application';
 
 @createStore(Alt)
 export default class ApplicationStore {
@@ -10,11 +9,6 @@ export default class ApplicationStore {
     this.isModalOpen = false;
     this.modalName = '';
     this.modalOptions = {};
-
-    this.bindListeners({
-      openModal: ApplicationActions.OPEN_MODAL,
-      closeModal: ApplicationActions.CLOSE_MODAL
-    });
   }
 
   openModal({ name, ...rest }) {

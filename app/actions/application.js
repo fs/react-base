@@ -1,13 +1,12 @@
-import Alt from 'altFlux';
-import { createActions } from 'alt-utils/lib/decorators';
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
 
-@createActions(Alt)
-export default class ApplicationActions {
-  openModal(data) {
-    return data;
-  }
+export const openModal = data => ({
+  type: OPEN_MODAL,
+  ...data
+});
 
-  closeModal(data = {}) {
-    return data;
-  }
-}
+export const closeModal = (data = {}) => ({
+  type: CLOSE_MODAL,
+  ...data
+});

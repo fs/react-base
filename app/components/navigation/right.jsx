@@ -1,29 +1,30 @@
-import React, { Component } from 'react';
-import connectToStores from 'alt-utils/lib/connectToStores';
+import React, { Component, PropTypes } from 'react';
+import { openModal } from 'actions/application';
+import { connect } from 'react-redux';
 import { Nav, NavItem } from 'react-bootstrap';
-import ApplicationActions from 'actions/application';
 import session from 'services/session';
 
-@connectToStores
-export default class NavigationRight extends Component {
-  static getStores(props) {
-    return [session.store()];
+class NavigationRight extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired
   }
 
-  static getPropsFromStores(props) {
-    return session.store().getState();
+  create = () => {
+    const { dispatch } = this.props;
+
+    dispatch(openModal({ name: 'todo' }));
   }
 
-  create() {
-    ApplicationActions.openModal({ name: 'todo' });
+  signIn = () => {
+    const { dispatch } = this.props;
+
+    dispatch(openModal({ name: 'signIn' }));
   }
 
-  signIn() {
-    ApplicationActions.openModal({ name: 'signIn' });
-  }
+  signUp = () => {
+    const { dispatch } = this.props;
 
-  signUp() {
-    ApplicationActions.openModal({ name: 'signUp' });
+    dispatch(openModal({ name: 'signUp' }));
   }
 
   signOut() {
@@ -56,3 +57,5 @@ export default class NavigationRight extends Component {
     );
   }
 }
+
+export default connect()(NavigationRight);

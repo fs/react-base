@@ -1,7 +1,6 @@
 import Alt from 'altFlux';
 import { createStore } from 'alt-utils/lib/decorators';
 import TodoActions from 'actions/todo';
-import ApplicationActions from 'actions/application';
 
 @createStore(Alt)
 export default class TodoStore {
@@ -16,8 +15,7 @@ export default class TodoStore {
     this.todo = Object.assign({}, this.defaultProps);
 
     this.bindListeners({
-      setName: TodoActions.SET_NAME,
-      reset: ApplicationActions.CLOSE_MODAL
+      setName: TodoActions.SET_NAME
     });
   }
 
