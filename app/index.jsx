@@ -1,16 +1,30 @@
 import 'stylesheets/application';
 import React from 'react';
-import { render, unmountComponentAtNode } from 'react-dom';
+import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Routes from 'routes';
+import appHistory from 'services/history';
+import configureStore from 'store/configureStore';
+import Root from 'containers/root';
 
+const store = configureStore();
 const mountNode = document.getElementById('app');
 
-render(<AppContainer component={ Routes } />, mountNode);
+render(
+  <AppContainer>
+    <Root store={ store } history={ appHistory } />
+  </AppContainer>,
+  mountNode
+);
 
 if (module.hot) {
-  module.hot.accept('./routes', () => {
-    unmountComponentAtNode(mountNode);
-    render(<AppContainer component={ require('./routes').default } />, mountNode);
+  module.hot.accept('containers/root', () => {
+    const HotRoot = require('containers/root').default;
+
+    render(
+      <AppContainer>
+        <HotRoot store={ store } history={ appHistory } />
+      </AppContainer>,
+      mountNode
+    );
   });
 }
