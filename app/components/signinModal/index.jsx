@@ -28,11 +28,12 @@ class SigninModal extends Component {
   }
 
   signIn = (event) => {
+    const { dispatch } = this.props;
     event.preventDefault();
 
     if (this.isValid()) {
       session.create(this.props.user);
-      // ApplicationActions.closeModal();
+      dispatch(closeModal());
     }
   }
 
