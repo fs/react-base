@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import connectToStores from 'alt-utils/lib/connectToStores';
+import { connect } from 'react-redux';
 import {
   Modal,
   Button,
@@ -7,14 +7,12 @@ import {
   FormControl,
   ControlLabel
 } from 'react-bootstrap';
-import SignupActions from 'actions/signup';
-import ApplicationActions from 'actions/application';
-import SignupStore from 'stores/signup';
-import ApplicationStore from 'stores/application';
+import { closeModal } from 'actions/application';
+import { setValue, createUser } from 'actions/signup';
 
-@connectToStores
-export default class SignupModal extends Component {
+class SignupModal extends Component {
   static propTypes = {
+    dispatch: PropTypes.func.isRequired,
     isModalOpen: PropTypes.bool,
     user: PropTypes.shape({
       name: PropTypes.string,
@@ -24,27 +22,19 @@ export default class SignupModal extends Component {
     })
   }
 
-  static getStores(props) {
-    return [SignupStore, ApplicationStore];
-  }
+  setValue = ({ target }) => {
+    const { dispatch } = this.props;
 
-  static getPropsFromStores(props) {
-    return {
-      ...SignupStore.getState(),
-      ...ApplicationStore.getState()
-    };
-  }
-
-  setValue(event) {
-    SignupActions.setValue(event.target.name, event.target.value);
+    dispatch(setValue(target.name, target.value));
   }
 
   signUp = (event) => {
+    const { dispatch, user } = this.props;
     event.preventDefault();
 
     if (this.isValid()) {
-      SignupActions.create(this.props.user);
-      ApplicationActions.closeModal();
+      dispatch(createUser(user));
+      dispatch(closeModal());
     }
   }
 
@@ -76,12 +66,18 @@ export default class SignupModal extends Component {
     return (this.isValidPassword() && value.length >= 6) ? 'success' : 'error';
   }
 
+  hideModal = () => {
+    const { dispatch } = this.props;
+
+    dispatch(closeModal());
+  }
+
   render() {
     return (
       <Modal
         bsSize="small"
         show={ this.props.isModalOpen }
-        onHide={ ApplicationActions.closeModal }
+        onHide={ this.hideModal }
       >
         <Modal.Header closeButton>
           <h3 className="modal-title">Sign Up</h3>
@@ -148,3 +144,10 @@ export default class SignupModal extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  ...state.application,
+  ...state.signup
+});
+
+export default connect(mapStateToProps)(SignupModal);
