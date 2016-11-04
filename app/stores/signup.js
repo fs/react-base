@@ -11,7 +11,7 @@ export default class SignupStore {
     name: '',
     email: '',
     password: '',
-    passwordConfirmation: ''
+    passwordConfirmation: '',
   }
 
   constructor() {
@@ -19,7 +19,7 @@ export default class SignupStore {
 
     this.bindListeners({
       setValue: SignupActions.SET_VALUE,
-      reset: ApplicationActions.CLOSE_MODAL
+      reset: ApplicationActions.CLOSE_MODAL,
     });
   }
 

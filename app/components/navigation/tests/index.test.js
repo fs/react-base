@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 
 describe('Navigation', () => {
   const item = { title: 'cool story1', route: '/1' };
-  const navigationComponent = mount(<Navigation item={ item }/>);
+  const navigationComponent = mount(<Navigation item={item} />);
 
   it('renders Link with Navigation item', () => {
     const linkNode = navigationComponent.find(Link);

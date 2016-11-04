@@ -7,13 +7,13 @@ import styles from './styles';
 export default class Application extends Component {
   render() {
     return (
-      <div className={ styles.layout }>
-        <main className={ styles.wrapper }>
-          <Header/>
+      <div className={styles.layout}>
+        <main className={styles.wrapper}>
+          <Header />
           { this.props.children }
         </main>
-        <Footer/>
-        <Modals/>
+        <Footer />
+        <Modals />
       </div>
     );
   }

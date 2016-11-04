@@ -19,9 +19,9 @@ if (config.development) {
   server.use(webpackDevMiddleware(compiler, {
     stats: {
       chunks: false,
-      colors: true
+      colors: true,
     },
-    publicPath: webpackDevConfig.output.publicPath
+    publicPath: webpackDevConfig.output.publicPath,
   }));
   server.use(webpackHotMiddleware(compiler));
   server.use(jsonServer.defaults());

@@ -6,8 +6,8 @@ export default function requestAuth(url, params, queryParams) {
   const defaultParams = {
     headers: {
       'X-User-Token': session.token,
-      'X-User-Email': session.email
-    }
+      'X-User-Email': session.email,
+    },
   };
 
   return request(url, deepAssign({}, defaultParams, params), queryParams);

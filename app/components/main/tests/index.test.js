@@ -7,17 +7,17 @@ import session from 'services/session';
 
 describe('Main', () => {
   it('renders Home component', () => {
-    const mainComponent = mount(<Main/>);
+    const mainComponent = mount(<Main />);
 
-    expect(mainComponent.contains(<Home/>)).toEqual(true);
+    expect(mainComponent.contains(<Home />)).toEqual(true);
   });
 
   describe('when session is created', () => {
     it('renders TodoLayout component', () => {
       spyOn(session, 'loggedIn').and.returnValue(true);
-      const mainComponent = mount(<Main/>);
+      const mainComponent = mount(<Main />);
 
-      expect(mainComponent.contains(<TodoLayout/>)).toEqual(true);
+      expect(mainComponent.contains(<TodoLayout />)).toEqual(true);
     });
   });
 });

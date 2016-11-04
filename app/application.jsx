@@ -10,17 +10,17 @@ import About from 'components/about';
 import Article from 'components/article';
 
 render((
-  <Router history={ appHistory }>
-    <Route component={ Application }>
-      <Route path="/" component={ Main }/>
+  <Router history={appHistory}>
+    <Route component={Application}>
+      <Route path="/" component={Main} />
       <Route
         path="about"
-        component={ About }
-        onEnter={ requireAuth }
+        component={About}
+        onEnter={requireAuth}
       >
-        <Route path="extended/:id" component={ Article }/>
+        <Route path="extended/:id" component={Article} />
       </Route>
-      <Redirect from="*" to="/"/>
+      <Redirect from="*" to="/" />
     </Route>
   </Router>
 ), document.getElementById('app'));

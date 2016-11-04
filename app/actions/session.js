@@ -10,7 +10,7 @@ const STORAGE_KEY = config.storageKey;
 export default class SessionActions {
   create(user) {
     return (dispatch) => {
-      sessionSource.create(user).then(result => {
+      sessionSource.create(user).then((result) => {
         Storage.set(STORAGE_KEY, result);
         dispatch(result);
       });

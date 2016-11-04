@@ -13,7 +13,7 @@ export default class ApplicationStore {
 
     this.bindListeners({
       openModal: ApplicationActions.OPEN_MODAL,
-      closeModal: ApplicationActions.CLOSE_MODAL
+      closeModal: ApplicationActions.CLOSE_MODAL,
     });
   }
 

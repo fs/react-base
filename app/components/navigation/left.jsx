@@ -7,18 +7,18 @@ export default class NavigationLeft extends Component {
     items: PropTypes.arrayOf(
       PropTypes.shape({
         route: PropTypes.string,
-        title: PropTypes.string
+        title: PropTypes.string,
       })
-    )
+    ),
   }
 
-  renderList = () => {
-    return this.props.items.map((item, index) => {
-      return (
-        <NavigationItem key={ index } item={ item }/>
-      );
-    });
-  }
+  renderList = () =>
+     this.props.items.map((item, index) =>
+       (
+         <NavigationItem key={index} item={item} />
+      )
+    )
+
 
   render() {
     return (

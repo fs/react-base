@@ -9,7 +9,7 @@ export default class SigninStore {
 
   defaultProps = {
     email: '',
-    password: ''
+    password: '',
   }
 
   constructor() {
@@ -17,7 +17,7 @@ export default class SigninStore {
 
     this.bindListeners({
       setValue: SigninActions.SET_VALUE,
-      reset: ApplicationActions.CLOSE_MODAL
+      reset: ApplicationActions.CLOSE_MODAL,
     });
   }
 

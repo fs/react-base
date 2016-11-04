@@ -9,8 +9,8 @@ export default class Todo extends Component {
     todo: PropTypes.shape({
       id: PropTypes.number,
       isComplete: PropTypes.bool,
-      name: PropTypes.string
-    })
+      name: PropTypes.string,
+    }),
   }
 
   toggle = () => {
@@ -27,18 +27,18 @@ export default class Todo extends Component {
     return (
       <CSSTransitionGroup
         transitionName="todo"
-        transitionAppear={ true }
-        transitionEnterTimeout={ 0 }
-        transitionLeaveTimeout={ 0 }
-        transitionAppearTimeout={ 0 }
+        transitionAppear
+        transitionEnterTimeout={0}
+        transitionLeaveTimeout={0}
+        transitionAppearTimeout={0}
       >
-        <ListGroupItem onClick={ this.toggle }>
+        <ListGroupItem onClick={this.toggle}>
           <span>
             { this.props.todo.name }
           </span>
           <span
-            className={ `glyphicon glyphicon-trash ${styles.trashIcon}` }
-            onClick={ this.delete }
+            className={`glyphicon glyphicon-trash ${styles.trashIcon}`}
+            onClick={this.delete}
           />
         </ListGroupItem>
       </CSSTransitionGroup>

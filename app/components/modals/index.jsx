@@ -8,13 +8,13 @@ import SignupModal from 'components/signupModal';
 const MODALS = {
   todo: TodoModal,
   signIn: SigninModal,
-  signUp: SignupModal
+  signUp: SignupModal,
 };
 
 @connectToStores
 export default class Modals extends Component {
   static propTypes = {
-    modalName: PropTypes.string.isRequired
+    modalName: PropTypes.string.isRequired,
   }
 
   static getStores(props) {
@@ -29,7 +29,7 @@ export default class Modals extends Component {
     if (this.props.modalName) {
       const CurrentModal = MODALS[this.props.modalName];
 
-      return <CurrentModal/>;
+      return <CurrentModal />;
     }
   }
 

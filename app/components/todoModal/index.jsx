@@ -5,7 +5,7 @@ import {
   Button,
   FormGroup,
   FormControl,
-  ControlLabel
+  ControlLabel,
 } from 'react-bootstrap';
 import TodoActions from 'actions/todo';
 import ApplicationActions from 'actions/application';
@@ -18,8 +18,8 @@ export default class TodoModal extends Component {
     isModalOpen: PropTypes.bool,
     todo: PropTypes.shape({
       name: PropTypes.string,
-      isComplete: PropTypes.bool
-    })
+      isComplete: PropTypes.bool,
+    }),
   }
 
   static getStores(props) {
@@ -29,7 +29,7 @@ export default class TodoModal extends Component {
   static getPropsFromStores(props) {
     return {
       ...TodoStore.getState(),
-      ...ApplicationStore.getState()
+      ...ApplicationStore.getState(),
     };
   }
 
@@ -56,8 +56,8 @@ export default class TodoModal extends Component {
     return (
       <Modal
         bsSize="small"
-        show={ this.props.isModalOpen }
-        onHide={ ApplicationActions.closeModal }
+        show={this.props.isModalOpen}
+        onHide={ApplicationActions.closeModal}
       >
         <Modal.Header closeButton>
           <h3 className="modal-title">New Task</h3>
@@ -67,13 +67,13 @@ export default class TodoModal extends Component {
           <Modal.Body>
             <FormGroup
               controlId="taskName"
-              validationState={ this.validationState() }
+              validationState={this.validationState()}
             >
               <ControlLabel>Task name: { this.props.todo.name }</ControlLabel>
               <FormControl
                 type="text"
                 placeholder="Task name..."
-                onChange={ this.setName }
+                onChange={this.setName}
               />
             </FormGroup>
           </Modal.Body>
@@ -81,7 +81,7 @@ export default class TodoModal extends Component {
           <Modal.Footer>
             <Button
               bsStyle="primary"
-              onClick={ this.saveTodo }
+              onClick={this.saveTodo}
             >
               Save
             </Button>

@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Home from 'components/home';
 
 describe('Home', () => {
-  const homeComponent = mount(<Home/>);
+  const homeComponent = mount(<Home />);
 
   it('renders title', () => {
     expect(homeComponent.find('h1').text()).toEqual('React-base');

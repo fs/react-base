@@ -8,17 +8,17 @@ export default class TodoList extends Component {
       PropTypes.shape({
         id: PropTypes.id,
         isComplete: PropTypes.bool,
-        name: PropTypes.string
+        name: PropTypes.string,
       })
-    )
+    ),
   }
 
-  renderItems = () => {
-    return this.props.todos.map(todo => <Todo key={ todo.id } todo={ todo }/>);
-  }
+  renderItems = () =>
+     this.props.todos.map(todo => <Todo key={todo.id} todo={todo} />)
+
 
   render() {
-    return(
+    return (
       <ListGroup>
         { this.renderItems() }
       </ListGroup>

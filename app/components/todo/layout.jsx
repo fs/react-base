@@ -4,7 +4,7 @@ import {
   Grid,
   Row,
   Col,
-  Button
+  Button,
 } from 'react-bootstrap';
 import ApplicationActions from 'actions/application';
 import TodosActions from 'actions/todos';
@@ -19,9 +19,9 @@ export default class TodoLayout extends Component {
       PropTypes.shape({
         id: PropTypes.id,
         isComplete: PropTypes.bool,
-        name: PropTypes.string
+        name: PropTypes.string,
       })
-    )
+    ),
   }
 
   static getStores(props) {
@@ -40,26 +40,26 @@ export default class TodoLayout extends Component {
     ApplicationActions.openModal({ name: 'todo' });
   }
 
-  renderList = (complete) => {
-    return (
-      <TodoList
-        todos={ this.props.todos.filter(todo => todo.isComplete === complete) }
-      />
-    );
-  }
+  renderList = complete =>
+     (
+       <TodoList
+         todos={this.props.todos.filter(todo => todo.isComplete === complete)}
+       />
+    )
+
 
   render() {
     return (
       <Grid>
         <Row className="show-grid">
-          <Col md={ 8 }>
+          <Col md={8}>
             <h2>Todo List</h2>
           </Col>
-          <Col md={ 4 }>
+          <Col md={4}>
             <Button
               bsStyle="primary"
-              className={ `btn btn-primary pull-right ${styles.spacingTop}` }
-              onClick={ this.create }
+              className={`btn btn-primary pull-right ${styles.spacingTop}`}
+              onClick={this.create}
             >
               New Task
             </Button>
@@ -67,11 +67,11 @@ export default class TodoLayout extends Component {
         </Row>
 
         <Row className="show-grid">
-          <Col md={ 6 }>
+          <Col md={6}>
             <h3 className="spacing-bottom">Incomplete</h3>
             { this.renderList(false) }
           </Col>
-          <Col md={ 6 }>
+          <Col md={6}>
             <h3 className="spacing-bottom">Complete</h3>
             { this.renderList(true) }
           </Col>

@@ -9,7 +9,7 @@ export default class TodoStore {
 
   defaultProps = {
     name: '',
-    isComplete: false
+    isComplete: false,
   }
 
   constructor() {
@@ -17,7 +17,7 @@ export default class TodoStore {
 
     this.bindListeners({
       setName: TodoActions.SET_NAME,
-      reset: ApplicationActions.CLOSE_MODAL
+      reset: ApplicationActions.CLOSE_MODAL,
     });
   }
 

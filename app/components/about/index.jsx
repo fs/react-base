@@ -14,7 +14,7 @@ export default class About extends Component {
           <p>
             Kick-start your new web application based on React and Flux technologies.
           </p>
-          <Link to={ paths.aboutExtended(this.id) }>
+          <Link to={paths.aboutExtended(this.id)}>
             show details...
           </Link>
           { this.props.children }

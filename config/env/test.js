@@ -5,9 +5,9 @@ module.exports = {
   storageKey: 'user_session',
   session: {
     tokenKey: 'authentication_token',
-    emailKey: 'email'
+    emailKey: 'email',
   },
   test: {
-    port: 9999
-  }
+    port: 9999,
+  },
 };

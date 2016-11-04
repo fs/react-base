@@ -32,8 +32,8 @@ describe('Todo Modal', () => {
 
       ReactTestUtils.Simulate.change(inputTask, {
         target: {
-          value: 'sht'
-        }
+          value: 'sht',
+        },
       });
 
       expect(inputTask.parentElement.classList.contains('has-error')).toEqual(true);
@@ -46,8 +46,8 @@ describe('Todo Modal', () => {
 
       ReactTestUtils.Simulate.change(inputTask, {
         target: {
-          value: 'someTaskName'
-        }
+          value: 'someTaskName',
+        },
       });
 
       expect(inputTask.parentElement.classList.contains('has-success')).toEqual(true);
