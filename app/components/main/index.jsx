@@ -15,6 +15,6 @@ export default class Main extends Component {
   }
 
   render() {
-    return session.loggedIn() ? <TodoLayout/> : <Home/>;
+    return session.loggedIn() ? <TodoLayout /> : <Home />;
   }
 }

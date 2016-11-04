@@ -1,7 +1,7 @@
 const postcssCLIConfig = require('./postcss-cli');
 
 module.exports = {
-  'rules': {
+  rules: {
     'at-rule-no-unknown': [true, { ignoreAtRules: ['define-mixin', 'mixin'] }],
     'block-no-empty': true,
     'color-hex-case': 'lower',
@@ -18,10 +18,10 @@ module.exports = {
     'font-family-name-quotes': 'always-where-recommended',
     'function-comma-space-after': 'always',
     'function-url-quotes': 'always',
-    'indentation': [2, { ignore: ['value'] }],
+    indentation: [2, { ignore: ['value'] }],
     'length-zero-no-unit': true,
     'max-nesting-depth': [3, {
-      'ignore': ['at-rules-without-declaration-blocks']
+      ignore: ['at-rules-without-declaration-blocks'],
     }],
     'media-feature-colon-space-after': 'always',
     'media-feature-colon-space-before': 'never',
@@ -51,6 +51,6 @@ module.exports = {
     'unit-case': 'lower',
     'unit-no-unknown': true,
     'value-keyword-case': 'lower',
-    'value-no-vendor-prefix': true
-  }
+    'value-no-vendor-prefix': true,
+  },
 };

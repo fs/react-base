@@ -3,12 +3,12 @@ import React, { Component, PropTypes } from 'react';
 export default class Article extends Component {
   static propTypes = {
     params: PropTypes.shape({
-      id: PropTypes.string
-    })
+      id: PropTypes.string,
+    }),
   }
 
   state = {
-    id: ''
+    id: '',
   }
 
   componentDidMount() {
@@ -22,7 +22,7 @@ export default class Article extends Component {
   render() {
     return (
       <article>
-        <br/>
+        <br />
 
         <h3>Why React? Edit on GitHub</h3>
         <p>
@@ -58,7 +58,7 @@ export default class Article extends Component {
           both inside and outside of Facebook and Instagram.
         </p>
 
-        <br/>
+        <br />
 
         <b>article id: { this.state.id }</b>
       </article>

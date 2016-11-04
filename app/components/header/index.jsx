@@ -8,7 +8,7 @@ export default class Header extends Component {
   render() {
     const links = [
       { title: 'Home', route: paths.home() },
-      { title: 'About', route: paths.about() }
+      { title: 'About', route: paths.about() },
     ];
 
     return (
@@ -18,8 +18,8 @@ export default class Header extends Component {
             React-base
           </Navbar.Brand>
         </Navbar.Header>
-        <NavigationLeft items={ links }/>
-        <NavigationRight/>
+        <NavigationLeft items={links} />
+        <NavigationRight />
       </Navbar>
     );
   }

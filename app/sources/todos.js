@@ -6,7 +6,7 @@ export default class TodosSource {
 
   static get(todos) {
     return requestAuth(this.urlRoot, {
-      method: 'GET'
+      method: 'GET',
     })
     .then(result => result.json());
   }
@@ -14,7 +14,7 @@ export default class TodosSource {
   static create(todo) {
     return requestAuth(this.urlRoot, {
       method: 'POST',
-      body: JSON.stringify(todo)
+      body: JSON.stringify(todo),
     })
     .then(result => result.json());
   }
@@ -22,13 +22,13 @@ export default class TodosSource {
   static update(todo) {
     return requestAuth(`${this.urlRoot}/${todo.id}`, {
       method: 'PUT',
-      body: JSON.stringify(todo)
+      body: JSON.stringify(todo),
     });
   }
 
   static delete(todo) {
     return requestAuth(`${this.urlRoot}/${todo.id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
     });
   }
 }

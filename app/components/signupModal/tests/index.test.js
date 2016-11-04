@@ -34,8 +34,8 @@ describe('Signup Modal', () => {
       ReactTestUtils.Simulate.change(nameInput, {
         target: {
           name: 'name',
-          value: ''
-        }
+          value: '',
+        },
       });
 
       expect(nameInput.parentElement.classList.contains('has-error')).toEqual(true);
@@ -49,8 +49,8 @@ describe('Signup Modal', () => {
       ReactTestUtils.Simulate.change(nameInput, {
         target: {
           name: 'name',
-          value: 'someName'
-        }
+          value: 'someName',
+        },
       });
 
       expect(nameInput.parentElement.classList.contains('has-success')).toEqual(true);
@@ -64,8 +64,8 @@ describe('Signup Modal', () => {
       ReactTestUtils.Simulate.change(inputEmail, {
         target: {
           name: 'email',
-          value: 'short'
-        }
+          value: 'short',
+        },
       });
 
       expect(inputEmail.parentElement.classList.contains('has-error')).toEqual(true);
@@ -79,8 +79,8 @@ describe('Signup Modal', () => {
       ReactTestUtils.Simulate.change(inputEmail, {
         target: {
           name: 'email',
-          value: 'email@example.com'
-        }
+          value: 'email@example.com',
+        },
       });
 
       expect(inputEmail.parentElement.classList.contains('has-success')).toEqual(true);
@@ -94,8 +94,8 @@ describe('Signup Modal', () => {
       ReactTestUtils.Simulate.change(inputPassword, {
         target: {
           name: 'password',
-          value: 'short'
-        }
+          value: 'short',
+        },
       });
 
       expect(inputPassword.parentElement.classList.contains('has-error')).toEqual(true);
@@ -109,8 +109,8 @@ describe('Signup Modal', () => {
       ReactTestUtils.Simulate.change(inputPassword, {
         target: {
           name: 'password',
-          value: 'strongPassword'
-        }
+          value: 'strongPassword',
+        },
       });
 
       expect(inputPassword.parentElement.classList.contains('has-success')).toEqual(true);
@@ -125,15 +125,15 @@ describe('Signup Modal', () => {
       ReactTestUtils.Simulate.change(passwordInput, {
         target: {
           name: 'password',
-          value: 'superSecurityPassword'
-        }
+          value: 'superSecurityPassword',
+        },
       });
 
       ReactTestUtils.Simulate.change(passwordConfirmationInput, {
         target: {
           name: 'passwordConfirmation',
-          value: 'superSecurityPassword'
-        }
+          value: 'superSecurityPassword',
+        },
       });
 
       expect(passwordConfirmationInput.parentElement.classList.contains('has-success')).toEqual(true);

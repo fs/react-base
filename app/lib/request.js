@@ -13,9 +13,9 @@ function filteredParams(params) {
 export default function request(url, params, queryParams) {
   const defaultParams = {
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
   };
 
   if (queryParams) {

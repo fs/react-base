@@ -34,8 +34,8 @@ describe('Signin Modal', () => {
       ReactTestUtils.Simulate.change(inputPassword, {
         target: {
           name: 'password',
-          value: 'short'
-        }
+          value: 'short',
+        },
       });
 
       expect(inputPassword.parentElement.classList.contains('has-error')).toEqual(true);
@@ -49,8 +49,8 @@ describe('Signin Modal', () => {
       ReactTestUtils.Simulate.change(inputPassword, {
         target: {
           name: 'password',
-          value: 'strongPassword'
-        }
+          value: 'strongPassword',
+        },
       });
 
       expect(inputPassword.parentElement.classList.contains('has-success')).toEqual(true);
@@ -64,8 +64,8 @@ describe('Signin Modal', () => {
       ReactTestUtils.Simulate.change(inputEmail, {
         target: {
           name: 'email',
-          value: 'short'
-        }
+          value: 'short',
+        },
       });
 
       expect(inputEmail.parentElement.classList.contains('has-error')).toEqual(true);
@@ -79,8 +79,8 @@ describe('Signin Modal', () => {
       ReactTestUtils.Simulate.change(inputEmail, {
         target: {
           name: 'email',
-          value: 'email@example.com'
-        }
+          value: 'email@example.com',
+        },
       });
 
       expect(inputEmail.parentElement.classList.contains('has-success')).toEqual(true);

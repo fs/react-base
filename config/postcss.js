@@ -12,22 +12,22 @@ const variables = {
   'screen-sm': '768px',
   'screen-md': '992px',
   'screen-lg': '1200px',
-  'default-grey': '#e7e7e7'
+  'default-grey': '#e7e7e7',
 };
 
 module.exports = webpack => [
   postcssInlineComment,
   postcssImport({
-    addDependencyTo: webpack
+    addDependencyTo: webpack,
   }),
   postcssMixins,
   postcssNested,
   postcssSimpleVars({
-    variables
+    variables,
   }),
   postcssColorFunction,
   postcssPxtorem,
   autoprefixer({
-    browsers: ['last 2 versions']
-  })
+    browsers: ['last 2 versions'],
+  }),
 ];

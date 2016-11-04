@@ -15,7 +15,7 @@ export default class TodosStore {
       create: TodoActions.CREATE,
       get: TodosActions.GET,
       update: TodosActions.UPDATE,
-      delete: TodosActions.DELETE
+      delete: TodosActions.DELETE,
     });
   }
 
@@ -28,7 +28,7 @@ export default class TodosStore {
 
     for (const name in found) {
       found[name] = todo[name];
-    };
+    }
   }
 
   create(todo) {

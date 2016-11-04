@@ -5,7 +5,7 @@ import {
   Button,
   FormGroup,
   FormControl,
-  ControlLabel
+  ControlLabel,
 } from 'react-bootstrap';
 import SignupActions from 'actions/signup';
 import ApplicationActions from 'actions/application';
@@ -20,8 +20,8 @@ export default class SignupModal extends Component {
       name: PropTypes.string,
       email: PropTypes.string,
       password: PropTypes.string,
-      passwordConfirmation: PropTypes.string
-    })
+      passwordConfirmation: PropTypes.string,
+    }),
   }
 
   static getStores(props) {
@@ -31,7 +31,7 @@ export default class SignupModal extends Component {
   static getPropsFromStores(props) {
     return {
       ...SignupStore.getState(),
-      ...ApplicationStore.getState()
+      ...ApplicationStore.getState(),
     };
   }
 
@@ -80,57 +80,57 @@ export default class SignupModal extends Component {
     return (
       <Modal
         bsSize="small"
-        show={ this.props.isModalOpen }
-        onHide={ ApplicationActions.closeModal }
+        show={this.props.isModalOpen}
+        onHide={ApplicationActions.closeModal}
       >
         <Modal.Header closeButton>
           <h3 className="modal-title">Sign Up</h3>
         </Modal.Header>
 
-        <form onSubmit={ this.signUp }>
+        <form onSubmit={this.signUp}>
           <Modal.Body>
             <FormGroup
               controlId="name"
-              validationState={ this.nameValidationState(this.props.user.name) }
+              validationState={this.nameValidationState(this.props.user.name)}
             >
               <ControlLabel>Name</ControlLabel>
               <FormControl
                 type="text"
                 name="name"
-                onChange={ this.setValue }
+                onChange={this.setValue}
               />
             </FormGroup>
             <FormGroup
               controlId="email"
-              validationState={ this.validationState(this.props.user.email) }
+              validationState={this.validationState(this.props.user.email)}
             >
               <ControlLabel>Email</ControlLabel>
               <FormControl
                 type="text"
                 name="email"
-                onChange={ this.setValue }
+                onChange={this.setValue}
               />
             </FormGroup>
             <FormGroup
               controlId="password"
-              validationState={ this.validationState(this.props.user.password) }
+              validationState={this.validationState(this.props.user.password)}
             >
               <ControlLabel>Password</ControlLabel>
               <FormControl
                 type="password"
                 name="password"
-                onChange={ this.setValue }
+                onChange={this.setValue}
               />
             </FormGroup>
             <FormGroup
               controlId="passwordConfirmation"
-              validationState={ this.passwordValidationState(this.props.user.passwordConfirmation) }
+              validationState={this.passwordValidationState(this.props.user.passwordConfirmation)}
             >
               <ControlLabel>Password Confirmation</ControlLabel>
               <FormControl
                 type="password"
                 name="passwordConfirmation"
-                onChange={ this.setValue }
+                onChange={this.setValue}
               />
             </FormGroup>
           </Modal.Body>

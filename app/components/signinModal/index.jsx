@@ -5,7 +5,7 @@ import {
   Button,
   FormGroup,
   FormControl,
-  ControlLabel
+  ControlLabel,
 } from 'react-bootstrap';
 import session from 'services/session';
 import ApplicationActions from 'actions/application';
@@ -19,8 +19,8 @@ export default class SigninModal extends Component {
     isModalOpen: PropTypes.bool,
     user: PropTypes.shape({
       email: PropTypes.string,
-      password: PropTypes.string
-    })
+      password: PropTypes.string,
+    }),
   }
 
   static getStores(props) {
@@ -30,7 +30,7 @@ export default class SigninModal extends Component {
   static getPropsFromStores(props) {
     return {
       ...SigninStore.getState(),
-      ...ApplicationStore.getState()
+      ...ApplicationStore.getState(),
     };
   }
 
@@ -61,35 +61,35 @@ export default class SigninModal extends Component {
     return (
       <Modal
         bsSize="small"
-        show={ this.props.isModalOpen }
-        onHide={ ApplicationActions.closeModal }
+        show={this.props.isModalOpen}
+        onHide={ApplicationActions.closeModal}
       >
         <Modal.Header closeButton>
           <h3 className="modal-title">Sign In</h3>
         </Modal.Header>
 
-        <form onSubmit={ this.signIn }>
+        <form onSubmit={this.signIn}>
           <Modal.Body>
             <FormGroup
               controlId="email"
-              validationState={ this.validationState(this.props.user.email) }
+              validationState={this.validationState(this.props.user.email)}
             >
               <ControlLabel>Email</ControlLabel>
               <FormControl
                 type="text"
                 name="email"
-                onChange={ this.setValue }
+                onChange={this.setValue}
               />
             </FormGroup>
             <FormGroup
               controlId="password"
-              validationState={ this.validationState(this.props.user.password) }
+              validationState={this.validationState(this.props.user.password)}
             >
               <ControlLabel>Password</ControlLabel>
               <FormControl
                 autoComplete="off"
                 name="password"
-                onChange={ this.setValue }
+                onChange={this.setValue}
                 type="password"
               />
             </FormGroup>

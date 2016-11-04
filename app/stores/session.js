@@ -15,7 +15,7 @@ export default class SessionStore {
 
     this.bindListeners({
       create: SessionActions.CREATE,
-      delete: SessionActions.DELETE
+      delete: SessionActions.DELETE,
     });
   }
 

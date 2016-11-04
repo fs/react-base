@@ -6,29 +6,29 @@ module.exports = (karmaConfig) => {
     browsers: ['PhantomJS'],
     singleRun: true,
     coverageReporter: {
-      dir: '../coverage'
+      dir: '../coverage',
     },
     basePath: path.resolve(config.appDir),
     files: [
-      '**/tests/*.test.js'
+      '**/tests/*.test.js',
     ],
     frameworks: [
       'jasmine',
-      'es6-shim'
+      'es6-shim',
     ],
     preprocessors: {
-      '**/tests/*.test.js': ['webpack']
+      '**/tests/*.test.js': ['webpack'],
     },
     reporters: ['dots', 'coverage'],
     webpack: {
       resolve: {
         root: [
-          path.resolve(config.appDir)
+          path.resolve(config.appDir),
         ],
         alias: {
-          config: path.resolve(config.configDir, 'env', 'test')
+          config: path.resolve(config.configDir, 'env', 'test'),
         },
-        extensions: ['', '.js', '.jsx', '.css']
+        extensions: ['', '.js', '.jsx', '.css'],
       },
       cache: true,
       module: {
@@ -36,28 +36,28 @@ module.exports = (karmaConfig) => {
           {
             test: /\.jsx?$/,
             exclude: [/node_modules/, /\.test\.js/],
-            loader: 'isparta-instrumenter-loader'
+            loader: 'isparta-instrumenter-loader',
           },
           {
             test: /\.test\.js$/,
             exclude: [/node_modules/],
-            loader: 'babel'
+            loader: 'babel',
           },
           {
             test: /\.css$/,
-            loader: 'style!css?modules&importLoaders=1!postcss'
-          }
-        ]
+            loader: 'style!css?modules&importLoaders=1!postcss',
+          },
+        ],
       },
       externals: {
-        'cheerio': 'window',
+        cheerio: 'window',
         'react/addons': true,
         'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true
-      }
+        'react/lib/ReactContext': true,
+      },
     },
     webpackMiddleware: {
-      quiet: true
-    }
+      quiet: true,
+    },
   });
 };

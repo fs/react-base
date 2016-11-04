@@ -7,16 +7,16 @@ import NavigationRight from 'components/navigation/right';
 
 describe('Header', () => {
   it('renders Header component with child components', () => {
-    const headerComponent = shallow(<Header/>);
+    const headerComponent = shallow(<Header />);
 
     expect(headerComponent.find(Navbar.Header).length).toEqual(1);
     expect(headerComponent.find(Navbar.Brand).length).toEqual(1);
     expect(headerComponent.find(NavigationLeft).length).toEqual(1);
-    expect(headerComponent.contains(<NavigationRight/>)).toEqual(true);
+    expect(headerComponent.contains(<NavigationRight />)).toEqual(true);
   });
 
   it('renders text inside Navbar.Brand component', () => {
-    const headerComponent = mount(<Header/>);
+    const headerComponent = mount(<Header />);
 
     expect(headerComponent.find(Navbar.Brand).text()).toContain('React-base');
   });
