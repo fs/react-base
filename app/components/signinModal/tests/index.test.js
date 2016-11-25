@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Modal } from 'react-bootstrap';
-import ReactTestUtils from 'react-dom/lib/ReactTestUtils';
+import { Simulate } from 'react-dom/lib/ReactTestUtils';
 import SigninModal from 'components/signinModal';
 
 /* eslint-disable max-statements */
@@ -31,7 +31,7 @@ describe('Signin Modal', () => {
     it('appears error class', () => {
       const inputPassword = modalDialogContent.querySelector('[name=password]');
 
-      ReactTestUtils.Simulate.change(inputPassword, {
+      Simulate.change(inputPassword, {
         target: {
           name: 'password',
           value: 'short'
@@ -46,7 +46,7 @@ describe('Signin Modal', () => {
     it('appears success class', () => {
       const inputPassword = modalDialogContent.querySelector('[name=password]');
 
-      ReactTestUtils.Simulate.change(inputPassword, {
+      Simulate.change(inputPassword, {
         target: {
           name: 'password',
           value: 'strongPassword'
@@ -61,7 +61,7 @@ describe('Signin Modal', () => {
     it('appears error class', () => {
       const inputEmail = modalDialogContent.querySelector('[name=email]');
 
-      ReactTestUtils.Simulate.change(inputEmail, {
+      Simulate.change(inputEmail, {
         target: {
           name: 'email',
           value: 'short'
@@ -76,7 +76,7 @@ describe('Signin Modal', () => {
     it('appears success class', () => {
       const inputEmail = modalDialogContent.querySelector('[name=email]');
 
-      ReactTestUtils.Simulate.change(inputEmail, {
+      Simulate.change(inputEmail, {
         target: {
           name: 'email',
           value: 'email@example.com'
