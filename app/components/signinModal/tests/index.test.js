@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Modal } from 'react-bootstrap';
-import ReactTestUtils from 'react/lib/ReactTestUtils';
+import ReactTestUtils from 'react-dom/lib/ReactTestUtils';
 import SigninModal from 'components/signinModal';
 
 /* eslint-disable max-statements */
