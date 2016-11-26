@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node.js to 7.2.x
+- Upgrade dependencies
+- Use eslint-config-fs for linting javascript
+([#62](https://github.com/fs/react-base/pull/62))
 - Upgrade Node.js to 6.7.x
 ([#57](https://github.com/fs/react-base/pull/57))
 - Upgrade eslint rules
