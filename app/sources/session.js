@@ -2,7 +2,7 @@ import config from 'config';
 import request from 'lib/request';
 
 export default class SessionSource {
-  static urlRoot = `${config.apiTarget}/session`
+  static urlRoot = `${config.apiTarget}/users`
 
   static create(user) {
     return request(this.urlRoot, {
