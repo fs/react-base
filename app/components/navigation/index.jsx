@@ -1,4 +1,6 @@
 import React, { Component, PropTypes } from 'react';
+import { Nav } from 'react-bootstrap';
+import { paths } from 'helpers/routes';
 import { Link } from 'react-router';
 
 export default class Navigation extends Component {
@@ -11,11 +13,18 @@ export default class Navigation extends Component {
 
   render() {
     return (
-      <li>
-        <Link to={ this.props.item.route } activeClassName="active">
-          { this.props.item.title }
-        </Link>
-      </li>
+      <ul className="nav navbar-nav">
+        <li>
+          <Link to={ paths.home() } activeClassName="active">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to={ paths.about() } activeClassName="active">
+            About
+          </Link>
+        </li>
+      </ul>
     );
   }
 }

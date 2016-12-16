@@ -2,31 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { openModal } from 'actions/application';
 import { connect } from 'react-redux';
 import { Nav, NavItem } from 'react-bootstrap';
+import { paths } from 'helpers/routes';
 import session from 'services/session';
 
 class NavigationRight extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired
-  }
-
-  create = () => {
-    const { dispatch } = this.props;
-
-    dispatch(openModal({ name: 'todo' }));
-  }
-
-  signIn = () => {
-    const { dispatch } = this.props;
-
-    dispatch(openModal({ name: 'signIn' }));
-  }
-
-  signUp = () => {
-    const { dispatch } = this.props;
-
-    dispatch(openModal({ name: 'signUp' }));
-  }
-
   signOut() {
     session.delete();
   }
@@ -47,10 +26,10 @@ class NavigationRight extends Component {
 
     return (
       <Nav pullRight>
-        <NavItem onClick={ this.signUp }>
+        <NavItem href={ paths.signup() }>
           Sign up
         </NavItem>
-        <NavItem onClick={ this.signIn }>
+        <NavItem href={ paths.signin() }>
           Sign in
         </NavItem>
       </Nav>
@@ -58,4 +37,4 @@ class NavigationRight extends Component {
   }
 }
 
-export default connect()(NavigationRight);
+export default NavigationRight;

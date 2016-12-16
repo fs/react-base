@@ -20,7 +20,7 @@ export const createUser = user => {
   return dispatch => {
     return signupSource.create(user).then(result => {
       session.create(result);
-      dispatch(result);
+      dispatch(receiveUser(result));
     });
   };
 };
