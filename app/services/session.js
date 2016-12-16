@@ -1,14 +1,14 @@
-import SessionActions from 'actions/session';
-import SessionStore from 'stores/session';
+import store from 'store/configureStore';
 import config from 'config';
+import { createUser, deleteUser } from 'actions/session';
 
 export default class Session {
-  static store() {
-    return SessionStore;
+  static reducer() {
+    return store.getState().session;
   }
 
   static currentUser() {
-    return this.store().getState().currentUser;
+    return this.reducer().currentUser;
   }
 
   static loggedIn() {
@@ -16,11 +16,11 @@ export default class Session {
   }
 
   static create(user) {
-    SessionActions.create(user);
+    store.dispatch(createUser(user));
   }
 
   static delete() {
-    SessionActions.delete(this.currentUser());
+    store.dispatch(deleteUser(this.currentUser()));
   }
 
   static get token() {

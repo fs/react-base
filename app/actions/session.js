@@ -17,6 +17,6 @@ export const deleteUser = user => {
   return dispatch => {
     sessionSource.delete(user);
     Storage.remove(STORAGE_KEY);
-    dispatch(user);
+    dispatch();
   };
 }

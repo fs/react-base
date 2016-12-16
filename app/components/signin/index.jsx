@@ -31,7 +31,6 @@ class Signin extends Component {
 
     if (this.isValid()) {
       session.create(this.props.user);
-      this.props.hideModal();
     }
   }
 
@@ -73,10 +72,7 @@ class Signin extends Component {
               type="password"
             />
           </FormGroup>
-          <Button
-            bsStyle="primary"
-            type="submit"
-          >
+          <Button bsStyle="primary" type="submit">
             Submit
           </Button>
         </form>
