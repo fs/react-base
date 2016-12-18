@@ -14,9 +14,9 @@ export default class TodoStore {
   constructor() {
     this.todo = Object.assign({}, this.defaultProps);
 
-    this.bindListeners({
-      setName: TodoActions.SET_NAME
-    });
+    // this.bindListeners({
+    //   setName: TodoActions.SET_NAME
+    // });
   }
 
   setName(name) {

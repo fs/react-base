@@ -1,16 +1,14 @@
-import Alt from 'altFlux';
-import { createActions } from 'alt-utils/lib/decorators';
 import todosSource from 'sources/todos';
 
-@createActions(Alt)
-export default class TodoActions {
-  setName(name) {
-    return name;
-  }
+export const SET_NAME = 'SET_NAME';
 
-  create(todo) {
-    return (dispatch) => {
-      todosSource.create(todo).then(result => dispatch(result));
-    };
+export const setValue = (name) => ({
+  type: SET_NAME,
+  name
+});
+
+export const create = (todo) => {
+  return (dispatch) => {
+    return todosSource.create(todo).then((result) => dispatch(result));
   }
 }

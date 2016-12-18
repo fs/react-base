@@ -10,13 +10,13 @@ export default class TodosStore {
 
   constructor() {
     this.todos = [];
-
-    this.bindListeners({
-      create: TodoActions.CREATE,
-      get: TodosActions.GET,
-      update: TodosActions.UPDATE,
-      delete: TodosActions.DELETE
-    });
+    //
+    // this.bindListeners({
+    //   create: TodoActions.CREATE,
+    //   get: TodosActions.GET,
+    //   update: TodosActions.UPDATE,
+    //   delete: TodosActions.DELETE
+    // });
   }
 
   get(todos) {

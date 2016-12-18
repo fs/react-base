@@ -9,7 +9,8 @@ import {
 import ApplicationActions from 'actions/application';
 import TodosActions from 'actions/todos';
 import TodosStore from 'stores/todos';
-import TodoList from 'components/todo/list';
+import TodoList from './list';
+import TodoForm from './form';
 import styles from './styles';
 
 @connectToStores
@@ -52,17 +53,14 @@ export default class TodoLayout extends Component {
     return (
       <Grid>
         <Row className="show-grid">
+          <Col md={ 4 } offset={ 4 }>
+            { /* <TodoForm/> */}
+          </Col>
+        </Row>
+
+        <Row className="show-grid">
           <Col md={ 8 }>
             <h2>Todo List</h2>
-          </Col>
-          <Col md={ 4 }>
-            <Button
-              bsStyle="primary"
-              className={ `btn btn-primary pull-right ${styles.spacingTop}` }
-              onClick={ this.create }
-            >
-              New Task
-            </Button>
           </Col>
         </Row>
 
