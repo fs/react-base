@@ -11,12 +11,12 @@ export const setValue = (name, value) => ({
   value
 });
 
-export const receiveUser = user => ({
+export const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user
 });
 
-export const createUser = user => {
+export const createUser = (user) => {
   return dispatch => {
     return signupSource.create(user).then(result => {
       session.create(result);

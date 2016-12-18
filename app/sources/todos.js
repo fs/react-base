@@ -4,7 +4,7 @@ import requestAuth from 'lib/requestAuth';
 export default class TodosSource {
   static urlRoot = `${config.apiTarget}/todos`
 
-  static get(todos) {
+  static get() {
     return requestAuth(this.urlRoot, {
       method: 'GET'
     })

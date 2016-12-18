@@ -33,7 +33,6 @@ class SignupModal extends Component {
 
     if (this.isValid()) {
       dispatch(createUser(user));
-      this.props.hideModal();
     }
   }
 

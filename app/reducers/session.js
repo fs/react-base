@@ -5,21 +5,28 @@ import config from 'config';
 const STORAGE_KEY = config.storageKey;
 
 const initialState = {
+  isFetching: false,
   currentUser: Storage.get(STORAGE_KEY) || {}
 }
 
 export default function session(state = initialState, action) {
   switch (action.type) {
-  case ActionTypes.CREATE_USER:
+  case ActionTypes.LOGIN_REQUEST:
     return {
       ...state,
-      currentUser: {
-        ...state.user,
-        [action.name]: action.value
-      }
+      isFetching: true
+    };
+  case ActionTypes.LOGIN_SUCCESS:
+    return {
+      ...state,
+      isFetching: false,
+      currentUser: action.user
     };
   case ActionTypes.DELETE_USER:
-    return { currentUser: {} };
+    return {
+      ...state,
+      currentUser: {}
+    };
   default:
     return state;
   }
