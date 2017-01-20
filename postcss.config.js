@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssInlineComment = require('postcss-inline-comment');
 const postcssImport = require('postcss-import');
@@ -15,19 +16,21 @@ const variables = {
   'default-grey': '#e7e7e7'
 };
 
-module.exports = webpack => [
-  postcssInlineComment,
-  postcssImport({
-    addDependencyTo: webpack
-  }),
-  postcssMixins,
-  postcssNested,
-  postcssSimpleVars({
-    variables
-  }),
-  postcssColorFunction,
-  postcssPxtorem,
-  autoprefixer({
-    browsers: ['last 2 versions']
-  })
-];
+module.exports = () => ({
+  plugins: [
+    postcssInlineComment,
+    postcssImport({
+      addDependencyTo: webpack
+    }),
+    postcssMixins,
+    postcssNested,
+    postcssSimpleVars({
+      variables
+    }),
+    postcssColorFunction,
+    postcssPxtorem,
+    autoprefixer({
+      browsers: ['last 2 versions']
+    })
+  ]
+});

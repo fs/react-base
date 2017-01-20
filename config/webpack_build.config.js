@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('./application');
-const postcssConfig = require('./postcss');
+// const postcssConfig = require('./postcss');
 
 module.exports = {
   resolve: {
@@ -59,6 +59,5 @@ module.exports = {
         loader: 'file'
       }
     ]
-  },
-  postcss: postcssConfig
+  }
 };
