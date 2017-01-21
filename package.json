@@ -35,6 +35,7 @@
     "react-addons-css-transition-group": "~15.4.2",
     "react-bootstrap": "~0.30.7",
     "react-dom": "~15.4.2",
+    "react-hot-loader": "~3.0.0-beta.6",
     "react-router": "~3.0.2",
     "whatwg-fetch": "~2.0.2"
   },
@@ -74,7 +75,6 @@
     "postcss-simple-vars": "~3.0.0",
     "postcss-sorting": "~2.0.1",
     "react-addons-test-utils": "~15.4.2",
-    "react-hot-loader": "~3.0.0-beta.6",
     "style-loader": "~0.13.1",
     "stylelint": "~7.7.1",
     "url-loader": "~0.5.7",
