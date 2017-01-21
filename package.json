@@ -95,7 +95,7 @@
       "jsx"
     ],
     "moduleNameMapper": {
-      "\\./styles": "identity-obj-proxy"
+      "^(.*)(s|S)tyles$": "identity-obj-proxy"
     },
     "setupFiles": [
       "./app/lib/testMocks.js"
