@@ -19,7 +19,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "7.2.x"
+    "node": "7.4.x"
   },
   "dependencies": {
     "alt": "~0.18.6",
