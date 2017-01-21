@@ -3,19 +3,19 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = require('./application');
-// const postcssConfig = require('./postcss');
 
 module.exports = {
   resolve: {
-    root: [
-      path.resolve(config.appDir)
+    modules: [
+      path.resolve(config.appDir),
+      'node_modules'
     ],
     alias: {
       config: path.resolve(config.configDir, 'env', config.env)
     },
-    extensions: ['', '.js', '.jsx', '.css']
+    extensions: ['.js', '.jsx', '.css']
   },
-  entry: path.resolve(config.appDir, 'application.jsx'),
+  entry: path.resolve(config.appDir, 'index.jsx'),
   output: {
     path: path.resolve(config.distDir),
     publicPath: '/',
@@ -34,29 +34,43 @@ module.exports = {
     })
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js(x)?$/,
         exclude: [/node_modules/],
-        loader: 'babel'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json'
-      },
-      {
-        test: /\.css$/,
-        include: [/app\/stylesheets\//],
-        loader: ExtractTextPlugin.extract('style!css!postcss')
+        use: ['babel-loader']
       },
       {
         test: /\.css$/,
         exclude: [/app\/stylesheets\//],
-        loader: ExtractTextPlugin.extract('style!css?modules&importLoaders=1!postcss')
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: [
+            {
+              loader: 'css-loader',
+              query: {
+                modules: true,
+                importLoaders: 1
+              }
+            },
+            'postcss-loader'
+          ]
+        })
+      },
+      {
+        test: /\.css$/,
+        include: [/app\/stylesheets\//],
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: 'style-loader',
+          loader: [
+            'css-loader',
+            'postcss-loader'
+          ]
+        })
       },
       {
         test: /\.(jpg|png|ttf|eot|svg|woff2|woff)$/,
-        loader: 'file'
+        use: ['file-loader']
       }
     ]
   }
