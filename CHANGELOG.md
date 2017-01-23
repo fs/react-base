@@ -1,8 +1,22 @@
 # Changelog
 
 ## Unreleased
-- Upgrade Node.js to 7.2.x
+- Upgrade Node.js to 7.4.x
+([#63](https://github.com/fs/react-base/pull/63))
+- Add transform-react-constant-elements, transform-react-inline-elements babel plugins
+([#63](https://github.com/fs/react-base/pull/63))
+- Setup jest as default testing framework instead of karma
+([#63](https://github.com/fs/react-base/pull/63))
 - Upgrade dependencies
+([#63](https://github.com/fs/react-base/pull/63))
+- Add webpack dashboard
+([#63](https://github.com/fs/react-base/pull/63))
+- Migrate to Webpack 2. Setup React-hot-loader 3
+([#63](https://github.com/fs/react-base/pull/63))
+- Upgrade Node.js to 7.2.x
+([#62](https://github.com/fs/react-base/pull/62))
+- Upgrade dependencies
+([#62](https://github.com/fs/react-base/pull/62))
 - Use eslint-config-fs for linting javascript
 ([#62](https://github.com/fs/react-base/pull/62))
 - Upgrade Node.js to 6.7.x

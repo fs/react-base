@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Modal } from 'react-bootstrap';
-import { inputHasErrorClass, inputHasSuccessClass, simulateInputChange } from 'lib/test_helpers';
+import { inputHasErrorClass, inputHasSuccessClass, simulateInputChange } from 'lib/testHelpers';
 import SignupModal from 'components/signupModal';
 
 /* eslint-disable max-statements */
