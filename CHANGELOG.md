@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies
+([#65](https://github.com/fs/react-base/pull/65))
 - Upgrade Node.js to 7.4.x
 ([#63](https://github.com/fs/react-base/pull/63))
 - Add transform-react-constant-elements, transform-react-inline-elements babel plugins
