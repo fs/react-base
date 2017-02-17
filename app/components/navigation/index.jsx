@@ -1,29 +1,27 @@
-import React, { Component, PropTypes } from 'react';
-import { Nav, NavItem, Navbar } from 'react-bootstrap';
-import { paths } from 'helpers/routes';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import { Navbar } from 'react-bootstrap';
+import { paths } from 'helpers/routes';
 import { logoutUser } from 'actions/session';
 
-export default class Navigation extends Component {
-  static propTypes = {
-    item: PropTypes.shape({
-      route: PropTypes.string,
-      title: PropTypes.string
-    })
+const Navigation = ({ dispatch, isAuthenticated, currentUser }) => {
+  const signOut = () => {
+    dispatch(logoutUser(currentUser));
   }
 
-  signOut = () => {
-    this.props.dispatch(logoutUser(this.props.currentUser));
-  }
-
-  renderRightNav = () => {
-    if (this.props.isAuthenticated) {
+  const renderRightNav = () => {
+    if (isAuthenticated) {
       return (
-        <Nav pullRight>
-          <NavItem onClick={ this.signOut }>
-            Sign out
-          </NavItem>
-        </Nav>
+        <ul className="nav navbar-nav navbar-right">
+          <li className="navbar-text">
+            { currentUser.email }
+          </li>
+          <li>
+            <a onClick={ this.signOut }>
+              Sign out
+            </a>
+          </li>
+        </ul>
       );
     }
 
@@ -43,28 +41,35 @@ export default class Navigation extends Component {
     );
   }
 
-  render() {
-    return (
-      <Navbar>
-        <Navbar.Header>
-          <Navbar.Brand>
-            React-base
-          </Navbar.Brand>
-        </Navbar.Header>
-        <ul className="nav navbar-nav">
-          <li>
-            <Link to={ paths.home() } activeClassName="active">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to={ paths.about() } activeClassName="active">
-              About
-            </Link>
-          </li>
-        </ul>
-        { this.renderRightNav() }
-      </Navbar>
-    );
-  }
+  return (
+    <Navbar>
+      <Navbar.Header>
+        <Navbar.Brand>
+          React-base
+        </Navbar.Brand>
+      </Navbar.Header>
+      <ul className="nav navbar-nav">
+        <li>
+          <Link to={ paths.home() } activeClassName="active">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to={ paths.about() } activeClassName="active">
+            About
+          </Link>
+        </li>
+      </ul>
+      { renderRightNav() }
+    </Navbar>
+  )
 }
+
+Navigation.propTypes = {
+  item: PropTypes.shape({
+    route: PropTypes.string,
+    title: PropTypes.string
+  })
+}
+
+export default Navigation

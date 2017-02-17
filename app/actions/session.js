@@ -30,7 +30,6 @@ export const createUser = (user) =>
     sessionSource.create(user).then((result) => {
       Storage.set(STORAGE_KEY, result)
       dispatch(successLogin(result))
-      appHistory.push(paths.home())
     })
   }
 

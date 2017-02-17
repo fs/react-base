@@ -6,10 +6,8 @@ import {
   FormControl,
   ControlLabel
 } from 'react-bootstrap'
-import TodoActions from 'actions/todo'
-import TodoStore from 'stores/todo'
 
-export default class TodoModal extends Component {
+export default class TodoForm extends Component {
   static propTypes = {
     todo: PropTypes.shape({
       name: PropTypes.string,

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'
 
 export default class Article extends Component {
   static propTypes = {
@@ -12,11 +12,11 @@ export default class Article extends Component {
   }
 
   componentDidMount() {
-    this.setArticleId(this.props.params.id);
+    this.setArticleId(this.props.params.id)
   }
 
   setArticleId(id) {
-    this.setState({ id });
+    this.setState({ id })
   }
 
   render() {
@@ -62,6 +62,6 @@ export default class Article extends Component {
 
         <b>article id: { this.state.id }</b>
       </article>
-    );
+    )
   }
 }

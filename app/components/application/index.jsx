@@ -1,8 +1,8 @@
-import React, { Component, cloneElement } from 'react';
-import { connect } from 'react-redux';
-import Navigation from 'components/navigation';
-import Footer from 'components/footer';
-import styles from './styles';
+import React, { Component, cloneElement } from 'react'
+import { connect } from 'react-redux'
+import Navigation from 'components/navigation'
+import Footer from 'components/footer'
+import styles from './styles'
 
 class Application extends Component {
   render() {
@@ -18,7 +18,7 @@ class Application extends Component {
         </main>
         <Footer/>
       </div>
-    );
+    )
   }
 }
 
@@ -26,4 +26,4 @@ const mapStateToProps = (state) => ({
   ...state.session
 })
 
-export default connect(mapStateToProps)(Application);
+export default connect(mapStateToProps)(Application)
