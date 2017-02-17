@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
-import application from './application';
 import signin from './signin';
 import signup from './signup';
 import session from './session';
+import todo from './todo';
+import todos from './todos';
 
 const rootReducer = combineReducers({
-  application,
   signin,
   signup,
-  session
+  session,
+  todo,
+  todos
 });
 
 export default rootReducer;

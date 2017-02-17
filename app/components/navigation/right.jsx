@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { openModal } from 'actions/application';
-import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { Nav, NavItem } from 'react-bootstrap';
 import { paths } from 'helpers/routes';
 import session from 'services/session';
@@ -22,14 +21,18 @@ class NavigationRight extends Component {
     }
 
     return (
-      <Nav pullRight>
-        <NavItem href={ paths.signup() }>
-          Sign up
-        </NavItem>
-        <NavItem href={ paths.signin() }>
-          Sign in
-        </NavItem>
-      </Nav>
+      <ul className="nav navbar-nav navbar-right">
+        <li>
+          <Link to={ paths.signup() } activeClassName="active">
+            Sign up
+          </Link>
+        </li>
+        <li>
+          <Link to={ paths.signin() } activeClassName="active">
+            Sign in
+          </Link>
+        </li>
+      </ul>
     );
   }
 }

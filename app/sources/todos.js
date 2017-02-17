@@ -1,5 +1,5 @@
-import config from 'config';
-import requestAuth from 'lib/requestAuth';
+import config from 'config'
+import requestAuth from 'lib/requestAuth'
 
 export default class TodosSource {
   static urlRoot = `${config.apiTarget}/todos`
@@ -8,27 +8,28 @@ export default class TodosSource {
     return requestAuth(this.urlRoot, {
       method: 'GET'
     })
-    .then(result => result.json());
+    .then(result => result.json())
   }
 
   static create(todo) {
+    console.log(todo)
     return requestAuth(this.urlRoot, {
       method: 'POST',
       body: JSON.stringify(todo)
     })
-    .then(result => result.json());
+    .then(result => result.json())
   }
 
   static update(todo) {
     return requestAuth(`${this.urlRoot}/${todo.id}`, {
       method: 'PUT',
       body: JSON.stringify(todo)
-    });
+    })
   }
 
   static delete(todo) {
     return requestAuth(`${this.urlRoot}/${todo.id}`, {
       method: 'DELETE'
-    });
+    })
   }
 }

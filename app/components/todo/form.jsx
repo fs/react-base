@@ -1,15 +1,13 @@
-import React, { Component, PropTypes } from 'react';
-import connectToStores from 'alt-utils/lib/connectToStores';
+import React, { Component, PropTypes } from 'react'
+import connectToStores from 'alt-utils/lib/connectToStores'
 import {
   Button,
   FormGroup,
   FormControl,
   ControlLabel
-} from 'react-bootstrap';
-import TodoActions from 'actions/todo';
-import ApplicationActions from 'actions/application';
-import TodoStore from 'stores/todo';
-import ApplicationStore from 'stores/application';
+} from 'react-bootstrap'
+import TodoActions from 'actions/todo'
+import TodoStore from 'stores/todo'
 
 export default class TodoModal extends Component {
   static propTypes = {
@@ -19,30 +17,30 @@ export default class TodoModal extends Component {
     })
   }
 
-  setName(event) {
-    TodoActions.setName(event.target.value);
+  setName = ({ target }) => {
+    this.props.setName(target.value)
   }
 
-  saveTodo = () => {
+  createTodo = (event) => {
+    event.preventDefault()
     if (this.validationState() !== 'error') {
-      TodoActions.create(this.props.todo);
-      ApplicationActions.closeModal();
+      this.props.createTodo(this.props.todo)
     }
   }
 
   validationState = () => {
-    const length = this.props.todo.name.length;
+    const length = this.props.todo.name.length
 
-    if (length > 6) return 'success';
-    if (length > 3) return 'warning';
-    return 'error';
+    if (length > 6) return 'success'
+    if (length > 3) return 'warning'
+    return 'error'
   }
 
   render() {
     return (
       <div>
         <h3>New Task</h3>
-        <form>
+        <form onSubmit={ this.createTodo }>
             <FormGroup
               controlId="taskName"
               validationState={ this.validationState() }
@@ -52,17 +50,18 @@ export default class TodoModal extends Component {
                 type="text"
                 placeholder="Task name..."
                 onChange={ this.setName }
+                value={ this.props.todo.name }
               />
             </FormGroup>
 
             <Button
               bsStyle="primary"
-              onClick={ this.saveTodo }
+              type="submit"
             >
               Save
             </Button>
         </form>
       </div>
-    );
+    )
   }
 }
