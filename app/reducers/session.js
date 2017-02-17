@@ -22,11 +22,6 @@ export default function session(state = initialState, action) {
       isFetching: false,
       currentUser: action.user
     };
-  case ActionTypes.DELETE_USER:
-    return {
-      ...state,
-      currentUser: {}
-    };
   default:
     return state;
   }

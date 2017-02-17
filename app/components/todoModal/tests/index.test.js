@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { Modal } from 'react-bootstrap';
-import ReactTestUtils from 'react/lib/ReactTestUtils';
+import { Simulate } from 'react-dom/lib/ReactTestUtils';
 import TodoModal from 'components/todoModal';
 
 describe('Todo Modal', () => {
@@ -30,7 +30,7 @@ describe('Todo Modal', () => {
     it('appears error class', () => {
       const inputTask = modalDialogContent.querySelector('.form-control');
 
-      ReactTestUtils.Simulate.change(inputTask, {
+      Simulate.change(inputTask, {
         target: {
           value: 'sht'
         }
@@ -44,7 +44,7 @@ describe('Todo Modal', () => {
     it('appears success class', () => {
       const inputTask = modalDialogContent.querySelector('.form-control');
 
-      ReactTestUtils.Simulate.change(inputTask, {
+      Simulate.change(inputTask, {
         target: {
           value: 'someTaskName'
         }
