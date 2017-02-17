@@ -11,14 +11,16 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
 
 const requestLogin = (user) => ({
-  type: LOGIN_REQUEST,
-  isFetching: true
+  type: LOGIN_REQUEST
 })
 
 const successLogin = (user) => ({
   user,
-  type: LOGIN_SUCCESS,
-  isFetching: false
+  type: LOGIN_SUCCESS
+})
+
+const successLogout = () => ({
+  type: LOGOUT_SUCCESS
 })
 
 export const createUser = (user) =>
@@ -27,14 +29,15 @@ export const createUser = (user) =>
 
     sessionSource.create(user).then((result) => {
       Storage.set(STORAGE_KEY, result)
-      dispatch(successLogin(user))
+      dispatch(successLogin(result))
       appHistory.push(paths.home())
     })
   }
 
-export const deleteUser = (user) =>
+export const logoutUser = (user) =>
   (dispatch) => {
-    sessionSource.delete(user)
-    Storage.remove(STORAGE_KEY)
-    dispatch()
+    sessionSource.delete(user).then(() => {
+      Storage.remove(STORAGE_KEY)
+      dispatch(successLogout())
+    })
   }

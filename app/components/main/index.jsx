@@ -5,6 +5,6 @@ import session from 'services/session';
 
 export default class Main extends Component {
   render() {
-    return session.loggedIn() ? <TodoContainer/> : <Home/>;
+    return this.props.isAuthenticated ? <TodoContainer/> : <Home/>;
   }
 }
