@@ -1,130 +1,112 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import React, { PropTypes } from 'react'
+import { connect } from 'react-redux'
 import {
   Grid,
   Button,
   FormGroup,
   FormControl,
   ControlLabel
-} from 'react-bootstrap';
-import { setValue, createUser } from 'actions/signup';
+} from 'react-bootstrap'
+import { setValue, createUser } from 'actions/signup'
 
-class SignupModal extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    isModalOpen: PropTypes.bool,
-    user: PropTypes.shape({
-      name: PropTypes.string,
-      email: PropTypes.string,
-      password: PropTypes.string,
-      passwordConfirmation: PropTypes.string
-    })
-  }
+const SignupForm = ({ user, dispatch }) => {
+  const setUserValue = ({ target }) =>
+    dispatch(setValue(target.name, target.value))
 
-  setValue = ({ target }) => {
-    const { dispatch } = this.props;
+  const isValidPassword = () =>
+    user.password === user.passwordConfirmation
 
-    dispatch(setValue(target.name, target.value));
-  }
-
-  signUp = (event) => {
-    const { dispatch, user } = this.props;
-    event.preventDefault();
-
-    if (this.isValid()) {
-      dispatch(createUser(user));
-    }
-  }
-
-  isValid() {
-    const user = this.props.user;
-
-    return (
+  const isValid = () =>
+    (
       user.name.trim().length &&
       user.email.length >= 6 &&
       user.password.length >= 6 &&
       user.passwordConfirmation.length >= 6 &&
-      this.isValidPassword()
-    );
+      isValidPassword()
+    )
+
+  const validationState = (value) =>
+    value.length >= 6 ? 'success' : 'error'
+
+  const nameValidationState = (value) =>
+    value.trim().length ? 'success' : 'error'
+
+  const passwordValidationState = (value) =>
+    (isValidPassword() && value.length >= 6) ? 'success' : 'error'
+
+  const signUp = (event) => {
+    event.preventDefault()
+
+    if (isValid()) {
+      dispatch(createUser(user))
+    }
   }
 
-  isValidPassword() {
-    return this.props.user.password === this.props.user.passwordConfirmation;
-  }
-
-  validationState(value) {
-    return value.length >= 6 ? 'success' : 'error';
-  }
-
-  nameValidationState(value) {
-    return value.trim().length ? 'success' : 'error';
-  }
-
-  passwordValidationState(value) {
-    return (this.isValidPassword() && value.length >= 6) ? 'success' : 'error';
-  }
-
-  render() {
-    return (
-      <Grid>
-        <h1>Sign Up</h1>
-        <form onSubmit={ this.signUp }>
-          <FormGroup
-            controlId="name"
-            validationState={ this.nameValidationState(this.props.user.name) }
-          >
-            <ControlLabel>Name</ControlLabel>
-            <FormControl
-              type="text"
-              name="name"
-              onChange={ this.setValue }
-            />
-          </FormGroup>
-          <FormGroup
-            controlId="email"
-            validationState={ this.validationState(this.props.user.email) }
-          >
-            <ControlLabel>Email</ControlLabel>
-            <FormControl
-              type="text"
-              name="email"
-              onChange={ this.setValue }
-            />
-          </FormGroup>
-          <FormGroup
-            controlId="password"
-            validationState={ this.validationState(this.props.user.password) }
-          >
-            <ControlLabel>Password</ControlLabel>
-            <FormControl
-              type="password"
-              name="password"
-              onChange={ this.setValue }
-            />
-          </FormGroup>
-          <FormGroup
-            controlId="passwordConfirmation"
-            validationState={ this.passwordValidationState(this.props.user.passwordConfirmation) }
-          >
-            <ControlLabel>Password Confirmation</ControlLabel>
-            <FormControl
-              type="password"
-              name="passwordConfirmation"
-              onChange={ this.setValue }
-            />
-          </FormGroup>
-          <Button bsStyle="primary" type="submit">
-            Submit
-          </Button>
-        </form>
-      </Grid>
-    );
-  }
+  return (
+    <Grid>
+      <h1>Sign Up</h1>
+      <form onSubmit={ signUp }>
+        <FormGroup
+          controlId="name"
+          validationState={ nameValidationState(user.name) }
+        >
+          <ControlLabel>Name</ControlLabel>
+          <FormControl
+            type="text"
+            name="name"
+            onChange={ setUserValue }
+          />
+        </FormGroup>
+        <FormGroup
+          controlId="email"
+          validationState={ validationState(user.email) }
+        >
+          <ControlLabel>Email</ControlLabel>
+          <FormControl
+            type="text"
+            name="email"
+            onChange={ setUserValue }
+          />
+        </FormGroup>
+        <FormGroup
+          controlId="password"
+          validationState={ validationState(user.password) }
+        >
+          <ControlLabel>Password</ControlLabel>
+          <FormControl
+            type="password"
+            name="password"
+            onChange={ setUserValue }
+          />
+        </FormGroup>
+        <FormGroup
+          controlId="passwordConfirmation"
+          validationState={ passwordValidationState(user.passwordConfirmation) }
+        >
+          <ControlLabel>Password Confirmation</ControlLabel>
+          <FormControl
+            type="password"
+            name="passwordConfirmation"
+            onChange={ setUserValue }
+          />
+        </FormGroup>
+        <Button bsStyle="primary" type="submit">
+          Submit
+        </Button>
+      </form>
+    </Grid>
+  )
 }
 
-const mapStateToProps = state => ({
-  ...state.application,
-  ...state.signup
-});
+SignupForm.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  isModalOpen: PropTypes.bool,
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    email: PropTypes.string,
+    password: PropTypes.string,
+    passwordConfirmation: PropTypes.string
+  })
+}
 
-export default connect(mapStateToProps)(SignupModal);
+export default SignupForm
