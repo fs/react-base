@@ -17,7 +17,7 @@ const Navigation = ({ dispatch, isAuthenticated, currentUser }) => {
             { currentUser.email }
           </li>
           <li>
-            <a onClick={ this.signOut }>
+            <a onClick={ signOut }>
               Sign out
             </a>
           </li>

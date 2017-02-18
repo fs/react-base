@@ -5,8 +5,8 @@ import Application from 'components/application'
 import Main from 'components/main'
 import About from 'components/about'
 import Article from 'components/article'
-import Signin from 'components/signin'
-import Signup from 'components/signup'
+import Signin from 'containers/signin'
+import Signup from 'containers/signup'
 
 const Root = ({ store, history }) => (
   <Provider store={ store }>
