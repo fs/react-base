@@ -1,11 +1,11 @@
-import * as ActionTypes from 'actions/signin';
+import * as ActionTypes from 'actions/signin'
 
 const initialState = {
   user: {
     email: '',
     password: ''
   }
-};
+}
 
 export default function signin(state = initialState, action) {
   switch (action.type) {
@@ -16,8 +16,8 @@ export default function signin(state = initialState, action) {
         ...state.user,
         [action.name]: action.value
       }
-    };
+    }
   default:
-    return state;
+    return state
   }
 }

@@ -1,8 +1,8 @@
-import * as ActionTypes from 'actions/session';
-import Storage from 'lib/storage';
-import config from 'config';
+import * as ActionTypes from 'actions/session'
+import Storage from 'lib/storage'
+import config from 'config'
 
-const STORAGE_KEY = config.storageKey;
+const STORAGE_KEY = config.storageKey
 
 const initialState = {
   isFetching: false,
@@ -12,25 +12,25 @@ const initialState = {
 
 export default function session(state = initialState, action) {
   switch (action.type) {
-  case ActionTypes.LOGIN_REQUEST:
+  case ActionTypes.SESSION_CREATE_REQUEST:
     return {
       ...state,
       isFetching: true
-    };
-  case ActionTypes.LOGIN_SUCCESS:
+    }
+  case ActionTypes.SESSEION_CREATE_SUCCESS:
     return {
       ...state,
       isFetching: false,
       currentUser: action.user,
       isAuthenticated: true
-    };
-  case ActionTypes.LOGOUT_SUCCESS:
+    }
+  case ActionTypes.SESSION_DESTROY_SUCCESS:
     return {
       ...state,
       currentUser: {},
       isAuthenticated: false
     }
   default:
-    return state;
+    return state
   }
 }

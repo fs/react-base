@@ -7,11 +7,10 @@ import {
   FormControl,
   ControlLabel
 } from 'react-bootstrap'
-import { setValue, createUser } from 'actions/signup'
 
-const SignupForm = ({ user, dispatch }) => {
+const SignupForm = ({ user, isFetching, createUser, setValue }) => {
   const setUserValue = ({ target }) =>
-    dispatch(setValue(target.name, target.value))
+    setValue(target.name, target.value)
 
   const isValidPassword = () =>
     user.password === user.passwordConfirmation
@@ -38,7 +37,7 @@ const SignupForm = ({ user, dispatch }) => {
     event.preventDefault()
 
     if (isValid()) {
-      dispatch(createUser(user))
+      createUser(user)
     }
   }
 
@@ -90,7 +89,7 @@ const SignupForm = ({ user, dispatch }) => {
             onChange={ setUserValue }
           />
         </FormGroup>
-        <Button bsStyle="primary" type="submit">
+        <Button bsStyle="primary" type="submit" disabled={ isFetching }>
           Submit
         </Button>
       </form>
@@ -99,8 +98,9 @@ const SignupForm = ({ user, dispatch }) => {
 }
 
 SignupForm.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  isModalOpen: PropTypes.bool,
+  createUser: PropTypes.func.isRequired,
+  setValue: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool,
   user: PropTypes.shape({
     name: PropTypes.string,
     email: PropTypes.string,

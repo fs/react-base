@@ -1,4 +1,4 @@
-import * as ActionTypes from 'actions/signin';
+import * as ActionTypes from 'actions/signin'
 
 const initialState = {
   user: {
@@ -7,7 +7,7 @@ const initialState = {
     password: '',
     passwordConfirmation: ''
   }
-};
+}
 
 export default function signup(state = initialState, action) {
   switch (action.type) {
@@ -18,8 +18,8 @@ export default function signup(state = initialState, action) {
         ...state.user,
         [action.name]: action.value
       }
-    };
+    }
   default:
-    return state;
+    return state
   }
 }

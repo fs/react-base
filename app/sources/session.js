@@ -1,5 +1,5 @@
-import config from 'config';
-import request from 'lib/request';
+import config from 'config'
+import request from 'lib/request'
 
 export default class SessionSource {
   static urlRoot = `${config.apiTarget}/users`
@@ -9,12 +9,12 @@ export default class SessionSource {
       method: 'POST',
       body: JSON.stringify(user)
     })
-    .then(result => result.json());
+    .then(result => result.json())
   }
 
   static delete(user) {
     return request(`${this.urlRoot}/${user.id}`, {
       method: 'DELETE'
-    });
+    })
   }
 }

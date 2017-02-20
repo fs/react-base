@@ -6,21 +6,21 @@ import { paths } from 'helpers/routes'
 
 const STORAGE_KEY = config.storageKey
 
-export const LOGIN_REQUEST = 'LOGIN_REQUEST'
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS'
+export const SESSION_CREATE_REQUEST = 'SESSION_CREATE_REQUEST'
+export const SESSEION_CREATE_SUCCESS = 'SESSEION_CREATE_SUCCESS'
+export const SESSION_DESTROY_SUCCESS = 'SESSION_DESTROY_SUCCESS'
 
 const requestLogin = (user) => ({
-  type: LOGIN_REQUEST
+  type: SESSION_CREATE_REQUEST
 })
 
 const successLogin = (user) => ({
   user,
-  type: LOGIN_SUCCESS
+  type: SESSEION_CREATE_SUCCESS
 })
 
 const successLogout = () => ({
-  type: LOGOUT_SUCCESS
+  type: SESSION_DESTROY_SUCCESS
 })
 
 export const createUser = (user) =>

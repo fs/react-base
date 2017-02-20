@@ -5,12 +5,10 @@ import {
   FormControl,
   ControlLabel
 } from 'react-bootstrap'
-import session from 'services/session'
-import { setValue } from 'actions/signin'
 
-const SigninForm = ({ dispatch, user }) => {
+const SigninForm = ({ user, isFetching, createUser, setValue }) => {
   const setUserValue = ({ target }) => {
-    dispatch(setValue(target.name, target.value))
+    setValue(target.name, target.value)
   }
 
   const isValid = () => {
@@ -21,7 +19,7 @@ const SigninForm = ({ dispatch, user }) => {
     event.preventDefault()
 
     if (isValid()) {
-      session.create(user)
+      createUser(user)
     }
   }
 
@@ -54,7 +52,7 @@ const SigninForm = ({ dispatch, user }) => {
           type="password"
         />
       </FormGroup>
-      <Button bsStyle="primary" type="submit">
+      <Button bsStyle="primary" type="submit" disabled={ isFetching }>
         Submit
       </Button>
     </form>
@@ -62,7 +60,8 @@ const SigninForm = ({ dispatch, user }) => {
 }
 
 SigninForm.propTypes = {
-  dispatch: PropTypes.func.isRequired,
+  createUser: PropTypes.func.isRequired,
+  setValue: PropTypes.func.isRequired,
   isModalOpen: PropTypes.bool,
   user: PropTypes.shape({
     email: PropTypes.string,
