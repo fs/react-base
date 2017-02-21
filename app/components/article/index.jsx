@@ -8,15 +8,7 @@ export default class Article extends Component {
   }
 
   state = {
-    id: ''
-  }
-
-  componentDidMount() {
-    this.setArticleId(this.props.params.id)
-  }
-
-  setArticleId(id) {
-    this.setState({ id })
+    id: this.props.params.id
   }
 
   render() {

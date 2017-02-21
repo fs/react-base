@@ -43,7 +43,6 @@ const SignupForm = ({ user, isFetching, createUser, setValue }) => {
 
   return (
     <Grid>
-      <h1>Sign Up</h1>
       <form onSubmit={ signUp }>
         <FormGroup
           controlId="name"

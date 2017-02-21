@@ -1,12 +1,11 @@
-import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
-import { Navbar } from 'react-bootstrap';
-import { paths } from 'helpers/routes';
-import { logoutUser } from 'actions/session';
+import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
+import { Navbar } from 'react-bootstrap'
+import { paths } from 'helpers/routes'
 
-const Navigation = ({ dispatch, isAuthenticated, currentUser }) => {
+const Navigation = ({ isAuthenticated, currentUser, logoutUser }) => {
   const signOut = () => {
-    dispatch(logoutUser(currentUser));
+    logoutUser(currentUser)
   }
 
   const renderRightNav = () => {
@@ -22,7 +21,7 @@ const Navigation = ({ dispatch, isAuthenticated, currentUser }) => {
             </a>
           </li>
         </ul>
-      );
+      )
     }
 
     return (
@@ -38,7 +37,7 @@ const Navigation = ({ dispatch, isAuthenticated, currentUser }) => {
           </Link>
         </li>
       </ul>
-    );
+    )
   }
 
   return (
@@ -66,10 +65,9 @@ const Navigation = ({ dispatch, isAuthenticated, currentUser }) => {
 }
 
 Navigation.propTypes = {
-  item: PropTypes.shape({
-    route: PropTypes.string,
-    title: PropTypes.string
-  })
+  currentUser: PropTypes.object,
+  isAuthenticated: PropTypes.bool,
+  logoutUser: PropTypes.func
 }
 
 export default Navigation

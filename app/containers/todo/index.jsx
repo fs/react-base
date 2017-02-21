@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchTodos } from 'actions/todos'
-import { setName, createTodo, toggleTodo, deleteTodo } from 'actions/todo'
+import {
+  setName,
+  createTodo,
+  toggleTodo,
+  deleteTodo
+} from 'actions/todo'
 import {
   Grid,
   Row,
-  Col
+  Col,
+  ListGroup
 } from 'react-bootstrap'
-import TodoList from 'components/todo/list'
 import TodoForm from 'components/todo/form'
+import Todo from 'components/todo'
 
 class TodoContainer extends Component {
   componentDidMount() {
@@ -16,12 +22,19 @@ class TodoContainer extends Component {
   }
 
   renderList = (complete) => {
+    const todos = this.props.todos.filter(todo => todo.isComplete === complete);
+
     return (
-      <TodoList
-        todos={ this.props.todos.filter(todo => todo.isComplete === complete) }
-        toggleTodo={ this.props.toggleTodo }
-        deleteTodo={ this.props.deleteTodo }
-      />
+      <ListGroup>
+        { todos.map(todo =>
+          <Todo
+            key={ todo.id }
+            todo={ todo }
+            toggleTodo={ this.props.toggleTodo }
+            deleteTodo={ this.props.deleteTodo }
+          />)
+        }
+      </ListGroup>
     )
   }
 

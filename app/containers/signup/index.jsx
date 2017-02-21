@@ -4,8 +4,7 @@ import { Grid } from 'react-bootstrap'
 import { setValue, createUser } from 'actions/signup'
 import SignupForm from 'components/signupForm'
 
-const SignupContainer = ({ user, isFetching, createUser, setvalue }) => {
-  console.log(isFetching)
+const SignupContainer = ({ user, isFetching, createUser, setValue }) => {
   return (
     <Grid>
       <h1>Sign Up</h1>

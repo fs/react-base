@@ -13,7 +13,6 @@ export default function signup(state = initialState, action) {
   switch (action.type) {
   case ActionTypes.SET_VALUE:
     return {
-      ...state,
       user: {
         ...state.user,
         [action.name]: action.value
