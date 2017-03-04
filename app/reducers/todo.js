@@ -1,23 +1,18 @@
-import * as ActionTypes from 'actions/todo'
+import { handleActions } from 'redux-actions'
+import actionTypes from 'constants/todo'
 
+const { SET_NAME, SUCCESS_CREATE } = actionTypes
 const initialState = {
   name: '',
   isComplete: false
 }
 
-export default function todo(state = initialState, action) {
-  switch (action.type) {
-  case ActionTypes.SET_NAME:
-    console.log(action)
-    return {
-      ...state,
-      name: action.name
-    }
-  case ActionTypes.SUCCESS_CREATE:
-    return {
-      ...initialState
-    }
-  default:
-    return state
-  }
-}
+export default handleActions({
+  [SET_NAME]: (state, { payload }) => ({
+    ...state,
+    name: payload.name
+  }),
+  [SUCCESS_CREATE]: () => ({
+    ...initialState
+  })
+}, initialState)

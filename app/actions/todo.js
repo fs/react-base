@@ -1,38 +1,26 @@
+import { createActions } from 'redux-actions'
 import todosSource from 'sources/todos'
+import actionTypes from 'constants/todo'
 
-export const SET_NAME = 'SET_NAME'
-export const SUCCESS_CREATE = 'SUCCESS_CREATE'
-export const SUCCESS_TOGGLE = 'SUCCESS_TOGGLE'
-export const SUCCESS_DELETE = 'SUCCESS_DELETE'
+const { SET_NAME, SUCCESS_CREATE, SUCCESS_TOGGLE, SUCCESS_DELETE } = actionTypes
 
-export const setName = (name) => ({
-  name,
-  type: SET_NAME
-})
+const actions = createActions([
+  SET_NAME,
+  SUCCESS_CREATE,
+  SUCCESS_TOGGLE,
+  SUCCESS_DELETE
+])
 
-export const successCreate = (todo) => ({
-  todo,
-  type: SUCCESS_CREATE
-})
-
-export const successToggle = (todo) => ({
-  todo,
-  type: SUCCESS_TOGGLE
-})
-
-export const successDelete = (todo) => ({
-  todo,
-  type: SUCCESS_DELETE
-})
-
-export const createTodo = (todo) =>
+const createTodo = (todo) =>
   (dispatch) =>
-    todosSource.create(todo).then((result) => dispatch(successCreate(result)))
+    todosSource.create(todo).then(result => dispatch(actions.successCreate(result)))
 
-export const toggleTodo = (todo) =>
+const toggleTodo = (todo) =>
   (dispatch) =>
-    todosSource.update(todo).then(() => dispatch(successToggle(todo)))
+    todosSource.update(todo).then(() => dispatch(actions.successToggle(todo)))
 
-export const deleteTodo = (todo) =>
+const deleteTodo = (todo) =>
   (dispatch) =>
-    todosSource.delete(todo).then(() => dispatch(successDelete(todo)))
+    todosSource.delete(todo).then(() => dispatch(actions.successDelete(todo)))
+
+export default { ...actions, createTodo, toggleTodo, deleteTodo }
