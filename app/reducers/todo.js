@@ -10,7 +10,7 @@ const initialState = {
 export default handleActions({
   [SET_NAME]: (state, { payload }) => ({
     ...state,
-    name: payload.name
+    name: payload
   }),
   [SUCCESS_CREATE]: () => ({
     ...initialState
