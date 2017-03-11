@@ -1,19 +1,18 @@
+import { createActions } from 'redux-actions'
 import todosSource from 'sources/todos'
+import actionTypes from 'constants/todos'
 
-export const REQUEST_TODOS = 'REQUEST_TODOS'
-export const RECEIVE_TODOS = 'RECEIVE_TODOS'
+const { REQUEST_TODOS, RECEIVE_TODOS } = actionTypes
 
-export const requestTodos = () => ({
-  type: REQUEST_TODOS
-})
+const actions = createActions(
+  REQUEST_TODOS,
+  RECEIVE_TODOS
+)
 
-export const receiveTodos = (todos) => ({
-  todos,
-  type: RECEIVE_TODOS
-})
-
-export const fetchTodos = () =>
+const fetchTodos = () =>
   (dispatch) => {
-    dispatch(requestTodos())
-    todosSource.get().then((result) => dispatch(receiveTodos(result)))
+    dispatch(actions.requestTodos())
+    todosSource.get().then((result) => dispatch(actions.receiveTodos(result)))
   }
+
+export default { ...actions, fetchTodos }
