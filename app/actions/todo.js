@@ -4,12 +4,12 @@ import actionTypes from 'constants/todo'
 
 const { SET_NAME, SUCCESS_CREATE, SUCCESS_TOGGLE, SUCCESS_DELETE } = actionTypes
 
-const actions = createActions([
+const actions = createActions(
   SET_NAME,
   SUCCESS_CREATE,
   SUCCESS_TOGGLE,
   SUCCESS_DELETE
-])
+)
 
 const createTodo = (todo) =>
   (dispatch) =>
