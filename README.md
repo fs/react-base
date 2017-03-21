@@ -6,7 +6,7 @@
 
 Kick-start your new web application based on React and Flux technologies. It also includes Webpack 2, React hot loader, PostCSS, JSON-server tools for even more rapid development.
 
-## NPM Dependencies:
+## Dependencies:
 
 List of all dependencies is presented [here](https://github.com/fs/react-base/blob/master/package.json)
 
@@ -17,12 +17,12 @@ Install Node.js
 
 Via brew:
 ```bash
-brew install node
+brew install node yarn
 ```
 
 Via nvm:
 ```bash
-brew install nvm
+brew install nvm yarn
 nvm install node
 nvm alias default node
 ```
@@ -54,13 +54,13 @@ bin/setup
 Run app (by default environment is 'development', port is 8000)
 
 ```bash
-npm start
+yarn start
 ```
 
 Run app with options
 
 ```bash
-[<options>] npm start
+[<options>] yarn start
 ```
 
 ```bash
@@ -79,31 +79,31 @@ localhost:8000
 ## Run tests and linters
 
 ```bash
-npm test
+yarn test
 ```
 
 ## Code linting tasks
 
 Run javascript linter
 ```bash
-npm run eslint
+yarn run eslint
 ```
 
 Run stylesheets linter
 ```bash
-npm run stylelint
+yarn run stylelint
 ```
 
 Run all linters
 ```bash
-npm run lint
+yarn run lint
 ```
 
 ## Test tasks
 
 Run jest tests
 ```bash
-npm run jest
+yarn run jest
 ```
 
 ## Credits
