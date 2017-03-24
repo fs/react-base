@@ -8,7 +8,7 @@ import {
   ControlLabel
 } from 'react-bootstrap'
 
-const SignupForm = ({ user, isFetching, createUser, setValue }) => {
+const SignupForm = ({ user, isLoading, createUser, setValue }) => {
   const setUserValue = ({ target }) =>
     setValue(target.name, target.value)
 
@@ -88,7 +88,7 @@ const SignupForm = ({ user, isFetching, createUser, setValue }) => {
             onChange={ setUserValue }
           />
         </FormGroup>
-        <Button bsStyle="primary" type="submit" disabled={ isFetching }>
+        <Button bsStyle="primary" type="submit" disabled={ isLoading }>
           Submit
         </Button>
       </form>
@@ -99,7 +99,7 @@ const SignupForm = ({ user, isFetching, createUser, setValue }) => {
 SignupForm.propTypes = {
   createUser: PropTypes.func.isRequired,
   setValue: PropTypes.func.isRequired,
-  isFetching: PropTypes.bool,
+  isLoading: PropTypes.bool,
   user: PropTypes.shape({
     name: PropTypes.string,
     email: PropTypes.string,

@@ -1,72 +1,89 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   Button,
   FormGroup,
   FormControl,
   ControlLabel
 } from 'react-bootstrap'
+import Form from 'components/form';
 
-const SigninForm = ({ user, isFetching, createUser, setValue }) => {
-  const setUserValue = ({ target }) => {
-    setValue(target.name, target.value)
+export default class SigninForm extends Component {
+  static propTypes = {
+    createUser: PropTypes.func.isRequired
   }
 
-  const isValid = () => {
-    return user.email.length >= 6 && user.password.length >= 6
+  state = {
+    email: '',
+    password: '',
+    errors: {}
   }
 
-  const signIn = (event) => {
-    event.preventDefault()
+  setValue = ({ target }) => {
+    const { name, value } = target;
 
-    if (isValid()) {
-      createUser(user)
+    this.setState({ [name]: value });
+  }
+
+  isFormValid = () => {
+    const { email, password } = this.state;
+
+    return email.length > 5 && password.length > 5;
+  }
+
+  signIn = (event) => {
+    event.preventDefault();
+
+    const { email, password } = this.state;
+    const { createUser } = this.props;
+
+    if (this.isFormValid()) {
+      createUser({ email, password })
+        .then(() => this.setState({ email: '', password: '' }))
+        .catch(({ errors }) => this.setState({ errors }));
     }
   }
 
-  const validationState = (value) => {
-    return value.length >= 6 ? 'success' : 'error'
+  validationState = (value) => {
+    const length = value.length;
+
+    if (!length) return null;
+
+    return length > 5 ? 'success' : 'error';
   }
 
-  return (
-    <form onSubmit={ signIn }>
-      <FormGroup
-        controlId="email"
-        validationState={ validationState(user.email) }
-      >
-        <ControlLabel>Email</ControlLabel>
-        <FormControl
-          type="text"
-          name="email"
-          onChange={ setUserValue }
-        />
-      </FormGroup>
-      <FormGroup
-        controlId="password"
-        validationState={ validationState(user.password) }
-      >
-        <ControlLabel>Password</ControlLabel>
-        <FormControl
-          autoComplete="off"
-          name="password"
-          onChange={ setUserValue }
-          type="password"
-        />
-      </FormGroup>
-      <Button bsStyle="primary" type="submit" disabled={ isFetching }>
-        Submit
-      </Button>
-    </form>
-  )
-}
+  render() {
+    const { email, password } = this.state;
+    const { isLoading } = this.props;
 
-SigninForm.propTypes = {
-  createUser: PropTypes.func.isRequired,
-  setValue: PropTypes.func.isRequired,
-  isModalOpen: PropTypes.bool,
-  user: PropTypes.shape({
-    email: PropTypes.string,
-    password: PropTypes.string
-  })
+    return (
+      <Form onSubmit={ this.signIn }>
+        <FormGroup
+          controlId="email"
+          validationState={ this.validationState(email) }
+        >
+          <ControlLabel>Email</ControlLabel>
+          <FormControl
+            type="text"
+            name="email"
+            onChange={ this.setValue }
+          />
+        </FormGroup>
+        <FormGroup
+          controlId="password"
+          validationState={ this.validationState(password) }
+        >
+          <ControlLabel>Password</ControlLabel>
+          <FormControl
+            autoComplete="off"
+            name="password"
+            onChange={ this.setValue }
+            type="password"
+          />
+        </FormGroup>
+        <Button bsStyle="primary" type="submit" disabled={ isLoading }>
+          Submit
+        </Button>
+      </Form>
+    );
+  }
 }
-
-export default SigninForm

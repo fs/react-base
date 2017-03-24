@@ -5,7 +5,7 @@ import config from 'config'
 const STORAGE_KEY = config.storageKey
 
 const initialState = {
-  isFetching: false,
+  isLoading: false,
   isAuthenticated: Storage.get(STORAGE_KEY) ? true : false,
   currentUser: Storage.get(STORAGE_KEY) || {}
 }
@@ -15,12 +15,12 @@ export default function session(state = initialState, action) {
   case ActionTypes.SESSION_CREATE_REQUEST:
     return {
       ...state,
-      isFetching: true
+      isLoading: true
     }
   case ActionTypes.SESSEION_CREATE_SUCCESS:
     return {
       ...state,
-      isFetching: false,
+      isLoading: false,
       currentUser: action.user,
       isAuthenticated: true
     }

@@ -4,13 +4,13 @@ import { Grid } from 'react-bootstrap'
 import { setValue, createUser } from 'actions/signup'
 import SignupForm from 'components/signupForm'
 
-const SignupContainer = ({ user, isFetching, createUser, setValue }) => {
+const SignupContainer = ({ user, isLoading, createUser, setValue }) => {
   return (
     <Grid>
       <h1>Sign Up</h1>
       <SignupForm
         user={ user }
-        isFetching={ isFetching }
+        isLoading={ isLoading }
         createUser={ createUser }
         setValue={ setValue }
       />
@@ -20,7 +20,7 @@ const SignupContainer = ({ user, isFetching, createUser, setValue }) => {
 
 const mapStateToProps = (state) => ({
   ...state.signup,
-  isFetching: state.session.isFetching
+  isLoading: state.session.isLoading
 })
 const mapDispatchToProps = (dispatch) => ({
   createUser: (user) => dispatch(createUser(user)),

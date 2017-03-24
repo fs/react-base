@@ -26,11 +26,12 @@ export default class TodoForm extends Component {
   validationState = () => {
     const length = this.state.name.length;
 
-    if (length > 5) return 'success';
-    if (length > 0) return 'error';
+    if (!length) return null;
+
+    return length > 5 ? 'success' : 'error';
   }
 
-  handleSubmitForm = (event) => {
+  createTodo = (event) => {
     event.preventDefault()
 
     const { name } = this.state;
@@ -49,7 +50,7 @@ export default class TodoForm extends Component {
     return (
       <div>
         <h3>New Task</h3>
-        <Form onSubmit={ this.handleSubmitForm }>
+        <Form onSubmit={ this.createTodo }>
           <FormGroup
             controlId="taskName"
             validationState={ this.validationState() }
