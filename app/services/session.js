@@ -1,4 +1,4 @@
-import store from 'store/configureStore'
+import store from 'stores/application'
 import config from 'config'
 import { createUser, logoutUser } from 'actions/session'
 

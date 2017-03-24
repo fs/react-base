@@ -3,7 +3,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import appHistory from 'services/history'
-import store from 'store/configureStore'
+import store from 'stores/application'
 import Root from 'containers/root'
 
 const mountNode = document.getElementById('app')

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import todosActions from 'actions/todos'
-import todoActions from 'actions/todo'
 import {
   Grid,
   Row,
@@ -13,28 +12,23 @@ import TodoForm from 'components/todo/form'
 import Todo from 'components/todo'
 
 class TodoContainer extends Component {
-  constructor(props) {
-    super(props)
-
-    this.todoActions = bindActionCreators(todoActions, this.props.dispatch)
-    this.todosActions = bindActionCreators(todosActions, this.props.dispatch)
-  }
-
   componentDidMount() {
-    this.todosActions.fetchTodos()
+    this.props.actions.fetchTodos();
   }
 
   renderList = (complete) => {
-    const todos = this.props.todos.filter(todo => todo.isComplete === complete);
+    const { todos, actions } = this.props;
+    const { toggleTodo, deleteTodo } = actions;
+    const items = todos.filter(todo => todo.isComplete === complete);
 
     return (
       <ListGroup>
-        { todos.map(todo =>
+        { items.map(todo =>
           <Todo
             key={ todo.id }
             todo={ todo }
-            toggleTodo={ this.todoActions.toggleTodo }
-            deleteTodo={ this.todoActions.deleteTodo }
+            toggleTodo={ toggleTodo }
+            deleteTodo={ deleteTodo }
           />)
         }
       </ListGroup>
@@ -46,11 +40,7 @@ class TodoContainer extends Component {
       <Grid>
         <Row className="show-grid">
           <Col md={ 4 } offset={ 4 }>
-            <TodoForm
-              todo={ this.props.todo }
-              setName={ this.todoActions.setName }
-              createTodo={ this.todoActions.createTodo }
-            />
+            <TodoForm createTodo={ this.props.actions.createTodo }/>
           </Col>
         </Row>
 
@@ -75,9 +65,13 @@ class TodoContainer extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   ...state.todos,
   todo: state.todo
 })
 
-export default connect(mapStateToProps)(TodoContainer)
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators(todosActions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer)

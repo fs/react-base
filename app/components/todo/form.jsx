@@ -1,58 +1,73 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import {
   Button,
   FormGroup,
   FormControl,
   ControlLabel
 } from 'react-bootstrap'
+import Form from 'components/form';
 
-const TodoForm = ({ todo, setName, createTodo }) => {
-  const handleChangeName = ({ target }) => {
-    setName(target.value)
+export default class TodoForm extends Component {
+  static propTypes = {
+    createTodo: PropTypes.func.isRequired
   }
 
-  const validationState = () => {
-    const length = todo.name.length
-
-    if (length > 6) return 'success'
-    if (length > 3) return 'warning'
-    return 'error'
+  state = {
+    name: '',
+    errors: {}
   }
 
-   const handleSubmitForm = (event) => {
+  changeName = ({ target }) => {
+    const { name, value } = target;
+
+    this.setState({ [name]: value });
+  }
+
+  validationState = () => {
+    const length = this.state.name.length;
+
+    if (length > 5) return 'success';
+    if (length > 0) return 'error';
+  }
+
+  handleSubmitForm = (event) => {
     event.preventDefault()
 
-    if (validationState() !== 'error') {
-      createTodo(todo)
+    const { name } = this.state;
+    const { createTodo } = this.props;
+
+    if (this.validationState() === 'success') {
+      createTodo({ name })
+        .then(() => this.setState({ name: '' }))
+        .catch(({ errors }) => this.setState({ errors }));
     }
   }
 
-  return (
-    <div>
-      <h3>New Task</h3>
-      <form onSubmit={ handleSubmitForm }>
-          <FormGroup controlId="taskName" validationState={ validationState() }>
-            <ControlLabel>Task name: { todo.name }</ControlLabel>
+  render() {
+    const { name } = this.state;
+
+    return (
+      <div>
+        <h3>New Task</h3>
+        <Form onSubmit={ this.handleSubmitForm }>
+          <FormGroup
+            controlId="taskName"
+            validationState={ this.validationState() }
+          >
+            <ControlLabel>
+              Task name: { name }
+            </ControlLabel>
             <FormControl
               type="text"
+              name="name"
               placeholder="Task name..."
-              onChange={ handleChangeName }
-              value={ todo.name }
+              onChange={ this.changeName }
+              value={ name }
             />
           </FormGroup>
           <Button bsStyle="primary" type="submit">Save</Button>
-      </form>
-    </div>
-  )
+        </Form>
+      </div>
+    );
+  }
 }
-
-TodoForm.propTypes = {
-  todo: PropTypes.shape({
-    name: PropTypes.string,
-    isComplete: PropTypes.bool
-  }),
-  setName: PropTypes.func,
-  createTodo: PropTypes.func
-}
-
-export default TodoForm
