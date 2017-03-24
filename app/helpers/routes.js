@@ -1,4 +1,4 @@
-import session from 'services/session'
+import currentUser from 'services/currentUser'
 
 export const paths = {
   home() { return '/' },
@@ -9,7 +9,7 @@ export const paths = {
 }
 
 export function requireAuth(nextState, replace) {
-  if (!session.loggedIn()) {
+  if (!currentUser.loggedIn()) {
     replace({
       pathname: '/',
       state: { nextPathname: nextState.location.pathname }

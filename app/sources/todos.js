@@ -12,7 +12,6 @@ export default class TodosSource {
   }
 
   static create(todo) {
-    console.log(todo)
     return requestAuth(this.urlRoot, {
       method: 'POST',
       body: JSON.stringify(todo)

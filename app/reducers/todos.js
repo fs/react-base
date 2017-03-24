@@ -24,14 +24,10 @@ export default handleActions({
     isLoading: false,
     todos: payload
   }),
-  [ADD_TODO]: (state, { payload }) => {
-    const newTodo = { ...payload, isComplete: false };
-
-    return {
-      ...state,
-      todos: [...state.todos, newTodo]
-    };
-  },
+  [ADD_TODO]: (state, { payload }) => ({
+    ...state,
+    todos: [...state.todos, payload]
+  }),
   [TOGGLE_TODO]: (state, { payload }) => ({
     ...state,
     todos: state.todos.map(todo => todo.id === payload.id ? payload : todo)

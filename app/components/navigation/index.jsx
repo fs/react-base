@@ -3,13 +3,13 @@ import { Link } from 'react-router'
 import { Navbar } from 'react-bootstrap'
 import { paths } from 'helpers/routes'
 
-const Navigation = ({ isAuthenticated, currentUser, logoutUser }) => {
+const Navigation = ({ loggedIn, currentUser, logoutUser }) => {
   const signOut = () => {
     logoutUser(currentUser)
   }
 
   const renderRightNav = () => {
-    if (isAuthenticated) {
+    if (loggedIn) {
       return (
         <ul className="nav navbar-nav navbar-right">
           <li className="navbar-text">
@@ -66,7 +66,7 @@ const Navigation = ({ isAuthenticated, currentUser, logoutUser }) => {
 
 Navigation.propTypes = {
   currentUser: PropTypes.object,
-  isAuthenticated: PropTypes.bool,
+  loggedIn: PropTypes.bool,
   logoutUser: PropTypes.func
 }
 

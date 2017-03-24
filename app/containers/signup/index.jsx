@@ -1,30 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Grid } from 'react-bootstrap'
-import { setValue, createUser } from 'actions/signup'
+import actions from 'actions/session'
 import SignupForm from 'components/signupForm'
 
-const SignupContainer = ({ user, isLoading, createUser, setValue }) => {
+const SignupContainer = ({ isLoading, signupUser }) => {
   return (
     <Grid>
       <h1>Sign Up</h1>
       <SignupForm
-        user={ user }
         isLoading={ isLoading }
-        createUser={ createUser }
-        setValue={ setValue }
+        signupUser={ signupUser }
       />
     </Grid>
   )
 }
 
 const mapStateToProps = (state) => ({
-  ...state.signup,
   isLoading: state.session.isLoading
 })
 const mapDispatchToProps = (dispatch) => ({
-  createUser: (user) => dispatch(createUser(user)),
-  setValue: (name, value) => dispatch(setValue(name, value))
+  signupUser: (user) => dispatch(actions.signupUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignupContainer)

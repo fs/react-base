@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import {
   Grid,
@@ -8,104 +8,137 @@ import {
   ControlLabel
 } from 'react-bootstrap'
 
-const SignupForm = ({ user, isLoading, createUser, setValue }) => {
-  const setUserValue = ({ target }) =>
-    setValue(target.name, target.value)
+export default class SignupForm extends Component {
+  static propTypes = {
+    signupUser: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired
+  }
 
-  const isValidPassword = () =>
-    user.password === user.passwordConfirmation
+  state = {
+    name: '',
+    email: '',
+    password: '',
+    passwordConfirmation: '',
+    errors: {}
+  }
 
-  const isValid = () =>
-    (
-      user.name.trim().length &&
-      user.email.length >= 6 &&
-      user.password.length >= 6 &&
-      user.passwordConfirmation.length >= 6 &&
-      isValidPassword()
-    )
+  setValue = ({ target }) => {
+    const { name, value } = target;
 
-  const validationState = (value) =>
-    value.length >= 6 ? 'success' : 'error'
+    this.setState({ [name]: value });
+  }
 
-  const nameValidationState = (value) =>
-    value.trim().length ? 'success' : 'error'
+  isFormValid = () => {
+    const { name, email, password, passwordConfirmation } = this.state;
 
-  const passwordValidationState = (value) =>
-    (isValidPassword() && value.length >= 6) ? 'success' : 'error'
+    return (
+      name.trim().length &&
+      email.length > 5 &&
+      password.length > 5 &&
+      passwordConfirmation.length > 5 &&
+      this.isValidPassword()
+    );
+  }
 
-  const signUp = (event) => {
-    event.preventDefault()
+  isValidPassword = () => {
+    const { password, passwordConfirmation } = this.state;
 
-    if (isValid()) {
-      createUser(user)
+    return password === passwordConfirmation;
+  }
+
+  validationState = (value) => {
+    const length = value.length;
+
+    if (!length) return null;
+
+    return length > 5 ? 'success' : 'error';
+  }
+
+  nameValidationState = (value) => {
+    const length = value.trim().length;
+
+    if (!length) return null;
+
+    return length ? 'success' : 'error';
+  }
+
+  passwordValidationState = (value) => {
+    const length = value.length;
+
+    if (!length) return null;
+
+    (this.isValidPassword() && length > 5) ? 'success' : 'error';
+  }
+
+  signUp = (event) => {
+    event.preventDefault();
+
+    const { name, email, password, passwordConfirmation } = this.state;
+    const { signupUser } = this.props;
+
+    if (this.isFormValid()) {
+      signupUser({ name, email, password, passwordConfirmation })
+        .then(() => this.setState({ name: '', email: '', password: '', passwordConfirmation: '' }))
+        .catch(({ errors }) => this.setState({ errors }));
     }
   }
 
-  return (
-    <Grid>
-      <form onSubmit={ signUp }>
-        <FormGroup
-          controlId="name"
-          validationState={ nameValidationState(user.name) }
-        >
-          <ControlLabel>Name</ControlLabel>
-          <FormControl
-            type="text"
-            name="name"
-            onChange={ setUserValue }
-          />
-        </FormGroup>
-        <FormGroup
-          controlId="email"
-          validationState={ validationState(user.email) }
-        >
-          <ControlLabel>Email</ControlLabel>
-          <FormControl
-            type="text"
-            name="email"
-            onChange={ setUserValue }
-          />
-        </FormGroup>
-        <FormGroup
-          controlId="password"
-          validationState={ validationState(user.password) }
-        >
-          <ControlLabel>Password</ControlLabel>
-          <FormControl
-            type="password"
-            name="password"
-            onChange={ setUserValue }
-          />
-        </FormGroup>
-        <FormGroup
-          controlId="passwordConfirmation"
-          validationState={ passwordValidationState(user.passwordConfirmation) }
-        >
-          <ControlLabel>Password Confirmation</ControlLabel>
-          <FormControl
-            type="password"
-            name="passwordConfirmation"
-            onChange={ setUserValue }
-          />
-        </FormGroup>
-        <Button bsStyle="primary" type="submit" disabled={ isLoading }>
-          Submit
-        </Button>
-      </form>
-    </Grid>
-  )
-}
+  render() {
+    const { name, email, password, passwordConfirmation } = this.state;
+    const { isLoading } = this.props;
 
-SignupForm.propTypes = {
-  createUser: PropTypes.func.isRequired,
-  setValue: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool,
-  user: PropTypes.shape({
-    name: PropTypes.string,
-    email: PropTypes.string,
-    password: PropTypes.string,
-    passwordConfirmation: PropTypes.string
-  })
+    return (
+      <Grid>
+        <form onSubmit={ this.signUp }>
+          <FormGroup
+            controlId="name"
+            validationState={ this.nameValidationState(name) }
+          >
+            <ControlLabel>Name</ControlLabel>
+            <FormControl
+              type="text"
+              name="name"
+              onChange={ this.setValue }
+            />
+          </FormGroup>
+          <FormGroup
+            controlId="email"
+            validationState={ this.validationState(email) }
+          >
+            <ControlLabel>Email</ControlLabel>
+            <FormControl
+              type="text"
+              name="email"
+              onChange={ this.setValue }
+            />
+          </FormGroup>
+          <FormGroup
+            controlId="password"
+            validationState={ this.validationState(password) }
+          >
+            <ControlLabel>Password</ControlLabel>
+            <FormControl
+              type="password"
+              name="password"
+              onChange={ this.setValue }
+            />
+          </FormGroup>
+          <FormGroup
+            controlId="passwordConfirmation"
+            validationState={ this.passwordValidationState(passwordConfirmation) }
+          >
+            <ControlLabel>Password Confirmation</ControlLabel>
+            <FormControl
+              type="password"
+              name="passwordConfirmation"
+              onChange={ this.setValue }
+            />
+          </FormGroup>
+          <Button bsStyle="primary" type="submit" disabled={ isLoading }>
+            Submit
+          </Button>
+        </form>
+      </Grid>
+    )
+  }
 }
-
-export default SignupForm

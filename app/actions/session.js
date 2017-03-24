@@ -1,43 +1,47 @@
-import Storage from 'lib/storage'
+import { createActions } from 'redux-actions'
 import sessionSource from 'sources/session'
+import usersSource from 'sources/users'
+import actionTypes from 'constants/session'
+import sessionStorage from 'services/sessionStorage'
 import appHistory from 'services/history'
-import config from 'config'
 import { paths } from 'helpers/routes'
 
-const STORAGE_KEY = config.storageKey
+const { LOAD_DATA, SET_USER, REMOVE_USER } = actionTypes;
 
-export const SESSION_CREATE_REQUEST = 'SESSION_CREATE_REQUEST'
-export const SESSEION_CREATE_SUCCESS = 'SESSEION_CREATE_SUCCESS'
-export const SESSION_DESTROY_SUCCESS = 'SESSION_DESTROY_SUCCESS'
+const actions = createActions(
+  LOAD_DATA,
+  SET_USER,
+  REMOVE_USER
+);
 
-const requestLogin = (user) => ({
-  type: SESSION_CREATE_REQUEST
-})
-
-const successLogin = (user) => ({
-  user,
-  type: SESSEION_CREATE_SUCCESS
-})
-
-const successLogout = () => ({
-  type: SESSION_DESTROY_SUCCESS
-})
-
-export const createUser = (user) =>
+const signinUser = (user) =>
   (dispatch) => {
-    dispatch(requestLogin())
+    dispatch(actions.loadData());
 
-    sessionSource.create(user).then((result) => {
-      Storage.set(STORAGE_KEY, result)
-      dispatch(successLogin(result))
-      appHistory.push(paths.home())
+    return sessionSource.signin(user).then(result => {
+      sessionStorage.set(result);
+      dispatch(actions.setUser(result));
+      appHistory.push(paths.home());
     })
   }
 
-export const logoutUser = (user) =>
+const signupUser = (user) =>
   (dispatch) => {
-    sessionSource.delete(user).then(() => {
-      Storage.remove(STORAGE_KEY)
-      dispatch(successLogout())
+    dispatch(actions.loadData());
+
+    return usersSource.create(user).then(result => {
+      sessionStorage.set(result);
+      dispatch(actions.setUser(result));
+      appHistory.push(paths.home());
     })
   }
+
+const logoutUser = (user) =>
+  (dispatch) => {
+    return sessionSource.logout(user).then(() => {
+      sessionStorage.remove();
+      dispatch(actions.removeUser());
+    })
+  }
+
+export default { ...actions, signinUser, signupUser, logoutUser };

@@ -1,7 +1,7 @@
 import config from 'config'
 import request from 'lib/request'
 
-export default class SignupSource {
+export default class UsersSource {
   static urlRoot = `${config.apiTarget}/users`
 
   static create(user) {

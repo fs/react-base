@@ -26,7 +26,7 @@ const fetchTodos = () =>
 
 const createTodo = (todo) =>
   (dispatch) =>
-    todosSource.create(todo).then(result => dispatch(actions.addTodo(result)));
+    todosSource.create({ ...todo, isComplete: false }).then(result => dispatch(actions.addTodo(result)));
 
 const updateTodo = (todo) =>
   (dispatch) => {

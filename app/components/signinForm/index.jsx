@@ -9,7 +9,8 @@ import Form from 'components/form';
 
 export default class SigninForm extends Component {
   static propTypes = {
-    createUser: PropTypes.func.isRequired
+    signinUser: PropTypes.func.isRequired,
+    isLoading: PropTypes.bool.isRequired
   }
 
   state = {
@@ -34,10 +35,10 @@ export default class SigninForm extends Component {
     event.preventDefault();
 
     const { email, password } = this.state;
-    const { createUser } = this.props;
+    const { signinUser } = this.props;
 
     if (this.isFormValid()) {
-      createUser({ email, password })
+      signinUser({ email, password })
         .then(() => this.setState({ email: '', password: '' }))
         .catch(({ errors }) => this.setState({ errors }));
     }
