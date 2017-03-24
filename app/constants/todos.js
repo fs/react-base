@@ -1,9 +1,9 @@
 import mirrorCreator from 'mirror-creator';
 
 export default mirrorCreator([
-  'CREATE_TODO',
+  'LOAD_TODOS',
+  'SET_TODOS',
+  'ADD_TODO',
   'TOGGLE_TODO',
-  'DELETE_TODO',
-  'REQUEST_TODOS',
-  'RECEIVE_TODOS'
+  'REMOVE_TODO'
 ]);

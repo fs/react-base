@@ -18,7 +18,7 @@ class TodoContainer extends Component {
 
   renderList = (complete) => {
     const { todos, actions } = this.props;
-    const { toggleTodo, deleteTodo } = actions;
+    const { updateTodo, deleteTodo } = actions;
     const items = todos.filter(todo => todo.isComplete === complete);
 
     return (
@@ -27,7 +27,7 @@ class TodoContainer extends Component {
           <Todo
             key={ todo.id }
             todo={ todo }
-            toggleTodo={ toggleTodo }
+            updateTodo={ updateTodo }
             deleteTodo={ deleteTodo }
           />)
         }

@@ -4,9 +4,9 @@ import { ListGroupItem } from 'react-bootstrap'
 import TodosActions from 'actions/todos'
 import styles from './styles'
 
-const Todo = ({ todo, toggleTodo, deleteTodo }) => {
+const Todo = ({ todo, updateTodo, deleteTodo }) => {
   const toggle = () => {
-    toggleTodo({
+    updateTodo({
       ...todo,
       isComplete: !todo.isComplete
     })

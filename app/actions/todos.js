@@ -2,32 +2,44 @@ import { createActions } from 'redux-actions'
 import todosSource from 'sources/todos'
 import actionTypes from 'constants/todos'
 
-const { CREATE_TODO, TOGGLE_TODO, DELETE_TODO, REQUEST_TODOS, RECEIVE_TODOS } = actionTypes
+const {
+  LOAD_TODOS,
+  SET_TODOS,
+  ADD_TODO,
+  TOGGLE_TODO,
+  REMOVE_TODO
+} = actionTypes
 
 const actions = createActions(
-  CREATE_TODO,
+  LOAD_TODOS,
+  SET_TODOS,
+  ADD_TODO,
   TOGGLE_TODO,
-  DELETE_TODO,
-  REQUEST_TODOS,
-  RECEIVE_TODOS
+  REMOVE_TODO
 )
 
 const fetchTodos = () =>
   (dispatch) => {
-    dispatch(actions.requestTodos())
-    todosSource.get().then(result => dispatch(actions.receiveTodos(result)))
+    dispatch(actions.loadTodos())
+    todosSource.get().then(result => dispatch(actions.setTodos(result)))
   }
 
 const createTodo = (todo) =>
   (dispatch) =>
-    todosSource.create(todo).then(result => dispatch(actions.createTodo(result)));
+    todosSource.create(todo).then(result => dispatch(actions.addTodo(result)));
 
-const toggleTodo = (todo) =>
-  (dispatch) =>
-    todosSource.update(todo).then(() => dispatch(actions.toggleTodo(todo)))
+const updateTodo = (todo) =>
+  (dispatch) => {
+    dispatch(actions.toggleTodo(todo));
+
+    return todosSource.update(todo);
+  }
 
 const deleteTodo = (todo) =>
-  (dispatch) =>
-    todosSource.delete(todo).then(() => dispatch(actions.deleteTodo(todo)))
+  (dispatch) => {
+    dispatch(actions.removeTodo(todo));
 
-export default { ...actions, fetchTodos, createTodo, toggleTodo, deleteTodo }
+    return todosSource.delete(todo);
+  }
+
+export default { ...actions, fetchTodos, createTodo, updateTodo, deleteTodo }
