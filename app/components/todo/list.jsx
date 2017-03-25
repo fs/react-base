@@ -3,7 +3,7 @@ import { ListGroup } from 'react-bootstrap'
 import Todo from 'components/todo'
 
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
-  return(
+  return (
     <ListGroup>
       { todos.map(todo =>
         <Todo

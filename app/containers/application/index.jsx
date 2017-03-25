@@ -1,6 +1,7 @@
 import React, { Component, cloneElement } from 'react'
 import { connect } from 'react-redux'
 import actions from 'actions/session'
+import Modal from 'containers/modal';
 import Navigation from 'components/navigation'
 import Footer from 'components/footer'
 import styles from './styles'
@@ -17,6 +18,7 @@ const Application = ({ children, logoutUser, loggedIn, currentUser }) => {
         { cloneElement(children, { loggedIn }) }
       </main>
       <Footer/>
+      <Modal/>
     </div>
   )
 }
