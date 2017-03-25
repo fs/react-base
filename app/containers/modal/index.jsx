@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import modalActions from 'actions/modal';
-import TodoModal from 'components/todoModal';
+import TodoModal from 'containers/todoModal';
 // import SigninModal from 'components/signinModal';
 // import SignupModal from 'components/signupModal';
 
