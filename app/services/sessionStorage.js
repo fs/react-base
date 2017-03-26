@@ -11,10 +11,10 @@ export default class SessionStorage {
   }
 
   static set(user) {
-    storage.set(config.storageKey, user)
+    storage.set(config.storageKey, user);
   }
 
   static remove() {
-    storage.remove(config.storageKey)
+    storage.remove(config.storageKey);
   }
 }

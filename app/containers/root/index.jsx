@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react'
-import { Router, Route, Redirect } from 'react-router'
-import { Provider } from 'react-redux'
-import Main from 'components/main'
-import About from 'components/about'
-import Article from 'components/article'
-import Application from 'containers/application'
+import React, { PropTypes } from 'react';
+import { Router, Route, Redirect } from 'react-router';
+import { Provider } from 'react-redux';
+import Main from 'components/main';
+import About from 'components/about';
+import Article from 'components/article';
+import Application from 'containers/application';
 
 const Root = ({ store, history }) => (
   <Provider store={ store }>
@@ -18,11 +18,11 @@ const Root = ({ store, history }) => (
       </Route>
     </Router>
   </Provider>
-)
+);
 
 Root.propTypes = {
   history: PropTypes.object.isRequired,
   store: PropTypes.object.isRequired
-}
+};
 
-export default Root
+export default Root;

@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react'
-import { Link } from 'react-router'
-import { Navbar, Nav, NavItem } from 'react-bootstrap'
-import { paths } from 'helpers/routes'
+import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { paths } from 'helpers/routes';
 
 const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
   const renderRightNav = () => {
@@ -28,7 +28,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
         </NavItem>
       </Nav>
     );
-  }
+  };
 
   return (
     <Navbar>
@@ -51,13 +51,13 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
       </ul>
       { renderRightNav() }
     </Navbar>
-  )
-}
+  );
+};
 
 Navigation.propTypes = {
   currentUser: PropTypes.object,
   loggedIn: PropTypes.bool,
   logoutUser: PropTypes.func
-}
+};
 
-export default Navigation
+export default Navigation;

@@ -1,6 +1,6 @@
-import { handleActions } from 'redux-actions'
-import actionTypes from 'constants/session'
-import sessionStorage from 'services/sessionStorage'
+import { handleActions } from 'redux-actions';
+import actionTypes from 'constants/session';
+import sessionStorage from 'services/sessionStorage';
 
 const {
   LOAD_DATA,
@@ -12,7 +12,7 @@ const initialState = {
   isLoading: false,
   loggedIn: sessionStorage.loggedIn(),
   currentUser: sessionStorage.currentUser()
-}
+};
 
 export default handleActions({
   [LOAD_DATA]: (state) => ({
@@ -29,4 +29,4 @@ export default handleActions({
     loggedIn: false,
     currentUser: {}
   })
-}, initialState)
+}, initialState);

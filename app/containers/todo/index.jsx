@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   Grid,
   Row,
   Col,
   Button,
   ListGroup
-} from 'react-bootstrap'
-import todosActions from 'actions/todos'
-import Todo from 'components/todo'
-import styles from './styles'
+} from 'react-bootstrap';
+import todosActions from 'actions/todos';
+import Todo from 'components/todo';
+import styles from './styles';
 
 class TodoContainer extends Component {
   componentDidMount() {
@@ -33,8 +33,8 @@ class TodoContainer extends Component {
           updateTodo={ updateTodo }
           deleteTodo={ deleteTodo }
         />
-      )
-    })
+      );
+    });
   }
 
   render() {
@@ -70,14 +70,14 @@ class TodoContainer extends Component {
           </Col>
         </Row>
       </Grid>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => ({
   ...state.todos,
   todo: state.todo
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   fetchTodos: () => dispatch(todosActions.fetchTodos()),
@@ -85,4 +85,4 @@ const mapDispatchToProps = dispatch => ({
   deleteTodo: (todo) => dispatch(todosActions.deleteTodo(todo))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

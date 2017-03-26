@@ -23,18 +23,18 @@ const ModalContainer = ({ modal, closeModal }) => {
 
       return <CurrentModal { ...params }/>;
     }
-  }
+  };
 
   return (
     <div className="modals">
       { renderCurrentModal() }
     </div>
-  )
-}
+  );
+};
 
 ModalContainer.propTypes = {
   modalName: PropTypes.string
-}
+};
 
 const mapStateToProps = state => ({
   modal: state.modal

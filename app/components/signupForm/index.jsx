@@ -1,12 +1,12 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import {
   Modal,
   Button,
   FormGroup,
   FormControl,
   ControlLabel
-} from 'react-bootstrap'
+} from 'react-bootstrap';
 import Form from 'components/form';
 
 export default class SignupForm extends Component {
@@ -85,8 +85,8 @@ export default class SignupForm extends Component {
             email: '',
             password: '',
             passwordConfirmation: ''
-          })
-          closeModal()
+          });
+          closeModal();
         })
         .catch(({ errors }) => this.setState({ errors }));
     }
@@ -150,6 +150,6 @@ export default class SignupForm extends Component {
           </Modal.Footer>
         </Modal.Body>
       </Form>
-    )
+    );
   }
 }

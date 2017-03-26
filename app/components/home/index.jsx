@@ -1,5 +1,5 @@
-import React from 'react'
-import { Grid, Jumbotron } from 'react-bootstrap'
+import React from 'react';
+import { Grid, Jumbotron } from 'react-bootstrap';
 
 const Home = () => (
   <Grid>
@@ -13,6 +13,6 @@ const Home = () => (
       </p>
     </Jumbotron>
   </Grid>
-)
+);
 
-export default Home
+export default Home;

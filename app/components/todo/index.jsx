@@ -1,21 +1,21 @@
-import React, { Component, PropTypes } from 'react'
-import CSSTransitionGroup from 'react-addons-css-transition-group'
-import { ListGroupItem } from 'react-bootstrap'
-import TodosActions from 'actions/todos'
-import styles from './styles'
+import React, { Component, PropTypes } from 'react';
+import CSSTransitionGroup from 'react-addons-css-transition-group';
+import { ListGroupItem } from 'react-bootstrap';
+import TodosActions from 'actions/todos';
+import styles from './styles';
 
 const Todo = ({ todo, updateTodo, deleteTodo }) => {
   const toggle = () => {
     updateTodo({
       ...todo,
       isComplete: !todo.isComplete
-    })
-  }
+    });
+  };
 
   const remove = (event) => {
-    deleteTodo(todo)
-    event.stopPropagation()
-  }
+    deleteTodo(todo);
+    event.stopPropagation();
+  };
 
   return (
     <CSSTransitionGroup
@@ -35,8 +35,8 @@ const Todo = ({ todo, updateTodo, deleteTodo }) => {
         />
       </ListGroupItem>
     </CSSTransitionGroup>
-  )
-}
+  );
+};
 
 Todo.propTypes = {
   todo: PropTypes.shape({
@@ -44,6 +44,6 @@ Todo.propTypes = {
     isComplete: PropTypes.bool,
     name: PropTypes.any
   })
-}
+};
 
-export default Todo
+export default Todo;

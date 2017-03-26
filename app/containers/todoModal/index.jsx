@@ -19,7 +19,7 @@ const TodoModalContainer = ({ isOpen, createTodo, closeModal }) => (
       closeModal={ closeModal }
     />
   </Modal>
-)
+);
 
 const mapDispatchToProps = dispatch => ({
   createTodo: (payload) => dispatch(todosActions.createTodo(payload)),

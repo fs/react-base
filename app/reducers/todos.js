@@ -1,5 +1,5 @@
-import { handleActions } from 'redux-actions'
-import actionTypes from 'constants/todos'
+import { handleActions } from 'redux-actions';
+import actionTypes from 'constants/todos';
 
 const {
   LOAD_TODOS,
@@ -7,12 +7,12 @@ const {
   ADD_TODO,
   TOGGLE_TODO,
   REMOVE_TODO
-} = actionTypes
+} = actionTypes;
 
 const initialState = {
   isLoading: false,
   todos: []
-}
+};
 
 export default handleActions({
   [LOAD_TODOS]: (state) => ({
@@ -36,4 +36,4 @@ export default handleActions({
     ...state,
     todos: state.todos.filter(todo => todo.id !== payload.id)
   })
-}, initialState)
+}, initialState);

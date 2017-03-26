@@ -1,6 +1,6 @@
-import { createActions } from 'redux-actions'
-import todosSource from 'sources/todos'
-import actionTypes from 'constants/todos'
+import { createActions } from 'redux-actions';
+import todosSource from 'sources/todos';
+import actionTypes from 'constants/todos';
 
 const {
   LOAD_TODOS,
@@ -8,7 +8,7 @@ const {
   ADD_TODO,
   TOGGLE_TODO,
   REMOVE_TODO
-} = actionTypes
+} = actionTypes;
 
 const actions = createActions(
   LOAD_TODOS,
@@ -16,13 +16,13 @@ const actions = createActions(
   ADD_TODO,
   TOGGLE_TODO,
   REMOVE_TODO
-)
+);
 
 const fetchTodos = () =>
   (dispatch) => {
-    dispatch(actions.loadTodos())
-    todosSource.get().then(result => dispatch(actions.setTodos(result)))
-  }
+    dispatch(actions.loadTodos());
+    todosSource.get().then(result => dispatch(actions.setTodos(result)));
+  };
 
 const createTodo = (todo) =>
   (dispatch) =>
@@ -33,13 +33,13 @@ const updateTodo = (todo) =>
     dispatch(actions.toggleTodo(todo));
 
     return todosSource.update(todo);
-  }
+  };
 
 const deleteTodo = (todo) =>
   (dispatch) => {
     dispatch(actions.removeTodo(todo));
 
     return todosSource.delete(todo);
-  }
+  };
 
-export default { ...actions, fetchTodos, createTodo, updateTodo, deleteTodo }
+export default { ...actions, fetchTodos, createTodo, updateTodo, deleteTodo };

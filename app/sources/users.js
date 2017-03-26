@@ -1,5 +1,5 @@
-import config from 'config'
-import request from 'lib/request'
+import config from 'config';
+import request from 'lib/request';
 
 export default class UsersSource {
   static urlRoot = `${config.apiTarget}/users`
@@ -9,6 +9,6 @@ export default class UsersSource {
       method: 'POST',
       body: JSON.stringify(user)
     })
-    .then(result => result.json())
+    .then(result => result.json());
   }
 }

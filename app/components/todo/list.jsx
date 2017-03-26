@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react'
-import { ListGroup } from 'react-bootstrap'
-import Todo from 'components/todo'
+import React, { PropTypes } from 'react';
+import { ListGroup } from 'react-bootstrap';
+import Todo from 'components/todo';
 
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
   return (
@@ -14,8 +14,8 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
         />)
       }
     </ListGroup>
-  )
-}
+  );
+};
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(
@@ -25,6 +25,6 @@ TodoList.propTypes = {
       name: PropTypes.any
     })
   )
-}
+};
 
-export default TodoList
+export default TodoList;

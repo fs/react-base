@@ -1,5 +1,5 @@
-import store from 'stores/application'
-import config from 'config'
+import store from 'stores/application';
+import config from 'config';
 
 export default class CurrentUser {
   static currentUser() {

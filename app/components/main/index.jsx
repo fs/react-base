@@ -3,6 +3,6 @@ import TodoContainer from 'containers/todo';
 import Home from 'components/home';
 
 const Main = ({ loggedIn }) =>
-  loggedIn ? <TodoContainer/> : <Home/>
+  loggedIn ? <TodoContainer/> : <Home/>;
 
-export default Main
+export default Main;

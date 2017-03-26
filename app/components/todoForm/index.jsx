@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react';
 import {
   Modal,
   Button,
   FormGroup,
   FormControl,
   ControlLabel
-} from 'react-bootstrap'
+} from 'react-bootstrap';
 import Form from 'components/form';
 
 export default class TodoForm extends Component {
@@ -34,7 +34,7 @@ export default class TodoForm extends Component {
   }
 
   createTodo = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     const { name } = this.state;
     const { createTodo, closeModal } = this.props;

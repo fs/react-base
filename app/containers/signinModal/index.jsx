@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
-import sessionActions from 'actions/session'
+import sessionActions from 'actions/session';
 import SigninForm from 'components/signinForm';
 
 const SigninModalContainer = ({ isOpen, isLoading, signinUser, closeModal }) => (
@@ -19,7 +19,7 @@ const SigninModalContainer = ({ isOpen, isLoading, signinUser, closeModal }) => 
       closeModal={ closeModal }
     />
   </Modal>
-)
+);
 
 const mapStateToProps = state => ({
   isLoading: state.session.isLoading
@@ -27,6 +27,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
   signinUser: (user) => dispatch(sessionActions.signinUser(user))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(SigninModalContainer);
