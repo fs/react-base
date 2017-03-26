@@ -1,8 +1,7 @@
 import 'es6-promise';
 import 'whatwg-fetch';
 import qs from 'qs';
-import deepAssign from 'deep-assign';
-import { pickBy } from 'lodash';
+import { pickBy, merge } from 'lodash';
 
 function filteredParams(params) {
   const filteredParams = pickBy(params, item => !!item);
@@ -22,5 +21,5 @@ export default function request(url, params, queryParams) {
     url += filteredParams(queryParams);
   }
 
-  return fetch(url, deepAssign({}, defaultParams, params));
+  return fetch(url, merge({}, defaultParams, params));
 }

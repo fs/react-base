@@ -1,4 +1,4 @@
-import deepAssign from 'deep-assign';
+import { merge } from 'lodash';
 import request from 'lib/request';
 import currentUser from 'services/currentUser';
 
@@ -10,5 +10,5 @@ export default function requestAuth(url, params, queryParams) {
     }
   };
 
-  return request(url, deepAssign({}, defaultParams, params), queryParams);
+  return request(url, merge({}, defaultParams, params), queryParams);
 }
