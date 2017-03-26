@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Introduce yarn
+([#67](https://github.com/fs/react-base/pull/67))
 
 ## 1.1.0 - 2017-01-24
 - Upgrade dependencies
