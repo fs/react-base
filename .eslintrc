@@ -1,6 +1,7 @@
 {
   "extends": "fs",
   "rules": {
-    "react/no-multi-comp": [2, { "ignoreStateless": true }]
+    "react/no-multi-comp": [2, { "ignoreStateless": true }],
+    "arrow-parens": [2, "as-needed"]
   }
 }

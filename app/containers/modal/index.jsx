@@ -41,7 +41,7 @@ const mapStateToProps = state => ({
   modal: state.modal
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   closeModal: () => dispatch(modalActions.closeModal())
 });
 

@@ -33,7 +33,7 @@ export default class TodoForm extends Component {
     return length > 5 ? 'success' : 'error';
   }
 
-  createTodo = (event) => {
+  createTodo = event => {
     event.preventDefault();
 
     const { name } = this.state;

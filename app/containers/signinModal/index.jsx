@@ -32,8 +32,8 @@ const mapStateToProps = state => ({
   isLoading: state.session.isLoading
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  signinUser: (user) => dispatch(sessionActions.signinUser(user))
+const mapDispatchToProps = dispatch => ({
+  signinUser: user => dispatch(sessionActions.signinUser(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SigninModalContainer);

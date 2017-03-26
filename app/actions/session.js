@@ -14,8 +14,8 @@ const actions = createActions(
   REMOVE_USER
 );
 
-const signinUser = (user) =>
-  (dispatch) => {
+const signinUser = user =>
+  dispatch => {
     dispatch(actions.loadData());
 
     return sessionSource.signin(user).then(result => {
@@ -25,8 +25,8 @@ const signinUser = (user) =>
     });
   };
 
-const signupUser = (user) =>
-  (dispatch) => {
+const signupUser = user =>
+  dispatch => {
     dispatch(actions.loadData());
 
     return usersSource.create(user).then(result => {
@@ -36,8 +36,8 @@ const signupUser = (user) =>
     });
   };
 
-const logoutUser = (user) =>
-  (dispatch) => {
+const logoutUser = user =>
+  dispatch => {
     return sessionSource.logout(user).then(() => {
       sessionStorage.remove();
       dispatch(actions.removeUser());

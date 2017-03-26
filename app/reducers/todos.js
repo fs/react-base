@@ -15,7 +15,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [LOAD_TODOS]: (state) => ({
+  [LOAD_TODOS]: state => ({
     ...state,
     isLoading: true
   }),

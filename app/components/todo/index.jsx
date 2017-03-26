@@ -11,7 +11,7 @@ const Todo = ({ todo, updateTodo, deleteTodo }) => {
     });
   };
 
-  const remove = (event) => {
+  const remove = event => {
     deleteTodo(todo);
     event.stopPropagation();
   };

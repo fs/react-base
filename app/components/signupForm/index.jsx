@@ -47,7 +47,7 @@ export default class SignupForm extends Component {
     return password === passwordConfirmation;
   }
 
-  validationState = (value) => {
+  validationState = value => {
     const length = value.length;
 
     if (!length) return null;
@@ -55,7 +55,7 @@ export default class SignupForm extends Component {
     return length > 5 ? 'success' : 'error';
   }
 
-  nameValidationState = (value) => {
+  nameValidationState = value => {
     const length = value.trim().length;
 
     if (!length) return null;
@@ -63,7 +63,7 @@ export default class SignupForm extends Component {
     return length ? 'success' : 'error';
   }
 
-  passwordValidationState = (value) => {
+  passwordValidationState = value => {
     const length = value.length;
 
     if (!length) return null;
@@ -71,7 +71,7 @@ export default class SignupForm extends Component {
     (this.isValidPassword() && length > 5) ? 'success' : 'error';
   }
 
-  signUp = (event) => {
+  signUp = event => {
     event.preventDefault();
 
     const { name, email, password, passwordConfirmation } = this.state;

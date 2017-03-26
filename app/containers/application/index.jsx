@@ -38,12 +38,12 @@ Application.propTypes = {
   signup: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   session: state.session
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  logout: (user) => dispatch(sessionActions.logoutUser(user)),
+const mapDispatchToProps = dispatch => ({
+  logout: user => dispatch(sessionActions.logoutUser(user)),
   signin: () => dispatch(modalActions.openModal({ name: 'signin' })),
   signup: () => dispatch(modalActions.openModal({ name: 'signup' }))
 });

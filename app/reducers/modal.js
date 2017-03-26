@@ -19,7 +19,7 @@ export default handleActions({
       modalOptions: rest
     };
   },
-  [CLOSE_MODAL]: (state) => ({
+  [CLOSE_MODAL]: state => ({
     ...initialState
   })
 }, initialState);

@@ -31,7 +31,7 @@ class TodoContainer extends Component {
     this.props.fetchTodos();
   }
 
-  renderList = (complete) => {
+  renderList = complete => {
     const {
       todos,
       updateTodo,
@@ -95,8 +95,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchTodos: () => dispatch(todosActions.fetchTodos()),
-  updateTodo: (todo) => dispatch(todosActions.updateTodo(todo)),
-  deleteTodo: (todo) => dispatch(todosActions.deleteTodo(todo)),
+  updateTodo: todo => dispatch(todosActions.updateTodo(todo)),
+  deleteTodo: todo => dispatch(todosActions.deleteTodo(todo)),
   openModal: () => dispatch(modalActions.openModal({ name: 'todo' }))
 });
 

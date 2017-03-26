@@ -27,7 +27,7 @@ TodoModalContainer.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  createTodo: (payload) => dispatch(todosActions.createTodo(payload))
+  createTodo: payload => dispatch(todosActions.createTodo(payload))
 });
 
 export default connect(null, mapDispatchToProps)(TodoModalContainer);

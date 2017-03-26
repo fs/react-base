@@ -33,7 +33,7 @@ export default class SigninForm extends Component {
     return email.length > 5 && password.length > 5;
   }
 
-  signIn = (event) => {
+  signIn = event => {
     event.preventDefault();
 
     const { email, password } = this.state;
@@ -49,7 +49,7 @@ export default class SigninForm extends Component {
     }
   }
 
-  validationState = (value) => {
+  validationState = value => {
     const length = value.length;
 
     if (!length) return null;

@@ -19,24 +19,24 @@ const actions = createActions(
 );
 
 const fetchTodos = () =>
-  (dispatch) => {
+  dispatch => {
     dispatch(actions.loadTodos());
     todosSource.get().then(result => dispatch(actions.setTodos(result)));
   };
 
-const createTodo = (todo) =>
-  (dispatch) =>
+const createTodo = todo =>
+  dispatch =>
     todosSource.create({ ...todo, isComplete: false }).then(result => dispatch(actions.addTodo(result)));
 
-const updateTodo = (todo) =>
-  (dispatch) => {
+const updateTodo = todo =>
+  dispatch => {
     dispatch(actions.toggleTodo(todo));
 
     return todosSource.update(todo);
   };
 
-const deleteTodo = (todo) =>
-  (dispatch) => {
+const deleteTodo = todo =>
+  dispatch => {
     dispatch(actions.removeTodo(todo));
 
     return todosSource.delete(todo);

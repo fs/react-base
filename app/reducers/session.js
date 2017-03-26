@@ -15,7 +15,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [LOAD_DATA]: (state) => ({
+  [LOAD_DATA]: state => ({
     ...state,
     isLoading: true
   }),
@@ -24,7 +24,7 @@ export default handleActions({
     loggedIn: true,
     currentUser: payload
   }),
-  [REMOVE_USER]: (state) => ({
+  [REMOVE_USER]: state => ({
     isLoading: false,
     loggedIn: false,
     currentUser: {}
