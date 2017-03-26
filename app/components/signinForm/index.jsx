@@ -10,9 +10,9 @@ import Form from 'components/form';
 
 export default class SigninForm extends Component {
   static propTypes = {
-    signinUser: PropTypes.func.isRequired,
     closeModal: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired
+    isLoading: PropTypes.bool.isRequired,
+    signinUser: PropTypes.func.isRequired
   }
 
   state = {
@@ -88,7 +88,11 @@ export default class SigninForm extends Component {
             />
           </FormGroup>
           <Modal.Footer>
-            <Button bsStyle="primary" type="submit" disabled={ isLoading }>
+            <Button
+              bsStyle="primary"
+              type="submit"
+              disabled={ isLoading }
+            >
               Submit
             </Button>
           </Modal.Footer>

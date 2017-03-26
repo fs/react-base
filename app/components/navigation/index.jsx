@@ -4,6 +4,18 @@ import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { paths } from 'helpers/routes';
 
 const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
+  const logoutUser = () => {
+    logout(currentUser);
+  };
+
+  const signinUser = () => {
+    signin(currentUser);
+  };
+
+  const signupUser = () => {
+    signup(currentUser);
+  };
+
   const renderRightNav = () => {
     if (loggedIn) {
       return (
@@ -11,7 +23,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
           <NavItem>
             { currentUser.email }
           </NavItem>
-          <NavItem onClick={ () => logout(currentUser) }>
+          <NavItem onClick={ logoutUser }>
             Sign out
           </NavItem>
         </Nav>
@@ -20,10 +32,10 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
 
     return (
       <Nav pullRight>
-        <NavItem onClick={ () => signup(currentUser) }>
+        <NavItem onClick={ signupUser }>
           Sign up
         </NavItem>
-        <NavItem onClick={ () => signin(currentUser) }>
+        <NavItem onClick={ signinUser }>
           Sign in
         </NavItem>
       </Nav>
@@ -55,9 +67,11 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
 };
 
 Navigation.propTypes = {
-  currentUser: PropTypes.object,
-  loggedIn: PropTypes.bool,
-  logoutUser: PropTypes.func
+  currentUser: PropTypes.object.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired,
+  signin: PropTypes.func.isRequired,
+  signup: PropTypes.func.isRequired
 };
 
 export default Navigation;

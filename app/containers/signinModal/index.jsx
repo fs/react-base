@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import sessionActions from 'actions/session';
@@ -20,6 +20,13 @@ const SigninModalContainer = ({ isOpen, isLoading, signinUser, closeModal }) => 
     />
   </Modal>
 );
+
+SigninModalContainer.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  signinUser: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   isLoading: state.session.isLoading

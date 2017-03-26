@@ -10,8 +10,8 @@ import Form from 'components/form';
 
 export default class TodoForm extends Component {
   static propTypes = {
-    createTodo: PropTypes.func,
-    closeModal: PropTypes.func
+    closeModal: PropTypes.func,
+    createTodo: PropTypes.func
   }
 
   state = {

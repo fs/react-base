@@ -1,4 +1,4 @@
-import React, { Component, cloneElement } from 'react';
+import React, { PropTypes, cloneElement } from 'react';
 import { connect } from 'react-redux';
 import sessionActions from 'actions/session';
 import modalActions from 'actions/modal';
@@ -26,6 +26,16 @@ const Application = ({ children, session, logout, signin, signup }) => {
       <Modal/>
     </div>
   );
+};
+
+Application.propTypes = {
+  logout: PropTypes.func.isRequired,
+  session: PropTypes.shape({
+    loggedIn: PropTypes.bool,
+    currentUser: PropTypes.object
+  }).isRequired,
+  signin: PropTypes.func.isRequired,
+  signup: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({

@@ -1,3 +1,6 @@
 {
-  "extends": "fs"
+  "extends": "fs",
+  "rules": {
+    "react/no-multi-comp": [2, { "ignoreStateless": true }]
+  }
 }

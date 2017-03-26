@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Modal } from 'react-bootstrap';
 import todosActions from 'actions/todos';
-import modalActions from 'actions/modal';
 import TodoForm from 'components/todoForm';
 
 const TodoModalContainer = ({ isOpen, createTodo, closeModal }) => (
@@ -21,9 +20,14 @@ const TodoModalContainer = ({ isOpen, createTodo, closeModal }) => (
   </Modal>
 );
 
+TodoModalContainer.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  createTodo: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired
+};
+
 const mapDispatchToProps = dispatch => ({
-  createTodo: (payload) => dispatch(todosActions.createTodo(payload)),
-  closeModal: () => dispatch(modalActions.closeModal())
+  createTodo: (payload) => dispatch(todosActions.createTodo(payload))
 });
 
 export default connect(null, mapDispatchToProps)(TodoModalContainer);

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {
   Grid,
@@ -8,10 +8,25 @@ import {
   ListGroup
 } from 'react-bootstrap';
 import todosActions from 'actions/todos';
+import modalActions from 'actions/modal';
 import Todo from 'components/todo';
 import styles from './styles';
 
 class TodoContainer extends Component {
+  static propTypes = {
+    deleteTodo: PropTypes.func.isRequired,
+    fetchTodos: PropTypes.func.isRequired,
+    openModal: PropTypes.func.isRequired,
+    todos: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.id,
+        isComplete: PropTypes.bool,
+        name: PropTypes.any
+      })
+    ).isRequired,
+    updateTodo: PropTypes.func.isRequired
+  }
+
   componentDidMount() {
     this.props.fetchTodos();
   }
@@ -19,7 +34,6 @@ class TodoContainer extends Component {
   renderList = (complete) => {
     const {
       todos,
-      actions,
       updateTodo,
       deleteTodo
     } = this.props;
@@ -82,7 +96,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchTodos: () => dispatch(todosActions.fetchTodos()),
   updateTodo: (todo) => dispatch(todosActions.updateTodo(todo)),
-  deleteTodo: (todo) => dispatch(todosActions.deleteTodo(todo))
+  deleteTodo: (todo) => dispatch(todosActions.deleteTodo(todo)),
+  openModal: () => dispatch(modalActions.openModal({ name: 'todo' }))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

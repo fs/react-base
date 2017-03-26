@@ -18,13 +18,15 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
 };
 
 TodoList.propTypes = {
+  deleteTodo: PropTypes.func.isRequired,
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.id,
       isComplete: PropTypes.bool,
       name: PropTypes.any
     })
-  )
+  ).isRequired,
+  toggleTodo: PropTypes.func.isRequired
 };
 
 export default TodoList;

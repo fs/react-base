@@ -30,7 +30,9 @@ export default handleActions({
   }),
   [TOGGLE_TODO]: (state, { payload }) => ({
     ...state,
-    todos: state.todos.map(todo => todo.id === payload.id ? payload : todo)
+    todos: state.todos.map(todo => {
+      return todo.id === payload.id ? payload : todo;
+    })
   }),
   [REMOVE_TODO]: (state, { payload }) => ({
     ...state,

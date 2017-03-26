@@ -1,7 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 import { ListGroupItem } from 'react-bootstrap';
-import TodosActions from 'actions/todos';
 import styles from './styles';
 
 const Todo = ({ todo, updateTodo, deleteTodo }) => {
@@ -39,11 +38,13 @@ const Todo = ({ todo, updateTodo, deleteTodo }) => {
 };
 
 Todo.propTypes = {
+  deleteTodo: PropTypes.func.isRequired,
   todo: PropTypes.shape({
     id: PropTypes.number,
     isComplete: PropTypes.bool,
     name: PropTypes.any
-  })
+  }).isRequired,
+  updateTodo: PropTypes.func.isRequired
 };
 
 export default Todo;

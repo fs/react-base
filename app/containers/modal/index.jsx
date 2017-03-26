@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import modalActions from 'actions/modal';
 import TodoModal from 'containers/todoModal';
@@ -33,7 +33,8 @@ const ModalContainer = ({ modal, closeModal }) => {
 };
 
 ModalContainer.propTypes = {
-  modalName: PropTypes.string
+  closeModal: PropTypes.func.isRequired,
+  modal: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
