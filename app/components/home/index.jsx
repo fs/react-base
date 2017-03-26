@@ -6,7 +6,7 @@ const Home = () => (
     <Jumbotron>
       <h1>React-base</h1>
       <p>
-        Kick-start your new web application based on React and Flux technologies.
+        Kick-start your new web application based on React and Redux technologies.
         <br/>
         It also includes Webpack, React hot loader, PostCSS,
         JSON-server tools for even more rapid development.

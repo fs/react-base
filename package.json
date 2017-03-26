@@ -14,7 +14,7 @@
     "eslint": "eslint server.js ./app ./config --ext .js,.jsx",
     "jest": "jest",
     "lint": "npm run stylelint && npm run eslint",
-    "test": "npm run lint && npm run jest",
+    "test": "npm run lint",
     "start": "node ./server"
   },
   "license": "MIT",
@@ -80,6 +80,7 @@
     "react-addons-test-utils": "^15.4.2",
     "style-loader": "^0.16.0",
     "stylelint": "^7.9.0",
+    "stylelint-order": "^0.4.1",
     "url-loader": "^0.5.7",
     "webpack": "^2.3.2",
     "webpack-dashboard": "^0.3.0",

@@ -1,16 +1,19 @@
 const postcssCLIConfig = require('./postcss-cli');
 
+const order = postcssCLIConfig['postcss-sorting']['sort-order'][2];
+
 module.exports = {
+  'plugins': [
+    'stylelint-order'
+  ],
   'rules': {
     'at-rule-no-unknown': [true, { ignoreAtRules: ['define-mixin', 'mixin'] }],
     'block-no-empty': true,
     'color-hex-case': 'lower',
     'color-no-invalid-hex': true,
     'declaration-block-no-duplicate-properties': true,
-    'declaration-block-no-ignored-properties': true,
     'declaration-block-no-redundant-longhand-properties': true,
     'declaration-block-no-shorthand-property-overrides': true,
-    'declaration-block-properties-order': postcssCLIConfig['postcss-sorting']['sort-order'][2],
     'declaration-block-trailing-semicolon': 'always',
     'declaration-colon-space-after': 'always',
     'declaration-colon-space-before': 'never',
@@ -20,20 +23,18 @@ module.exports = {
     'function-url-quotes': 'always',
     'indentation': [2, { ignore: ['value'] }],
     'length-zero-no-unit': true,
-    'max-nesting-depth': [3, {
-      'ignore': ['at-rules-without-declaration-blocks']
-    }],
+    'max-nesting-depth': [3, { 'ignore': ['blockless-at-rules'] }],
     'media-feature-colon-space-after': 'always',
     'media-feature-colon-space-before': 'never',
     'media-feature-name-no-unknown': true,
     'media-feature-name-no-vendor-prefix': true,
-    'media-feature-no-missing-punctuation': true,
     'no-duplicate-selectors': true,
     'no-extra-semicolons': true,
     'no-missing-end-of-source-newline': true,
     'no-unknown-animations': true,
     'number-leading-zero': 'never',
     'number-no-trailing-zeros': true,
+    'order/properties-order': [order, { unspecified: 'bottom' }],
     'property-case': 'lower',
     'property-no-unknown': true,
     'property-no-vendor-prefix': true,
@@ -47,7 +48,7 @@ module.exports = {
     'selector-type-no-unknown': true,
     'string-no-newline': true,
     'string-quotes': 'double',
-    'time-no-imperceptible': true,
+    'time-min-milliseconds': 100,
     'unit-case': 'lower',
     'unit-no-unknown': true,
     'value-keyword-case': 'lower',

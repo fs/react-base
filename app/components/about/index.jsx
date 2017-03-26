@@ -11,7 +11,7 @@ const About = ({ children }) => {
       <article>
         <h1>About</h1>
         <p>
-          Kick-start your new web application based on React and Flux technologies.
+          Kick-start your new web application based on React and Redux technologies.
         </p>
         <Link to={ paths.aboutExtended(id) }>
           show details...
