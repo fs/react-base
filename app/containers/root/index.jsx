@@ -4,8 +4,6 @@ import { Provider } from 'react-redux'
 import Main from 'components/main'
 import About from 'components/about'
 import Article from 'components/article'
-import Signin from 'containers/signin'
-import Signup from 'containers/signup'
 import Application from 'containers/application'
 
 const Root = ({ store, history }) => (
@@ -16,8 +14,6 @@ const Root = ({ store, history }) => (
         <Route path="about" component={ About }>
           <Route path="extended/:id" component={ Article }/>
         </Route>
-        <Route path="signin" component={ Signin } />
-        <Route path="signup" component={ Signup } />
         <Redirect from="*" to="/"/>
       </Route>
     </Router>

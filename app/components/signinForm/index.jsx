@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import {
+  Modal,
   Button,
   FormGroup,
   FormControl,
@@ -10,6 +11,7 @@ import Form from 'components/form';
 export default class SigninForm extends Component {
   static propTypes = {
     signinUser: PropTypes.func.isRequired,
+    closeModal: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired
   }
 
@@ -35,11 +37,14 @@ export default class SigninForm extends Component {
     event.preventDefault();
 
     const { email, password } = this.state;
-    const { signinUser } = this.props;
+    const { signinUser, closeModal } = this.props;
 
     if (this.isFormValid()) {
       signinUser({ email, password })
-        .then(() => this.setState({ email: '', password: '' }))
+        .then(() => {
+          this.setState({ email: '', password: '' });
+          closeModal();
+        })
         .catch(({ errors }) => this.setState({ errors }));
     }
   }
@@ -58,32 +63,36 @@ export default class SigninForm extends Component {
 
     return (
       <Form onSubmit={ this.signIn }>
-        <FormGroup
-          controlId="email"
-          validationState={ this.validationState(email) }
-        >
-          <ControlLabel>Email</ControlLabel>
-          <FormControl
-            type="text"
-            name="email"
-            onChange={ this.setValue }
-          />
-        </FormGroup>
-        <FormGroup
-          controlId="password"
-          validationState={ this.validationState(password) }
-        >
-          <ControlLabel>Password</ControlLabel>
-          <FormControl
-            autoComplete="off"
-            name="password"
-            onChange={ this.setValue }
-            type="password"
-          />
-        </FormGroup>
-        <Button bsStyle="primary" type="submit" disabled={ isLoading }>
-          Submit
-        </Button>
+        <Modal.Body>
+          <FormGroup
+            controlId="email"
+            validationState={ this.validationState(email) }
+          >
+            <ControlLabel>Email</ControlLabel>
+            <FormControl
+              type="text"
+              name="email"
+              onChange={ this.setValue }
+            />
+          </FormGroup>
+          <FormGroup
+            controlId="password"
+            validationState={ this.validationState(password) }
+          >
+            <ControlLabel>Password</ControlLabel>
+            <FormControl
+              autoComplete="off"
+              name="password"
+              onChange={ this.setValue }
+              type="password"
+            />
+          </FormGroup>
+          <Modal.Footer>
+            <Button bsStyle="primary" type="submit" disabled={ isLoading }>
+              Submit
+            </Button>
+          </Modal.Footer>
+        </Modal.Body>
       </Form>
     );
   }

@@ -8,7 +8,6 @@ import {
   ListGroup
 } from 'react-bootstrap'
 import todosActions from 'actions/todos'
-import modalActions from 'actions/modal'
 import Todo from 'components/todo'
 import styles from './styles'
 
@@ -83,8 +82,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   fetchTodos: () => dispatch(todosActions.fetchTodos()),
   updateTodo: (todo) => dispatch(todosActions.updateTodo(todo)),
-  deleteTodo: (todo) => dispatch(todosActions.deleteTodo(todo)),
-  openModal: () => dispatch(modalActions.openModal({ name: 'todo' }))
+  deleteTodo: (todo) => dispatch(todosActions.deleteTodo(todo))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer)
