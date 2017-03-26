@@ -5,7 +5,6 @@
     "react"
   ],
   "plugins": [
-    "transform-decorators-legacy",
     "transform-react-constant-elements",
     "transform-react-inline-elements",
     "react-hot-loader/babel"

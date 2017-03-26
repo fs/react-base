@@ -5,13 +5,15 @@ import Todo from 'components/todo';
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
   return (
     <ListGroup>
-      { todos.map(todo =>
-        <Todo
-          key={ todo.id }
-          todo={ todo }
-          toggleTodo={ toggleTodo }
-          deleteTodo={ deleteTodo }
-        />)
+      {
+        todos.map(todo =>
+          <Todo
+            key={ todo.id }
+            todo={ todo }
+            toggleTodo={ toggleTodo }
+            deleteTodo={ deleteTodo }
+          />
+        )
       }
     </ListGroup>
   );
