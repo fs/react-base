@@ -1,12 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import {
-  Grid,
+  Modal,
   Button,
   FormGroup,
   FormControl,
   ControlLabel
 } from 'react-bootstrap'
+import Form from 'components/form';
 
 export default class SignupForm extends Component {
   static propTypes = {
@@ -74,11 +75,19 @@ export default class SignupForm extends Component {
     event.preventDefault();
 
     const { name, email, password, passwordConfirmation } = this.state;
-    const { signupUser } = this.props;
+    const { signupUser, closeModal } = this.props;
 
     if (this.isFormValid()) {
       signupUser({ name, email, password, passwordConfirmation })
-        .then(() => this.setState({ name: '', email: '', password: '', passwordConfirmation: '' }))
+        .then(() => {
+          this.setState({
+            name: '',
+            email: '',
+            password: '',
+            passwordConfirmation: ''
+          })
+          closeModal()
+        })
         .catch(({ errors }) => this.setState({ errors }));
     }
   }
@@ -88,8 +97,8 @@ export default class SignupForm extends Component {
     const { isLoading } = this.props;
 
     return (
-      <Grid>
-        <form onSubmit={ this.signUp }>
+      <Form onSubmit={ this.signUp }>
+        <Modal.Body>
           <FormGroup
             controlId="name"
             validationState={ this.nameValidationState(name) }
@@ -134,11 +143,13 @@ export default class SignupForm extends Component {
               onChange={ this.setValue }
             />
           </FormGroup>
-          <Button bsStyle="primary" type="submit" disabled={ isLoading }>
-            Submit
-          </Button>
-        </form>
-      </Grid>
+          <Modal.Footer>
+            <Button bsStyle="primary" type="submit" disabled={ isLoading }>
+              Submit
+            </Button>
+          </Modal.Footer>
+        </Modal.Body>
+      </Form>
     )
   }
 }

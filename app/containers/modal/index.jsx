@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import modalActions from 'actions/modal';
 import TodoModal from 'containers/todoModal';
 import SigninModal from 'containers/signinModal';
-// import SignupModal from 'components/signupModal';
+import SignupModal from 'containers/signupModal';
 
 const MODALS = {
   todo: TodoModal,
   signin: SigninModal,
-  // signUp: SignupModal
+  signup: SignupModal
 };
 
 const ModalContainer = ({ modal, closeModal }) => {
