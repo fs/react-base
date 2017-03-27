@@ -30,7 +30,7 @@ describe('http', () => {
 
     it('calls fetch with passed options', () => {
       const mock = fetchMock.mock(
-        '/some_url',
+        '/some_url?option1=foo&option2=bar',
         {},
         {
           headers: Object.assign({}, jsonHeaders, { 'X-My-Header': 123 }),
@@ -48,6 +48,10 @@ describe('http', () => {
         },
         body: {
           attr: 'value'
+        },
+        query: {
+          option1: 'foo',
+          option2: 'bar'
         },
         ...options
       });
@@ -131,6 +135,13 @@ describe('http', () => {
     itBehavesLikeHttpAction({
       method: 'POST',
       httpFunction: 'post'
+    });
+  });
+
+  describe('.put', () => {
+    itBehavesLikeHttpAction({
+      method: 'PUT',
+      httpFunction: 'put'
     });
   });
 

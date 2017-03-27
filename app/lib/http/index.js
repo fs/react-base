@@ -1,4 +1,5 @@
-import { merge } from 'lodash';
+import { merge, pickBy } from 'lodash';
+import qs from 'qs';
 
 const JSON_HEADERS = {
   'Accept': 'application/json',
@@ -18,11 +19,21 @@ function handleResponse(response, onSuccess, onError) {
   return callback(response);
 }
 
-function request(payload) {
-  const { url, body, method, headers, fetchOptions, onSuccess, onError } = merge({}, defaultPayload(), payload);
-  const options = merge({}, fetchOptions, { method, headers, body: JSON.stringify(body) });
+function filteredParams(params) {
+  if (!params) return '';
 
-  return fetch(url, options).then(response => handleResponse(response, onSuccess, onError));
+  const filteredParams = pickBy(params, item => !!item);
+
+  return `?${qs.stringify(filteredParams, { arrayFormat: 'brackets' })}`;
+}
+
+function request(payload) {
+  const { url, query, body, method, headers, options, onSuccess, onError } = merge({}, defaultPayload(), payload);
+
+  const fetchOptions = merge({}, options, { method, headers, body: JSON.stringify(body) });
+  const urlWithQueryParams = url + filteredParams(query);
+
+  return fetch(urlWithQueryParams, fetchOptions).then(response => handleResponse(response, onSuccess, onError));
 }
 
 export function get(payload) {
@@ -32,6 +43,12 @@ export function get(payload) {
 export function post(payload) {
   return request(
     merge({}, payload, { method: 'POST' })
+  );
+}
+
+export function put(payload) {
+  return request(
+    merge({}, payload, { method: 'PUT' })
   );
 }
 
@@ -50,6 +67,7 @@ export function deleteRequest(payload) {
 const http = {
   get: request,
   post,
+  put,
   patch,
   delete: deleteRequest
 };
