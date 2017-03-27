@@ -7,7 +7,6 @@ const JSON_HEADERS = {
 };
 
 const defaultPayload = () => ({
-  method: 'GET',
   headers: JSON_HEADERS,
   onSuccess: response => Promise.resolve(response),
   onError: response => Promise.reject(response)
@@ -37,7 +36,9 @@ function request(payload) {
 }
 
 export function get(payload) {
-  return request(payload);
+  return request(
+    merge({}, payload, { method: 'GET' })
+  );
 }
 
 export function post(payload) {
@@ -65,7 +66,7 @@ export function deleteRequest(payload) {
 }
 
 const http = {
-  get: request,
+  get,
   post,
   put,
   patch,
