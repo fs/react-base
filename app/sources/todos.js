@@ -1,34 +1,28 @@
 import config from 'config';
-import requestAuth from 'lib/requestAuth';
+import authRequest from 'services/authRequest';
 
 export default class TodosSource {
-  static urlRoot = `${config.apiTarget}/todos`
+  static urlRoot = `${config.apiTarget}/todos`;
 
   static get() {
-    return requestAuth(this.urlRoot, {
-      method: 'GET'
-    })
-    .then(result => result.json());
+    return authRequest.get({ url: this.urlRoot })
+      .then(result => result.json());
   }
 
   static create(todo) {
-    return requestAuth(this.urlRoot, {
-      method: 'POST',
-      body: JSON.stringify(todo)
-    })
-    .then(result => result.json());
+    return authRequest.post({ url: this.urlRoot, body: todo })
+      .then(result => result.json());
   }
 
   static update(todo) {
-    return requestAuth(`${this.urlRoot}/${todo.id}`, {
-      method: 'PUT',
-      body: JSON.stringify(todo)
-    });
+    const updateUrl = `${this.urlRoot}/${todo.id}`;
+
+    return authRequest.patch({ url: updateUrl, body: todo });
   }
 
   static delete(todo) {
-    return requestAuth(`${this.urlRoot}/${todo.id}`, {
-      method: 'DELETE'
-    });
+    const deleteUrl = `${this.urlRoot}/${user.id}`;
+
+    return authRequest.delete({ url: deleteUrl });
   }
 }

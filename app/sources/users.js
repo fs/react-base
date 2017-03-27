@@ -1,14 +1,11 @@
 import config from 'config';
-import request from 'lib/request';
+import http from 'lib/http';
 
 export default class UsersSource {
-  static urlRoot = `${config.apiTarget}/users`
+  static urlRoot = `${config.apiTarget}/users`;
 
   static create(user) {
-    return request(this.urlRoot, {
-      method: 'POST',
-      body: JSON.stringify(user)
-    })
-    .then(result => result.json());
+    return http.post({ url: this.urlRoot, body: user })
+      .then(result => result.json());
   }
 }
