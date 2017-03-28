@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/fs/react-base.svg?branch=master)](https://david-dm.org/fs/react-base)
 [![devDependency Status](https://david-dm.org/fs/react-base/dev-status.svg?branch=master)](https://david-dm.org/fs/react-base#info=devDependencies)
 
-Kick-start your new web application based on React and Redux technologies. It also includes Webpack 2, React hot loader, PostCSS, JSON-server tools for even more rapid development.
+Kick-start your new web application based on React and Redux technologies. It also includes Webpack 2, Yarn, React hot loader, PostCSS, JSON-server tools and test environment based on Jest, Enzyme, Eslint and Stylelint for even more rapid development.
 
 ## Dependencies:
 
