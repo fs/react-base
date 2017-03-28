@@ -1,5 +1,7 @@
-import { merge, pickBy } from 'lodash';
+import 'es6-promise';
+import 'whatwg-fetch';
 import qs from 'qs';
+import { merge, pickBy } from 'lodash';
 
 const JSON_HEADERS = {
   'Accept': 'application/json',

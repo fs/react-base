@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Introduce Redux as a main unidirectional architecture realization
+- Introduce custom http lib based on fetch-api as a main tool for server requests
+([#60](https://github.com/fs/react-base/pull/60))
 - Introduce yarn
 ([#67](https://github.com/fs/react-base/pull/67))
 
