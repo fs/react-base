@@ -6,7 +6,7 @@ import ApplicationActions from 'actions/application';
 
 describe('TodoLayout', function() {
   const todos = [
-    { id: 1, isComplete: false, name: "Become react expect" }
+    { id: 1, isComplete: false, name: 'Become react expect' }
   ];
 
   beforeEach(function() {

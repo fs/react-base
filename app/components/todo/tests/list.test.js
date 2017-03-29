@@ -6,8 +6,8 @@ import Todo from 'components/todo';
 
 describe('TodoList', function() {
   const todos = [
-    { id: 1, isComplete: false, name: "Become react expect" },
-    { id: 2, isComplete: true, name: "Play some dotka" }
+    { id: 1, isComplete: false, name: 'Become react expect' },
+    { id: 2, isComplete: true, name: 'Play some dotka' }
   ];
 
   beforeEach(function() {
