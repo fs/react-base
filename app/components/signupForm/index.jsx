@@ -68,7 +68,7 @@ export default class SignupForm extends Component {
 
     if (!length) return null;
 
-    (this.isValidPassword() && length > 5) ? 'success' : 'error';
+    return (this.isValidPassword() && length > 5) ? 'success' : 'error';
   }
 
   signUp = event => {
