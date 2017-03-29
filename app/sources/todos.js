@@ -21,7 +21,7 @@ export default class TodosSource {
   }
 
   static delete(todo) {
-    const deleteUrl = `${this.urlRoot}/${user.id}`;
+    const deleteUrl = `${this.urlRoot}/${todo.id}`;
 
     return authRequest.delete({ url: deleteUrl });
   }
