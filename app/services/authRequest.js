@@ -15,6 +15,7 @@ const authRequestMethod = (method, payload) => {
 
 const authRequest = Object.keys(http).reduce((obj, method) => {
   obj[method] = payload => authRequestMethod(method, payload);
+
   return obj;
 }, {});
 

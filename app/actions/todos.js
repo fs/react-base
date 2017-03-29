@@ -21,12 +21,17 @@ const actions = createActions(
 const fetchTodos = () =>
   dispatch => {
     dispatch(actions.loadTodos());
-    todosSource.get().then(result => dispatch(actions.setTodos(result)));
+
+    return todosSource.get().then(result => {
+      dispatch(actions.setTodos(result));
+    });
   };
 
 const createTodo = todo =>
   dispatch =>
-    todosSource.create({ ...todo, isComplete: false }).then(result => dispatch(actions.addTodo(result)));
+    todosSource.create({ ...todo, isComplete: false }).then(result => {
+      dispatch(actions.addTodo(result));
+    });
 
 const updateTodo = todo =>
   dispatch => {

@@ -37,11 +37,10 @@ const signupUser = user =>
   };
 
 const logoutUser = user =>
-  dispatch => {
-    return sessionSource.logout(user).then(() => {
+  dispatch =>
+    sessionSource.logout(user).then(() => {
       sessionStorage.remove();
       dispatch(actions.removeUser());
     });
-  };
 
 export default { ...actions, signinUser, signupUser, logoutUser };

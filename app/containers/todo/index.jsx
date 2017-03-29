@@ -39,16 +39,14 @@ class TodoContainer extends Component {
     } = this.props;
     const items = todos.filter(todo => todo.isComplete === complete);
 
-    return items.map(todo => {
-      return (
-        <Todo
-          key={ todo.id }
-          todo={ todo }
-          updateTodo={ updateTodo }
-          deleteTodo={ deleteTodo }
-        />
-      );
-    });
+    return items.map(todo =>
+      <Todo
+        key={ todo.id }
+        todo={ todo }
+        updateTodo={ updateTodo }
+        deleteTodo={ deleteTodo }
+      />
+    );
   }
 
   render() {
