@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
-import connectToStores from 'alt-utils/lib/connectToStores';
-import TodoLayout from 'components/todo/layout';
+import React, { PropTypes } from 'react';
+import TodoContainer from 'containers/todo';
 import Home from 'components/home';
-import session from 'services/session';
 
-@connectToStores
-export default class Main extends Component {
-  static getStores(props) {
-    return [session.store()];
-  }
+const Main = ({ loggedIn }) => (
+  loggedIn ? <TodoContainer/> : <Home/>
+);
 
-  static getPropsFromStores(props) {
-    return session.store().getState();
-  }
+Main.propTypes = {
+  loggedIn: PropTypes.bool
+};
 
-  render() {
-    return session.loggedIn() ? <TodoLayout/> : <Home/>;
-  }
-}
+export default Main;

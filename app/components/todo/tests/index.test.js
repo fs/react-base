@@ -5,7 +5,7 @@ import Todo from 'components/todo';
 import TodosActions from 'actions/todos';
 
 describe('Todo', () => {
-  const todo = { id: 1, isComplete: false, name: "Something to do" };
+  const todo = { id: 1, isComplete: false, name: 'Something to do' };
 
   beforeEach(function() {
     this.todoComponent = mount(<Todo todo={ todo }/>);

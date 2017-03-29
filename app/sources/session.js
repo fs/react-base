@@ -1,20 +1,17 @@
 import config from 'config';
-import request from 'lib/request';
+import http from 'lib/http';
 
 export default class SessionSource {
-  static urlRoot = `${config.apiTarget}/session`
+  static urlRoot = `${config.apiTarget}/session`;
 
-  static create(user) {
-    return request(this.urlRoot, {
-      method: 'POST',
-      body: JSON.stringify(user)
-    })
-    .then(result => result.json());
+  static signin(user) {
+    return http.post({ url: this.urlRoot, body: user })
+      .then(result => result.json());
   }
 
-  static delete(user) {
-    return request(`${this.urlRoot}/${user.id}`, {
-      method: 'DELETE'
-    });
+  static logout(user) {
+    const logoutUrl = `${this.urlRoot}/${user.id}`;
+
+    return http.delete({ url: logoutUrl });
   }
 }

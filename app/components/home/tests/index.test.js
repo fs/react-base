@@ -10,7 +10,7 @@ describe('Home', () => {
   });
 
   it('renders description text', () => {
-    const innerText = 'Kick-start your new web application based on React and Flux technologies.';
+    const innerText = 'Kick-start your new web application based on React and Redux technologies.';
 
     expect(homeComponent.find('p').text()).toContain(innerText);
   });

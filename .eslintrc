@@ -1,3 +1,12 @@
 {
-  "extends": "fs"
+  "extends": "fs",
+  "rules": {
+    "react/no-multi-comp": [2, { "ignoreStateless": true }],
+    "arrow-parens": [2, "as-needed"],
+    "newline-before-return": 2,
+    "arrow-body-style": [2, "as-needed"],
+    "no-confusing-arrow": [2, { "allowParens": true }],
+    "no-extra-semi": 2,
+    "quotes": ["error", "single"]
+  }
 }

@@ -1,30 +1,11 @@
-import Alt from 'altFlux';
-import { createStore } from 'alt-utils/lib/decorators';
-import ApplicationActions from 'actions/application';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import reducers from 'reducers';
 
-@createStore(Alt)
-export default class ApplicationStore {
-  static displayName = 'ApplicationStore'
+const store = createStore(
+  reducers,
+  composeWithDevTools(applyMiddleware(thunkMiddleware))
+);
 
-  constructor() {
-    this.isModalOpen = false;
-    this.modalName = '';
-    this.modalOptions = {};
-
-    this.bindListeners({
-      openModal: ApplicationActions.OPEN_MODAL,
-      closeModal: ApplicationActions.CLOSE_MODAL
-    });
-  }
-
-  openModal({ name, ...rest }) {
-    this.isModalOpen = true;
-    this.modalName = name;
-    this.modalOptions = { ...rest };
-  }
-
-  closeModal() {
-    this.isModalOpen = false;
-    this.modalName = '';
-  }
-}
+export default store;

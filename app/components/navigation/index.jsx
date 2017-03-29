@@ -1,21 +1,77 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { paths } from 'helpers/routes';
 
-export default class Navigation extends Component {
-  static propTypes = {
-    item: PropTypes.shape({
-      route: PropTypes.string,
-      title: PropTypes.string
-    })
-  }
+const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
+  const logoutUser = () => {
+    logout(currentUser);
+  };
 
-  render() {
+  const signinUser = () => {
+    signin(currentUser);
+  };
+
+  const signupUser = () => {
+    signup(currentUser);
+  };
+
+  const renderRightNav = () => {
+    if (loggedIn) {
+      return (
+        <Nav pullRight>
+          <NavItem>
+            { currentUser.email }
+          </NavItem>
+          <NavItem onClick={ logoutUser }>
+            Sign out
+          </NavItem>
+        </Nav>
+      );
+    }
+
     return (
-      <li>
-        <Link to={ this.props.item.route } activeClassName="active">
-          { this.props.item.title }
-        </Link>
-      </li>
+      <Nav pullRight>
+        <NavItem onClick={ signupUser }>
+          Sign up
+        </NavItem>
+        <NavItem onClick={ signinUser }>
+          Sign in
+        </NavItem>
+      </Nav>
     );
-  }
-}
+  };
+
+  return (
+    <Navbar>
+      <Navbar.Header>
+        <Navbar.Brand>
+          React-base
+        </Navbar.Brand>
+      </Navbar.Header>
+      <ul className="nav navbar-nav">
+        <li>
+          <Link to={ paths.home() } activeClassName="active">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to={ paths.about() } activeClassName="active">
+            About
+          </Link>
+        </li>
+      </ul>
+      { renderRightNav() }
+    </Navbar>
+  );
+};
+
+Navigation.propTypes = {
+  currentUser: PropTypes.object.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+  logout: PropTypes.func.isRequired,
+  signin: PropTypes.func.isRequired,
+  signup: PropTypes.func.isRequired
+};
+
+export default Navigation;

@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Main from 'components/main';
 import TodoLayout from 'components/todo/layout';
 import Home from 'components/home';
-import session from 'services/session';
+import currentUser from 'services/currentUser';
 
 describe('Main', () => {
   it('renders Home component', () => {
@@ -14,7 +14,7 @@ describe('Main', () => {
 
   describe('when session is created', () => {
     it('renders TodoLayout component', () => {
-      spyOn(session, 'loggedIn').and.returnValue(true);
+      spyOn(currentUser, 'loggedIn').and.returnValue(true);
       const mainComponent = mount(<Main/>);
 
       expect(mainComponent.contains(<TodoLayout/>)).toEqual(true);

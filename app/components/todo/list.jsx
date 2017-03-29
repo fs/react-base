@@ -1,27 +1,32 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import Todo from 'components/todo';
 
-export default class TodoList extends Component {
-  static propTypes = {
-    todos: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number,
-        isComplete: PropTypes.bool,
-        name: PropTypes.string
-      })
-    )
-  }
+const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
+  <ListGroup>
+    {
+      todos.map(todo =>
+        <Todo
+          key={ todo.id }
+          todo={ todo }
+          toggleTodo={ toggleTodo }
+          deleteTodo={ deleteTodo }
+        />
+      )
+    }
+  </ListGroup>
+);
 
-  renderItems = () => {
-    return this.props.todos.map(todo => <Todo key={ todo.id } todo={ todo }/>);
-  }
+TodoList.propTypes = {
+  deleteTodo: PropTypes.func.isRequired,
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.id,
+      isComplete: PropTypes.bool,
+      name: PropTypes.any
+    })
+  ).isRequired,
+  toggleTodo: PropTypes.func.isRequired
+};
 
-  render() {
-    return(
-      <ListGroup>
-        { this.renderItems() }
-      </ListGroup>
-    );
-  }
-}
+export default TodoList;

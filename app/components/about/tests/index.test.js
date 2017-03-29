@@ -18,7 +18,7 @@ describe('About', () => {
 
   it('renders about text', () => {
     const aboutComponent = mount(<About/>);
-    const innerText = 'Kick-start your new web application based on React and Flux technologies.';
+    const innerText = 'Kick-start your new web application based on React and Redux technologies.';
 
     expect(aboutComponent.find('p').text()).toContain(innerText);
   });
