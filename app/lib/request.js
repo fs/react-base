@@ -1,26 +1,57 @@
-import 'es6-promise';
-import 'whatwg-fetch';
-import qs from 'qs';
-import deepAssign from 'deep-assign';
-import { pickBy } from 'lodash';
+import config from 'config';
+import jsonApi from 'devour';
+// import { browserHistory } from 'react-router';
+// import Storage from 'lib/storage';
+// import Session from 'services/session';
+// import notifications from 'services/notifications';
+import { paths } from 'helpers/routes';
+import * as models from 'models'; // eslint-disable-line
 
-function filteredParams(params) {
-  const filteredParams = pickBy(params, item => !!item);
+const STORAGE_KEY = config.storageKey;
 
-  return `?${qs.stringify(filteredParams, { arrayFormat: 'brackets' })}`;
-}
+const errorMiddleware = {
+  name: 'error-middleware',
+  error: (payload) => {
+    const { status } = payload;
+    const { errors } = payload.data;
+    const defaultError = 'Что-то пошло не так.';
+    const currentError = errors[0];
+    let errorMessage;
 
-export default function request(url, params, queryParams) {
-  const defaultParams = {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
+    switch (status) {
+    case 401:
+      errorMessage = currentError.detail;
+      // Storage.remove(STORAGE_KEY);
+      // notifications.error(errorMessage);
+
+      return //browserHistory.push(paths.signIn());
+    default:
+      errorMessage = currentError.detail || currentError.title || defaultError;
+
+      return //notifications.error(errorMessage);
     }
+  }
+};
+
+export default function request() {
+  let defaultHeaders = {
+    'Accept': config.jsonHeader,
+    'Content-Type': config.jsonHeader
   };
 
-  if (queryParams) {
-    url += filteredParams(queryParams);
-  }
+  // if (Session.token) {
+  //   defaultHeaders = {
+  //     ...defaultHeaders,
+  //     'X-User-Token': Session.token,
+  //     'X-User-Email': Session.email
+  //   };
+  // }
 
-  return fetch(url, deepAssign({}, defaultParams, params));
+  jsonApi.headers = {
+    ...jsonApi.header,
+    ...defaultHeaders
+  };
+  jsonApi.replaceMiddleware('errors', errorMiddleware);
+
+  return jsonApi;
 }

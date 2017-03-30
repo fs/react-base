@@ -30,7 +30,13 @@ module.exports = {
       template: path.resolve(config.appDir, 'index.html')
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(config.env),
+        'API_TARGET': JSON.stringify(config.apiTarget)
+      }
+    })
   ],
   module: {
     rules: [

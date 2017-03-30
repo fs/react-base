@@ -1,6 +1,5 @@
 import Alt from 'altFlux';
 import { createStore } from 'alt-utils/lib/decorators';
-import Storage from 'lib/storage';
 import SessionActions from 'actions/session';
 import config from 'config';
 
@@ -11,7 +10,7 @@ export default class SessionStore {
   static displayName = 'SessionStore'
 
   constructor() {
-    this.currentUser = Storage.get(STORAGE_KEY) || {};
+    this.currentUser = {};
 
     this.bindListeners({
       create: SessionActions.CREATE,

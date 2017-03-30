@@ -28,6 +28,7 @@
     "classnames": "~2.2.5",
     "compression": "~1.6.2",
     "deep-assign": "~2.0.0",
+    "devour-client": "^1.4.1",
     "es6-promise": "~4.0.5",
     "lodash": "~4.17.4",
     "qs": "~6.3.0",

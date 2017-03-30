@@ -1,20 +1,13 @@
-import config from 'config';
 import request from 'lib/request';
 
 export default class SessionSource {
-  static urlRoot = `${config.apiTarget}/session`
+  static resource = 'session'
 
   static create(user) {
-    return request(this.urlRoot, {
-      method: 'POST',
-      body: JSON.stringify(user)
-    })
-    .then(result => result.json());
+    return request().create(this.resource, user);
   }
 
-  static delete(user) {
-    return request(`${this.urlRoot}/${user.id}`, {
-      method: 'DELETE'
-    });
+  static destroy(id) {
+    return request().destroy(this.resource, id);
   }
 }

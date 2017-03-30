@@ -1,7 +1,7 @@
 import Alt from 'altFlux';
 import { createActions } from 'alt-utils/lib/decorators';
 import session from 'services/session';
-import signupSource from 'sources/signup';
+import signUpSource from 'sources/signup';
 
 @createActions(Alt)
 export default class SignupActions {
@@ -9,9 +9,9 @@ export default class SignupActions {
     return { name, value };
   }
 
-  create(user) {
+  create(session) {
     return (dispatch) => {
-      signupSource.create(user).then((result) => {
+      signUpSource.create(session).then((result) => {
         session.create(result);
         dispatch(result);
       });
