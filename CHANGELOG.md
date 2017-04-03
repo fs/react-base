@@ -1,6 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Upgrade Node.js to 7.8.x
+- Upgrade dependencies
+- Cleanup eslint config
+([#68](https://github.com/fs/react-base/pull/68))
 - Introduce Redux as a main unidirectional architecture realization
 - Introduce custom http lib based on fetch-api as a main tool for server requests
 ([#60](https://github.com/fs/react-base/pull/60))
