@@ -9,12 +9,12 @@
     "url": "git://github.com:fs/react-base.git"
   },
   "scripts": {
-    "stylelint": "stylelint ./app/{**,**/**}/*.css --config ./config/stylelint.js",
-    "stylelint-fix": "stylefmt --recursive './app/{**,**/**}/*.css' --config ./config/stylelint.js",
+    "stylelint": "stylelint ./app/{**,**/**}/*.css",
+    "stylelint-fix": "stylefmt --recursive './app/{**,**/**}/*.css'",
     "eslint": "eslint server.js ./app ./config --ext .js,.jsx",
     "eslint-fix": "eslint server.js ./app ./config --ext .js,.jsx --fix",
-    "jest": "jest",
     "lint": "npm run stylelint && npm run eslint",
+    "jest": "jest",
     "test": "npm run lint",
     "start": "node ./server"
   },
@@ -82,7 +82,7 @@
     "style-loader": "^0.16.1",
     "stylefmt": "^5.3.2",
     "stylelint": "^7.10.1",
-    "stylelint-order": "^0.4.3",
+    "stylelint-config-fs": "^0.1.0",
     "url-loader": "^0.5.7",
     "webpack": "^2.3.3",
     "webpack-dashboard": "^0.3.0",

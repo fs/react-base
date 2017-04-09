@@ -1,9 +1,10 @@
 # Changelog
 
 ## Unreleased
+- Use stylelint-config-fs for linting CSS
 - Migrate to React 15.5.x
 - Upgrade dependencies
-([#69](https://github.com/fs/react-base/pull/69))
+([#76](https://github.com/fs/react-base/pull/76))
 - Upgrade Node.js to 7.8.x
 - Upgrade dependencies
 - Cleanup eslint config
