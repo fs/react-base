@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import TodoContainer from 'containers/todo';
 import Home from 'components/home';
 

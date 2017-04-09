@@ -1,6 +1,9 @@
 # Changelog
 
 ## Unreleased
+- Migrate to React 15.5.x
+- Upgrade dependencies
+([#69](https://github.com/fs/react-base/pull/69))
 - Upgrade Node.js to 7.8.x
 - Upgrade dependencies
 - Cleanup eslint config
