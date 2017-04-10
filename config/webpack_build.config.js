@@ -47,7 +47,7 @@ module.exports = {
           fallback: 'style-loader',
           use: [
             {
-              use: 'css-loader',
+              loader: 'css-loader',
               query: {
                 modules: true,
                 importLoaders: 1
