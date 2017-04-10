@@ -12,7 +12,7 @@
     "stylelint": "stylelint ./app/{**,**/**}/*.css",
     "stylelint-fix": "stylefmt --recursive './app/{**,**/**}/*.css'",
     "eslint": "eslint server.js ./app ./config --ext .js,.jsx",
-    "eslint-fix": "eslint server.js ./app ./config --ext .js,.jsx --fix",
+    "eslint-fix": "npm run eslint -- --fix",
     "lint": "npm run stylelint && npm run eslint",
     "jest": "jest",
     "test": "npm run lint",
