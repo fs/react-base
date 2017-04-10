@@ -1,4 +1,4 @@
-import { Simulate } from 'react-dom/lib/ReactTestUtils';
+import { Simulate } from 'react-dom/test-utils';
 
 export function inputHasErrorClass(input) {
   return input.parentElement.classList.contains('has-error');
