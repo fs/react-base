@@ -43,9 +43,9 @@ module.exports = {
       {
         test: /\.css$/,
         exclude: [/app\/stylesheets\//],
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: [
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
             {
               loader: 'css-loader',
               query: {
@@ -60,9 +60,9 @@ module.exports = {
       {
         test: /\.css$/,
         include: [/app\/stylesheets\//],
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: [
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
             'css-loader',
             'postcss-loader'
           ]
