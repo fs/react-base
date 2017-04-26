@@ -59,38 +59,6 @@ describe('http', () => {
       expect(mock.called()).toBeTruthy();
     });
 
-    it('calls onSuccess callback on successful response', () => {
-      fetchMock.mock(
-        '/some_url',
-        {
-          status: 200,
-          body: {
-            user_id: 1
-          }
-        }
-      );
-
-      const onSuccessMock = sinon.spy();
-      httpFunction({ url: '/some_url', onSuccess: onSuccessMock })
-        .then(() => expect(onSuccessMock.called).toBeTruthy());
-    });
-
-    it('calls onError callback on non-successful response', () => {
-      fetchMock.mock(
-        '/some_url',
-        {
-          status: 422,
-          body: {
-            user_id: 1
-          }
-        }
-      );
-
-      const onErrorMock = sinon.spy();
-      httpFunction({ url: '/some_url', onError: onErrorMock })
-        .catch(() => expect(onErrorMock.called).toBeTruthy());
-    });
-
     it('returns resolved promise if success callback is not passed', () => {
       fetchMock.mock(
         '/some_url',

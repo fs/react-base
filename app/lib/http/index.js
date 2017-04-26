@@ -1,23 +1,23 @@
-import 'es6-promise';
+import 'es6-promise/auto';
 import 'whatwg-fetch';
 import qs from 'qs';
-import { merge, pickBy } from 'lodash';
+import { merge, pickBy, isString } from 'lodash';
 
 const JSON_HEADERS = {
   'Accept': 'application/json',
   'Content-Type': 'application/json'
 };
 
-const defaultPayload = () => ({
-  headers: JSON_HEADERS,
-  onSuccess: response => Promise.resolve(response),
-  onError: response => Promise.reject(response)
-});
+const DEFAULT_PAYLOAD = {
+  headers: JSON_HEADERS
+};
 
-function handleResponse(response, onSuccess, onError) {
-  const callback = (response.status >= 200 && response.status < 300) ? onSuccess : onError;
+function handleResponse(response) {
+  const { status } = response;
 
-  return callback(response);
+  return (status >= 200 && status < 300) ?
+    Promise.resolve(response) :
+    Promise.reject(response);
 }
 
 function filteredParams(params) {
@@ -28,13 +28,19 @@ function filteredParams(params) {
   return `?${qs.stringify(filteredParams, { arrayFormat: 'brackets' })}`;
 }
 
+function requestBody(body, headers) {
+  const isJSON = !!headers['Content-Type'] && headers['Content-Type'] === 'application/json';
+
+  return (isJSON && !isString(body)) ? JSON.stringify(body) : body;
+}
+
 function request(payload) {
-  const { url, query, body, method, headers, options, onSuccess, onError } = merge({}, defaultPayload(), payload);
-
-  const fetchOptions = merge({}, options, { method, headers, body: JSON.stringify(body) });
+  const { url, query, ...options } = merge({}, DEFAULT_PAYLOAD, payload);
+  const { body, headers } = options;
   const urlWithQueryParams = url + filteredParams(query);
+  const fetchOptions = merge({}, options, { body: requestBody(body, headers) });
 
-  return fetch(urlWithQueryParams, fetchOptions).then(response => handleResponse(response, onSuccess, onError));
+  return fetch(urlWithQueryParams, fetchOptions).then(http.handleResponse);
 }
 
 export function get(payload) {
@@ -68,6 +74,7 @@ export function deleteRequest(payload) {
 }
 
 const http = {
+  handleResponse,
   get,
   post,
   put,

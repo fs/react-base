@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Make improvements in the http lib
+([#77](https://github.com/fs/react-base/pull/77))
 - Use stylelint-config-fs for linting CSS
 - Migrate to React 15.5.x
 - Upgrade dependencies
