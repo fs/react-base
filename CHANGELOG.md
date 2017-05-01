@@ -1,17 +1,24 @@
 # Changelog
 
 ## Unreleased
+- Upgrande dependencies
+([#77](https://github.com/fs/react-base/pull/77))
 - Make improvements in the http lib
 ([#77](https://github.com/fs/react-base/pull/77))
 - Use stylelint-config-fs for linting CSS
+([#76](https://github.com/fs/react-base/pull/76))
 - Migrate to React 15.5.x
+([#76](https://github.com/fs/react-base/pull/76))
 - Upgrade dependencies
 ([#76](https://github.com/fs/react-base/pull/76))
 - Upgrade Node.js to 7.8.x
+([#68](https://github.com/fs/react-base/pull/68))
 - Upgrade dependencies
+([#68](https://github.com/fs/react-base/pull/68))
 - Cleanup eslint config
 ([#68](https://github.com/fs/react-base/pull/68))
 - Introduce Redux as a main unidirectional architecture realization
+([#60](https://github.com/fs/react-base/pull/60))
 - Introduce custom http lib based on fetch-api as a main tool for server requests
 ([#60](https://github.com/fs/react-base/pull/60))
 - Introduce yarn

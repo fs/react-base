@@ -3,7 +3,6 @@ import 'es6-promise/auto';
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import http from 'lib/http';
 import appHistory from 'services/history';
 import store from 'stores/application';
 import Root from 'containers/root';
@@ -11,6 +10,8 @@ import Root from 'containers/root';
 const mountNode = document.getElementById('app');
 
 // Define your own response handler if it's necessary
+// import http from 'lib/http';
+//
 // http.handleResponse = response => {
 //   const { status } = response;
 //
