@@ -14,8 +14,7 @@
     "eslint": "eslint 'server.js' './app' './config' --ext .js,.jsx",
     "eslint-fix": "yarn eslint -- --fix",
     "lint": "yarn stylelint && yarn eslint",
-    "jest": "jest",
-    "test": "yarn lint",
+    "test": "jest",
     "start": "node ./server"
   },
   "license": "MIT",
@@ -78,6 +77,8 @@
     "postcss-pxtorem": "^4.0.0",
     "postcss-simple-vars": "^3.1.0",
     "react-addons-test-utils": "^15.5.1",
+    "react-test-renderer": "^15.5.4",
+    "redux-mock-store": "^1.2.3",
     "sinon": "^2.1.0",
     "style-loader": "^0.16.1",
     "stylefmt": "^5.3.2",

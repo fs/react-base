@@ -1,11 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import Footer from 'components/footer';
 
 describe('Footer', () => {
-  const footerComponent = mount(<Footer/>);
+  const footerComponent = renderer.create(<Footer/>).toJSON();
 
-  it('renders text', () => {
-    expect(footerComponent.find('p').text()).toEqual('React-base');
+  it('renders correctly', () => {
+    expect(footerComponent).toMatchSnapshot();
   });
 });

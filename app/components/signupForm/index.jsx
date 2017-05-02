@@ -11,7 +11,7 @@ import Form from 'components/form';
 
 export default class SignupForm extends Component {
   static propTypes = {
-    closeModal: PropTypes.bool.isRequired,
+    closeModal: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
     signupUser: PropTypes.func.isRequired
   }

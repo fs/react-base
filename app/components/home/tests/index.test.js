@@ -1,17 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import Home from 'components/home';
 
 describe('Home', () => {
-  const homeComponent = mount(<Home/>);
+  const homeComponent = renderer.create(<Home/>).toJSON();
 
-  it('renders title', () => {
-    expect(homeComponent.find('h1').text()).toEqual('React-base');
-  });
-
-  it('renders description text', () => {
-    const innerText = 'Kick-start your new web application based on React and Redux technologies.';
-
-    expect(homeComponent.find('p').text()).toContain(innerText);
+  it('renders correctly', () => {
+    expect(homeComponent).toMatchSnapshot();
   });
 });

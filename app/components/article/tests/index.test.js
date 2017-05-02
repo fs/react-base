@@ -1,12 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import renderer from 'react-test-renderer';
 import Article from 'components/article';
 
 describe('Article', () => {
-  it('renders text with id from params', () => {
-    const params = { id: '1' };
-    const articleComponent = mount(<Article params={ params }/>);
+  const params = { id: '1' };
+  const articleComponent = renderer.create(<Article params={ params }/>);
 
-    expect(articleComponent.text()).toContain('article id: 1');
+  it('renders correctly', () => {
+    expect(articleComponent).toMatchSnapshot();
   });
 });

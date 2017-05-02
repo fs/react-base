@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signup Modal renders correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="modal-body"
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="name"
+      >
+        Name
+      </label>
+      <input
+        className="form-control"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="form-control"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        className="form-control"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        type="password"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="passwordConfirmation"
+      >
+        Password Confirmation
+      </label>
+      <input
+        className="form-control"
+        id="passwordConfirmation"
+        name="passwordConfirmation"
+        onChange={[Function]}
+        type="password"
+      />
+    </div>
+    <div
+      className="modal-footer"
+    >
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+`;

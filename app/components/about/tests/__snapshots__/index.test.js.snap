@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About renders correctly 1`] = `
+<div
+  className="container"
+>
+  <article>
+    <h1>
+      About
+    </h1>
+    <p>
+      Kick-start your new web application based on React and Redux technologies.
+    </p>
+    <a
+      onClick={[Function]}
+      style={Object {}}
+    >
+      show details...
+    </a>
+  </article>
+</div>
+`;

@@ -1,90 +1,59 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Modal } from 'react-bootstrap';
-import { Simulate } from 'react-dom/test-utils';
-import SigninModal from 'components/signinModal';
+import { FormControl } from 'react-bootstrap';
+import SigninForm from 'components/signinForm';
 
-/* eslint-disable max-statements */
-describe('Signin Modal', () => {
-  const state = { isModalOpen: true };
-  const signinModalComponent = mount(<SigninModal />);
-  let modalDialogContent;
+describe('Signin form', () => {
+  const props = {
+    closeModal: jest.fn(),
+    signinUser: jest.fn(),
+    isLoading: false
+  };
+  const signinFormComponent = mount(<SigninForm { ...props }/>);
 
-  beforeAll(() => {
-    signinModalComponent.setState(state);
-    modalDialogContent = signinModalComponent.find(Modal).node._modal.getDialogElement();
+  it('renders correctly', () => {
+    const tree = renderer.create(<SigninForm/>).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
-  afterAll(() => {
-    signinModalComponent.unmount();
-  });
+  describe('password field', () => {
+    const inputPassword = signinFormComponent
+      .find(FormControl)
+      .filterWhere(n => n.props().name === 'password');
 
-  it('has Modal component', () => {
-    expect(signinModalComponent.find(Modal).length).toEqual(1);
-  });
-
-  it('renders Modal with form fields', () => {
-    expect(modalDialogContent.getElementsByClassName('form-control').length).toEqual(2);
-  });
-
-  describe('when password is too short', () => {
-    it('appears error class', () => {
-      const inputPassword = modalDialogContent.querySelector('[name=password]');
-
-      Simulate.change(inputPassword, {
-        target: {
-          name: 'password',
-          value: 'short'
-        }
+    it('appears error state when password is too short', () => {
+      inputPassword.simulate('change', {
+        target: { name: 'password', value: 'short' }
       });
+      expect(inputPassword.parent().props().validationState).toEqual('error');
+    });
 
-      expect(inputPassword.parentElement.classList.contains('has-error')).toEqual(true);
+    it('appears success state when password is strong', () => {
+      inputPassword.simulate('change', {
+        target: { name: 'password', value: 'strongPassword' }
+      });
+      expect(inputPassword.parent().props().validationState).toEqual('success');
     });
   });
 
-  describe('when password is valid', () => {
-    it('appears success class', () => {
-      const inputPassword = modalDialogContent.querySelector('[name=password]');
+  describe('email field', () => {
+    const inputEmail = signinFormComponent
+      .find(FormControl)
+      .filterWhere(n => n.props().name === 'email');
 
-      Simulate.change(inputPassword, {
-        target: {
-          name: 'password',
-          value: 'strongPassword'
-        }
+    it('appears error state when email is too short', () => {
+      inputEmail.simulate('change', {
+        target: { name: 'email', value: 'short' }
       });
-
-      expect(inputPassword.parentElement.classList.contains('has-success')).toEqual(true);
+      expect(inputEmail.parent().props().validationState).toEqual('error');
     });
-  });
 
-  describe('when email is too short', () => {
-    it('appears error class', () => {
-      const inputEmail = modalDialogContent.querySelector('[name=email]');
-
-      Simulate.change(inputEmail, {
-        target: {
-          name: 'email',
-          value: 'short'
-        }
+    it('appears success state when email is valid', () => {
+      inputEmail.simulate('change', {
+        target: { name: 'email', value: 'email@example.com' }
       });
-
-      expect(inputEmail.parentElement.classList.contains('has-error')).toEqual(true);
-    });
-  });
-
-  describe('when email is valid', () => {
-    it('appears success class', () => {
-      const inputEmail = modalDialogContent.querySelector('[name=email]');
-
-      Simulate.change(inputEmail, {
-        target: {
-          name: 'email',
-          value: 'email@example.com'
-        }
-      });
-
-      expect(inputEmail.parentElement.classList.contains('has-success')).toEqual(true);
+      expect(inputEmail.parent().props().validationState).toEqual('success');
     });
   });
 });
-/* eslint-enable max-statements */

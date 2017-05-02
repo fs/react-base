@@ -1,144 +1,113 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
-import { Modal } from 'react-bootstrap';
-import { Simulate } from 'react-dom/test-utils';
-import SignupModal from 'components/signupModal';
+import { FormControl } from 'react-bootstrap';
+import SignupForm from 'components/signupForm';
 
-/* eslint-disable max-statements */
 describe('Signup Modal', () => {
-  const state = { isModalOpen: true };
-  const signupModalComponent = mount(<SignupModal />);
-  let modalDialogContent;
+  const props = {
+    closeModal: jest.fn(),
+    signupUser: jest.fn(),
+    isLoading: false
+  };
+  const signupFormComponent = mount(<SignupForm { ...props }/>);
 
-  beforeAll(() => {
-    signupModalComponent.setState(state);
-    modalDialogContent = signupModalComponent.find(Modal).node._modal.getDialogElement();
+  it('renders correctly', () => {
+    const tree = renderer.create(<SignupForm />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
-  afterAll(() => {
-    signupModalComponent.unmount();
-  });
+  describe('name field', () => {
+    const nameInput = signupFormComponent
+      .find(FormControl)
+      .filterWhere(n => n.props().name === 'name');
 
-  it('has Modal component', () => {
-    expect(signupModalComponent.find(Modal).length).toEqual(1);
-  });
-
-  it('renders Modal with form fields', () => {
-    expect(modalDialogContent.getElementsByClassName('form-control').length).toEqual(4);
-  });
-
-  describe('when name is empty', () => {
-    it('appears error class', () => {
-      const nameInput = modalDialogContent.querySelector('[name=name]');
-
-      Simulate.change(nameInput, {
-        target: {
-          name: 'name',
-          value: ''
-        }
+    it('appears success state when name is valid', () => {
+      nameInput.simulate('change', {
+        target: { name: 'name', value: 'someName' }
       });
-
-      expect(nameInput.parentElement.classList.contains('has-error')).toEqual(true);
+      expect(nameInput.parent().props().validationState).toEqual('success');
     });
   });
 
-  describe('when name is valid', () => {
-    it('appears success class', () => {
-      const nameInput = modalDialogContent.querySelector('[name=name]');
+  describe('email field', () => {
+    const emailInput = signupFormComponent
+      .find(FormControl)
+      .filterWhere(n => n.props().name === 'email');
 
-      Simulate.change(nameInput, {
-        target: {
-          name: 'name',
-          value: 'someName'
-        }
+    it('appears error state when email is too short', () => {
+      emailInput.simulate('change', {
+        target: { name: 'email', value: 'short' }
       });
+      expect(emailInput.parent().props().validationState).toEqual('error');
+    });
 
-      expect(nameInput.parentElement.classList.contains('has-success')).toEqual(true);
+    it('appears success state when email is valid', () => {
+      emailInput.simulate('change', {
+        target: { name: 'email', value: 'email@example.com' }
+      });
+      expect(emailInput.parent().props().validationState).toEqual('success');
     });
   });
 
-  describe('when email is too short', () => {
-    it('appears error class', () => {
-      const inputEmail = modalDialogContent.querySelector('[name=email]');
+  describe('password field', () => {
+    const passwordInput = signupFormComponent
+      .find(FormControl)
+      .filterWhere(n => n.props().name === 'password');
 
-      Simulate.change(inputEmail, {
-        target: {
-          name: 'email',
-          value: 'short'
-        }
+    it('appears error state when password is too short', () => {
+      passwordInput.simulate('change', {
+        target: { name: 'password', value: 'short' }
       });
+      expect(passwordInput.parent().props().validationState).toEqual('error');
+    });
 
-      expect(inputEmail.parentElement.classList.contains('has-error')).toEqual(true);
+    it('appears success state when password is valid', () => {
+      passwordInput.simulate('change', {
+        target: { name: 'password', value: 'strongPassword' }
+      });
+      expect(passwordInput.parent().props().validationState).toEqual('success');
     });
   });
 
-  describe('when email is valid', () => {
-    it('appears success class', () => {
-      const inputEmail = modalDialogContent.querySelector('[name=email]');
+  describe('password field', () => {
+    const passwordInput = signupFormComponent
+      .find(FormControl)
+      .filterWhere(n => n.props().name === 'password');
 
-      Simulate.change(inputEmail, {
-        target: {
-          name: 'email',
-          value: 'email@example.com'
-        }
+    it('appears error state when password is too short', () => {
+      passwordInput.simulate('change', {
+        target: { name: 'password', value: 'short' }
       });
-
-      expect(inputEmail.parentElement.classList.contains('has-success')).toEqual(true);
+      expect(passwordInput.parent().props().validationState).toEqual('error');
     });
-  });
 
-  describe('when password is too short', () => {
-    it('appears error class', () => {
-      const inputPassword = modalDialogContent.querySelector('[name=password]');
-
-      Simulate.change(inputPassword, {
-        target: {
-          name: 'password',
-          value: 'short'
-        }
+    it('appears success state when password is valid', () => {
+      passwordInput.simulate('change', {
+        target: { name: 'password', value: 'strongPassword' }
       });
-
-      expect(inputPassword.parentElement.classList.contains('has-error')).toEqual(true);
-    });
-  });
-
-  describe('when password is valid', () => {
-    it('appears success class', () => {
-      const inputPassword = modalDialogContent.querySelector('[name=password]');
-
-      Simulate.change(inputPassword, {
-        target: {
-          name: 'password',
-          value: 'strongPassword'
-        }
-      });
-
-      expect(inputPassword.parentElement.classList.contains('has-success')).toEqual(true);
+      expect(passwordInput.parent().props().validationState).toEqual('success');
     });
   });
 
   describe('when the passwords match', () => {
     it('appears success class', () => {
-      const passwordInput = modalDialogContent.querySelector('[name=password]');
-      const passwordConfirmationInput = modalDialogContent.querySelector('[name=passwordConfirmation]');
+      const passwordInput = signupFormComponent
+        .find(FormControl)
+        .filterWhere(n => n.props().name === 'password');
+      const passwordConfirmationInput = signupFormComponent
+        .find(FormControl)
+        .filterWhere(n => n.props().name === 'passwordConfirmation');
 
-      Simulate.change(passwordInput, {
-        target: {
-          name: 'password',
-          value: 'superSecurityPassword'
-        }
+      passwordInput.simulate('change', {
+        target: { name: 'password', value: 'superSecurityPassword' }
+      });
+      passwordConfirmationInput.simulate('change', {
+        target: { name: 'passwordConfirmation', value: 'superSecurityPassword' }
       });
 
-      Simulate.change(passwordConfirmationInput, {
-        target: {
-          name: 'passwordConfirmation',
-          value: 'superSecurityPassword'
-        }
-      });
-
-      expect(passwordConfirmationInput.parentElement.classList.contains('has-success')).toEqual(true);
+      expect(passwordConfirmationInput.parent().props().validationState).toEqual('success');
       expect(passwordInput.value).toEqual(passwordConfirmationInput.value);
     });
   });
 });
-/* eslint-enable max-statements */
