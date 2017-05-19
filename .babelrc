@@ -15,6 +15,7 @@
     },
     "test": {
       "plugins": [
+        "rewire",
         "transform-es2015-modules-commonjs",
         ["module-resolver", {
           "root": ["./config/env"],

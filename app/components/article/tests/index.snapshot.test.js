@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Article from 'components/article';
+import Article from '../';
 
 describe('Article', () => {
-  const params = { id: '1' };
-  const articleComponent = renderer.create(<Article params={ params }/>);
-
   it('renders correctly', () => {
+    const params = { id: '1' };
+    const articleComponent = renderer.create(<Article params={ params }/>);
+
     expect(articleComponent).toMatchSnapshot();
   });
 });

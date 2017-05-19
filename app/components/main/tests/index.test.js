@@ -1,29 +1,32 @@
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
-import Main from 'components/main';
+import { shallow } from 'enzyme';
+import Main from '../';
 
 describe('Main', () => {
-  it('renders correctly', () => {
-    const mainComponent = renderer.create(<Main/>).toJSON();
+  let loggedIn;
 
-    expect(mainComponent).toMatchSnapshot();
+  const renderComponent = () => shallow(<Main loggedIn={ loggedIn }/>);
+
+  beforeEach(() => loggedIn = false);
+
+  it('renders Home component', () => {
+    const mainComponent = renderComponent();
+    const home = mainComponent.find('Home');
+
+    expect(home).toBePresent();
   });
 
-  describe('when session is created', () => {
-    it('renders Todo container', () => {
-      const middlewares = [thunk];
-      const mockStore = configureStore(middlewares);
-      const store = mockStore({ todos: { todos: [] }});
-      const mainComponent = renderer.create(
-        <Provider store={ store }>
-          <Main loggedIn={ true }/>
-        </Provider>
-      ).toJSON();
+  context('when user is logged in', () => {
+    beforeEach(() => loggedIn = true);
 
-      expect(mainComponent).toMatchSnapshot();
+    Main.__Rewire__('TodoContainer', () => <div id="todo_container_mock"/>);
+
+    it('renders Home component', () => {
+      const mainComponent = shallow(<Main loggedIn={ true }/>);
+      const todoContainer = mainComponent.find('#todo_container_mock');
+      console.log(mainComponent.html());
+
+      expect(todoContainer).toBePresent();
     });
   });
 });

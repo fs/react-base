@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Footer from 'components/footer';
+import Footer from '../';
 
 describe('Footer', () => {
-  const footerComponent = renderer.create(<Footer/>).toJSON();
-
   it('renders correctly', () => {
+    const footerComponent = renderer.create(<Footer/>).toJSON();
+
     expect(footerComponent).toMatchSnapshot();
   });
 });

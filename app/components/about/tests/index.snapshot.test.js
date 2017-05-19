@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import About from 'components/about';
+import About from '../';
 
 describe('About', () => {
-  const aboutComponent = renderer.create(<About/>).toJSON();
-
   it('renders correctly', () => {
+    const aboutComponent = renderer.create(<About/>).toJSON();
+
     expect(aboutComponent).toMatchSnapshot();
   });
 });
