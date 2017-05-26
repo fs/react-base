@@ -2,9 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Main from '../';
 
+jest.mock('containers/todo', () => 'TodoContainer');
+
 describe('Main', () => {
   let loggedIn;
-
   const renderComponent = () => shallow(<Main loggedIn={ loggedIn }/>);
 
   beforeEach(() => loggedIn = false);
@@ -19,12 +20,9 @@ describe('Main', () => {
   context('when user is logged in', () => {
     beforeEach(() => loggedIn = true);
 
-    Main.__Rewire__('TodoContainer', () => <div id="todo_container_mock"/>);
-
     it('renders Home component', () => {
-      const mainComponent = shallow(<Main loggedIn={ true }/>);
-      const todoContainer = mainComponent.find('#todo_container_mock');
-      console.log(mainComponent.html());
+      const mainComponent = renderComponent();
+      const todoContainer = mainComponent.find('TodoContainer');
 
       expect(todoContainer).toBePresent();
     });

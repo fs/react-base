@@ -1,16 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import renderer from 'react-test-renderer';
 import { NavItem } from 'react-bootstrap';
 import Navigation from 'components/navigation';
 
 describe('Navigation', () => {
-  it('renders correctly', () => {
-    const navigationComponent = renderer.create(<Navigation />).toJSON();
-
-    expect(navigationComponent).toMatchSnapshot();
-  });
-
   describe('callbacks', () => {
     const signup = jest.fn();
     const signin = jest.fn();
@@ -48,15 +41,6 @@ describe('Navigation', () => {
         email: 'user@example.com'
       }
     };
-
-    beforeEach(() => {
-      navigationComponent = shallow(<Navigation { ...data } />);
-    });
-
-    it('renders user navigations', () => {
-      navigationComponent = renderer.create(<Navigation { ...data } />);
-      expect(navigationComponent).toMatchSnapshot();
-    });
 
     it('renders user email', () => {
       expect(navigationComponent.find(NavItem).at(0).props().children).toEqual(data.currentUser.email);
