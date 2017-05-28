@@ -1,15 +1,32 @@
 # Changelog
 
 ## Unreleased
+- Cleanup postcss config
+([#81](https://github.com/fs/react-base/pull/81))
+- Refactor stylesheets. Add react-transition-group, postcss-extend
+([#80](https://github.com/fs/react-base/pull/80))
+- Remove deprecated postcss-inline-comment and react-addons-css-transition-group.
+([#80](https://github.com/fs/react-base/pull/80))
+- Upgrade dependencies
+([#80](https://github.com/fs/react-base/pull/80))
+- Upgrande dependencies
+([#77](https://github.com/fs/react-base/pull/77))
+- Make improvements in the http lib
+([#77](https://github.com/fs/react-base/pull/77))
 - Use stylelint-config-fs for linting CSS
+([#76](https://github.com/fs/react-base/pull/76))
 - Migrate to React 15.5.x
+([#76](https://github.com/fs/react-base/pull/76))
 - Upgrade dependencies
 ([#76](https://github.com/fs/react-base/pull/76))
 - Upgrade Node.js to 7.8.x
+([#68](https://github.com/fs/react-base/pull/68))
 - Upgrade dependencies
+([#68](https://github.com/fs/react-base/pull/68))
 - Cleanup eslint config
 ([#68](https://github.com/fs/react-base/pull/68))
 - Introduce Redux as a main unidirectional architecture realization
+([#60](https://github.com/fs/react-base/pull/60))
 - Introduce custom http lib based on fetch-api as a main tool for server requests
 ([#60](https://github.com/fs/react-base/pull/60))
 - Introduce yarn
