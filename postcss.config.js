@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const postcssImport = require('postcss-import');
 const postcssMixins = require('postcss-mixins');
@@ -10,9 +9,7 @@ const postcssPxtorem = require('postcss-pxtorem');
 
 module.exports = () => ({
   plugins: [
-    postcssImport({
-      addDependencyTo: webpack
-    }),
+    postcssImport,
     postcssMixins,
     postcssNested,
     postcssExtend,
