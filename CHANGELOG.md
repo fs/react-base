@@ -1,10 +1,12 @@
 # Changelog
 
 ## Unreleased
-- Remove deprecated postcss-inline-comment and react-addons-css-transition-group. Use react-transition-group.
-([#78](https://github.com/fs/react-base/pull/78))
-- Upgrade dependencies.
-([#78](https://github.com/fs/react-base/pull/78))
+- Refactor stylesheets. Add react-transition-group, postcss-extend
+([#80](https://github.com/fs/react-base/pull/80))
+- Remove deprecated postcss-inline-comment and react-addons-css-transition-group.
+([#80](https://github.com/fs/react-base/pull/80))
+- Upgrade dependencies
+([#80](https://github.com/fs/react-base/pull/80))
 - Upgrande dependencies
 ([#77](https://github.com/fs/react-base/pull/77))
 - Make improvements in the http lib

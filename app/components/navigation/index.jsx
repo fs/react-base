@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import { paths } from 'helpers/routes';
+import styles from './styles';
 
 const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
   const logoutUser = () => {
@@ -44,7 +45,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
   };
 
   return (
-    <Navbar>
+    <Navbar className={ styles.panel }>
       <Navbar.Header>
         <Navbar.Brand>
           React-base
@@ -52,12 +53,18 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
       </Navbar.Header>
       <ul className="nav navbar-nav">
         <li>
-          <Link to={ paths.home() } activeClassName="active">
+          <Link
+            to={ paths.home() }
+            activeClassName={ styles.linkActive }
+          >
             Home
           </Link>
         </li>
         <li>
-          <Link to={ paths.about() } activeClassName="active">
+          <Link
+            to={ paths.about() }
+            activeClassName={ styles.linkActive }
+          >
             About
           </Link>
         </li>

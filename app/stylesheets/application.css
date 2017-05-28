@@ -1,5 +1,6 @@
 @import "bootstrap";
+
+@import "vars";
 @import "base";
 @import "layout";
 @import "overrides";
-@import "animation";

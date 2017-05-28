@@ -70,6 +70,7 @@
     "jest": "^20.0.4",
     "json-server": "^0.10.1",
     "postcss-color-function": "^4.0.0",
+    "postcss-extend": "^1.0.5",
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.5",
     "postcss-mixins": "^6.0.0",

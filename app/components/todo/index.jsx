@@ -19,18 +19,22 @@ const Todo = ({ todo, updateTodo, deleteTodo }) => {
 
   return (
     <CSSTransitionGroup
-      transitionName="todo"
+      transitionName={{
+        appear: styles.appear,
+        appearActive: styles.appearActive,
+        enter: styles.enter,
+        enterActive: styles.enterActive,
+        leave: styles.leave,
+        leaveActive: styles.leaveActive
+      }}
       transitionAppear={ true }
-      transitionEnterTimeout={ 0 }
-      transitionLeaveTimeout={ 0 }
-      transitionAppearTimeout={ 0 }
     >
       <ListGroupItem onClick={ toggle }>
         <span>
           { todo.name }
         </span>
         <span
-          className={ `glyphicon glyphicon-trash ${styles.trashIcon}` }
+          className={ `glyphicon glyphicon-trash ${styles.iconTrash}` }
           onClick={ remove }
         />
       </ListGroupItem>
