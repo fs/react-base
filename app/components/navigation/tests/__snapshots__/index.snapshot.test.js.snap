@@ -2,7 +2,7 @@
 
 exports[`Navigation renders correctly 1`] = `
 <nav
-  className="navbar navbar-default"
+  className="panel navbar navbar-default"
 >
   <div
     className="container"
@@ -73,7 +73,7 @@ exports[`Navigation renders correctly 1`] = `
 
 exports[`Navigation when session is created renders user navigations 1`] = `
 <nav
-  className="navbar navbar-default"
+  className="panel navbar navbar-default"
 >
   <div
     className="container"

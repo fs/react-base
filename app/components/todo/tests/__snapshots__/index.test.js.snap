@@ -1,14 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Todo renders correctly 1`] = `
-<ReactCSSTransitionGroup
+<CSSTransitionGroup
   transitionAppear={true}
-  transitionAppearTimeout={0}
   transitionEnter={true}
-  transitionEnterTimeout={0}
   transitionLeave={true}
-  transitionLeaveTimeout={0}
-  transitionName="todo"
+  transitionName={
+    Object {
+      "appear": "appear",
+      "appearActive": "appearActive",
+      "enter": "enter",
+      "enterActive": "enterActive",
+      "leave": "leave",
+      "leaveActive": "leaveActive",
+    }
+  }
 >
   <ListGroupItem
     bsClass="list-group-item"
@@ -19,9 +25,9 @@ exports[`Todo renders correctly 1`] = `
       Something to do
     </span>
     <span
-      className="glyphicon glyphicon-trash trashIcon"
+      className="glyphicon glyphicon-trash iconTrash"
       onClick={[Function]}
     />
   </ListGroupItem>
-</ReactCSSTransitionGroup>
+</CSSTransitionGroup>
 `;
