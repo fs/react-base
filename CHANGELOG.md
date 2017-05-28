@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Cleanup postcss config
+([#81](https://github.com/fs/react-base/pull/81))
 - Refactor stylesheets. Add react-transition-group, postcss-extend
 ([#80](https://github.com/fs/react-base/pull/80))
 - Remove deprecated postcss-inline-comment and react-addons-css-transition-group.
