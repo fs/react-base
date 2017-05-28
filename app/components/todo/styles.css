@@ -1,5 +1,32 @@
-.trashIcon {
+.iconTrash {
   margin-top: 2px;
   float: right;
   z-index: 10;
+}
+
+.enter {
+  transition: opacity .3s ease-in;
+  opacity: .01;
+}
+
+.enterActive {
+  opacity: 1;
+}
+
+.leave {
+  transition: opacity .3s ease-in;
+  opacity: 1;
+}
+
+.leaveActive {
+  opacity: .01;
+}
+
+.appear {
+  transition: opacity .3s ease-in;
+  opacity: .01;
+}
+
+.appearActive {
+  opacity: 1;
 }
