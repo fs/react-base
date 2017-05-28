@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const postcssInlineComment = require('postcss-inline-comment');
 const postcssImport = require('postcss-import');
 const postcssMixins = require('postcss-mixins');
 const postcssNested = require('postcss-nested');
@@ -18,7 +17,6 @@ const variables = {
 
 module.exports = () => ({
   plugins: [
-    postcssInlineComment,
     postcssImport({
       addDependencyTo: webpack
     }),
