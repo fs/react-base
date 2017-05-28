@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use major version of Node.js in .nvmrc and package.json
+([#82](https://github.com/fs/react-base/pull/82))
 - Cleanup postcss config
 ([#81](https://github.com/fs/react-base/pull/81))
 - Refactor stylesheets. Add react-transition-group, postcss-extend
