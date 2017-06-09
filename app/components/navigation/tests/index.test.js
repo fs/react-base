@@ -4,50 +4,53 @@ import { NavItem } from 'react-bootstrap';
 import Navigation from 'components/navigation';
 
 describe('Navigation', () => {
-  describe('callbacks', () => {
-    const signup = jest.fn();
-    const signin = jest.fn();
-    const navigationComponent = shallow(
-      <Navigation
-        signup={ signup }
-        signin={ signin }
-      />
-    );
+  const signup = jest.fn();
+  const signin = jest.fn();
+  const logout = jest.fn();
+  let props;
+  const renderComponent = () => shallow(<Navigation { ...props } />);
 
-    it('call signup', () => {
-      navigationComponent.find(NavItem).at(0).simulate('click');
-      expect(signup).toHaveBeenCalled();
-    });
-
-    it('call signin', () => {
-      navigationComponent.find(NavItem).at(1).simulate('click');
-      expect(signin).toHaveBeenCalled();
-    });
-  });
-
-  describe('when session is created', () => {
-    let navigationComponent;
-    const logout = jest.fn();
-    const signin = jest.fn();
-    const signup = jest.fn();
-    const data = {
-      logout,
+  beforeEach(() => {
+    props = {
       signin,
       signup,
-      loggedIn: true,
-      currentUser: {
-        id: 1,
-        name: 'user',
-        email: 'user@example.com'
-      }
+      logout,
+      loggedIn: false,
+      currentUser: {}
     };
+  });
 
-    it('renders user email', () => {
-      expect(navigationComponent.find(NavItem).at(0).props().children).toEqual(data.currentUser.email);
+  it('calls signup callback', () => {
+    const navigationComponent = renderComponent();
+    navigationComponent.find(NavItem).at(0).simulate('click');
+
+    expect(signup).toHaveBeenCalled();
+  });
+
+  it('calls signin callback', () => {
+    const navigationComponent = renderComponent();
+    navigationComponent.find(NavItem).at(1).simulate('click');
+
+    expect(signin).toHaveBeenCalled();
+  });
+
+  context('when user is logged in', () => {
+    beforeEach(() => {
+      props = {
+        ...props,
+        loggedIn: true,
+        currentUser: {
+          id: 1,
+          name: 'user',
+          email: 'user@example.com'
+        }
+      }
     });
 
-    it('call signout callback', () => {
+    it('calls logout callback', () => {
+      const navigationComponent = renderComponent();
       navigationComponent.find(NavItem).at(1).simulate('click');
+
       expect(logout).toHaveBeenCalled();
     });
   });

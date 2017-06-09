@@ -96,6 +96,10 @@
     "modulePaths": [
       "app"
     ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "config"
+    ],
     "moduleFileExtensions": [
       "js",
       "jsx"

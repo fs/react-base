@@ -141,3 +141,74 @@ exports[`Navigation when session is created renders user navigations 1`] = `
   </div>
 </nav>
 `;
+
+exports[`Navigation when user is logged in renders user navigations 1`] = `
+<nav
+  className="panel navbar navbar-default"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="navbar-header"
+    >
+      <span
+        className="navbar-brand"
+      >
+        React-base
+      </span>
+    </div>
+    <ul
+      className="nav navbar-nav"
+    >
+      <li>
+        <a
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          onClick={[Function]}
+          style={Object {}}
+        >
+          About
+        </a>
+      </li>
+    </ul>
+    <ul
+      className="nav navbar-nav navbar-right"
+      role={null}
+    >
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          role="button"
+        >
+          user@example.com
+        </a>
+      </li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
+        <a
+          href="#"
+          onClick={[Function]}
+          role="button"
+        >
+          Sign out
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+`;

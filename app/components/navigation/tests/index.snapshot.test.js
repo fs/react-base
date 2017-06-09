@@ -5,11 +5,11 @@ import { NavItem } from 'react-bootstrap';
 import Navigation from 'components/navigation';
 
 describe('Navigation', () => {
-  let data;
-  const renderComponent = () => renderer.create(<Navigation { ...data } />).toJSON();
+  let props;
+  const renderComponent = () => renderer.create(<Navigation { ...props } />).toJSON();
 
   beforeEach(() => {
-    data = {
+    props = {
       loggedIn: false,
       currentUser: {},
       logout() {},
@@ -24,10 +24,10 @@ describe('Navigation', () => {
     expect(navigationComponent).toMatchSnapshot();
   });
 
-  context('when session is created', () => {
+  context('when user is logged in', () => {
     beforeEach(() => {
-      data = {
-        ...data,
+      props = {
+        ...props,
         loggedIn: true,
         currentUser: {
           id: 1,

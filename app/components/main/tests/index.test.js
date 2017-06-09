@@ -5,23 +5,29 @@ import Main from '../';
 jest.mock('containers/todo', () => 'TodoContainer');
 
 describe('Main', () => {
-  let loggedIn;
-  const renderComponent = () => shallow(<Main loggedIn={ loggedIn }/>);
+  let logged;
+  const renderComponent = (l) => {
+    console.log('RENDER', l, logged);
+    return shallow(<Main loggedIn={ logged }/>)
+  };
 
-  beforeEach(() => loggedIn = false);
+  beforeEach(() => {
+    logged = false;
+    console.log('BF', logged);
+  });
 
   it('renders Home component', () => {
-    const mainComponent = renderComponent();
+    const mainComponent = renderComponent(logged);
     const home = mainComponent.find('Home');
 
     expect(home).toBePresent();
   });
 
   context('when user is logged in', () => {
-    beforeEach(() => loggedIn = true);
+    beforeEach(() => logged = true);
 
-    it('renders Home component', () => {
-      const mainComponent = renderComponent();
+    it('renders TodoContainer component', () => {
+      const mainComponent = renderComponent(logged);
       const todoContainer = mainComponent.find('TodoContainer');
 
       expect(todoContainer).toBePresent();
