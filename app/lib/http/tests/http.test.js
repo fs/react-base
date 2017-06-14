@@ -71,6 +71,7 @@ describe('http', () => {
       );
 
       const successSpy = sinon.spy();
+
       httpFunction({ url: '/some_url' }).catch(() => {}).then(successSpy)
         .then(() => expect(successSpy.called).toBeTruthy());
     });
@@ -85,8 +86,8 @@ describe('http', () => {
           }
         }
       );
-
       const errorSpy = sinon.spy();
+
       httpFunction({ url: '/some_url' }).then(() => {}).catch(errorSpy)
         .then(() => expect(errorSpy.called).toBeTruthy());
     });

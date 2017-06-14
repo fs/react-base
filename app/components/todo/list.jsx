@@ -6,14 +6,14 @@ import Todo from 'components/todo';
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
   <ListGroup>
     {
-      todos.map(todo =>
+      todos.map(todo => (
         <Todo
           key={ todo.id }
           todo={ todo }
           toggleTodo={ toggleTodo }
           deleteTodo={ deleteTodo }
         />
-      )
+      ))
     }
   </ListGroup>
 );
