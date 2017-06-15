@@ -3,7 +3,7 @@ import config from 'config';
 
 export default class SessionStorage {
   static currentUser() {
-    return storage.get(config.storageKey) || {};
+    return storage.get(config.storage.sessionKey) || {};
   }
 
   static loggedIn() {
@@ -11,10 +11,10 @@ export default class SessionStorage {
   }
 
   static set(user) {
-    storage.set(config.storageKey, user);
+    storage.set(config.storage.sessionKey, user);
   }
 
   static remove() {
-    storage.remove(config.storageKey);
+    storage.remove(config.storage.sessionKey);
   }
 }
