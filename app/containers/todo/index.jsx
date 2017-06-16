@@ -8,6 +8,7 @@ import {
   Button,
   ListGroup
 } from 'react-bootstrap';
+import { translate } from 'react-i18next';
 import todosActions from 'actions/todos';
 import modalActions from 'actions/modal';
 import Todo from 'components/todo';
@@ -18,6 +19,7 @@ class TodoContainer extends Component {
     deleteTodo: PropTypes.func.isRequired,
     fetchTodos: PropTypes.func.isRequired,
     openModal: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired,
     todos: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.id,
@@ -51,11 +53,13 @@ class TodoContainer extends Component {
   }
 
   render() {
+    const { t } = this.props;
+
     return (
       <Grid>
         <Row className="show-grid">
           <Col md={ 8 }>
-            <h2>Todo List</h2>
+            <h2>{ t('todo:list') }</h2>
           </Col>
           <Col md={ 4 }>
             <Button
@@ -63,20 +67,20 @@ class TodoContainer extends Component {
               className={ `btn btn-primary pull-right ${styles.spacingTop}` }
               onClick={ this.props.openModal }
             >
-              New Task
+              { t('todo:newTask') }
             </Button>
           </Col>
         </Row>
 
         <Row className="show-grid">
           <Col md={ 6 }>
-            <h3 className="spacing-bottom">Incomplete</h3>
+            <h3 className="spacing-bottom">{ t('todo:incomplete') }</h3>
             <ListGroup>
               { this.renderList(false) }
             </ListGroup>
           </Col>
           <Col md={ 6 }>
-            <h3 className="spacing-bottom">Complete</h3>
+            <h3 className="spacing-bottom">{ t('todo:complete') }</h3>
             <ListGroup>
               { this.renderList(true) }
             </ListGroup>
@@ -99,4 +103,4 @@ const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(modalActions.openModal({ name: 'todo' }))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(translate()(TodoContainer));

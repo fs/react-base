@@ -3,6 +3,7 @@ import languageDetector from 'i18next-browser-languagedetector';
 import storage from 'lib/storage';
 import config from 'config';
 
+const defaultLanguage = 'en';
 const currentLanguage = storage.get(config.storage.localizationKey);
 const getResources = () => {
   const requireContext = require.context('../locales', true, /\.json$/);
@@ -24,14 +25,11 @@ const getResources = () => {
 i18n
   .use(languageDetector)
   .init({
-    fallbackLng: 'en',
+    fallbackLng: defaultLanguage,
 
     interpolation: {
       escapeValue: false
     },
-
-    ns: ['common'],
-    defaultNS: 'common',
 
     lookupLocalStorage: config.storage.localizationKey,
     caches: ['localStorage'],
@@ -40,7 +38,7 @@ i18n
   });
 
 if (!currentLanguage) {
-  i18n.changeLanguage('en');
+  i18n.changeLanguage(defaultLanguage);
 }
 
 export default i18n;
