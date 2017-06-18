@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add localization using i18next and react-i18next
+([#83](https://github.com/fs/react-base/pull/83))
 - Use major version of Node.js in .nvmrc and package.json
 ([#82](https://github.com/fs/react-base/pull/82))
 - Cleanup postcss config
