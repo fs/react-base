@@ -1,5 +1,5 @@
 import config from 'config';
-import http from 'lib/http';
+import http from 'j-fetch';
 
 export default class UsersSource {
   static urlRoot = `${config.apiTarget}/users`;

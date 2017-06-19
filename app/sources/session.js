@@ -1,5 +1,5 @@
 import config from 'config';
-import http from 'lib/http';
+import http from 'j-fetch';
 
 export default class SessionSource {
   static urlRoot = `${config.apiTarget}/session`;

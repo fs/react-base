@@ -10,7 +10,7 @@ import Root from 'containers/root';
 const mountNode = document.getElementById('app');
 
 // Define your own response handler if it's necessary
-// import http from 'lib/http';
+// import http from 'j-fetch';
 //
 // http.handleResponse = response => {
 //   const { status } = response;

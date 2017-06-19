@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Use j-fetch library as main request library
+([#84](https://github.com/fs/react-base/pull/84))
 - Use major version of Node.js in .nvmrc and package.json
 ([#82](https://github.com/fs/react-base/pull/82))
 - Cleanup postcss config

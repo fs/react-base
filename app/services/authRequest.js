@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import http from 'lib/http';
+import http from 'j-fetch';
 import currentUser from 'services/currentUser';
 
 const authRequestMethod = (method, payload) => {
