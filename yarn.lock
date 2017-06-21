@@ -3572,13 +3572,15 @@ istanbul-reports@^1.1.1:
   dependencies:
     handlebars "^4.0.3"
 
-j-fetch@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/j-fetch/-/j-fetch-1.0.0.tgz#f74c3ce14760529126c78b183c9037341fad8122"
+j-fetch@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/j-fetch/-/j-fetch-1.3.1.tgz#4c6fc377a1be812f14213345cedb130a95f7f31d"
   dependencies:
     es6-promise "^4.1.0"
+    lodash.isempty "^4.4.0"
     lodash.isstring "^4.0.1"
     lodash.merge "^4.6.0"
+    lodash.omit "^4.5.0"
     lodash.pickby "^4.6.0"
     qs "^6.4.0"
     whatwg-fetch "^2.0.3"
@@ -4092,6 +4094,10 @@ lodash.foreach@^4.3.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.foreach/-/lodash.foreach-4.5.0.tgz#1a6a35eace401280c7f06dddec35165ab27e3e53"
 
+lodash.isempty@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
+
 lodash.isstring@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
@@ -4107,6 +4113,10 @@ lodash.memoize@^4.1.2:
 lodash.merge@^4.4.0, lodash.merge@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
+
+lodash.omit@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.omit/-/lodash.omit-4.5.0.tgz#6eb19ae5a1ee1dd9df0b969e66ce0b7fa30b5e60"
 
 lodash.pick@^4.2.1:
   version "4.4.0"

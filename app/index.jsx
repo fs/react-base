@@ -3,22 +3,20 @@ import 'es6-promise/auto';
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import jFetch from 'j-fetch';
+import currentUser from 'services/currentUser';
 import appHistory from 'services/history';
 import store from 'stores/application';
 import Root from 'containers/root';
 
-const mountNode = document.getElementById('app');
+jFetch.init({
+  authHeaders: {
+    'X-User-Email': currentUser.email,
+    'X-User-Token': currentUser.token
+  }
+});
 
-// Define your own response handler if it's necessary
-// import http from 'j-fetch';
-//
-// http.handleResponse = response => {
-//   const { status } = response;
-//
-//   return (status >= 200 && status < 300) ?
-//     Promise.resolve(response) :
-//     Promise.reject(response);
-// };
+const mountNode = document.getElementById('app');
 
 render(
   <AppContainer>

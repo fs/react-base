@@ -1,28 +1,28 @@
 import config from 'config';
-import authRequest from 'services/authRequest';
+import jFetchAuth from 'j-fetch/auth';
 
 export default class TodosSource {
   static urlRoot = `${config.apiTarget}/todos`;
 
   static get() {
-    return authRequest.get({ url: this.urlRoot })
+    return jFetchAuth.get({ url: this.urlRoot })
       .then(result => result.json());
   }
 
   static create(todo) {
-    return authRequest.post({ url: this.urlRoot, body: todo })
+    return jFetchAuth.post({ url: this.urlRoot, body: todo })
       .then(result => result.json());
   }
 
   static update(todo) {
     const updateUrl = `${this.urlRoot}/${todo.id}`;
 
-    return authRequest.patch({ url: updateUrl, body: todo });
+    return jFetchAuth.patch({ url: updateUrl, body: todo });
   }
 
   static delete(todo) {
     const deleteUrl = `${this.urlRoot}/${todo.id}`;
 
-    return authRequest.delete({ url: deleteUrl });
+    return jFetchAuth.delete({ url: deleteUrl });
   }
 }
