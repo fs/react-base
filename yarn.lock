@@ -3572,9 +3572,9 @@ istanbul-reports@^1.1.1:
   dependencies:
     handlebars "^4.0.3"
 
-j-fetch@^1.3.1:
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/j-fetch/-/j-fetch-1.3.1.tgz#4c6fc377a1be812f14213345cedb130a95f7f31d"
+j-fetch@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/j-fetch/-/j-fetch-1.3.2.tgz#f14041e898e95eed28291d1c09170e145abfa5e2"
   dependencies:
     es6-promise "^4.1.0"
     lodash.isempty "^4.4.0"
