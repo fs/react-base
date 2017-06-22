@@ -1,0 +1,7 @@
+{
+  "name": "Name",
+  "email": "Email",
+  "password": "Password",
+  "passwordConfirmation": "Password Confirmation",
+  "submit": "Submit"
+}

@@ -7,13 +7,15 @@ import {
   FormControl,
   ControlLabel
 } from 'react-bootstrap';
+import { translate } from 'react-i18next';
 import Form from 'components/form';
 
-export default class SignupForm extends Component {
+class SignupForm extends Component {
   static propTypes = {
-    closeModal: PropTypes.bool.isRequired,
+    closeModal: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
-    signupUser: PropTypes.func.isRequired
+    signupUser: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
   }
 
   state = {
@@ -94,8 +96,13 @@ export default class SignupForm extends Component {
   }
 
   render() {
-    const { name, email, password, passwordConfirmation } = this.state;
-    const { isLoading } = this.props;
+    const {
+      name,
+      email,
+      password,
+      passwordConfirmation
+    } = this.state;
+    const { isLoading, t } = this.props;
 
     return (
       <Form onSubmit={ this.signUp }>
@@ -104,7 +111,7 @@ export default class SignupForm extends Component {
             controlId="name"
             validationState={ this.nameValidationState(name) }
           >
-            <ControlLabel>Name</ControlLabel>
+            <ControlLabel>{ t('session:name') }</ControlLabel>
             <FormControl
               type="text"
               name="name"
@@ -115,7 +122,7 @@ export default class SignupForm extends Component {
             controlId="email"
             validationState={ this.validationState(email) }
           >
-            <ControlLabel>Email</ControlLabel>
+            <ControlLabel>{ t('session:email') }</ControlLabel>
             <FormControl
               type="text"
               name="email"
@@ -126,7 +133,7 @@ export default class SignupForm extends Component {
             controlId="password"
             validationState={ this.validationState(password) }
           >
-            <ControlLabel>Password</ControlLabel>
+            <ControlLabel>{ t('session:password') }</ControlLabel>
             <FormControl
               type="password"
               name="password"
@@ -137,7 +144,7 @@ export default class SignupForm extends Component {
             controlId="passwordConfirmation"
             validationState={ this.passwordValidationState(passwordConfirmation) }
           >
-            <ControlLabel>Password Confirmation</ControlLabel>
+            <ControlLabel>{ t('session:passwordConfirmation') }</ControlLabel>
             <FormControl
               type="password"
               name="passwordConfirmation"
@@ -150,7 +157,7 @@ export default class SignupForm extends Component {
               type="submit"
               disabled={ isLoading }
             >
-              Submit
+              { t('session:submit') }
             </Button>
           </Modal.Footer>
         </Modal.Body>
@@ -158,3 +165,5 @@ export default class SignupForm extends Component {
     );
   }
 }
+
+export default translate()(SignupForm);

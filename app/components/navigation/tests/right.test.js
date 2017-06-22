@@ -25,6 +25,7 @@ describe('NavigationRight', () => {
     it('calls ApplicationActions.openModal({ name: todo })', () => {
       spyOn(ApplicationActions, 'openModal');
       const navigationRightComponent = mount(<NavigationRight/>);
+
       navigationRightComponent.find('a').at(0).simulate('click');
 
       expect(ApplicationActions.openModal).toHaveBeenCalledWith({ name: 'todo' });
@@ -33,6 +34,7 @@ describe('NavigationRight', () => {
     it('calls currentUser.delete()', () => {
       spyOn(currentUser, 'delete');
       const navigationRightComponent = mount(<NavigationRight />);
+
       navigationRightComponent.find('a').at(1).simulate('click');
 
       expect(currentUser.delete).toHaveBeenCalled();
@@ -54,6 +56,7 @@ describe('NavigationRight', () => {
     it('calls ApplicationActions.openModal({ name: signUp }', () => {
       spyOn(ApplicationActions, 'openModal');
       const navigationRightComponent = mount(<NavigationRight />);
+
       navigationRightComponent.find('a').at(0).simulate('click');
 
       expect(ApplicationActions.openModal).toHaveBeenCalledWith({ name: 'signUp' });
@@ -62,6 +65,7 @@ describe('NavigationRight', () => {
     it('calls ApplicationActions.openModal({ name: signIn })', () => {
       spyOn(ApplicationActions, 'openModal');
       const navigationRightComponent = mount(<NavigationRight />);
+
       navigationRightComponent.find('a').at(1).simulate('click');
 
       expect(ApplicationActions.openModal).toHaveBeenCalledWith({ name: 'signIn' });

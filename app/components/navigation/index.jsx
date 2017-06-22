@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
+import { translate } from 'react-i18next';
 import { paths } from 'helpers/routes';
 import styles from './styles';
 
-const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
+const Navigation = ({ loggedIn, currentUser, logout, signin, signup, t }) => {
   const logoutUser = () => {
     logout(currentUser);
   };
@@ -26,7 +27,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
             { currentUser.email }
           </NavItem>
           <NavItem onClick={ logoutUser }>
-            Sign out
+            { t('header:signOut') }
           </NavItem>
         </Nav>
       );
@@ -35,10 +36,10 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
     return (
       <Nav pullRight>
         <NavItem onClick={ signupUser }>
-          Sign up
+          { t('header:signUp') }
         </NavItem>
         <NavItem onClick={ signinUser }>
-          Sign in
+          { t('header:signIn') }
         </NavItem>
       </Nav>
     );
@@ -48,7 +49,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
     <Navbar className={ styles.panel }>
       <Navbar.Header>
         <Navbar.Brand>
-          React-base
+          { t('common:projectName') }
         </Navbar.Brand>
       </Navbar.Header>
       <ul className="nav navbar-nav">
@@ -57,7 +58,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
             to={ paths.home() }
             activeClassName={ styles.linkActive }
           >
-            Home
+            { t('header:home') }
           </Link>
         </li>
         <li>
@@ -65,7 +66,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
             to={ paths.about() }
             activeClassName={ styles.linkActive }
           >
-            About
+            { t('header:about') }
           </Link>
         </li>
       </ul>
@@ -79,7 +80,8 @@ Navigation.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   logout: PropTypes.func.isRequired,
   signin: PropTypes.func.isRequired,
-  signup: PropTypes.func.isRequired
+  signup: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 };
 
-export default Navigation;
+export default translate()(Navigation);

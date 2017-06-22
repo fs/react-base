@@ -7,12 +7,14 @@ import {
   FormControl,
   ControlLabel
 } from 'react-bootstrap';
+import { translate } from 'react-i18next';
 import Form from 'components/form';
 
-export default class TodoForm extends Component {
+class TodoForm extends Component {
   static propTypes = {
-    closeModal: PropTypes.func,
-    createTodo: PropTypes.func
+    closeModal: PropTypes.func.isRequired,
+    createTodo: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
   }
 
   state = {
@@ -52,6 +54,7 @@ export default class TodoForm extends Component {
 
   render() {
     const { name } = this.state;
+    const { t } = this.props;
 
     return (
       <Form onSubmit={ this.createTodo }>
@@ -61,7 +64,7 @@ export default class TodoForm extends Component {
             validationState={ this.validationState() }
           >
             <ControlLabel>
-              Task name: { name }
+              { t('todo:taskName') }: { name }
             </ControlLabel>
             <FormControl
               type="text"
@@ -72,10 +75,14 @@ export default class TodoForm extends Component {
             />
           </FormGroup>
           <Modal.Footer>
-            <Button bsStyle="primary" type="submit">Save</Button>
+            <Button bsStyle="primary" type="submit">
+              { t('todo:save') }
+            </Button>
           </Modal.Footer>
         </Modal.Body>
       </Form>
     );
   }
 }
+
+export default translate()(TodoForm);
