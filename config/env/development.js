@@ -2,7 +2,10 @@ module.exports = {
   target: 'http://localhost:8000',
   apiTarget: 'http://localhost:8000/v1',
   apiPath: '/v1',
-  storageKey: 'user_session',
+  storage: {
+    sessionKey: 'user_session',
+    localizationKey: 'i18nextLng'
+  },
   session: {
     tokenKey: 'authentication_token',
     emailKey: 'email'

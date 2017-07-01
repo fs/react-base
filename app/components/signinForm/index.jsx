@@ -7,13 +7,15 @@ import {
   FormControl,
   ControlLabel
 } from 'react-bootstrap';
+import { translate } from 'react-i18next';
 import Form from 'components/form';
 
-export default class SigninForm extends Component {
+class SigninForm extends Component {
   static propTypes = {
     closeModal: PropTypes.func.isRequired,
     isLoading: PropTypes.bool.isRequired,
-    signinUser: PropTypes.func.isRequired
+    signinUser: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
   }
 
   state = {
@@ -60,7 +62,7 @@ export default class SigninForm extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { isLoading } = this.props;
+    const { isLoading, t } = this.props;
 
     return (
       <Form onSubmit={ this.signIn }>
@@ -69,7 +71,7 @@ export default class SigninForm extends Component {
             controlId="email"
             validationState={ this.validationState(email) }
           >
-            <ControlLabel>Email</ControlLabel>
+            <ControlLabel>{ t('session:email') }</ControlLabel>
             <FormControl
               type="text"
               name="email"
@@ -80,7 +82,7 @@ export default class SigninForm extends Component {
             controlId="password"
             validationState={ this.validationState(password) }
           >
-            <ControlLabel>Password</ControlLabel>
+            <ControlLabel>{ t('session:password') }</ControlLabel>
             <FormControl
               autoComplete="off"
               name="password"
@@ -94,7 +96,7 @@ export default class SigninForm extends Component {
               type="submit"
               disabled={ isLoading }
             >
-              Submit
+              { t('session:submit') }
             </Button>
           </Modal.Footer>
         </Modal.Body>
@@ -102,3 +104,5 @@ export default class SigninForm extends Component {
     );
   }
 }
+
+export default translate()(SigninForm);

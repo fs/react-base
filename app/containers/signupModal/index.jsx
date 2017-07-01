@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { translate } from 'react-i18next';
 import { Modal } from 'react-bootstrap';
 import sessionActions from 'actions/session';
 import SignupForm from 'components/signupForm';
 
-const SignupModalContainer = ({ isOpen, isLoading, signupUser, closeModal }) => (
+const SignupModalContainer = ({ isOpen, isLoading, signupUser, closeModal, t }) => (
   <Modal
     bsSize="small"
     show={ isOpen }
     onHide={ closeModal }
   >
     <Modal.Header closeButton>
-      <h3 className="modal-title">Sign Up</h3>
+      <h3 className="modal-title">{ t('modal:signup') }</h3>
     </Modal.Header>
     <SignupForm
       isLoading={ isLoading }
@@ -26,7 +27,8 @@ SignupModalContainer.propTypes = {
   closeModal: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  signupUser: PropTypes.func.isRequired
+  signupUser: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -37,4 +39,4 @@ const mapDispatchToProps = dispatch => ({
   signupUser: user => dispatch(sessionActions.signupUser(user))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupModalContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(translate()(SignupModalContainer));

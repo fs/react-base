@@ -3,26 +3,28 @@ import 'es6-promise/auto';
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { I18nextProvider } from 'react-i18next';
+import jFetch from 'j-fetch';
+import currentUser from 'services/currentUser';
 import appHistory from 'services/history';
+import i18n from 'services/i18n';
 import store from 'stores/application';
 import Root from 'containers/root';
 
-const mountNode = document.getElementById('app');
+jFetch.init({
+  authHeaders: {
+    'X-User-Email': currentUser.email,
+    'X-User-Token': currentUser.token
+  }
+});
 
-// Define your own response handler if it's necessary
-// import http from 'lib/http';
-//
-// http.handleResponse = response => {
-//   const { status } = response;
-//
-//   return (status >= 200 && status < 300) ?
-//     Promise.resolve(response) :
-//     Promise.reject(response);
-// };
+const mountNode = document.getElementById('app');
 
 render(
   <AppContainer>
-    <Root store={ store } history={ appHistory } />
+    <I18nextProvider i18n={ i18n }>
+      <Root store={ store } history={ appHistory } />
+    </I18nextProvider>
   </AppContainer>,
   mountNode
 );
@@ -33,7 +35,9 @@ if (module.hot) {
 
     render(
       <AppContainer>
-        <HotRoot store={ store } history={ appHistory } />
+        <I18nextProvider i18n={ i18n }>
+          <HotRoot store={ store } history={ appHistory } />
+        </I18nextProvider>
       </AppContainer>,
       mountNode
     );
