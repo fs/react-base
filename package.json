@@ -96,7 +96,8 @@
   },
   "jest": {
     "modulePaths": [
-      "app"
+      "app",
+      "test"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",

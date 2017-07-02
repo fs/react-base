@@ -1,23 +1,21 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import withI18n from 'i18n-test';
 import Main from '../';
 
 jest.mock('containers/todo', () => 'TodoContainer');
 
 describe('Main', () => {
   let logged;
-  const renderComponent = (l) => {
-    console.log('RENDER', l, logged);
-    return shallow(<Main loggedIn={ logged }/>)
+
+  const renderComponent = () => {
+    return mount(withI18n(<Main loggedIn={ logged }/>));
   };
 
-  beforeEach(() => {
-    logged = false;
-    console.log('BF', logged);
-  });
+  beforeEach(() => logged = false);
 
   it('renders Home component', () => {
-    const mainComponent = renderComponent(logged);
+    const mainComponent = renderComponent();
     const home = mainComponent.find('Home');
 
     expect(home).toBePresent();
@@ -27,7 +25,7 @@ describe('Main', () => {
     beforeEach(() => logged = true);
 
     it('renders TodoContainer component', () => {
-      const mainComponent = renderComponent(logged);
+      const mainComponent = renderComponent();
       const todoContainer = mainComponent.find('TodoContainer');
 
       expect(todoContainer).toBePresent();

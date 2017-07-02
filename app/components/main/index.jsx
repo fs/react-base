@@ -4,11 +4,12 @@ import TodoContainer from 'containers/todo';
 import Home from 'components/home';
 
 const Main = (props) => {
-    console.log("L", props);
-    return (
-      loggedIn ? <TodoContainer/> : <Home/>
-    )
-}
+  console.log(props);
+
+  return (
+    props.loggedIn ? <TodoContainer/> : <Home/>
+  );
+};
 
 Main.propTypes = {
   loggedIn: PropTypes.bool
