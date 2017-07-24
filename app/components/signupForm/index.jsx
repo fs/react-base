@@ -7,17 +7,10 @@ import {
   FormControl,
   ControlLabel
 } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import i18n from 'services/i18n';
 import Form from 'components/form';
 
 class SignupForm extends Component {
-  static propTypes = {
-    closeModal: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    signupUser: PropTypes.func.isRequired,
-    t: PropTypes.func.isRequired
-  }
-
   state = {
     name: '',
     email: '',
@@ -33,7 +26,12 @@ class SignupForm extends Component {
   }
 
   isFormValid = () => {
-    const { name, email, password, passwordConfirmation } = this.state;
+    const {
+      name,
+      email,
+      password,
+      passwordConfirmation
+    } = this.state;
 
     return (
       name.trim().length &&
@@ -77,7 +75,12 @@ class SignupForm extends Component {
   signUp = event => {
     event.preventDefault();
 
-    const { name, email, password, passwordConfirmation } = this.state;
+    const {
+      name,
+      email,
+      password,
+      passwordConfirmation
+    } = this.state;
     const { signupUser, closeModal } = this.props;
 
     if (this.isFormValid()) {
@@ -102,7 +105,7 @@ class SignupForm extends Component {
       password,
       passwordConfirmation
     } = this.state;
-    const { isLoading, t } = this.props;
+    const { isLoading } = this.props;
 
     return (
       <Form onSubmit={ this.signUp }>
@@ -111,7 +114,7 @@ class SignupForm extends Component {
             controlId="name"
             validationState={ this.nameValidationState(name) }
           >
-            <ControlLabel>{ t('session:name') }</ControlLabel>
+            <ControlLabel>{ i18n.t('session:name') }</ControlLabel>
             <FormControl
               type="text"
               name="name"
@@ -122,7 +125,7 @@ class SignupForm extends Component {
             controlId="email"
             validationState={ this.validationState(email) }
           >
-            <ControlLabel>{ t('session:email') }</ControlLabel>
+            <ControlLabel>{ i18n.t('session:email') }</ControlLabel>
             <FormControl
               type="text"
               name="email"
@@ -133,7 +136,7 @@ class SignupForm extends Component {
             controlId="password"
             validationState={ this.validationState(password) }
           >
-            <ControlLabel>{ t('session:password') }</ControlLabel>
+            <ControlLabel>{ i18n.t('session:password') }</ControlLabel>
             <FormControl
               type="password"
               name="password"
@@ -144,7 +147,7 @@ class SignupForm extends Component {
             controlId="passwordConfirmation"
             validationState={ this.passwordValidationState(passwordConfirmation) }
           >
-            <ControlLabel>{ t('session:passwordConfirmation') }</ControlLabel>
+            <ControlLabel>{ i18n.t('session:passwordConfirmation') }</ControlLabel>
             <FormControl
               type="password"
               name="passwordConfirmation"
@@ -157,7 +160,7 @@ class SignupForm extends Component {
               type="submit"
               disabled={ isLoading }
             >
-              { t('session:submit') }
+              { i18n.t('session:submit') }
             </Button>
           </Modal.Footer>
         </Modal.Body>
@@ -166,4 +169,10 @@ class SignupForm extends Component {
   }
 }
 
-export default translate()(SignupForm);
+SignupForm.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  signupUser: PropTypes.func.isRequired
+};
+
+export default SignupForm;

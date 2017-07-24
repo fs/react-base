@@ -1,15 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Interpolate } from 'react-i18next';
+import i18n from 'services/i18n';
 
 const Article = ({ params }) => (
-  <article>
-    <Interpolate
-      i18nKey="article:text"
-      useDangerouslySetInnerHTML={ true }
-      articleId={ params.id }
-    />
-  </article>
+  <article dangerouslySetInnerHTML={ i18n.tHtml('article:text', { articleId: params.id }) } />
 );
 
 Article.propTypes = {

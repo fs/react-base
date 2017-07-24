@@ -1,21 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { translate, Interpolate } from 'react-i18next';
+import i18n from 'services/i18n';
 import { Grid, Jumbotron } from 'react-bootstrap';
 
-const Home = ({ t }) => (
+const Home = () => (
   <Grid>
     <Jumbotron>
-      <h1>{ t('common:projectName') }</h1>
-      <p>
-        <Interpolate i18nKey="home:text" useDangerouslySetInnerHTML={ true } />
-      </p>
+      <h1>{ i18n.t('common:projectName') }</h1>
+      <p dangerouslySetInnerHTML={ i18n.tHtml('home:text') } />
     </Jumbotron>
   </Grid>
 );
 
-Home.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default translate()(Home);
+export default Home;
