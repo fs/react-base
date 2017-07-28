@@ -6,7 +6,7 @@ const Home = () => (
   <Grid>
     <Jumbotron>
       <h1>{ i18n.t('common:projectName') }</h1>
-      <p dangerouslySetInnerHTML={ i18n.tHtml('home:text') } />
+      <p dangerouslySetInnerHTML={{ __html: i18n.t('home:text') }}/>
     </Jumbotron>
   </Grid>
 );

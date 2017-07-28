@@ -42,11 +42,4 @@ if (!currentLanguage) {
   i18n.changeLanguage(defaultLanguage);
 }
 
-const i18nExtended = Object.assign(
-  Object.create(i18n),
-  {
-    tHtml: (locale, params) => ({ __html: i18n.t(locale, params) })
-  }
-);
-
-export default i18nExtended;
+export default i18n;
