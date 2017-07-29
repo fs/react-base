@@ -1,16 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { translate } from 'react-i18next';
+import i18n from 'services/i18n';
 import styles from './styles';
 
-const Footer = ({ t }) => (
+const Footer = () => (
   <footer className={ styles.footer }>
-    <p className="footer-text">{ t('common:projectName') }</p>
+    <p className="footer-text">{ i18n.t('common:projectName') }</p>
   </footer>
 );
 
-Footer.propTypes = {
-  t: PropTypes.func.isRequired
-};
-
-export default translate()(Footer);
+export default Footer;

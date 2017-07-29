@@ -8,7 +8,7 @@ import {
   Button,
   ListGroup
 } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import i18n from 'services/i18n';
 import todosActions from 'actions/todos';
 import modalActions from 'actions/modal';
 import Todo from 'components/todo';
@@ -19,7 +19,6 @@ class TodoContainer extends Component {
     deleteTodo: PropTypes.func.isRequired,
     fetchTodos: PropTypes.func.isRequired,
     openModal: PropTypes.func.isRequired,
-    t: PropTypes.func.isRequired,
     todos: PropTypes.arrayOf(
       PropTypes.shape({
         id: PropTypes.id,
@@ -40,26 +39,25 @@ class TodoContainer extends Component {
       updateTodo,
       deleteTodo
     } = this.props;
-    const items = todos.filter(todo => todo.isComplete === complete);
 
-    return items.map(todo => (
-      <Todo
-        key={ todo.id }
-        todo={ todo }
-        updateTodo={ updateTodo }
-        deleteTodo={ deleteTodo }
-      />
-    ));
+    return todos
+      .filter(todo => todo.isComplete === complete)
+      .map(todo => (
+        <Todo
+          key={ todo.id }
+          todo={ todo }
+          updateTodo={ updateTodo }
+          deleteTodo={ deleteTodo }
+        />
+      ));
   }
 
   render() {
-    const { t } = this.props;
-
     return (
       <Grid>
         <Row className="show-grid">
           <Col md={ 8 }>
-            <h2>{ t('todo:list') }</h2>
+            <h2>{ i18n.t('todo:list') }</h2>
           </Col>
           <Col md={ 4 }>
             <Button
@@ -67,20 +65,20 @@ class TodoContainer extends Component {
               className={ `btn btn-primary pull-right ${styles.spacingTop}` }
               onClick={ this.props.openModal }
             >
-              { t('todo:newTask') }
+              { i18n.t('todo:newTask') }
             </Button>
           </Col>
         </Row>
 
         <Row className="show-grid">
           <Col md={ 6 }>
-            <h3 className="spacing-bottom">{ t('todo:incomplete') }</h3>
+            <h3 className="spacing-bottom">{ i18n.t('todo:incomplete') }</h3>
             <ListGroup>
               { this.renderList(false) }
             </ListGroup>
           </Col>
           <Col md={ 6 }>
-            <h3 className="spacing-bottom">{ t('todo:complete') }</h3>
+            <h3 className="spacing-bottom">{ i18n.t('todo:complete') }</h3>
             <ListGroup>
               { this.renderList(true) }
             </ListGroup>
@@ -103,4 +101,4 @@ const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(modalActions.openModal({ name: 'todo' }))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(translate()(TodoContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(TodoContainer);

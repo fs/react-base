@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import i18n from 'services/i18n';
 import { paths } from 'helpers/routes';
 import styles from './styles';
 
-const Navigation = ({ loggedIn, currentUser, logout, signin, signup, t }) => {
+const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
   const logoutUser = () => {
     logout(currentUser);
   };
@@ -27,7 +27,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup, t }) => {
             { currentUser.email }
           </NavItem>
           <NavItem onClick={ logoutUser }>
-            { t('header:signOut') }
+            { i18n.t('header:signOut') }
           </NavItem>
         </Nav>
       );
@@ -36,10 +36,10 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup, t }) => {
     return (
       <Nav pullRight>
         <NavItem onClick={ signupUser }>
-          { t('header:signUp') }
+          { i18n.t('header:signUp') }
         </NavItem>
         <NavItem onClick={ signinUser }>
-          { t('header:signIn') }
+          { i18n.t('header:signIn') }
         </NavItem>
       </Nav>
     );
@@ -49,7 +49,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup, t }) => {
     <Navbar className={ styles.panel }>
       <Navbar.Header>
         <Navbar.Brand>
-          { t('common:projectName') }
+          { i18n.t('common:projectName') }
         </Navbar.Brand>
       </Navbar.Header>
       <ul className="nav navbar-nav">
@@ -58,7 +58,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup, t }) => {
             to={ paths.home() }
             activeClassName={ styles.linkActive }
           >
-            { t('header:home') }
+            { i18n.t('header:home') }
           </Link>
         </li>
         <li>
@@ -66,7 +66,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup, t }) => {
             to={ paths.about() }
             activeClassName={ styles.linkActive }
           >
-            { t('header:about') }
+            { i18n.t('header:about') }
           </Link>
         </li>
       </ul>
@@ -80,8 +80,7 @@ Navigation.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   logout: PropTypes.func.isRequired,
   signin: PropTypes.func.isRequired,
-  signup: PropTypes.func.isRequired,
-  t: PropTypes.func.isRequired
+  signup: PropTypes.func.isRequired
 };
 
-export default translate()(Navigation);
+export default Navigation;

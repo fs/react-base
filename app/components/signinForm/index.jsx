@@ -7,17 +7,10 @@ import {
   FormControl,
   ControlLabel
 } from 'react-bootstrap';
-import { translate } from 'react-i18next';
+import i18n from 'services/i18n';
 import Form from 'components/form';
 
 class SigninForm extends Component {
-  static propTypes = {
-    closeModal: PropTypes.func.isRequired,
-    isLoading: PropTypes.bool.isRequired,
-    signinUser: PropTypes.func.isRequired,
-    t: PropTypes.func.isRequired
-  }
-
   state = {
     email: '',
     password: '',
@@ -62,7 +55,7 @@ class SigninForm extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { isLoading, t } = this.props;
+    const { isLoading } = this.props;
 
     return (
       <Form onSubmit={ this.signIn }>
@@ -71,7 +64,7 @@ class SigninForm extends Component {
             controlId="email"
             validationState={ this.validationState(email) }
           >
-            <ControlLabel>{ t('session:email') }</ControlLabel>
+            <ControlLabel>{ i18n.t('session:email') }</ControlLabel>
             <FormControl
               type="text"
               name="email"
@@ -82,7 +75,7 @@ class SigninForm extends Component {
             controlId="password"
             validationState={ this.validationState(password) }
           >
-            <ControlLabel>{ t('session:password') }</ControlLabel>
+            <ControlLabel>{ i18n.t('session:password') }</ControlLabel>
             <FormControl
               autoComplete="off"
               name="password"
@@ -96,7 +89,7 @@ class SigninForm extends Component {
               type="submit"
               disabled={ isLoading }
             >
-              { t('session:submit') }
+              { i18n.t('session:submit') }
             </Button>
           </Modal.Footer>
         </Modal.Body>
@@ -105,4 +98,10 @@ class SigninForm extends Component {
   }
 }
 
-export default translate()(SigninForm);
+SigninForm.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  signinUser: PropTypes.func.isRequired
+};
+
+export default SigninForm;
