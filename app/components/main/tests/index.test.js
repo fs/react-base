@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import withI18n from 'i18n-test';
 import Main from '../';
 
 jest.mock('containers/todo', () => 'TodoContainer');
@@ -8,9 +7,7 @@ jest.mock('containers/todo', () => 'TodoContainer');
 describe('Main', () => {
   let logged;
 
-  const renderComponent = () => {
-    return mount(withI18n(<Main loggedIn={ logged }/>));
-  };
+  const renderComponent = () => mount(<Main loggedIn={ logged } />);
 
   beforeEach(() => logged = false);
 
