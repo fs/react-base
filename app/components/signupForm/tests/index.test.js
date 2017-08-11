@@ -14,6 +14,7 @@ describe('Signup Modal', () => {
 
   it('renders correctly', () => {
     const tree = renderer.create(<SignupForm />).toJSON();
+
     expect(tree).toMatchSnapshot();
   });
 

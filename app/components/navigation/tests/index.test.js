@@ -22,6 +22,7 @@ describe('Navigation', () => {
 
   it('calls signup callback', () => {
     const navigationComponent = renderComponent();
+
     navigationComponent.find(NavItem).at(0).simulate('click');
 
     expect(signup).toHaveBeenCalled();
@@ -29,6 +30,7 @@ describe('Navigation', () => {
 
   it('calls signin callback', () => {
     const navigationComponent = renderComponent();
+
     navigationComponent.find(NavItem).at(1).simulate('click');
 
     expect(signin).toHaveBeenCalled();
@@ -44,11 +46,12 @@ describe('Navigation', () => {
           name: 'user',
           email: 'user@example.com'
         }
-      }
+      };
     });
 
     it('calls logout callback', () => {
       const navigationComponent = renderComponent();
+
       navigationComponent.find(NavItem).at(1).simulate('click');
 
       expect(logout).toHaveBeenCalled();

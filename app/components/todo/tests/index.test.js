@@ -9,9 +9,11 @@ describe('Todo', () => {
 
   it('renders correctly', () => {
     const renderer = new ReactShallowRenderer();
+
     renderer.render(<Todo todo={ todo }/>);
 
     const result = renderer.getRenderOutput();
+
     expect(result).toMatchSnapshot();
   });
 

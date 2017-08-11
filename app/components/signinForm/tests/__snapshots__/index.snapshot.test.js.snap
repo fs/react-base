@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SigninForm renders correctly 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="modal-body"
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="form-control"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        autoComplete="off"
+        className="form-control"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        type="password"
+      />
+    </div>
+    <div
+      className="modal-footer"
+    >
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`SigninForm when email and password are invalid renders form with validation errors 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div
+    className="modal-body"
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="form-control"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        autoComplete="off"
+        className="form-control"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        type="password"
+      />
+    </div>
+    <div
+      className="modal-footer"
+    >
+      <button
+        className="btn btn-primary"
+        disabled={false}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>
+`;

@@ -1,7 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
-import { NavItem } from 'react-bootstrap';
 import Navigation from 'components/navigation';
 
 describe('Navigation', () => {

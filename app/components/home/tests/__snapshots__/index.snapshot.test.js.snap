@@ -10,17 +10,13 @@ exports[`Home renders correctly 1`] = `
     <h1>
       React-base
     </h1>
-    <p>
-      <span>
-        <span
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "Kick-start your new web application based on React and Redux technologies.<br/>It also includes Webpack, React hot loader, PostCSS, JSON-server tools for even more rapid development.",
-            }
-          }
-        />
-      </span>
-    </p>
+    <p
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "Kick-start your new web application based on React and Redux technologies.<br/>It also includes Webpack, React hot loader, PostCSS, JSON-server tools for even more rapid development.",
+        }
+      }
+    />
   </div>
 </div>
 `;

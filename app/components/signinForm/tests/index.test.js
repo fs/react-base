@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import { FormControl } from 'react-bootstrap';
 import SigninForm from 'components/signinForm';
@@ -11,11 +10,6 @@ describe('Signin form', () => {
     isLoading: false
   };
   const signinFormComponent = mount(<SigninForm { ...props }/>);
-
-  it('renders correctly', () => {
-    const tree = renderer.create(<SigninForm/>).toJSON();
-    expect(tree).toMatchSnapshot();
-  });
 
   describe('password field', () => {
     const inputPassword = signinFormComponent

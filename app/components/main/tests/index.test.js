@@ -1,28 +1,22 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Main from '../';
 
 jest.mock('containers/todo', () => 'TodoContainer');
 
 describe('Main', () => {
-  let logged;
-
-  const renderComponent = () => mount(<Main loggedIn={ logged } />);
-
-  beforeEach(() => logged = false);
+  const renderComponent = ({ logged }) => shallow(<Main loggedIn={ logged } />);
 
   it('renders Home component', () => {
-    const mainComponent = renderComponent();
+    const mainComponent = renderComponent({ logged: false });
     const home = mainComponent.find('Home');
 
     expect(home).toBePresent();
   });
 
   context('when user is logged in', () => {
-    beforeEach(() => logged = true);
-
     it('renders TodoContainer component', () => {
-      const mainComponent = renderComponent();
+      const mainComponent = renderComponent({ logged: true });
       const todoContainer = mainComponent.find('TodoContainer');
 
       expect(todoContainer).toBePresent();
