@@ -14,7 +14,7 @@ export default class Storage {
 
     try {
       JSON.parse(data);
-    } catch(e) {
+    } catch (e) {
       return data;
     }
 

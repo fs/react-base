@@ -3,8 +3,9 @@ import languageDetector from 'i18next-browser-languagedetector';
 import storage from 'lib/storage';
 import config from 'config';
 
+const { localizationKey } = config.storage;
 const defaultLanguage = 'en';
-const currentLanguage = storage.get(config.storage.localizationKey);
+const currentLanguage = storage.get(localizationKey);
 const getResources = () => {
   const requireContext = require.context('../locales', true, /\.json$/);
 
@@ -31,7 +32,7 @@ i18n
       escapeValue: false
     },
 
-    lookupLocalStorage: config.storage.localizationKey,
+    lookupLocalStorage: localizationKey,
     caches: ['localStorage'],
 
     resources: getResources()

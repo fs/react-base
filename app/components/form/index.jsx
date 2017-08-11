@@ -2,19 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default class Form extends Component {
-  static propTypes = {
-    errors: PropTypes.object,
-    onSubmit: PropTypes.func.isRequired
-  }
-
-  static childContextTypes = {
-    errors: PropTypes.object
-  }
-
-  static defaultProps = {
-    errors: {}
-  }
-
   getChildContext = () => {
     const { errors } = this.props;
 
@@ -31,3 +18,16 @@ export default class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  errors: PropTypes.object,
+  onSubmit: PropTypes.func.isRequired
+};
+
+Form.childContextTypes = {
+  errors: PropTypes.object
+};
+
+Form.defaultProps = {
+  errors: {}
+};
