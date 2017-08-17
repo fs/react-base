@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import { FormControl } from 'react-bootstrap';
 import SignupForm from 'components/signupForm';
@@ -11,12 +10,6 @@ describe('Signup Modal', () => {
     isLoading: false
   };
   const signupFormComponent = mount(<SignupForm { ...props }/>);
-
-  it('renders correctly', () => {
-    const tree = renderer.create(<SignupForm />).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
 
   describe('name field', () => {
     const nameInput = signupFormComponent

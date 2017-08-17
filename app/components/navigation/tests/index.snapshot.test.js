@@ -4,7 +4,7 @@ import Navigation from 'components/navigation';
 
 describe('Navigation', () => {
   let props;
-  const renderComponent = () => renderer.create(<Navigation { ...props } />).toJSON();
+  const renderComponent = () => renderer.create(<Navigation { ...props } />);
 
   beforeEach(() => {
     props = {
@@ -19,7 +19,7 @@ describe('Navigation', () => {
   it('renders correctly', () => {
     const navigationComponent = renderComponent();
 
-    expect(navigationComponent).toMatchSnapshot();
+    expect(navigationComponent.toJSON()).toMatchSnapshot();
   });
 
   context('when user is logged in', () => {
@@ -38,7 +38,7 @@ describe('Navigation', () => {
     it('renders user navigations', () => {
       const navigationComponent = renderComponent();
 
-      expect(navigationComponent).toMatchSnapshot();
+      expect(navigationComponent.toJSON()).toMatchSnapshot();
     });
   });
 });

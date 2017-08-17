@@ -4,8 +4,8 @@ import Footer from '../';
 
 describe('Footer', () => {
   it('renders correctly', () => {
-    const footerComponent = renderer.create(<Footer />).toJSON();
+    const footerComponent = renderer.create(<Footer />);
 
-    expect(footerComponent).toMatchSnapshot();
+    expect(footerComponent.toJSON()).toMatchSnapshot();
   });
 });

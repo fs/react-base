@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todo renders correctly 1`] = `
+<CSSTransitionGroup
+  transitionAppear={true}
+  transitionName={
+    Object {
+      "appear": "appear",
+      "appearActive": "appearActive",
+      "enter": "enter",
+      "enterActive": "enterActive",
+      "leave": "leave",
+      "leaveActive": "leaveActive",
+    }
+  }
+>
+  <button
+    className="list-group-item"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Something to do
+    </span>
+    <span
+      className="glyphicon glyphicon-trash iconTrash"
+      onClick={[Function]}
+    />
+  </button>
+</CSSTransitionGroup>
+`;

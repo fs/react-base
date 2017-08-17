@@ -1,12 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SigninForm renders correctly 1`] = `
+exports[`SignupForm renders correctly 1`] = `
 <form
   onSubmit={[Function]}
 >
   <div
     className="modal-body"
   >
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="name"
+      >
+        Name
+      </label>
+      <input
+        className="form-control"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
     <div
       className="form-group"
     >
@@ -34,10 +51,26 @@ exports[`SigninForm renders correctly 1`] = `
         Password
       </label>
       <input
-        autoComplete="off"
         className="form-control"
         id="password"
         name="password"
+        onChange={[Function]}
+        type="password"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="passwordConfirmation"
+      >
+        Password Confirmation
+      </label>
+      <input
+        className="form-control"
+        id="passwordConfirmation"
+        name="passwordConfirmation"
         onChange={[Function]}
         type="password"
       />
@@ -57,13 +90,30 @@ exports[`SigninForm renders correctly 1`] = `
 </form>
 `;
 
-exports[`SigninForm when email and password are invalid renders form with validation errors 1`] = `
+exports[`SignupForm when form fields are invalid renders form with validation errors 1`] = `
 <form
   onSubmit={[Function]}
 >
   <div
     className="modal-body"
   >
+    <div
+      className="form-group has-success"
+    >
+      <label
+        className="control-label"
+        htmlFor="name"
+      >
+        Name
+      </label>
+      <input
+        className="form-control"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
     <div
       className="form-group has-error"
     >
@@ -91,10 +141,26 @@ exports[`SigninForm when email and password are invalid renders form with valida
         Password
       </label>
       <input
-        autoComplete="off"
         className="form-control"
         id="password"
         name="password"
+        onChange={[Function]}
+        type="password"
+      />
+    </div>
+    <div
+      className="form-group has-error"
+    >
+      <label
+        className="control-label"
+        htmlFor="passwordConfirmation"
+      >
+        Password Confirmation
+      </label>
+      <input
+        className="form-control"
+        id="passwordConfirmation"
+        name="passwordConfirmation"
         onChange={[Function]}
         type="password"
       />

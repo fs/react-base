@@ -4,8 +4,8 @@ import About from '../';
 
 describe('About', () => {
   it('renders correctly', () => {
-    const aboutComponent = renderer.create(<About />).toJSON();
+    const aboutComponent = renderer.create(<About />);
 
-    expect(aboutComponent).toMatchSnapshot();
+    expect(aboutComponent.toJSON()).toMatchSnapshot();
   });
 });

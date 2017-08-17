@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SigninForm renders correctly 1`] = `
+exports[`TodoForm renders correctly 1`] = `
 <form
   onSubmit={[Function]}
 >
@@ -12,34 +12,20 @@ exports[`SigninForm renders correctly 1`] = `
     >
       <label
         className="control-label"
-        htmlFor="email"
+        htmlFor="taskName"
       >
-        Email
+        Task name
+        : 
+        
       </label>
       <input
         className="form-control"
-        id="email"
-        name="email"
+        id="taskName"
+        name="name"
         onChange={[Function]}
+        placeholder="Task name..."
         type="text"
-      />
-    </div>
-    <div
-      className="form-group"
-    >
-      <label
-        className="control-label"
-        htmlFor="password"
-      >
-        Password
-      </label>
-      <input
-        autoComplete="off"
-        className="form-control"
-        id="password"
-        name="password"
-        onChange={[Function]}
-        type="password"
+        value=""
       />
     </div>
     <div
@@ -50,14 +36,14 @@ exports[`SigninForm renders correctly 1`] = `
         disabled={false}
         type="submit"
       >
-        Submit
+        Save
       </button>
     </div>
   </div>
 </form>
 `;
 
-exports[`SigninForm when email and password are invalid renders form with validation errors 1`] = `
+exports[`TodoForm when name is invalid renders form with validation error 1`] = `
 <form
   onSubmit={[Function]}
 >
@@ -69,34 +55,20 @@ exports[`SigninForm when email and password are invalid renders form with valida
     >
       <label
         className="control-label"
-        htmlFor="email"
+        htmlFor="taskName"
       >
-        Email
+        Task name
+        : 
+        qwe
       </label>
       <input
         className="form-control"
-        id="email"
-        name="email"
+        id="taskName"
+        name="name"
         onChange={[Function]}
+        placeholder="Task name..."
         type="text"
-      />
-    </div>
-    <div
-      className="form-group has-error"
-    >
-      <label
-        className="control-label"
-        htmlFor="password"
-      >
-        Password
-      </label>
-      <input
-        autoComplete="off"
-        className="form-control"
-        id="password"
-        name="password"
-        onChange={[Function]}
-        type="password"
+        value="qwe"
       />
     </div>
     <div
@@ -107,7 +79,7 @@ exports[`SigninForm when email and password are invalid renders form with valida
         disabled={false}
         type="submit"
       >
-        Submit
+        Save
       </button>
     </div>
   </div>

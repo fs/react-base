@@ -4,8 +4,8 @@ import Home from '../';
 
 describe('Home', () => {
   it('renders correctly', () => {
-    const homeComponent = renderer.create(<Home/>).toJSON();
+    const homeComponent = renderer.create(<Home/>);
 
-    expect(homeComponent).toMatchSnapshot();
+    expect(homeComponent.toJSON()).toMatchSnapshot();
   });
 });

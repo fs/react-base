@@ -7,6 +7,6 @@ describe('Article', () => {
     const params = { id: '1' };
     const articleComponent = renderer.create(<Article params={ params } />);
 
-    expect(articleComponent).toMatchSnapshot();
+    expect(articleComponent.toJSON()).toMatchSnapshot();
   });
 });

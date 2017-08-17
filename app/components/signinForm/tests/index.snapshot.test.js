@@ -4,16 +4,21 @@ import SigninForm from '../';
 
 describe('SigninForm', () => {
   it('renders correctly', () => {
-    const signinFormComponent = renderer.create(<SigninForm />).toJSON();
+    const signinFormComponent = renderer.create(<SigninForm />);
 
-    expect(signinFormComponent).toMatchSnapshot();
+    expect(signinFormComponent.toJSON()).toMatchSnapshot();
   });
 
   context('when email and password are invalid', () => {
     it('renders form with validation errors', () => {
-      // const signinFormComponent = renderer.create(<SigninForm />).toJSON();
-      //
-      // expect(signinFormComponent).toMatchSnapshot();
+      const signinFormComponent = renderer.create(<SigninForm />);
+
+      signinFormComponent.getInstance().setState({
+        email: 'qwe',
+        password: 'asd'
+      });
+
+      expect(signinFormComponent.toJSON()).toMatchSnapshot();
     });
   });
 });
