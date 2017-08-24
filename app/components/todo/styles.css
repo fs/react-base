@@ -4,29 +4,16 @@
   z-index: 10;
 }
 
-.enter {
-  transition: opacity .3s ease-in;
-  opacity: .01;
+.todo {
+  animation: fadeIn .5s;
 }
 
-.enterActive {
-  opacity: 1;
-}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
 
-.leave {
-  transition: opacity .3s ease-in;
-  opacity: 1;
-}
-
-.leaveActive {
-  opacity: .01;
-}
-
-.appear {
-  transition: opacity .3s ease-in;
-  opacity: .01;
-}
-
-.appearActive {
-  opacity: 1;
+  to {
+    opacity: 1;
+  }
 }

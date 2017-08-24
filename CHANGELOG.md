@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Upgrade dependencies. Remove react-transition-group. Remove webpack-dashboard
+([#88](https://github.com/fs/react-base/pull/88))
 - Add localization using i18next and react-i18next
 ([#83](https://github.com/fs/react-base/pull/83))
 - Use j-fetch library as main request library
@@ -15,7 +17,7 @@
 ([#80](https://github.com/fs/react-base/pull/80))
 - Upgrade dependencies
 ([#80](https://github.com/fs/react-base/pull/80))
-- Upgrande dependencies
+- Upgrade dependencies
 ([#77](https://github.com/fs/react-base/pull/77))
 - Make improvements in the http lib
 ([#77](https://github.com/fs/react-base/pull/77))
