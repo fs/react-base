@@ -1,15 +1,14 @@
 import React from 'react';
-import sinon from 'sinon';
 import { shallow } from 'enzyme';
 import Form from '../';
 
 describe('Form', () => {
-  it('calls onSubmit prop', () => {
-    const onSubmit = sinon.spy();
-    const formComponent = shallow(<Form onSubmit={ onSubmit }/>);
+  it('calls onSubmit callback', () => {
+    const submit = jest.fn();
+    const formComponent = shallow(<Form onSubmit={ submit }/>);
 
     formComponent.find('form').simulate('submit');
 
-    expect(onSubmit.called).toBeTruthy();
+    expect(submit).toHaveBeenCalled();
   });
 });

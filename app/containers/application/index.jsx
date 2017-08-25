@@ -23,8 +23,8 @@ const Application = ({ children, session, logout, signin, signup }) => {
         />
         { cloneElement(children, { loggedIn }) }
       </main>
-      <Footer/>
-      <Modal/>
+      <Footer />
+      <Modal />
     </div>
   );
 };
