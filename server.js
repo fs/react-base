@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const Dashboard = require('webpack-dashboard');
-const DashboardPlugin = require('webpack-dashboard/plugin');
 const express = require('express');
 const compression = require('compression');
 const historyApiFallback = require('connect-history-api-fallback');
@@ -16,21 +14,29 @@ const server = express();
 
 if (config.development) {
   const compiler = webpack(webpackDevConfig);
-  const dashboard = new Dashboard();
-  const dashboardPlugin = new DashboardPlugin(dashboard.setData);
-
-  compiler.apply(dashboardPlugin);
-
-  server.use(historyApiFallback());
-  server.use(webpackDevMiddleware(compiler, {
-    quiet: true,
+  const webpackOptions = {
+    stats: {
+      assets: true,
+      chunks: false,
+      modules: false,
+      colors: true,
+      performance: true,
+      timings: true,
+      version: true,
+      warnings: true
+    },
     watchOptions: {
       aggregateTimeout: 300,
       poll: true,
       ignored: /node_modules/
     },
     publicPath: webpackDevConfig.output.publicPath
-  }));
+  };
+
+  compiler.apply(new webpack.ProgressPlugin());
+
+  server.use(historyApiFallback());
+  server.use(webpackDevMiddleware(compiler, webpackOptions));
   server.use(webpackHotMiddleware(compiler));
   server.use(jsonServer.defaults());
   server.use(config.apiPath, jsonServer.router('./db/db.json'));
