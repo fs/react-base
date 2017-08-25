@@ -1,21 +1,10 @@
 import React from 'react';
-import ReactShallowRenderer from 'react-test-renderer/shallow';
 import { mount } from 'enzyme';
 import { ListGroupItem } from 'react-bootstrap';
 import Todo from 'components/todo';
 
 describe('Todo', () => {
   const todo = { id: 1, isComplete: false, name: 'Something to do' };
-
-  it('renders correctly', () => {
-    const renderer = new ReactShallowRenderer();
-
-    renderer.render(<Todo todo={ todo }/>);
-
-    const result = renderer.getRenderOutput();
-
-    expect(result).toMatchSnapshot();
-  });
 
   describe('callbacks', () => {
     const updateTodo = jest.fn();

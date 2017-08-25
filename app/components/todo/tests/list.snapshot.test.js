@@ -2,8 +2,6 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import TodoList from '../list';
 
-jest.mock('react-transition-group', () => ({ CSSTransitionGroup: 'CSSTransitionGroup' }));
-
 describe('TodoList', () => {
   it('renders correctly', () => {
     const todos = [
