@@ -60,6 +60,7 @@
     "dotenv": "^4.0.0",
     "enzyme": "^2.9.1",
     "enzyme-matchers": "^3.1.1",
+    "enzyme-to-json": "^1.6.0",
     "eslint": "^4.5.0",
     "eslint-config-fs": "^0.2.11",
     "express": "^4.15.4",
