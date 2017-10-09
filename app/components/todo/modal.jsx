@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Modal,
   Button,
   FormGroup,
   FormControl,
   ControlLabel
 } from 'react-bootstrap';
 import i18n from 'services/i18n';
+import Modal from 'components/modal';
 import Form from 'components/form';
 
-class TodoForm extends Component {
+class TodoModal extends Component {
   state = {
     name: '',
     errors: {}
@@ -48,10 +48,15 @@ class TodoForm extends Component {
 
   render() {
     const { name } = this.state;
+    const { isOpen, closeModal } = this.props;
 
     return (
-      <Form onSubmit={ this.createTodo }>
-        <Modal.Body>
+      <Modal
+        title={ i18n.t('modal:newTask') }
+        isOpen={ isOpen }
+        closeModal={ closeModal }
+      >
+        <Form onSubmit={ this.createTodo }>
           <FormGroup
             controlId="taskName"
             validationState={ this.validationState() }
@@ -67,20 +72,19 @@ class TodoForm extends Component {
               value={ name }
             />
           </FormGroup>
-          <Modal.Footer>
-            <Button bsStyle="primary" type="submit">
-              { i18n.t('todo:save') }
-            </Button>
-          </Modal.Footer>
-        </Modal.Body>
-      </Form>
+          <Button bsStyle="primary" type="submit">
+            { i18n.t('todo:save') }
+          </Button>
+        </Form>
+      </Modal>
     );
   }
 }
 
-TodoForm.propTypes = {
+TodoModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
-  createTodo: PropTypes.func.isRequired
+  createTodo: PropTypes.func.isRequired,
+  isOpen: PropTypes.bool.isRequired
 };
 
-export default TodoForm;
+export default TodoModal;

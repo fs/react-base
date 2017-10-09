@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Modal,
   Button,
   FormGroup,
   FormControl,
   ControlLabel
 } from 'react-bootstrap';
 import i18n from 'services/i18n';
+import Modal from 'components/modal';
 import Form from 'components/form';
 
-class SigninForm extends Component {
+class SigninModal extends Component {
   state = {
     email: '',
     password: '',
@@ -55,16 +55,27 @@ class SigninForm extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { isLoading } = this.props;
+    const {
+      isOpen,
+      closeModal,
+      session
+    } = this.props;
+    const { isLoading } = session;
 
     return (
-      <Form onSubmit={ this.signIn }>
-        <Modal.Body>
+      <Modal
+        title={ i18n.t('modal:signin') }
+        isOpen={ isOpen }
+        closeModal={ closeModal }
+      >
+        <Form onSubmit={ this.signIn }>
           <FormGroup
             controlId="email"
             validationState={ this.validationState(email) }
           >
-            <ControlLabel>{ i18n.t('session:email') }</ControlLabel>
+            <ControlLabel>
+              { i18n.t('session:email') }
+            </ControlLabel>
             <FormControl
               type="text"
               name="email"
@@ -75,7 +86,9 @@ class SigninForm extends Component {
             controlId="password"
             validationState={ this.validationState(password) }
           >
-            <ControlLabel>{ i18n.t('session:password') }</ControlLabel>
+            <ControlLabel>
+              { i18n.t('session:password') }
+            </ControlLabel>
             <FormControl
               autoComplete="off"
               name="password"
@@ -83,25 +96,24 @@ class SigninForm extends Component {
               type="password"
             />
           </FormGroup>
-          <Modal.Footer>
-            <Button
-              bsStyle="primary"
-              type="submit"
-              disabled={ isLoading }
-            >
-              { i18n.t('session:submit') }
-            </Button>
-          </Modal.Footer>
-        </Modal.Body>
-      </Form>
+          <Button
+            bsStyle="primary"
+            type="submit"
+            disabled={ isLoading }
+          >
+            { i18n.t('session:submit') }
+          </Button>
+        </Form>
+      </Modal>
     );
   }
 }
 
-SigninForm.propTypes = {
+SigninModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  session: PropTypes.object.isRequired,
   signinUser: PropTypes.func.isRequired
 };
 
-export default SigninForm;
+export default SigninModal;

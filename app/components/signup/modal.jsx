@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Modal,
   Button,
   FormGroup,
   FormControl,
   ControlLabel
 } from 'react-bootstrap';
 import i18n from 'services/i18n';
+import Modal from 'components/modal';
 import Form from 'components/form';
 
-class SignupForm extends Component {
+class SignupModal extends Component {
   state = {
     name: '',
     email: '',
@@ -105,11 +105,20 @@ class SignupForm extends Component {
       password,
       passwordConfirmation
     } = this.state;
-    const { isLoading } = this.props;
+    const {
+      isOpen,
+      closeModal,
+      session
+    } = this.props;
+    const { isLoading } = session;
 
     return (
-      <Form onSubmit={ this.signUp }>
-        <Modal.Body>
+      <Modal
+        title={ i18n.t('modal:signup') }
+        isOpen={ isOpen }
+        closeModal={ closeModal }
+      >
+        <Form onSubmit={ this.signUp }>
           <FormGroup
             controlId="name"
             validationState={ this.nameValidationState(name) }
@@ -154,25 +163,24 @@ class SignupForm extends Component {
               onChange={ this.setValue }
             />
           </FormGroup>
-          <Modal.Footer>
-            <Button
-              bsStyle="primary"
-              type="submit"
-              disabled={ isLoading }
-            >
-              { i18n.t('session:submit') }
-            </Button>
-          </Modal.Footer>
-        </Modal.Body>
-      </Form>
+          <Button
+            bsStyle="primary"
+            type="submit"
+            disabled={ isLoading }
+          >
+            { i18n.t('session:submit') }
+          </Button>
+        </Form>
+      </Modal>
     );
   }
 }
 
-SignupForm.propTypes = {
+SignupModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  session: PropTypes.object.isRequired,
   signupUser: PropTypes.func.isRequired
 };
 
-export default SignupForm;
+export default SignupModal;
