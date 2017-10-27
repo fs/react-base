@@ -6,6 +6,7 @@ jest.mock('services/sessionStorage', () => ({
 }));
 
 describe('Session reducer', () => {
+  let initialState;
   let state;
   let actionType;
   let payload;
@@ -13,81 +14,77 @@ describe('Session reducer', () => {
   const callReducer = () => reducer(state, { type: actionType, payload });
 
   beforeEach(() => {
-    state = {
-      someKey: 'some value',
-      isLoading: false
-    };
-
-    payload = {
-      name: 'User name',
+    initialState = {
+      isLoading: false,
+      loggedIn: true,
+      currentUser: { id: 1 }
     };
   });
 
-  describe('LOAD_DATA', () => {
+  it('returns initial state', () => {
+    expect(callReducer()).toEqual(initialState);
+  });
+
+  context('when state is present', () => {
     beforeEach(() => {
-      actionType = 'LOAD_DATA';
+      state = initialState;
     });
 
-    it('returns new state', () => {
-      expect(callReducer()).toEqual({
-        someKey: 'some value',
-        isLoading: true
+    describe('LOAD_DATA', () => {
+      beforeEach(() => {
+        actionType = 'LOAD_DATA';
+      });
+
+      it('returns new state', () => {
+        expect(callReducer()).toEqual({
+          isLoading: true,
+          loggedIn: true,
+          currentUser: { id: 1 }
+        });
       });
     });
-  });
 
-  describe('SET_USER', () => {
-    beforeEach(() => {
-      actionType = 'SET_USER';
-    });
+    describe('SET_USER', () => {
+      beforeEach(() => {
+        actionType = 'SET_USER';
 
-    it('returns new state', () => {
-      expect(callReducer()).toEqual({
-        isLoading: false,
-        loggedIn: true,
-        currentUser: {
-          name: 'User name'
-        }
+        state = {
+          isLoading: true,
+          loggedIn: false,
+          currentUser: {},
+        };
+
+        payload = {
+          name: 'User name',
+        };
+      });
+
+      it('returns new state', () => {
+        expect(callReducer()).toEqual({
+          isLoading: false,
+          loggedIn: true,
+          currentUser: { name: 'User name' }
+        });
       });
     });
-  });
 
-  describe('REMOVE_USER', () => {
-    beforeEach(() => {
-      actionType = 'REMOVE_USER';
-    });
+    describe('REMOVE_USER', () => {
+      beforeEach(() => {
+        actionType = 'REMOVE_USER';
 
-    it('returns new state', () => {
-      expect(callReducer()).toEqual({
-        isLoading: false,
-        loggedIn: false,
-        currentUser: {}
+        state = {
+          isLoading: true,
+          loggedIn: true,
+          currentUser: { name: 'User name' }
+        };
       });
-    });
-  });
 
-  describe('ANOTHER_ACTION_TYPE', () => {
-    beforeEach(() => {
-      actionType = 'ANOTHER_ACTION_TYPE';
-    });
-
-    it('returns current state', () => {
-      expect(callReducer()).toEqual(state);
-    });
-  });
-
-  context('when state is undefined', () => {
-    beforeEach(() => {
-      state = undefined;
-    });
-
-    it('returns initial state', () => {
-      expect(callReducer()).toEqual({
-        isLoading: false,
-        loggedIn: true,
-        currentUser: {
-          id: 1
-        }
+      it('returns new state', () => {
+        expect(callReducer()).toEqual({
+          isLoading: false,
+          loggedIn: false,
+          currentUser: {}
+        });
       });
     });
   });

@@ -1,6 +1,7 @@
 import reducer from './';
 
 describe('Todos reducer', () => {
+  let initialState;
   let state;
   let actionType;
   let payload;
@@ -8,167 +9,144 @@ describe('Todos reducer', () => {
   const callReducer = () => reducer(state, { type: actionType, payload });
 
   beforeEach(() => {
-    state = {
-      someKey: 'some value',
-      isLoading: false
-    };
-
-    payload = {
-      id: 1,
-      name: 'Awesome Todo',
+    initialState = {
+      isLoading: false,
+      todos: []
     };
   });
 
-  describe('LOAD_TODOS', () => {
-    beforeEach(() => {
-      actionType = 'LOAD_TODOS';
-    });
-
-    it('returns new state', () => {
-      expect(callReducer()).toEqual({
-        someKey: 'some value',
-        isLoading: true
-      });
-    });
+  it('returns initial state', () => {
+    expect(callReducer()).toEqual(initialState);
   });
 
-  describe('SET_TODOS', () => {
+  context('when state is present', () => {
     beforeEach(() => {
-      actionType = 'SET_TODOS';
-
-      state = {
-        someKey: 'some value',
-        isLoading: true
-      };
-
-      payload = [{
-        id: 1,
-        name: 'Awesome Todo'
-      }];
+      state = initialState;
     });
 
-    it('returns new state', () => {
-      expect(callReducer()).toEqual({
-        someKey: 'some value',
-        isLoading: false,
-        todos: payload
+    describe('LOAD_TODOS', () => {
+      beforeEach(() => {
+        actionType = 'LOAD_TODOS';
+      });
+
+      it('returns new state', () => {
+        expect(callReducer()).toEqual({
+          isLoading: true,
+          todos: []
+        });
       });
     });
-  });
 
-  describe('ADD_TODO', () => {
-    beforeEach(() => {
-      actionType = 'ADD_TODO';
+    describe('SET_TODOS', () => {
+      beforeEach(() => {
+        actionType = 'SET_TODOS';
 
-      state = {
-        someKey: 'some value',
-        todos: [{
-          id: 2,
-          name: 'Another Todo'
-        }]
-      };
-    });
+        state.isLoading = true;
 
-    it('returns new state', () => {
-      expect(callReducer()).toEqual({
-        someKey: 'some value',
-        todos: [{
-          id: 2,
-          name: 'Another Todo'
-        }, {
+        payload = [{
           id: 1,
           name: 'Awesome Todo'
-        }]
+        }];
+      });
+
+      it('returns new state', () => {
+        expect(callReducer()).toEqual({
+          isLoading: false,
+          todos: [{
+            id: 1,
+            name: 'Awesome Todo'
+          }]
+        });
       });
     });
-  });
 
-  describe('TOGGLE_TODO', () => {
-    beforeEach(() => {
-      actionType = 'TOGGLE_TODO';
+    describe('ADD_TODO', () => {
+      beforeEach(() => {
+        actionType = 'ADD_TODO';
 
-      state = {
-        someKey: 'some value',
-        todos: [{
+        state.todos = [{
+          id: 2,
+          name: 'Another Todo'
+        }];
+
+        payload = {
+          id: 1,
+          name: 'Awesome Todo'
+        };
+      });
+
+      it('returns new state', () => {
+        expect(callReducer()).toEqual({
+          isLoading: false,
+          todos: [{
+            id: 2,
+            name: 'Another Todo'
+          }, {
+            id: 1,
+            name: 'Awesome Todo'
+          }]
+        });
+      });
+    });
+
+    describe('TOGGLE_TODO', () => {
+      beforeEach(() => {
+        actionType = 'TOGGLE_TODO';
+
+        state.todos = [{
           id: 1,
           name: 'Awesome Todo'
         }, {
           id: 2,
           name: 'Another Todo'
-        }]
-      };
+        }];
 
-      payload = {
-        id: 1,
-        name: 'Updated Todo'
-      };
-    });
-
-    it('returns new state', () => {
-      expect(callReducer()).toEqual({
-        someKey: 'some value',
-        todos: [{
+        payload = {
           id: 1,
           name: 'Updated Todo'
-        }, {
-          id: 2,
-          name: 'Another Todo'
-        }]
+        };
+      });
+
+      it('returns new state', () => {
+        expect(callReducer()).toEqual({
+          isLoading: false,
+          todos: [{
+            id: 1,
+            name: 'Updated Todo'
+          }, {
+            id: 2,
+            name: 'Another Todo'
+          }]
+        });
       });
     });
-  });
 
-  describe('REMOVE_TODO', () => {
-    beforeEach(() => {
-      actionType = 'REMOVE_TODO';
+    describe('REMOVE_TODO', () => {
+      beforeEach(() => {
+        actionType = 'REMOVE_TODO';
 
-      state = {
-        someKey: 'some value',
-        todos: [{
+        state.todos = [{
           id: 1,
           name: 'Awesome Todo'
         }, {
           id: 2,
           name: 'Another Todo'
-        }]
-      };
+        }];
 
-      payload = {
-        id: 1,
-        name: 'Awesome Todo'
-      };
-    });
-
-    it('returns new state', () => {
-      expect(callReducer()).toEqual({
-        someKey: 'some value',
-        todos: [{
-          id: 2,
-          name: 'Another Todo'
-        }]
+        payload = {
+          id: 1,
+          name: 'Awesome Todo'
+        };
       });
-    });
-  });
 
-  describe('ANOTHER_ACTION_TYPE', () => {
-    beforeEach(() => {
-      actionType = 'ANOTHER_ACTION_TYPE';
-    });
-
-    it('returns current state', () => {
-      expect(callReducer()).toEqual(state);
-    });
-  });
-
-  context('when state is undefined', () => {
-    beforeEach(() => {
-      state = undefined;
-    });
-
-    it('returns initial state', () => {
-      expect(callReducer()).toEqual({
-        isLoading: false,
-        todos: []
+      it('returns new state', () => {
+        expect(callReducer()).toEqual({
+          isLoading: false,
+          todos: [{
+            id: 2,
+            name: 'Another Todo'
+          }]
+        });
       });
     });
   });

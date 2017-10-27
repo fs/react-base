@@ -1,6 +1,7 @@
 import reducer from './';
 
 describe('Modal reducer', () => {
+  let initialState;
   let state;
   let actionType;
   let payload;
@@ -8,66 +9,62 @@ describe('Modal reducer', () => {
   const callReducer = () => reducer(state, { type: actionType, payload });
 
   beforeEach(() => {
-    state = {
-      someKey: 'some value'
-    };
-
-    payload = {
-      name: 'Awesome Modal',
-      someOption: 'Some option value'
+    initialState = {
+      isOpen: false,
+      modalName: '',
+      modalOptions: {}
     };
   });
 
-  describe('OPEN_MODAL', () => {
+  it('returns initial state', () => {
+    expect(callReducer()).toEqual(initialState);
+  });
+
+  context('when state is present', () => {
     beforeEach(() => {
-      actionType = 'OPEN_MODAL';
+      state = initialState;
+
+      payload = {
+        name: 'Awesome Modal',
+        someOption: 'Some option value'
+      };
     });
 
-    it('returns new state', () => {
-      expect(callReducer()).toEqual({
-        isOpen: true,
-        modalName: 'Awesome Modal',
-        modalOptions: {
-          someOption: 'Some option value'
-        }
+    describe('OPEN_MODAL', () => {
+      beforeEach(() => {
+        actionType = 'OPEN_MODAL';
+      });
+
+      it('returns new state', () => {
+        expect(callReducer()).toEqual({
+          isOpen: true,
+          modalName: 'Awesome Modal',
+          modalOptions: {
+            someOption: 'Some option value'
+          }
+        });
       });
     });
-  });
 
-  describe('CLOSE_MODAL', () => {
-    beforeEach(() => {
-      actionType = 'CLOSE_MODAL';
-    });
+    describe('CLOSE_MODAL', () => {
+      beforeEach(() => {
+        actionType = 'CLOSE_MODAL';
 
-    it('returns initial state', () => {
-      expect(callReducer()).toEqual({
-        isOpen: false,
-        modalName: '',
-        modalOptions: {}
+        state = {
+          isOpen: true,
+          modalName: 'Awesome Modal',
+          modalOptions: {
+            someOption: 'Some option value'
+          }
+        };
       });
-    });
-  });
 
-  describe('ANOTHER_ACTION_TYPE', () => {
-    beforeEach(() => {
-      actionType = 'ANOTHER_ACTION_TYPE';
-    });
-
-    it('returns current state', () => {
-      expect(callReducer()).toEqual(state);
-    });
-  });
-
-  context('when state is undefined', () => {
-    beforeEach(() => {
-      state = undefined;
-    });
-
-    it('returns initial state', () => {
-      expect(callReducer()).toEqual({
-        isOpen: false,
-        modalName: '',
-        modalOptions: {}
+      it('returns initial state', () => {
+        expect(callReducer()).toEqual({
+          isOpen: false,
+          modalName: '',
+          modalOptions: {}
+        });
       });
     });
   });
