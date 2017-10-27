@@ -19,13 +19,13 @@ describe('Modal', () => {
       };
     });
 
-    it('renders correctly', () => {
-      component = renderComponent().find('TodoModal');
-      console.log(toJson(renderComponent()));
+    it('renders TodoModal component', () => {
+      component = renderComponent().find('ModalContainer').shallow();
       const modalProps = containerProps(component);
 
       expect(component).toBePresent();
-      expect(modalProps).toEqual(['modal', 'closeModal']);
+      expect(component.name()).toEqual('Connect(TodoModal)');
+      expect(modalProps).toEqual(['isOpen', 'modalOptions', 'closeModal']);
     });
   });
 
@@ -40,8 +40,13 @@ describe('Modal', () => {
       };
     });
 
-    it('renders correctly', () => {
-      expect(componentToJSON()).toMatchSnapshot();
+    it('renders SigninModal component', () => {
+      component = renderComponent().find('ModalContainer').shallow();
+      const modalProps = containerProps(component);
+
+      expect(component).toBePresent();
+      expect(component.name()).toEqual('Connect(SigninModal)');
+      expect(modalProps).toEqual(['isOpen', 'modalOptions', 'closeModal']);
     });
   });
 
@@ -56,8 +61,13 @@ describe('Modal', () => {
       };
     });
 
-    it('renders correctly', () => {
-      expect(componentToJSON()).toMatchSnapshot();
+    it('renders SignupModal component', () => {
+      component = renderComponent().find('ModalContainer').shallow();
+      const modalProps = containerProps(component);
+
+      expect(component).toBePresent();
+      expect(component.name()).toEqual('Connect(SignupModal)');
+      expect(modalProps).toEqual(['isOpen', 'modalOptions', 'closeModal']);
     });
   });
 });
