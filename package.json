@@ -108,7 +108,7 @@
       "^(.*)(s|S)tyles$": "identity-obj-proxy"
     },
     "setupFiles": [
-      "./test/mocks.js"
+      "./test/mocks/fakeStorage.js"
     ],
     "setupTestFrameworkScriptFile": "./test/setup.js"
   }

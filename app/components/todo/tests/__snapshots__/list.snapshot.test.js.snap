@@ -1,47 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TodoList renders correctly 1`] = `
-<div
-  className="list-group"
+<ListGroup
+  bsClass="list-group"
 >
-  <button
-    className="todo list-group-item"
-    onClick={[Function]}
-    type="button"
-  >
-    <span>
-      Something to do 1
-    </span>
-    <span
-      className="glyphicon glyphicon-trash iconTrash"
-      onClick={[Function]}
-    />
-  </button>
-  <button
-    className="todo list-group-item"
-    onClick={[Function]}
-    type="button"
-  >
-    <span>
-      Something to do 2
-    </span>
-    <span
-      className="glyphicon glyphicon-trash iconTrash"
-      onClick={[Function]}
-    />
-  </button>
-  <button
-    className="todo list-group-item"
-    onClick={[Function]}
-    type="button"
-  >
-    <span>
-      Something to do 3
-    </span>
-    <span
-      className="glyphicon glyphicon-trash iconTrash"
-      onClick={[Function]}
-    />
-  </button>
-</div>
+  <TodoItem
+    deleteTodo={[Function]}
+    todo={
+      Object {
+        "id": 1,
+        "isComplete": false,
+        "name": "Something to do 1",
+      }
+    }
+    updateTodo={[Function]}
+  />
+  <TodoItem
+    deleteTodo={[Function]}
+    todo={
+      Object {
+        "id": 2,
+        "isComplete": false,
+        "name": "Something to do 2",
+      }
+    }
+    updateTodo={[Function]}
+  />
+</ListGroup>
 `;

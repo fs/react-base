@@ -50,7 +50,8 @@ const Todo = props => (
 );
 
 Todo.propTypes = {
-  openModal: PropTypes.func.isRequired
+  openModal: PropTypes.func.isRequired,
+  ...TodoList.propTypes
 };
 
 export default Todo;

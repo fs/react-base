@@ -1,24 +1,40 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import SigninForm from '../';
+import SigninModal from '../modal';
+import fakeSession from 'mocks/fakeSession';
 
-describe('SigninForm', () => {
-  it('renders correctly', () => {
-    const signinFormComponent = renderer.create(<SigninForm />);
+jest.mock('components/modal', () => 'Modal');
 
-    expect(signinFormComponent.toJSON()).toMatchSnapshot();
+describe('SigninModal', () => {
+  let props;
+  let component;
+  const renderComponent = () => renderer.create(<SigninModal { ...props } />);
+
+  beforeEach(() => {
+    props = {
+      closeModal: () => {},
+      isOpen: true,
+      session: fakeSession,
+      signinUser: () => {}
+    };
   });
 
-  context('when email and password are invalid', () => {
-    it('renders form with validation errors', () => {
-      const signinFormComponent = renderer.create(<SigninForm />);
+  it('renders correctly', () => {
+    expect(renderComponent().toJSON()).toMatchSnapshot();
+  });
 
-      signinFormComponent.getInstance().setState({
+  context('when form is invalid', () => {
+    beforeEach(() => {
+      component = renderComponent();
+
+      component.getInstance().setState({
         email: 'qwe',
         password: 'asd'
       });
+    });
 
-      expect(signinFormComponent.toJSON()).toMatchSnapshot();
+    it('renders form with validation errors', () => {
+      expect(component.toJSON()).toMatchSnapshot();
     });
   });
 });

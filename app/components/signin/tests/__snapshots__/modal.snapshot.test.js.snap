@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SigninModal renders correctly 1`] = `
+<Modal
+  closeModal={[Function]}
+  isOpen={true}
+  title="Sign In"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="form-control"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        autoComplete="off"
+        className="form-control"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        type="password"
+      />
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={true}
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</Modal>
+`;
+
+exports[`SigninModal when form is invalid renders form with validation errors 1`] = `
+<Modal
+  closeModal={[Function]}
+  isOpen={true}
+  title="Sign In"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group has-error"
+    >
+      <label
+        className="control-label"
+        htmlFor="email"
+      >
+        Email
+      </label>
+      <input
+        className="form-control"
+        id="email"
+        name="email"
+        onChange={[Function]}
+        type="text"
+      />
+    </div>
+    <div
+      className="form-group has-error"
+    >
+      <label
+        className="control-label"
+        htmlFor="password"
+      >
+        Password
+      </label>
+      <input
+        autoComplete="off"
+        className="form-control"
+        id="password"
+        name="password"
+        onChange={[Function]}
+        type="password"
+      />
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={true}
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</Modal>
+`;

@@ -1,12 +1,24 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Todo from '../';
+import TodoItem from '../item';
 
-describe('Todo', () => {
+describe('TodoItem', () => {
+  let props;
+  const renderComponent = () => renderer.create(<TodoItem { ...props } />);
+
+  beforeEach(() => {
+    props = {
+      deleteTodo: () => {},
+      todo: {
+        id: 1,
+        isComplete: false,
+        name: 'Something to do'
+      },
+      updateTodo: () => {}
+    };
+  });
+
   it('renders correctly', () => {
-    const todo = { id: 1, isComplete: false, name: 'Something to do' };
-    const todoComponent = renderer.create(<Todo todo={ todo } />);
-
-    expect(todoComponent.toJSON()).toMatchSnapshot();
+    expect(renderComponent().toJSON()).toMatchSnapshot();
   });
 });

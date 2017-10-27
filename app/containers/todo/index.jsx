@@ -16,7 +16,8 @@ class TodoContainer extends Component {
 }
 
 TodoContainer.propTypes = {
-  fetchTodos: PropTypes.func.isRequired
+  fetchTodos: PropTypes.func.isRequired,
+  ...Todo.propTypes
 };
 
 const mapStateToProps = state => ({

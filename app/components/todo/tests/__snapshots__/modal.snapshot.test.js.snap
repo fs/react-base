@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoForm renders correctly 1`] = `
-<form
-  onSubmit={[Function]}
+exports[`TodoModal renders correctly 1`] = `
+<Modal
+  closeModal={[Function]}
+  isOpen={true}
+  title="New Task"
 >
-  <div
-    className="modal-body"
+  <form
+    onSubmit={[Function]}
   >
     <div
       className="form-group"
@@ -28,30 +30,28 @@ exports[`TodoForm renders correctly 1`] = `
         value=""
       />
     </div>
-    <div
-      className="modal-footer"
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
     >
-      <button
-        className="btn btn-primary"
-        disabled={false}
-        type="submit"
-      >
-        Save
-      </button>
-    </div>
-  </div>
-</form>
+      Save
+    </button>
+  </form>
+</Modal>
 `;
 
-exports[`TodoForm when name is invalid renders form with validation error 1`] = `
-<form
-  onSubmit={[Function]}
+exports[`TodoModal when form is invalid renders form with validation errors 1`] = `
+<Modal
+  closeModal={[Function]}
+  isOpen={true}
+  title="New Task"
 >
-  <div
-    className="modal-body"
+  <form
+    onSubmit={[Function]}
   >
     <div
-      className="form-group has-error"
+      className="form-group"
     >
       <label
         className="control-label"
@@ -59,7 +59,7 @@ exports[`TodoForm when name is invalid renders form with validation error 1`] = 
       >
         Task name
         : 
-        qwe
+        
       </label>
       <input
         className="form-control"
@@ -68,20 +68,16 @@ exports[`TodoForm when name is invalid renders form with validation error 1`] = 
         onChange={[Function]}
         placeholder="Task name..."
         type="text"
-        value="qwe"
+        value=""
       />
     </div>
-    <div
-      className="modal-footer"
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
     >
-      <button
-        className="btn btn-primary"
-        disabled={false}
-        type="submit"
-      >
-        Save
-      </button>
-    </div>
-  </div>
-</form>
+      Save
+    </button>
+  </form>
+</Modal>
 `;

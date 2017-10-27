@@ -1,26 +1,42 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import SignupForm from '../';
+import SignupModal from '../modal';
+import fakeSession from 'mocks/fakeSession';
 
-describe('SignupForm', () => {
-  it('renders correctly', () => {
-    const signupFormComponent = renderer.create(<SignupForm />);
+jest.mock('components/modal', () => 'Modal');
 
-    expect(signupFormComponent.toJSON()).toMatchSnapshot();
+describe('SignupModal', () => {
+  let props;
+  let component;
+  const renderComponent = () => renderer.create(<SignupModal { ...props } />);
+
+  beforeEach(() => {
+    props = {
+      closeModal: () => { },
+      isOpen: true,
+      session: fakeSession,
+      signupUser: () => { }
+    };
   });
 
-  context('when form fields are invalid', () => {
-    it('renders form with validation errors', () => {
-      const signupFormComponent = renderer.create(<SignupForm />);
+  it('renders correctly', () => {
+    expect(renderComponent().toJSON()).toMatchSnapshot();
+  });
 
-      signupFormComponent.getInstance().setState({
+  context('when form is invalid', () => {
+    beforeEach(() => {
+      component = renderComponent();
+
+      component.getInstance().setState({
         name: 'qwe',
         email: 'qwe',
         password: 'asd',
         passwordConfirmation: 'asd'
       });
+    });
 
-      expect(signupFormComponent.toJSON()).toMatchSnapshot();
+    it('renders form with validation errors', () => {
+      expect(component.toJSON()).toMatchSnapshot();
     });
   });
 });

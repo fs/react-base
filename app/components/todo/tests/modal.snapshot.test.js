@@ -1,21 +1,35 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import TodoForm from '../';
+import TodoModal from '../modal';
 
-describe('TodoForm', () => {
-  it('renders correctly', () => {
-    const todoFormComponent = renderer.create(<TodoForm />);
+jest.mock('components/modal', () => 'Modal');
 
-    expect(todoFormComponent.toJSON()).toMatchSnapshot();
+describe('TodoModal', () => {
+  let props;
+  let component;
+  const renderComponent = () => renderer.create(<TodoModal { ...props } />);
+
+  beforeEach(() => {
+    props = {
+      closeModal: () => { },
+      createTodo: () => { },
+      isOpen: true
+    };
   });
 
-  context('when name is invalid', () => {
-    it('renders form with validation error', () => {
-      const todoFormComponent = renderer.create(<TodoForm />);
+  it('renders correctly', () => {
+    expect(renderComponent().toJSON()).toMatchSnapshot();
+  });
 
-      todoFormComponent.getInstance().setState({ name: 'qwe' });
+  context('when form is invalid', () => {
+    beforeEach(() => {
+      component = renderComponent();
 
-      expect(todoFormComponent.toJSON()).toMatchSnapshot();
+      component.getInstance().setState({ email: 'qwe' });
+    });
+
+    it('renders form with validation errors', () => {
+      expect(component.toJSON()).toMatchSnapshot();
     });
   });
 });
