@@ -1,17 +1,18 @@
-import React from 'react';
 import { shallow } from 'enzyme';
-import withStore from 'helpers/store';
+import toJson from 'enzyme-to-json';
+import { containerWithStore, containerProps } from 'helpers/store';
 import Modal from 'containers/modal';
 
 describe('Modal', () => {
   let state;
-  const modalComponent = () => shallow(withStore(<Modal />, state));
+  let component;
+  const renderComponent = () => shallow(containerWithStore(Modal, state));
 
   context('when it is todo modal', () => {
     beforeEach(() => {
       state = {
         modal: {
-          isOpen: false,
+          isOpen: true,
           modalName: 'todo',
           modalOptions: {}
         }
@@ -19,9 +20,12 @@ describe('Modal', () => {
     });
 
     it('renders correctly', () => {
-      // const component = modalComponent();
-      //
-      // expoct(component.find(''))
+      component = renderComponent().find('TodoModal');
+      console.log(toJson(renderComponent()));
+      const modalProps = containerProps(component);
+
+      expect(component).toBePresent();
+      expect(modalProps).toEqual(['modal', 'closeModal']);
     });
   });
 

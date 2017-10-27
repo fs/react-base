@@ -1,13 +1,15 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import { Provider } from 'react-redux';
 
-export default (Component, state) => {
-  const fakeStore = configureStore([])(state);
+export function containerProps(component) {
+  const componentProps = Object.keys(component.props());
+  const rejectedProps = ['store', 'storeSubscription'];
 
-  return (
-    <Provider store={ fakeStore }>
-      { Component }
-    </Provider>
-  );
-};
+  return componentProps.filter(item => !rejectedProps.includes(item));
+}
+
+export function containerWithStore(Component, state = {}, props = {}) {
+  const fakeStore = configureStore()(state);
+
+  return <Component { ...props } store={ fakeStore } />;
+}
