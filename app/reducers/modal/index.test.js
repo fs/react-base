@@ -60,11 +60,7 @@ describe('Modal reducer', () => {
       });
 
       it('returns initial state', () => {
-        expect(callReducer()).toEqual({
-          isOpen: false,
-          modalName: '',
-          modalOptions: {}
-        });
+        expect(callReducer()).toEqual(initialState);
       });
     });
   });
