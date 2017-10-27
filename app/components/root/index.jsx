@@ -11,11 +11,11 @@ const Root = ({ store, history }) => (
   <Provider store={ store }>
     <Router history={ history }>
       <Route component={ Application }>
-        <Route path="/" component={ Main }/>
+        <Route path="/" component={ Main } />
         <Route path="about" component={ About }>
-          <Route path="extended/:id" component={ Article }/>
+          <Route path="extended/:id" component={ Article } />
         </Route>
-        <Redirect from="*" to="/"/>
+        <Redirect from="*" to="/" />
       </Route>
     </Router>
   </Provider>

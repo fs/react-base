@@ -3,9 +3,9 @@ import renderer from 'react-test-renderer';
 import About from '../';
 
 describe('About', () => {
-  it('renders correctly', () => {
-    const aboutComponent = renderer.create(<About />);
+  const renderComponent = () => renderer.create(<About />);
 
-    expect(aboutComponent.toJSON()).toMatchSnapshot();
+  it('renders correctly', () => {
+    expect(renderComponent().toJSON()).toMatchSnapshot();
   });
 });

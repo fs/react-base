@@ -20,7 +20,6 @@ const ModalComponent = ({ title, isOpen, closeModal, children }) => (
 );
 
 ModalComponent.propTypes = {
-  children: PropTypes.object.isRequired,
   closeModal: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired

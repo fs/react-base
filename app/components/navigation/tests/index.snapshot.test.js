@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { fakeSession, fakeEmptySession } from 'mocks/fakeSession';
 import Navigation from 'components/navigation';
 
 describe('Navigation', () => {
@@ -8,37 +9,27 @@ describe('Navigation', () => {
 
   beforeEach(() => {
     props = {
-      loggedIn: false,
-      currentUser: {},
-      logout() {},
-      signin() {},
-      signup() {}
+      ...fakeEmptySession,
+      logout: () => {},
+      signin: () => {},
+      signup: () => {}
     };
   });
 
   it('renders correctly', () => {
-    const navigationComponent = renderComponent();
-
-    expect(navigationComponent.toJSON()).toMatchSnapshot();
+    expect(renderComponent().toJSON()).toMatchSnapshot();
   });
 
   context('when user is logged in', () => {
     beforeEach(() => {
       props = {
         ...props,
-        loggedIn: true,
-        currentUser: {
-          id: 1,
-          name: 'user',
-          email: 'user@example.com'
-        }
+        ...fakeSession
       };
     });
 
     it('renders user navigations', () => {
-      const navigationComponent = renderComponent();
-
-      expect(navigationComponent.toJSON()).toMatchSnapshot();
+      expect(renderComponent().toJSON()).toMatchSnapshot();
     });
   });
 });

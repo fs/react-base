@@ -3,9 +3,9 @@ import renderer from 'react-test-renderer';
 import Home from '../';
 
 describe('Home', () => {
-  it('renders correctly', () => {
-    const homeComponent = renderer.create(<Home/>);
+  const renderComponent = () => renderer.create(<Home />);
 
-    expect(homeComponent.toJSON()).toMatchSnapshot();
+  it('renders correctly', () => {
+    expect(renderComponent().toJSON()).toMatchSnapshot();
   });
 });

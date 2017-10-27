@@ -79,7 +79,7 @@ exports[`SignupModal renders correctly 1`] = `
     </div>
     <button
       className="btn btn-primary"
-      disabled={true}
+      disabled={false}
       type="submit"
     >
       Submit
@@ -167,7 +167,7 @@ exports[`SignupModal when form is invalid renders form with validation errors 1`
     </div>
     <button
       className="btn btn-primary"
-      disabled={true}
+      disabled={false}
       type="submit"
     >
       Submit

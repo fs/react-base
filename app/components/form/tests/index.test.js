@@ -3,12 +3,21 @@ import { shallow } from 'enzyme';
 import Form from '../';
 
 describe('Form', () => {
+  let props;
+  let component;
+  const renderComponent = () => shallow(<Form { ...props } />);
+
+  beforeEach(() => {
+    props = {
+      onSubmit: jest.fn()
+    };
+  });
+
   it('calls onSubmit callback', () => {
-    const submit = jest.fn();
-    const formComponent = shallow(<Form onSubmit={ submit }/>);
+    component = renderComponent();
 
-    formComponent.find('form').simulate('submit');
+    component.find('form').simulate('submit');
 
-    expect(submit).toHaveBeenCalled();
+    expect(props.onSubmit).toHaveBeenCalled();
   });
 });

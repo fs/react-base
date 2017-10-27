@@ -3,10 +3,16 @@ import renderer from 'react-test-renderer';
 import Article from '../';
 
 describe('Article', () => {
-  it('renders correctly', () => {
-    const params = { id: '1' };
-    const articleComponent = renderer.create(<Article params={ params } />);
+  let props;
+  const renderComponent = () => renderer.create(<Article { ...props } />);
 
-    expect(articleComponent.toJSON()).toMatchSnapshot();
+  beforeEach(() => {
+    props = {
+      params: { id: '1' }
+    };
+  });
+
+  it('renders correctly', () => {
+    expect(renderComponent().toJSON()).toMatchSnapshot();
   });
 });

@@ -121,7 +121,7 @@ exports[`Navigation when user is logged in renders user navigations 1`] = `
           onClick={[Function]}
           role="button"
         >
-          user@example.com
+          test@test.com
         </a>
       </li>
       <li
