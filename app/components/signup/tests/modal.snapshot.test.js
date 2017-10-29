@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import SignupModal from '../modal';
 import fakeSession from 'mocks/fakeSession';
+import SignupModal from '../modal';
 
 jest.mock('components/modal', () => 'Modal');
 

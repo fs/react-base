@@ -59,9 +59,7 @@ class SignupModal extends Component {
   nameValidationState = value => {
     const length = value.trim().length;
 
-    if (!length) return null;
-
-    return length ? 'success' : 'error';
+    return length ? 'success' : null;
   }
 
   passwordValidationState = value => {

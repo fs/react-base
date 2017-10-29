@@ -1,53 +1,94 @@
-// import React from 'react';
-// import { mount } from 'enzyme';
-// import { FormControl } from 'react-bootstrap';
-// import SigninForm from 'components/signinForm';
+import React from 'react';
+import { shallow } from 'enzyme';
+import fakeSession from 'mocks/fakeSession';
+import SigninModal from '../modal';
 
-// describe('Signin form', () => {
-//   const props = {
-//     closeModal: jest.fn(),
-//     signinUser: jest.fn(),
-//     isLoading: false
-//   };
-//   const signinFormComponent = mount(<SigninForm { ...props }/>);
+describe('Signin Modal', () => {
+  let props;
+  let component;
+  const renderComponent = () => shallow(<SigninModal { ...props }/>);
 
-//   describe('password field', () => {
-//     const inputPassword = signinFormComponent
-//       .find(FormControl)
-//       .filterWhere(n => n.props().name === 'password');
+  beforeEach(() => {
+    props = {
+      closeModal: jest.fn(),
+      isOpen: true,
+      session: fakeSession,
+      signinUser: jest.fn()
+    };
+  });
 
-//     it('appears error state when password is too short', () => {
-//       inputPassword.simulate('change', {
-//         target: { name: 'password', value: 'short' }
-//       });
-//       expect(inputPassword.parent().props().validationState).toEqual('error');
-//     });
+  describe('.validationState', () => {
+    let value;
 
-//     it('appears success state when password is strong', () => {
-//       inputPassword.simulate('change', {
-//         target: { name: 'password', value: 'strongPassword' }
-//       });
-//       expect(inputPassword.parent().props().validationState).toEqual('success');
-//     });
-//   });
+    beforeEach(() => {
+      component = renderComponent().instance();
+      value = 'some value';
+    });
 
-//   describe('email field', () => {
-//     const inputEmail = signinFormComponent
-//       .find(FormControl)
-//       .filterWhere(n => n.props().name === 'email');
+    it('returns "success"', () => {
+      expect(component.validationState(value)).toEqual('success');
+    });
 
-//     it('appears error state when email is too short', () => {
-//       inputEmail.simulate('change', {
-//         target: { name: 'email', value: 'short' }
-//       });
-//       expect(inputEmail.parent().props().validationState).toEqual('error');
-//     });
+    context('when value is empty', () => {
+      beforeEach(() => {
+        value = '';
+      });
 
-//     it('appears success state when email is valid', () => {
-//       inputEmail.simulate('change', {
-//         target: { name: 'email', value: 'email@example.com' }
-//       });
-//       expect(inputEmail.parent().props().validationState).toEqual('success');
-//     });
-//   });
-// });
+      it('returns null', () => {
+        expect(component.validationState(value)).toBeNull();
+      });
+    });
+
+    context('when value length is less than 5', () => {
+      beforeEach(() => {
+        value = 'some';
+      });
+
+      it('returns "error"', () => {
+        expect(component.validationState(value)).toEqual('error');
+      });
+    });
+  });
+
+  describe('.isFormValid', () => {
+    let formFields;
+
+    beforeEach(() => {
+      component = renderComponent().instance();
+      formFields = {
+        email: 'test@test.com',
+        password: '123456'
+      };
+
+      component.setState(formFields);
+    });
+
+    it('returns true', () => {
+      expect(component.isFormValid()).toBeTruthy();
+    });
+
+    context('when email field is invalid', () => {
+      beforeEach(() => {
+        formFields.email = '';
+
+        component.setState(formFields);
+      });
+
+      it('returns false', () => {
+        expect(component.isFormValid()).toBeFalsy();
+      });
+    });
+
+    context('when password field is invalid', () => {
+      beforeEach(() => {
+        formFields.password = '';
+
+        component.setState(formFields);
+      });
+
+      it('returns false', () => {
+        expect(component.isFormValid()).toBeFalsy();
+      });
+    });
+  });
+});
