@@ -1,36 +1,48 @@
-// import React from 'react';
-// import { mount } from 'enzyme';
-// import { ListGroupItem } from 'react-bootstrap';
-// import Todo from 'components/todo';
+import React from 'react';
+import { mount } from 'enzyme';
+import TodoItem from '../item';
 
-// describe('Todo', () => {
-//   const todo = {
-//     id: 1,
-//     isComplete: false,
-//     name: 'Something to do'
-//   };
+describe('TodoItem', () => {
+  let props;
+  let component;
+  const renderComponent = () => mount(<TodoItem { ...props } />);
 
-//   describe('callbacks', () => {
-//     const updateTodo = jest.fn();
-//     const deleteTodo = jest.fn();
-//     const todoComponent = mount(
-//       <Todo
-//         updateTodo={ updateTodo }
-//         deleteTodo={ deleteTodo }
-//         todo={ todo }
-//       />
-//     );
+  describe('callbacks', () => {
+    const deleteTodo = jest.fn();
+    const updateTodo = jest.fn();
 
-//     it('calls toggle() when clicking on li and mark todo as complete', () => {
-//       todoComponent.find(ListGroupItem).at(0).simulate('click');
+    beforeEach(() => {
+      props = {
+        deleteTodo,
+        updateTodo,
+        todo: {
+          id: 1,
+          isComplete: false,
+          name: 'Some Todo'
+        }
+      };
+    });
 
-//       expect(updateTodo).toHaveBeenCalled();
-//     });
+    it('calls .updateTodo() when clicking on li and mark todo as complete', () => {
+      component = renderComponent();
+      component.find('ListGroupItem').simulate('click');
 
-//     it('calls delete() when clicking on delete icon', () => {
-//       todoComponent.find('.glyphicon-trash').simulate('click');
+      expect(updateTodo).toHaveBeenCalledWith({
+        id: 1,
+        isComplete: true,
+        name: 'Some Todo'
+      });
+    });
 
-//       expect(deleteTodo).toHaveBeenCalled();
-//     });
-//   });
-// });
+    it('calls .deleteTodo() when clicking on delete icon', () => {
+      component = renderComponent();
+      component.find('.glyphicon-trash').simulate('click');
+
+      expect(deleteTodo).toHaveBeenCalledWith({
+        id: 1,
+        isComplete: false,
+        name: 'Some Todo'
+      });
+    });
+  });
+});
