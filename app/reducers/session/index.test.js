@@ -51,11 +51,11 @@ describe('Session reducer', () => {
         state = {
           isLoading: true,
           loggedIn: false,
-          currentUser: {},
+          currentUser: {}
         };
 
         payload = {
-          name: 'User name',
+          name: 'User name'
         };
       });
 

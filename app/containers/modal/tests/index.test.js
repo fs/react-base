@@ -1,5 +1,4 @@
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import { containerWithStore, containerProps } from 'helpers/store';
 import Modal from 'containers/modal';
 

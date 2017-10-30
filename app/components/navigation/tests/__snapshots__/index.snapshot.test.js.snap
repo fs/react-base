@@ -48,6 +48,7 @@ exports[`Navigation renders correctly 1`] = `
         <a
           href="#"
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="button"
         >
           Sign up
@@ -61,6 +62,7 @@ exports[`Navigation renders correctly 1`] = `
         <a
           href="#"
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="button"
         >
           Sign in
@@ -119,6 +121,7 @@ exports[`Navigation when user is logged in renders user navigations 1`] = `
         <a
           href="#"
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="button"
         >
           test@test.com
@@ -132,6 +135,7 @@ exports[`Navigation when user is logged in renders user navigations 1`] = `
         <a
           href="#"
           onClick={[Function]}
+          onKeyDown={[Function]}
           role="button"
         >
           Sign out

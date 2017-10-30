@@ -14,7 +14,8 @@
     "eslint": "eslint 'server.js' './app' './config' --ext .js,.jsx",
     "eslint-fix": "yarn eslint -- --fix",
     "lint": "yarn stylelint && yarn eslint",
-    "test": "jest",
+    "jest": "jest",
+    "test": "yarn lint && yarn jest",
     "start": "node ./server"
   },
   "license": "MIT",
