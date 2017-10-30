@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Add test environment, snapshot and unit tests. Refactor containers.
+([#79](https://github.com/fs/react-base/pull/79))
 - Upgrade dependencies. Remove react-transition-group. Remove webpack-dashboard
 ([#88](https://github.com/fs/react-base/pull/88))
 - Add localization using i18next and react-i18next
