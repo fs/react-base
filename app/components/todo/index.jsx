@@ -1,4 +1,5 @@
 import React from 'react';
+import { omit } from 'lodash';
 import PropTypes from 'prop-types';
 import {
   Grid,
@@ -51,7 +52,7 @@ const Todo = props => (
 
 Todo.propTypes = {
   openModal: PropTypes.func.isRequired,
-  ...TodoList.propTypes
+  ...omit(TodoList.propTypes, ['isComplete'])
 };
 
 export default Todo;
