@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { NavItem } from 'react-bootstrap';
 import Navigation from 'components/navigation';
 
 describe('Navigation', () => {
@@ -23,7 +22,7 @@ describe('Navigation', () => {
   it('calls signup callback', () => {
     const navigationComponent = renderComponent();
 
-    navigationComponent.find(NavItem).at(0).simulate('click');
+    navigationComponent.find('NavItem').at(0).simulate('click');
 
     expect(signup).toHaveBeenCalled();
   });
@@ -31,7 +30,7 @@ describe('Navigation', () => {
   it('calls signin callback', () => {
     const navigationComponent = renderComponent();
 
-    navigationComponent.find(NavItem).at(1).simulate('click');
+    navigationComponent.find('NavItem').at(1).simulate('click');
 
     expect(signin).toHaveBeenCalled();
   });
@@ -52,7 +51,7 @@ describe('Navigation', () => {
     it('calls logout callback', () => {
       const navigationComponent = renderComponent();
 
-      navigationComponent.find(NavItem).at(1).simulate('click');
+      navigationComponent.find('NavItem').at(1).simulate('click');
 
       expect(logout).toHaveBeenCalled();
     });

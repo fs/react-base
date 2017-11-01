@@ -1,6 +1,7 @@
 .DS_Store
 .env
 node_modules
+coverage
 access_logs.db
 npm-debug.log
 dist
