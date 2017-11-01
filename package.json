@@ -15,7 +15,7 @@
     "eslint-fix": "yarn eslint -- --fix",
     "lint": "yarn stylelint && yarn eslint",
     "jest": "jest",
-    "test": "yarn lint",
+    "test": "yarn lint && yarn jest",
     "start": "node ./server"
   },
   "license": "MIT",
@@ -60,6 +60,8 @@
     "css-loader": "^0.28.5",
     "dotenv": "^4.0.0",
     "enzyme": "^2.9.1",
+    "enzyme-matchers": "^3.1.1",
+    "enzyme-to-json": "^1.6.0",
     "eslint": "^4.5.0",
     "eslint-config-fs": "^0.2.11",
     "express": "^4.15.4",
@@ -68,6 +70,7 @@
     "html-webpack-plugin": "^2.30.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^20.0.4",
+    "jest-enzyme": "^3.1.1",
     "json-server": "^0.12.0",
     "postcss-color-function": "^4.0.0",
     "postcss-extend": "^1.0.5",
@@ -78,7 +81,8 @@
     "postcss-pxtorem": "^4.0.1",
     "postcss-simple-vars": "^4.1.0",
     "react-addons-test-utils": "^15.6.0",
-    "sinon": "^3.2.1",
+    "react-test-renderer": "^15.5.4",
+    "redux-mock-store": "^1.2.3",
     "style-loader": "^0.18.2",
     "stylefmt": "^6.0.0",
     "stylelint": "^8.0.0",
@@ -89,12 +93,13 @@
     "webpack-hot-middleware": "^2.18.2"
   },
   "jest": {
-    "roots": [
-      "app/components",
-      "app/lib"
-    ],
     "modulePaths": [
-      "app"
+      "app",
+      "test"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "config"
     ],
     "moduleFileExtensions": [
       "js",
@@ -104,7 +109,8 @@
       "^(.*)(s|S)tyles$": "identity-obj-proxy"
     },
     "setupFiles": [
-      "./app/lib/testMocks.js"
-    ]
+      "./test/mocks/fakeStorage.js"
+    ],
+    "setupTestFrameworkScriptFile": "./test/setup.js"
   }
 }

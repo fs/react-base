@@ -7,7 +7,7 @@ import jFetch from 'j-fetch';
 import currentUser from 'services/currentUser';
 import appHistory from 'services/history';
 import store from 'stores/application';
-import Root from 'containers/root';
+import Root from 'components/root';
 
 jFetch.init({
   authHeaders: {
@@ -26,8 +26,8 @@ render(
 );
 
 if (module.hot) {
-  module.hot.accept('containers/root', () => {
-    const HotRoot = require('containers/root').default;
+  module.hot.accept('components/root', () => {
+    const HotRoot = require('components/root').default;
 
     render(
       <AppContainer>

@@ -1,41 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Modal } from 'react-bootstrap';
-import i18n from 'services/i18n';
 import sessionActions from 'actions/session';
-import SigninForm from 'components/signinForm';
-
-const SigninModalContainer = ({ isOpen, isLoading, signinUser, closeModal }) => (
-  <Modal
-    bsSize="small"
-    show={ isOpen }
-    onHide={ closeModal }
-  >
-    <Modal.Header closeButton>
-      <h3 className="modal-title">{ i18n.t('modal:signin') }</h3>
-    </Modal.Header>
-    <SigninForm
-      isLoading={ isLoading }
-      signinUser={ signinUser }
-      closeModal={ closeModal }
-    />
-  </Modal>
-);
-
-SigninModalContainer.propTypes = {
-  closeModal: PropTypes.func.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  signinUser: PropTypes.func.isRequired
-};
+import SigninModal from 'components/signin/modal';
 
 const mapStateToProps = state => ({
-  isLoading: state.session.isLoading
+  session: state.session
 });
 
-const mapDispatchToProps = dispatch => ({
-  signinUser: user => dispatch(sessionActions.signinUser(user))
-});
+const mapDispatchToProps = {
+  signinUser: sessionActions.signinUser
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SigninModalContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(SigninModal);

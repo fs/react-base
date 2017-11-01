@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoItem renders correctly 1`] = `
+<button
+  className="todo list-group-item"
+  onClick={[Function]}
+  type="button"
+>
+  <span>
+    Something to do
+  </span>
+  <span
+    className="glyphicon glyphicon-trash iconTrash"
+    onClick={[Function]}
+  />
+</button>
+`;

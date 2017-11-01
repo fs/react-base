@@ -1,23 +1,37 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import Main from 'components/main';
-import TodoLayout from 'components/todo/layout';
-import Home from 'components/home';
-import currentUser from 'services/currentUser';
+import { shallow } from 'enzyme';
+import Main from '../';
+
+jest.mock('containers/todo', () => 'TodoContainer');
 
 describe('Main', () => {
-  it('renders Home component', () => {
-    const mainComponent = mount(<Main/>);
+  let props;
+  let component;
+  const renderComponent = () => shallow(<Main { ...props } />);
 
-    expect(mainComponent.contains(<Home/>)).toEqual(true);
+  beforeEach(() => {
+    props = {
+      loggedIn: false
+    };
   });
 
-  describe('when session is created', () => {
-    it('renders TodoLayout component', () => {
-      spyOn(currentUser, 'loggedIn').and.returnValue(true);
-      const mainComponent = mount(<Main/>);
+  it('renders Home component', () => {
+    component = renderComponent();
 
-      expect(mainComponent.contains(<TodoLayout/>)).toEqual(true);
+    expect(component.find('Home')).toBePresent();
+  });
+
+  context('when user is logged in', () => {
+    beforeEach(() => {
+      props = {
+        loggedIn: true
+      };
+    });
+
+    it('renders TodoContainer component', () => {
+      component = renderComponent();
+
+      expect(component.find('TodoContainer')).toBePresent();
     });
   });
 });

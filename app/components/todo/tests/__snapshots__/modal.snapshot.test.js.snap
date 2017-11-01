@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TodoModal renders correctly 1`] = `
+<Modal
+  closeModal={[Function]}
+  isOpen={true}
+  title="New Task"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="taskName"
+      >
+        Task name
+        : 
+        
+      </label>
+      <input
+        className="form-control"
+        id="taskName"
+        name="name"
+        onChange={[Function]}
+        placeholder="Task name..."
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
+    >
+      Save
+    </button>
+  </form>
+</Modal>
+`;
+
+exports[`TodoModal when form is invalid renders form with validation errors 1`] = `
+<Modal
+  closeModal={[Function]}
+  isOpen={true}
+  title="New Task"
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+        htmlFor="taskName"
+      >
+        Task name
+        : 
+        
+      </label>
+      <input
+        className="form-control"
+        id="taskName"
+        name="name"
+        onChange={[Function]}
+        placeholder="Task name..."
+        type="text"
+        value=""
+      />
+    </div>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      type="submit"
+    >
+      Save
+    </button>
+  </form>
+</Modal>
+`;

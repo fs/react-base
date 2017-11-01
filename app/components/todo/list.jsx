@@ -1,25 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ListGroup } from 'react-bootstrap';
-import Todo from 'components/todo';
+import TodoItem from './item';
 
-const TodoList = ({ todos, toggleTodo, deleteTodo }) => (
+const TodoList = ({ isComplete, todos, updateTodo, deleteTodo }) => (
   <ListGroup>
     {
-      todos.map(todo => (
-        <Todo
-          key={ todo.id }
-          todo={ todo }
-          toggleTodo={ toggleTodo }
-          deleteTodo={ deleteTodo }
-        />
-      ))
+      todos
+        .filter(todo => todo.isComplete === isComplete)
+        .map(todo => (
+          <TodoItem
+            key={ todo.id }
+            todo={ todo }
+            updateTodo={ updateTodo }
+            deleteTodo={ deleteTodo }
+          />
+        ))
     }
   </ListGroup>
 );
 
 TodoList.propTypes = {
   deleteTodo: PropTypes.func.isRequired,
+  isComplete: PropTypes.bool.isRequired,
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.id,
@@ -27,7 +30,7 @@ TodoList.propTypes = {
       name: PropTypes.any
     })
   ).isRequired,
-  toggleTodo: PropTypes.func.isRequired
+  updateTodo: PropTypes.func.isRequired
 };
 
 export default TodoList;

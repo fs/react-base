@@ -13,24 +13,16 @@ const MODALS = {
 };
 
 const ModalContainer = ({ modal, closeModal }) => {
-  const renderCurrentModal = () => {
-    if (!modal) return null;
+  const { modalName, ...rest } = modal;
 
-    const { modalName, ...rest } = modal;
+  if (modalName) {
+    const params = { ...rest, closeModal };
+    const CurrentModal = MODALS[modalName];
 
-    if (modalName) {
-      const params = { ...rest, closeModal };
-      const CurrentModal = MODALS[modalName];
+    return <CurrentModal { ...params }/>;
+  }
 
-      return <CurrentModal { ...params }/>;
-    }
-  };
-
-  return (
-    <div className="modals">
-      { renderCurrentModal() }
-    </div>
-  );
+  return null;
 };
 
 ModalContainer.propTypes = {
@@ -42,8 +34,8 @@ const mapStateToProps = state => ({
   modal: state.modal
 });
 
-const mapDispatchToProps = dispatch => ({
-  closeModal: () => dispatch(modalActions.closeModal())
-});
+const mapDispatchToProps = {
+  closeModal: modalActions.closeModal
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalContainer);

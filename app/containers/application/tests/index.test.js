@@ -1,17 +1,24 @@
-import React from 'react';
 import { shallow } from 'enzyme';
-import Application from 'components/application';
-import Header from 'components/header';
-import Modals from 'components/modals';
-import Footer from 'components/footer';
+import { containerWithStore, containerProps } from 'helpers/store';
+import fakeSession from 'mocks/fakeSession';
+import Application from '../';
 
 describe('Application', () => {
-  const applicationComponent = shallow(<Application/>);
+  let state;
+  let component;
+  const renderComponent = () => shallow(containerWithStore(Application, state));
 
-  it('renders Application component with child components', () => {
-    expect(applicationComponent.find('main').length).toEqual(1);
-    expect(applicationComponent.contains(<Header/>)).toEqual(true);
-    expect(applicationComponent.contains(<Modals/>)).toEqual(true);
-    expect(applicationComponent.contains(<Footer/>)).toEqual(true);
+  beforeEach(() => {
+    state = {
+      session: fakeSession
+    };
+  });
+
+  it('renders Application component', () => {
+    component = renderComponent().find('Application');
+    const applicationProps = containerProps(component);
+
+    expect(component).toBePresent();
+    expect(applicationProps).toEqual(['session', 'logout', 'signin', 'signup']);
   });
 });

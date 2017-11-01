@@ -1,3 +1,13 @@
 {
-  "extends": "eslint-config-fs"
+  "extends": "eslint-config-fs",
+  "overrides": [
+    {
+      "files": [
+        "app/**/*.test.js"
+      ],
+      "rules": {
+        "max-statements": "off"
+      }
+    }
+  ]
 }
