@@ -1,4 +1,5 @@
 import 'jest-enzyme';
-import './i18n';
+import './mocks/i18n';
+import './mocks/reducers';
 
 global.context = describe;
