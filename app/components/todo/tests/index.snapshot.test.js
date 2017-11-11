@@ -9,11 +9,7 @@ describe('Todo', () => {
 
   beforeEach(() => {
     props = {
-      openModal: () => {},
-      deleteTodo: () => {},
-      isComplete: false,
-      todos: [],
-      updateTodo: () => {}
+      openModal: () => {}
     };
   });
 

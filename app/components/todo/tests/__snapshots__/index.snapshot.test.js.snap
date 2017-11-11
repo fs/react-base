@@ -53,12 +53,8 @@ exports[`Todo renders correctly 1`] = `
       >
         Incomplete
       </h3>
-      <TodoList
-        deleteTodo={[Function]}
+      <Connect(TodoListContainer)
         isComplete={false}
-        openModal={[Function]}
-        todos={Array []}
-        updateTodo={[Function]}
       />
     </Col>
     <Col
@@ -71,12 +67,8 @@ exports[`Todo renders correctly 1`] = `
       >
         Complete
       </h3>
-      <TodoList
-        deleteTodo={[Function]}
+      <Connect(TodoListContainer)
         isComplete={true}
-        openModal={[Function]}
-        todos={Array []}
-        updateTodo={[Function]}
       />
     </Col>
   </Row>
