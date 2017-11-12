@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+
+## 2.0.0 - 2017-11-12
 - Upgrade Node.js to version 9. Update hmr setup code regarding to webpack 3
 ([#92](https://github.com/fs/react-base/pull/92))
 - Remove mirror-creator. Move constants declaration to actions. Refactor actions and reducers.
