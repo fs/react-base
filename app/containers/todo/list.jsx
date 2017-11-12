@@ -23,9 +23,9 @@ const mapStateToProps = state => ({
   ...state.todos
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = {
   deleteTodo,
   updateTodo
-});
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoListContainer);
