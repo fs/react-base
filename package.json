@@ -20,7 +20,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "^8.0.0"
+    "node": "^9.0.0"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",

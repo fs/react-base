@@ -29,6 +29,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(config.appDir, 'index.html')
     }),
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
