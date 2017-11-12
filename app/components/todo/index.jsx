@@ -1,5 +1,4 @@
 import React from 'react';
-import { omit } from 'lodash';
 import PropTypes from 'prop-types';
 import {
   Grid,
@@ -8,7 +7,7 @@ import {
   Button
 } from 'react-bootstrap';
 import i18n from 'services/i18n';
-import TodoList from './list';
+import TodoList from 'containers/todo/list';
 import styles from './styles';
 
 const Todo = props => (
@@ -32,27 +31,20 @@ const Todo = props => (
         <h3 className="spacing-bottom">
           { i18n.t('todo:incomplete') }
         </h3>
-        <TodoList
-          { ...props }
-          isComplete={ false }
-        />
+        <TodoList isComplete={ false } />
       </Col>
       <Col md={ 6 }>
         <h3 className="spacing-bottom">
           { i18n.t('todo:complete') }
         </h3>
-        <TodoList
-          { ...props }
-          isComplete={ true }
-        />
+        <TodoList isComplete={ true } />
       </Col>
     </Row>
   </Grid>
 );
 
 Todo.propTypes = {
-  openModal: PropTypes.func.isRequired,
-  ...omit(TodoList.propTypes, ['isComplete'])
+  openModal: PropTypes.func.isRequired
 };
 
 export default Todo;
