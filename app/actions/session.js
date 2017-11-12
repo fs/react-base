@@ -5,7 +5,7 @@ import sessionStorage from 'services/sessionStorage';
 import appHistory from 'services/history';
 import { paths } from 'helpers/routes';
 
-export const LOAD_DATA = 'OPELOAD_DATAN_MODAL';
+export const LOAD_DATA = 'LOAD_DATA';
 export const SET_USER = 'SET_USER';
 export const REMOVE_USER = 'REMOVE_USER';
 
