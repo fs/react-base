@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import sessionActions from 'actions/session';
+import { signupUser } from 'actions/session';
 import signupModal from 'components/signup/modal';
 
 const mapStateToProps = state => ({
@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  signupUser: sessionActions.signupUser
+  signupUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(signupModal);

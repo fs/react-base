@@ -1,12 +1,6 @@
 import { handleActions } from 'redux-actions';
-import actionTypes from 'constants/session';
 import sessionStorage from 'services/sessionStorage';
-
-const {
-  LOAD_DATA,
-  SET_USER,
-  REMOVE_USER
-} = actionTypes;
+import { LOAD_DATA, SET_USER, REMOVE_USER } from 'actions/session';
 
 const initialState = {
   isLoading: false,
