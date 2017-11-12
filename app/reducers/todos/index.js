@@ -1,13 +1,11 @@
 import { handleActions } from 'redux-actions';
-import actionTypes from 'constants/todos';
-
-const {
+import {
   LOAD_TODOS,
   SET_TODOS,
   ADD_TODO,
   TOGGLE_TODO,
   REMOVE_TODO
-} = actionTypes;
+} from 'actions/todos';
 
 const initialState = {
   isLoading: false,

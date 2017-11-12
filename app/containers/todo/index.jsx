@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import todosActions from 'actions/todos';
-import modalActions from 'actions/modal';
+import { fetchTodos } from 'actions/todos';
+import { openModal } from 'actions/modal';
 import Todo from 'components/todo';
 
 class TodoContainer extends Component {
@@ -21,8 +21,8 @@ TodoContainer.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchTodos: () => dispatch(todosActions.fetchTodos()),
-  openModal: () => dispatch(modalActions.openModal({ name: 'todo' }))
+  fetchTodos: () => dispatch(fetchTodos()),
+  openModal: () => dispatch(openModal({ name: 'todo' }))
 });
 
 export default connect(null, mapDispatchToProps)(TodoContainer);

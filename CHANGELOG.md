@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Remove mirror-creator. Move constants declaration to actions. Refactor actions and reducers.
+([#91](https://github.com/fs/react-base/pull/91))
 - Add test environment, snapshot and unit tests. Refactor containers.
 ([#79](https://github.com/fs/react-base/pull/79))
 - Upgrade dependencies. Remove react-transition-group. Remove webpack-dashboard

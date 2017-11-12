@@ -1,7 +1,5 @@
 import { handleActions } from 'redux-actions';
-import actionTypes from 'constants/modal';
-
-const { OPEN_MODAL, CLOSE_MODAL } = actionTypes;
+import { OPEN_MODAL, CLOSE_MODAL } from 'actions/modal';
 
 const initialState = {
   isOpen: false,

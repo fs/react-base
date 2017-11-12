@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import modalActions from 'actions/modal';
+import { closeModal } from 'actions/modal';
 import TodoModal from 'containers/todoModal';
 import SigninModal from 'containers/signinModal';
 import SignupModal from 'containers/signupModal';
@@ -35,7 +35,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  closeModal: modalActions.closeModal
+  closeModal
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalContainer);

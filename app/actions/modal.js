@@ -1,11 +1,7 @@
-import { createActions } from 'redux-actions';
-import actionTypes from 'constants/modal';
+import { createAction } from 'redux-actions';
 
-const { OPEN_MODAL, CLOSE_MODAL } = actionTypes;
+export const OPEN_MODAL = 'OPEN_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';
 
-const actions = createActions(
-  OPEN_MODAL,
-  CLOSE_MODAL
-);
-
-export default actions;
+export const openModal = createAction(OPEN_MODAL);
+export const closeModal = createAction(CLOSE_MODAL);

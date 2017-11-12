@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import sessionActions from 'actions/session';
+import { signinUser } from 'actions/session';
 import SigninModal from 'components/signin/modal';
 
 const mapStateToProps = state => ({
@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  signinUser: sessionActions.signinUser
+  signinUser
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SigninModal);

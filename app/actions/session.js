@@ -1,46 +1,43 @@
-import { createActions } from 'redux-actions';
+import { createAction } from 'redux-actions';
 import sessionSource from 'sources/session';
 import usersSource from 'sources/users';
-import actionTypes from 'constants/session';
 import sessionStorage from 'services/sessionStorage';
 import appHistory from 'services/history';
 import { paths } from 'helpers/routes';
 
-const { LOAD_DATA, SET_USER, REMOVE_USER } = actionTypes;
+export const LOAD_DATA = 'LOAD_DATA';
+export const SET_USER = 'SET_USER';
+export const REMOVE_USER = 'REMOVE_USER';
 
-const actions = createActions(
-  LOAD_DATA,
-  SET_USER,
-  REMOVE_USER
-);
+export const loadData = createAction(LOAD_DATA);
+export const setUser = createAction(SET_USER);
+export const removeUser = createAction(REMOVE_USER);
 
-const signinUser = user =>
+export const signinUser = user =>
   dispatch => {
-    dispatch(actions.loadData());
+    dispatch(loadData());
 
     return sessionSource.signin(user).then(result => {
       sessionStorage.set(result);
-      dispatch(actions.setUser(result));
+      dispatch(setUser(result));
       appHistory.push(paths.home());
     });
   };
 
-const signupUser = user =>
+export const signupUser = user =>
   dispatch => {
-    dispatch(actions.loadData());
+    dispatch(loadData());
 
     return usersSource.create(user).then(result => {
       sessionStorage.set(result);
-      dispatch(actions.setUser(result));
+      dispatch(setUser(result));
       appHistory.push(paths.home());
     });
   };
 
-const logoutUser = user =>
+export const logoutUser = user =>
   dispatch =>
     sessionSource.logout(user).then(() => {
       sessionStorage.remove();
-      dispatch(actions.removeUser());
+      dispatch(removeUser());
     });
-
-export default { ...actions, signinUser, signupUser, logoutUser };

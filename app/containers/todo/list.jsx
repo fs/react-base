@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import todosActions from 'actions/todos';
+import { deleteTodo, updateTodo } from 'actions/todos';
 import TodoList from 'components/todo/list';
 
 const TodoListContainer = ({ isComplete, todos, updateTodo, deleteTodo }) => (
@@ -23,9 +23,9 @@ const mapStateToProps = state => ({
   ...state.todos
 });
 
-const mapDispatchToProps = dispatch => ({
-  deleteTodo: todo => dispatch(todosActions.deleteTodo(todo)),
-  updateTodo: todo => dispatch(todosActions.updateTodo(todo))
-});
+const mapDispatchToProps = {
+  deleteTodo,
+  updateTodo
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoListContainer);
