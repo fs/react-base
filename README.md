@@ -4,7 +4,9 @@
 [![Dependency Status](https://david-dm.org/fs/react-base.svg?branch=master)](https://david-dm.org/fs/react-base)
 [![devDependency Status](https://david-dm.org/fs/react-base/dev-status.svg?branch=master)](https://david-dm.org/fs/react-base#info=devDependencies)
 
-Kick-start your new web application based on React and Redux technologies. It also includes Webpack 2, Yarn, React hot loader, PostCSS, JSON-server tools and test environment based on Jest, Enzyme, Eslint and Stylelint for even more rapid development.
+Kick-start your new web application based on React and Redux technologies. It also includes Webpack 3, Yarn, React hot loader, PostCSS, JSON-server tools and test environment based on Jest, Enzyme, Eslint and Stylelint for even more rapid development.
+
+Try the demo [http://react-base.herokuapp.com](http://react-base.herokuapp.com)
 
 ## Dependencies:
 
@@ -15,12 +17,6 @@ List of all dependencies is presented [here](https://github.com/fs/react-base/bl
 
 Install Node.js
 
-Via brew:
-```bash
-brew install node yarn
-```
-
-Via nvm:
 ```bash
 brew install nvm yarn
 nvm install node
@@ -86,24 +82,24 @@ yarn test
 
 Run javascript linter
 ```bash
-yarn run eslint
+yarn eslint
 ```
 
 Run stylesheets linter
 ```bash
-yarn run stylelint
+yarn stylelint
 ```
 
 Run all linters
 ```bash
-yarn run lint
+yarn lint
 ```
 
 ## Test tasks
 
 Run jest tests
 ```bash
-yarn run jest
+yarn jest
 ```
 
 ## Credits
