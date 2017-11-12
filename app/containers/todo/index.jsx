@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import todosActions from 'actions/todos';
+import { fetchTodos } from 'actions/todos';
 import { openModal } from 'actions/modal';
 import Todo from 'components/todo';
 
@@ -21,7 +21,7 @@ TodoContainer.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  fetchTodos: () => dispatch(todosActions.fetchTodos()),
+  fetchTodos: () => dispatch(fetchTodos()),
   openModal: () => dispatch(openModal({ name: 'todo' }))
 });
 
