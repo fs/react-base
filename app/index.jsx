@@ -5,8 +5,6 @@ import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import jFetch from 'j-fetch';
 import currentUser from 'services/currentUser';
-import appHistory from 'services/history';
-import store from 'stores/application';
 import Root from 'components/root';
 
 jFetch.init({
@@ -16,24 +14,19 @@ jFetch.init({
   }
 });
 
-const mountNode = document.getElementById('app');
+const renderComponent = Component => {
+  render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('app'),
+  );
+};
 
-render(
-  <AppContainer>
-    <Root store={ store } history={ appHistory } />
-  </AppContainer>,
-  mountNode
-);
+renderComponent(Root);
 
 if (module.hot) {
   module.hot.accept('components/root', () => {
-    const HotRoot = require('components/root').default;
-
-    render(
-      <AppContainer>
-        <HotRoot store={ store } history={ appHistory } />
-      </AppContainer>,
-      mountNode
-    );
+    renderComponent(Root);
   });
 }
