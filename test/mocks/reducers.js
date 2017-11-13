@@ -10,8 +10,6 @@ jest.mock('reducers', () => {
 
       const reducer = require(`../../${REDUCERS_FOLDER}/${value}/index.js`);
 
-      console.log(value, reducer);
-
       return {
         ...acc,
         [value]: reducer.default
