@@ -1,24 +1,23 @@
 jest.mock('reducers', () => {
   const { combineReducers } = require('redux');
-  const LOCALE_FOLDER = 'app/reducers';
+  const REDUCERS_FOLDER = 'app/reducers';
 
   const getReducers = () => {
     const fs = require('fs');
 
-    return fs.readdirSync(LOCALE_FOLDER).reduce((acc, value, key) => {
-      console.log(value);
+    return fs.readdirSync(REDUCERS_FOLDER).reduce((acc, value, key) => {
+      if (key === 0) return acc;
 
-      // if (key === 0) return acc;
+      const reducer = require(`../../${REDUCERS_FOLDER}/${value}/index.js`);
 
-      // const domain = value.match(/^\.\/(.+?)\/.+/)[1];
+      console.log(value, reducer);
 
-      // return {
-      //   ...acc,
-      //   [domain]: require(`../${LOCALE_FOLDER}/${value}`)
-      // };
-      return acc;
+      return {
+        ...acc,
+        [value]: reducer.default
+      };
     }, {});
-  }
+  };
 
   return combineReducers(
     getReducers()
