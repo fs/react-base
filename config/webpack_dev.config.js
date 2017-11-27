@@ -31,7 +31,8 @@ module.exports = {
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
   module: {
     rules: [
