@@ -1,6 +1,6 @@
 jest.mock('services/i18n', () => {
   const i18n = require('i18next');
-  const LOCALE_FOLDER = 'app/locales/en/';
+  const LOCALE_FOLDER = 'app/locales/en';
 
   const getResources = () => {
     const fs = require('fs');
@@ -11,7 +11,7 @@ jest.mock('services/i18n', () => {
       return {
         'en': {
           ...acc['en'],
-          [fileName]: require(`../${LOCALE_FOLDER}/${value}`)
+          [fileName]: require(`../../${LOCALE_FOLDER}/${value}`)
         }
       };
     }, {});
