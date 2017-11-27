@@ -17,7 +17,5 @@ jest.mock('reducers', () => {
     }, {});
   };
 
-  return combineReducers(
-    getReducers()
-  );
+  return combineReducers(getReducers());
 });

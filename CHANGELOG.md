@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Require reducers automatically via webpack require.context
+([#94](https://github.com/fs/react-base/pull/94))
 
 ## 2.0.0 - 2017-11-12
 - Upgrade Node.js to version 9. Update hmr setup code regarding to webpack 3
