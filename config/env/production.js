@@ -1,4 +1,5 @@
 module.exports = {
+  env: process.env.NODE_ENV,
   target: 'http://react-base.herokuapp.com',
   apiTarget: 'http://react-base-api.herokuapp.com',
   storage: {

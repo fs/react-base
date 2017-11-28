@@ -27,11 +27,7 @@ module.exports = {
     }),
     new ExtractTextPlugin('application.css'),
     new webpack.optimize.UglifyJsPlugin(),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(config.env)
-      }
-    })
+    new webpack.EnvironmentPlugin(['NODE_ENV'])
   ],
   module: {
     rules: [

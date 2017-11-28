@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
@@ -12,7 +14,8 @@ const webpackBuildConfig = require('./config/webpack_build.config');
 const port = config.port;
 const server = express();
 
-if (config.development) {
+if (config.env === 'development') {
+  const apiPath = require('./config/env/development').apiPath;
   const compiler = webpack(webpackDevConfig);
   const webpackOptions = {
     stats: {
@@ -39,7 +42,7 @@ if (config.development) {
   server.use(webpackDevMiddleware(compiler, webpackOptions));
   server.use(webpackHotMiddleware(compiler));
   server.use(jsonServer.defaults());
-  server.use(config.apiPath, jsonServer.router('./db/db.json'));
+  server.use(apiPath, jsonServer.router('./db/db.json'));
   server.listen(port, 'localhost', () => {
     console.log(`Server listening on port ${port}`);
   });
