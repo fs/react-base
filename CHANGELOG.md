@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Setup HMR for reducers
+([#95](https://github.com/fs/react-base/pull/95))
 - Require reducers automatically via webpack require.context
 ([#94](https://github.com/fs/react-base/pull/94))
 
