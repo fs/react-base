@@ -1,9 +1,11 @@
 # Changelog
 
 ## Unreleased
-- Ignoring .idea directory
-([#97](https://github.com/fs/react-base/pull/97))
+- Update Babel presets
+([#98](https://github.com/fs/react-base/pull/98))
 - Setup HMR for reducers
+([#96](https://github.com/fs/react-base/pull/96))
+- Setup env variable usage on client side
 ([#95](https://github.com/fs/react-base/pull/95))
 - Require reducers automatically via webpack require.context
 ([#94](https://github.com/fs/react-base/pull/94))
