@@ -1,8 +1,6 @@
 # Changelog
 
 ## Unreleased
-- Ignoring .idea directory
-([#97](https://github.com/fs/react-base/pull/97))
 - Setup HMR for reducers
 ([#95](https://github.com/fs/react-base/pull/95))
 - Require reducers automatically via webpack require.context
