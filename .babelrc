@@ -1,23 +1,18 @@
 {
   "presets": [
-    "react",
-    [
-      "env",
-      {
-        "modules": false
-      }
-    ]
+    ["env", { "modules": false }],
+    "stage-0",
+    "react"
   ],
   "plugins": [
-    "react-hot-loader/babel",
-    "transform-object-rest-spread",
-    ["transform-class-properties", { "spec": true }]
+    "react-hot-loader/babel"
   ],
   "env": {
     "production": {
       "plugins": [
         "transform-react-remove-prop-types",
-        "transform-react-constant-elements"
+        "transform-react-constant-elements",
+        "transform-react-inline-elements"
       ]
     },
     "test": {
