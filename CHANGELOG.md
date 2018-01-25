@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Update Babel presets
+- Add "env" preset and move some plugins to production environment
 ([#98](https://github.com/fs/react-base/pull/98))
 - Setup HMR for reducers
 ([#96](https://github.com/fs/react-base/pull/96))
