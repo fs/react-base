@@ -1,17 +1,13 @@
-import config from 'config';
-import { post, destroy } from 'j-fetch';
+import api from 'services/api';
 
-export default class SessionSource {
-  static urlRoot = `${config.apiTarget}/session`;
-
-  static signin(user) {
-    return post({ url: this.urlRoot, body: user })
-      .then(result => result.json());
+export default {
+  urlRoot: '/session',
+  async signin(user) {
+    return (
+      await api.post(this.urlRoot, user, { withoutAuth: true })
+    ).data;
+  },
+  async logout({ id }) {
+    return await api.delete(`${this.urlRoot}/${id}`, { withoutAuth: true });
   }
-
-  static logout(user) {
-    const logoutUrl = `${this.urlRoot}/${user.id}`;
-
-    return destroy({ url: logoutUrl });
-  }
-}
+};

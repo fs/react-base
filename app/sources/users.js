@@ -1,11 +1,10 @@
-import config from 'config';
-import { post } from 'j-fetch';
+import api from 'services/api';
 
-export default class UsersSource {
-  static urlRoot = `${config.apiTarget}/users`;
-
-  static create(user) {
-    return post({ url: this.urlRoot, body: user })
-      .then(result => result.json());
+export default {
+  urlRoot: '/users',
+  async create(user) {
+    return (
+      await api.post(this.urlRoot, user, { withoutAuth: true })
+    ).data;
   }
-}
+};

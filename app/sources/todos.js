@@ -1,33 +1,21 @@
-import config from 'config';
-import {
-  get,
-  post,
-  patch,
-  destroy
-} from 'j-fetch/auth';
+import api from 'services/api';
 
-export default class TodosSource {
-  static urlRoot = `${config.apiTarget}/todos`;
-
-  static get() {
-    return get({ url: this.urlRoot })
-      .then(result => result.json());
+export default {
+  urlRoot: '/todos',
+  async get() {
+    return (
+      await api.get(this.urlRoot)
+    ).data;
+  },
+  async create(todo) {
+    return (
+      await api.post(this.urlRoot, todo)
+    ).data;
+  },
+  async update(todo) {
+    return await api.patch(`${this.urlRoot}/${todo.id}`, todo);
+  },
+  async delete({ id }) {
+    return await api.destroy(`${this.urlRoot}/${id}`);
   }
-
-  static create(todo) {
-    return post({ url: this.urlRoot, body: todo })
-      .then(result => result.json());
-  }
-
-  static update(todo) {
-    const updateUrl = `${this.urlRoot}/${todo.id}`;
-
-    return patch({ url: updateUrl, body: todo });
-  }
-
-  static delete(todo) {
-    const deleteUrl = `${this.urlRoot}/${todo.id}`;
-
-    return destroy({ url: deleteUrl });
-  }
-}
+};
