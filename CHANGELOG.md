@@ -1,7 +1,11 @@
 # Changelog
 
 ## Unreleased
+- Add "env" preset and move some plugins to production environment
+([#98](https://github.com/fs/react-base/pull/98))
 - Setup HMR for reducers
+([#96](https://github.com/fs/react-base/pull/96))
+- Setup env variable usage on client side
 ([#95](https://github.com/fs/react-base/pull/95))
 - Require reducers automatically via webpack require.context
 ([#94](https://github.com/fs/react-base/pull/94))
