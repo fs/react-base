@@ -9,6 +9,6 @@ if [ ! -f .env ]; then
 fi
 
 # Setup db.json
-if [ ! -f db/db.json ]; then
-  cp db/db.json.example db/db.json
+if [ ! -f json-server/db/db.json ]; then
+  cp json-server/db/db.json.example json-server/db/db.json
 fi

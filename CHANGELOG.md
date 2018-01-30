@@ -1,7 +1,7 @@
 # Changelog
 
 ## Unreleased
-- Introduce async/await for async requests. Use axios instead of j-fetch
+- Introduce async/await for async requests. Use axios instead of j-fetch. Move json-server logic to separated module
 ([#100](https://github.com/fs/react-base/pull/100))
 - Add "env" preset and move some plugins to production environment
 ([#98](https://github.com/fs/react-base/pull/98))

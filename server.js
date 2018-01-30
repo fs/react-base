@@ -6,16 +6,15 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 const compression = require('compression');
 const historyApiFallback = require('connect-history-api-fallback');
-const jsonServer = require('json-server');
+const jsonServer = require('./json-server');
 const config = require('./config/application');
 const webpackDevConfig = require('./config/webpack_dev.config');
 const webpackBuildConfig = require('./config/webpack_build.config');
 
-const port = config.port;
+const { port } = config;
 const server = express();
 
 if (config.env === 'development') {
-  const apiPath = require('./config/env/development').apiPath;
   const compiler = webpack(webpackDevConfig);
   const webpackOptions = {
     stats: {
@@ -35,39 +34,15 @@ if (config.env === 'development') {
     },
     publicPath: webpackDevConfig.output.publicPath
   };
-  const router = jsonServer.router('./db/db.json');
 
   compiler.apply(new webpack.ProgressPlugin());
-
   server.use(historyApiFallback());
   server.use(webpackDevMiddleware(compiler, webpackOptions));
   server.use(webpackHotMiddleware(compiler));
-  server.use(jsonServer.defaults());
-  server.use(apiPath, router);
   server.listen(port, 'localhost', () => {
     console.log(`Server listening on port ${port}`);
   });
-
-  // Has overrided json-server render method to simulate server side error response.
-  // Error will be returned if you try to sign in with error@example.com email
-  router.render = (
-    {
-      url,
-      method,
-      body: { email }
-    },
-    res
-  ) => {
-    if (
-      url === '/session' &&
-      method === 'POST' &&
-      email === 'error@example.com'
-    ) {
-      res.status(500).jsonp({ error: 'Server error has occured' });
-    } else {
-      res.jsonp(res.locals.data);
-    }
-  };
+  jsonServer.initialize(server);
 } else {
   webpack(webpackBuildConfig, (err, stats) => {
     if (err) return console.log(err);
