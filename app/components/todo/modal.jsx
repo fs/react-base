@@ -23,26 +23,27 @@ class TodoModal extends Component {
   }
 
   validationState = () => {
-    const length = this.state.name.length;
+    const { length } = this.state.name;
 
     if (!length) return null;
 
     return length > 5 ? 'success' : 'error';
   }
 
-  createTodo = event => {
+  createTodo = async event => {
     event.preventDefault();
 
     const { name } = this.state;
     const { createTodo, closeModal } = this.props;
 
     if (this.validationState() === 'success') {
-      createTodo({ name })
-        .then(() => {
-          this.setState({ name: '' });
-          closeModal();
-        })
-        .catch(({ errors }) => this.setState({ errors }));
+      try {
+        await createTodo({ name });
+        this.setState({ name: '' });
+        closeModal();
+      } catch ({ errors }) {
+        this.setState({ errors });
+      }
     }
   }
 

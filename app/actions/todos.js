@@ -14,30 +14,29 @@ export const toggleTodo = createAction(TOGGLE_TODO);
 export const removeTodo = createAction(REMOVE_TODO);
 
 export const fetchTodos = () =>
-  dispatch => {
+  async dispatch => {
     dispatch(loadTodos());
 
-    return todosSource.get().then(result => {
-      dispatch(setTodos(result));
-    });
+    const result = await todosSource.get();
+
+    dispatch(setTodos(result));
   };
 
 export const createTodo = todo =>
-  dispatch =>
-    todosSource.create({ ...todo, isComplete: false }).then(result => {
-      dispatch(addTodo(result));
-    });
+  async dispatch => {
+    const result = await todosSource.create({ ...todo, isComplete: false });
+
+    dispatch(addTodo(result));
+  };
 
 export const updateTodo = todo =>
   dispatch => {
     dispatch(toggleTodo(todo));
-
-    return todosSource.update(todo);
+    todosSource.update(todo);
   };
 
 export const deleteTodo = todo =>
   dispatch => {
     dispatch(removeTodo(todo));
-
-    return todosSource.delete(todo);
+    todosSource.delete(todo);
   };

@@ -35,6 +35,7 @@ if (config.env === 'development') {
     },
     publicPath: webpackDevConfig.output.publicPath
   };
+  const router = jsonServer.router('./db/db.json');
 
   compiler.apply(new webpack.ProgressPlugin());
 
@@ -42,10 +43,31 @@ if (config.env === 'development') {
   server.use(webpackDevMiddleware(compiler, webpackOptions));
   server.use(webpackHotMiddleware(compiler));
   server.use(jsonServer.defaults());
-  server.use(apiPath, jsonServer.router('./db/db.json'));
+  server.use(apiPath, router);
   server.listen(port, 'localhost', () => {
     console.log(`Server listening on port ${port}`);
   });
+
+  // Has overrided json-server render method to simulate server side error response.
+  // Error will be returned if you try to sign in with error@example.com email
+  router.render = (
+    {
+      url,
+      method,
+      body: { email }
+    },
+    res
+  ) => {
+    if (
+      url === '/session' &&
+      method === 'POST' &&
+      email === 'error@example.com'
+    ) {
+      res.status(500).jsonp({ error: 'Server error has occured' });
+    } else {
+      res.jsonp(res.locals.data);
+    }
+  };
 } else {
   webpack(webpackBuildConfig, (err, stats) => {
     if (err) return console.log(err);
