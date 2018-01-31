@@ -1,15 +1,11 @@
 import axios from 'axios';
-import qs from 'qs';
 import Alert from 'react-s-alert';
 import currentUser from 'services/currentUser';
 import sessionStorage from 'services/sessionStorage';
 import i18n from 'services/i18n';
 import config from 'config';
 
-const api = axios.create({
-  baseURL: config.apiTarget,
-  paramsSerializer: qs.stringify
-});
+const api = axios.create({ baseURL: config.apiTarget });
 
 api.interceptors.request.use(
   config => {

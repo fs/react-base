@@ -107,9 +107,10 @@ class SignupModal extends Component {
     const {
       isOpen,
       closeModal,
-      session
+      session: {
+        isLoading
+      }
     } = this.props;
-    const { isLoading } = session;
 
     return (
       <Modal
