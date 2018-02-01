@@ -1,4 +1,4 @@
-import React, { cloneElement } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Modal from 'containers/modal';
 import Navigation from 'components/navigation';
@@ -18,7 +18,7 @@ const Application = ({ children, session, logout, signin, signup }) => {
           signin={ signin }
           signup={ signup }
         />
-        { cloneElement(children, { loggedIn }) }
+        { children }
       </main>
       <Footer />
       <Modal />

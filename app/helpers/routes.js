@@ -1,18 +1,7 @@
-import currentUser from 'services/currentUser';
-
-export const paths = {
+export default {
   home() { return '/'; },
   about() { return '/about'; },
   signin() { return '/signin'; },
   signup() { return '/signup'; },
   aboutExtended(id) { return `/about/extended/${id}`; }
 };
-
-export function requireAuth(nextState, replace) {
-  if (!currentUser.loggedIn()) {
-    replace({
-      pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
-    });
-  }
-}

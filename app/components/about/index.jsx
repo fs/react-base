@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router';
+import PropTypes from 'prop-types';
+import { Route, Link } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
 import i18n from 'services/i18n';
-import { paths } from 'helpers/routes';
+import paths from 'helpers/routes';
+import Article from 'components/article';
 
-const About = ({ children }) => {
+const About = ({ children, match }) => {
   const id = 'test_id';
 
   return (
@@ -15,10 +17,16 @@ const About = ({ children }) => {
         <Link to={ paths.aboutExtended(id) }>
           { i18n.t('about:details') }
         </Link>
-        { children }
+        <Route path={ `${match.url}/extended/:id` } component={ Article } />
       </article>
     </Grid>
   );
+};
+
+About.propTypes = {
+  match: PropTypes.shape({
+    url: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default About;
