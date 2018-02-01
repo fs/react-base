@@ -1,11 +1,10 @@
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from 'actions/session';
 import { openModal } from 'actions/modal';
-import Application from 'components/application';
+import Navigation from 'components/navigation';
 
-const mapStateToProps = state => ({
-  session: state.session
-});
+const mapStateToProps = state => state.session;
 
 const mapDispatchToProps = dispatch => ({
   logout: user => dispatch(logoutUser(user)),
@@ -13,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
   signup: () => dispatch(openModal({ name: 'signup' }))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Application);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navigation));

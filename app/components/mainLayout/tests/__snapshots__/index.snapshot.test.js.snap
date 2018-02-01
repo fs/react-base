@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Application renders correctly 1`] = `
+<div
+  className="layout"
+>
+  <main
+    className="wrapper"
+  >
+    <withRouter(Connect(Navigation)) />
+    <ApplicationRoutes />
+  </main>
+  <Footer />
+  <Connect(ModalContainer) />
+</div>
+`;

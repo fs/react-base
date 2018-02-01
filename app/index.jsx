@@ -4,10 +4,12 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
+import { Router } from 'react-router-dom';
 import jFetch from 'j-fetch';
 import store from 'stores/application';
 import currentUser from 'services/currentUser';
-import ApplicationRouter from 'components/applicationRouter';
+import appHistory from 'services/history';
+import MainLayout from 'components/mainLayout';
 
 jFetch.init({
   authHeaders: {
@@ -20,17 +22,19 @@ const renderComponent = Component => {
   render(
     <AppContainer>
       <Provider store={ store }>
-        <Component />
+        <Router history={ appHistory }>
+          <Component />
+        </Router>
       </Provider>
     </AppContainer>,
     document.getElementById('app'),
   );
 };
 
-renderComponent(ApplicationRouter);
+renderComponent(MainLayout);
 
 if (module.hot) {
-  module.hot.accept('components/applicationRouter', () => {
-    renderComponent(ApplicationRouter);
+  module.hot.accept('components/mainLayout', () => {
+    renderComponent(MainLayout);
   });
 }
