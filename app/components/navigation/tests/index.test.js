@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { MemoryRouter } from 'react-router-dom';
 import Navigation from 'components/navigation';
 
 describe('Navigation', () => {
@@ -7,7 +8,13 @@ describe('Navigation', () => {
   const signin = jest.fn();
   const logout = jest.fn();
   let props;
-  const renderComponent = () => shallow(<Navigation { ...props } />);
+  const renderComponent = () => shallow(
+    <MemoryRouter>
+      <Navigation { ...props } />
+    </MemoryRouter>
+  )
+    .find(Navigation)
+    .dive();
 
   beforeEach(() => {
     props = {

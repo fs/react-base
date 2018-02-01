@@ -21,6 +21,9 @@ exports[`Navigation renders correctly 1`] = `
     >
       <li>
         <a
+          aria-current="true"
+          className="linkActive"
+          href="/"
           onClick={[Function]}
           style={Object {}}
         >
@@ -29,8 +32,11 @@ exports[`Navigation renders correctly 1`] = `
       </li>
       <li>
         <a
+          aria-current={false}
+          className={undefined}
+          href="/about"
           onClick={[Function]}
-          style={Object {}}
+          style={undefined}
         >
           About
         </a>
@@ -94,6 +100,9 @@ exports[`Navigation when user is logged in renders user navigations 1`] = `
     >
       <li>
         <a
+          aria-current="true"
+          className="linkActive"
+          href="/"
           onClick={[Function]}
           style={Object {}}
         >
@@ -102,8 +111,11 @@ exports[`Navigation when user is logged in renders user navigations 1`] = `
       </li>
       <li>
         <a
+          aria-current={false}
+          className={undefined}
+          href="/about"
           onClick={[Function]}
-          style={Object {}}
+          style={undefined}
         >
           About
         </a>

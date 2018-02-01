@@ -8,7 +8,9 @@ describe('Article', () => {
 
   beforeEach(() => {
     props = {
-      params: { id: '1' }
+      match: {
+        params: { id: '1' }
+      }
     };
   });
 
