@@ -16,6 +16,6 @@ export default {
     return await api.patch(`${this.urlRoot}/${todo.id}`, todo);
   },
   async delete({ id }) {
-    return await api.destroy(`${this.urlRoot}/${id}`);
+    return await api.delete(`${this.urlRoot}/${id}`);
   }
 };
