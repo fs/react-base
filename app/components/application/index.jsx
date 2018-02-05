@@ -5,7 +5,7 @@ import Navigation from 'containers/navigation';
 import Footer from 'components/footer';
 import styles from './styles';
 
-const MainLayout = () => (
+const Application = () => (
   <div className={ styles.layout }>
     <main className={ styles.wrapper }>
       <Navigation />
@@ -16,4 +16,4 @@ const MainLayout = () => (
   </div>
 );
 
-export default MainLayout;
+export default Application;

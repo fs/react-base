@@ -58,7 +58,7 @@ describe('Navigation', () => {
     it('calls logout callback', () => {
       const navigationComponent = renderComponent();
 
-      navigationComponent.find('NavItem').at(1).simulate('click');
+      navigationComponent.find('NavItem').at(0).simulate('click');
 
       expect(logout).toHaveBeenCalled();
     });

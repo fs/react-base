@@ -9,7 +9,7 @@ import jFetch from 'j-fetch';
 import store from 'stores/application';
 import currentUser from 'services/currentUser';
 import appHistory from 'services/history';
-import MainLayout from 'components/mainLayout';
+import Application from 'components/application';
 
 jFetch.init({
   authHeaders: {
@@ -31,10 +31,10 @@ const renderComponent = Component => {
   );
 };
 
-renderComponent(MainLayout);
+renderComponent(Application);
 
 if (module.hot) {
-  module.hot.accept('components/mainLayout', () => {
-    renderComponent(MainLayout);
+  module.hot.accept('components/application', () => {
+    renderComponent(Application);
   });
 }
