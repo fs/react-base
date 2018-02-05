@@ -29,19 +29,20 @@ class SigninModal extends Component {
     return email.length > 5 && password.length > 5;
   }
 
-  signIn = event => {
+  signIn = async event => {
     event.preventDefault();
 
     const { email, password } = this.state;
     const { signinUser, closeModal } = this.props;
 
     if (this.isFormValid()) {
-      signinUser({ email, password })
-        .then(() => {
-          this.setState({ email: '', password: '' });
-          closeModal();
-        })
-        .catch(({ errors }) => this.setState({ errors }));
+      try {
+        await signinUser({ email, password });
+        this.setState({ email: '', password: '' });
+        closeModal();
+      } catch ({ errors }) {
+        this.setState({ errors });
+      }
     }
   }
 
@@ -58,9 +59,10 @@ class SigninModal extends Component {
     const {
       isOpen,
       closeModal,
-      session
+      session: {
+        isLoading
+      }
     } = this.props;
-    const { isLoading } = session;
 
     return (
       <Modal

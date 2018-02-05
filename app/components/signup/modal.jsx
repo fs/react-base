@@ -70,7 +70,7 @@ class SignupModal extends Component {
     return (this.isValidPassword() && length > 5) ? 'success' : 'error';
   }
 
-  signUp = event => {
+  signUp = async event => {
     event.preventDefault();
 
     const {
@@ -82,17 +82,18 @@ class SignupModal extends Component {
     const { signupUser, closeModal } = this.props;
 
     if (this.isFormValid()) {
-      signupUser({ name, email, password, passwordConfirmation })
-        .then(() => {
-          this.setState({
-            name: '',
-            email: '',
-            password: '',
-            passwordConfirmation: ''
-          });
-          closeModal();
-        })
-        .catch(({ errors }) => this.setState({ errors }));
+      try {
+        await signupUser({ name, email, password, passwordConfirmation });
+        this.setState({
+          name: '',
+          email: '',
+          password: '',
+          passwordConfirmation: ''
+        });
+        closeModal();
+      } catch ({ errors }) {
+        this.setState({ errors });
+      }
     }
   }
 
@@ -106,9 +107,10 @@ class SignupModal extends Component {
     const {
       isOpen,
       closeModal,
-      session
+      session: {
+        isLoading
+      }
     } = this.props;
-    const { isLoading } = session;
 
     return (
       <Modal

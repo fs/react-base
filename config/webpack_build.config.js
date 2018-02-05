@@ -15,7 +15,10 @@ module.exports = {
     },
     extensions: ['.js', '.jsx', '.css']
   },
-  entry: path.resolve(config.appDir, 'index.jsx'),
+  entry: [
+    'babel-polyfill',
+    path.resolve(config.appDir, 'index.jsx')
+  ],
   output: {
     path: path.resolve(config.distDir),
     publicPath: '/',

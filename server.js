@@ -6,16 +6,15 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const express = require('express');
 const compression = require('compression');
 const historyApiFallback = require('connect-history-api-fallback');
-const jsonServer = require('json-server');
+const jsonServer = require('./json-server');
 const config = require('./config/application');
 const webpackDevConfig = require('./config/webpack_dev.config');
 const webpackBuildConfig = require('./config/webpack_build.config');
 
-const port = config.port;
+const { port } = config;
 const server = express();
 
 if (config.env === 'development') {
-  const apiPath = require('./config/env/development').apiPath;
   const compiler = webpack(webpackDevConfig);
   const webpackOptions = {
     stats: {
@@ -37,15 +36,13 @@ if (config.env === 'development') {
   };
 
   compiler.apply(new webpack.ProgressPlugin());
-
   server.use(historyApiFallback());
   server.use(webpackDevMiddleware(compiler, webpackOptions));
   server.use(webpackHotMiddleware(compiler));
-  server.use(jsonServer.defaults());
-  server.use(apiPath, jsonServer.router('./db/db.json'));
   server.listen(port, 'localhost', () => {
     console.log(`Server listening on port ${port}`);
   });
+  jsonServer.initialize(server);
 } else {
   webpack(webpackBuildConfig, (err, stats) => {
     if (err) return console.log(err);

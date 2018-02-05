@@ -1,5 +1,6 @@
 import React, { cloneElement } from 'react';
 import PropTypes from 'prop-types';
+import Alert from 'react-s-alert';
 import Modal from 'containers/modal';
 import Navigation from 'components/navigation';
 import Footer from 'components/footer';
@@ -22,6 +23,7 @@ const Application = ({ children, session, logout, signin, signup }) => {
       </main>
       <Footer />
       <Modal />
+      <Alert stack={{ limit: 3 }} html={ true } />
     </div>
   );
 };
