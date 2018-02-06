@@ -51,7 +51,7 @@ describe('withAuth HOC', () => {
     });
 
     it('redirect to root', () => {
-      const component = renderComponent();
+      const component = renderComponent().find(Home);
 
       expect(component).toBePresent();
     });
