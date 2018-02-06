@@ -15,6 +15,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.css']
   },
   entry: [
+    'babel-polyfill',
     'react-hot-loader/patch',
     'webpack-hot-middleware/client',
     path.resolve(config.appDir, 'index.jsx')

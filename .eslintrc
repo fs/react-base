@@ -1,5 +1,13 @@
 {
   "extends": "eslint-config-fs",
+  "rules": {
+    "react/jsx-no-bind": [
+      2,
+      {
+        "allowArrowFunctions": true
+      }
+    ]
+  },
   "overrides": [
     {
       "files": [

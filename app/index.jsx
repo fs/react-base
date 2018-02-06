@@ -1,22 +1,12 @@
 import 'stylesheets/application';
-import 'es6-promise/auto';
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router-dom';
-import jFetch from 'j-fetch';
 import store from 'stores/application';
-import currentUser from 'services/currentUser';
 import appHistory from 'services/history';
 import Application from 'components/application';
-
-jFetch.init({
-  authHeaders: {
-    'X-User-Email': currentUser.email,
-    'X-User-Token': currentUser.token
-  }
-});
 
 const renderComponent = Component => {
   render(

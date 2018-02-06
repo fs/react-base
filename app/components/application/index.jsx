@@ -1,5 +1,6 @@
 import React from 'react';
 import ApplicationRoutes from 'components/applicationRoutes';
+import Alert from 'react-s-alert';
 import Modal from 'containers/modal';
 import Navigation from 'containers/navigation';
 import Footer from 'components/footer';
@@ -13,6 +14,7 @@ const Application = () => (
     </main>
     <Footer/>
     <Modal/>
+    <Alert stack={{ limit: 3 }} html={ true } />
   </div>
 );
 

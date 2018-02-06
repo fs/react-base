@@ -14,30 +14,30 @@ export const setUser = createAction(SET_USER);
 export const removeUser = createAction(REMOVE_USER);
 
 export const signinUser = user =>
-  dispatch => {
+  async dispatch => {
     dispatch(loadData());
 
-    return sessionSource.signin(user).then(result => {
-      sessionStorage.set(result);
-      dispatch(setUser(result));
-      appHistory.push(paths.home());
-    });
+    const result = await sessionSource.signin(user);
+
+    sessionStorage.set(result);
+    dispatch(setUser(result));
+    appHistory.push(paths.home());
   };
 
 export const signupUser = user =>
-  dispatch => {
+  async dispatch => {
     dispatch(loadData());
 
-    return usersSource.create(user).then(result => {
-      sessionStorage.set(result);
-      dispatch(setUser(result));
-      appHistory.push(paths.home());
-    });
+    const result = await usersSource.create(user);
+
+    sessionStorage.set(result);
+    dispatch(setUser(result));
+    appHistory.push(paths.home());
   };
 
 export const logoutUser = user =>
-  dispatch =>
-    sessionSource.logout(user).then(() => {
-      sessionStorage.remove();
-      dispatch(removeUser());
-    });
+  async dispatch => {
+    await sessionSource.logout(user);
+    sessionStorage.remove();
+    dispatch(removeUser());
+  };
