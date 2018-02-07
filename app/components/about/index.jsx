@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
 import i18n from 'services/i18n';
 import { routes, paths } from 'helpers/routes';
 import Article from 'components/article';
 
-const About = ({ children, match }) => {
+const About = () => {
   const id = 'test_id';
 
   return (
@@ -21,12 +20,6 @@ const About = ({ children, match }) => {
       </article>
     </Grid>
   );
-};
-
-About.propTypes = {
-  match: PropTypes.shape({
-    url: PropTypes.string.isRequired
-  }).isRequired
 };
 
 export default About;
