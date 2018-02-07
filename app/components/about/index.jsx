@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Route, Link } from 'react-router-dom';
 import { Grid } from 'react-bootstrap';
 import i18n from 'services/i18n';
-import paths from 'helpers/routes';
+import { routes, paths } from 'helpers/routes';
 import Article from 'components/article';
 
 const About = ({ children, match }) => {
@@ -14,10 +14,10 @@ const About = ({ children, match }) => {
       <article>
         <h1>{ i18n.t('about:title') }</h1>
         <p>{ i18n.t('about:text') }</p>
-        <Link to={ paths.aboutExtended(id) }>
+        <Link to={ paths.aboutExtended({ id }) }>
           { i18n.t('about:details') }
         </Link>
-        <Route path={ `${match.url}/extended/:id` } component={ Article } />
+        <Route path={ routes.aboutExtended } component={ Article } />
       </article>
     </Grid>
   );

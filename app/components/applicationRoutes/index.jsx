@@ -3,17 +3,18 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import Main from 'containers/main';
 import About from 'components/about';
 import Profile from 'containers/profile';
+import routes from 'helpers/routes';
 
 const ApplicationRoutes = () => (
   <Switch>
     <Route
       exact
-      path="/"
+      path={ routes.home }
       component={ Main }
     />
-    <Route path="/about" component={ About } />
-    <Route path="/profile" component={ Profile } />
-    <Redirect to="/" />
+    <Route path={ routes.about } component={ About } />
+    <Route path={ routes.profile } component={ Profile } />
+    <Redirect to={ routes.home } />
   </Switch>
 );
 

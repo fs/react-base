@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { MemoryRouter, Switch, Route } from 'react-router';
 import { containerWithStore } from 'helpers/store';
 import { fakeSession, fakeEmptySession } from 'mocks/fakeSession';
-import paths from 'helpers/routes';
+import { paths } from 'helpers/routes';
 import withAuth from '../';
 
 describe('withAuth HOC', () => {

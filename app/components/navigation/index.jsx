@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { NavLink as Link, Route } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import i18n from 'services/i18n';
-import paths from 'helpers/routes';
+import { paths } from 'helpers/routes';
 import styles from './styles';
 
 const NavItemLink = ({ to, exact, ...props }) => (

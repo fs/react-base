@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect, withRouter } from 'react-router-dom';
-import paths from 'helpers/routes';
+import { paths } from 'helpers/routes';
 
 export default function withAuth(WrappedComponent) {
   class EnhancedComponent extends Component {
