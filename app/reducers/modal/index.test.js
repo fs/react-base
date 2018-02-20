@@ -12,7 +12,7 @@ describe('Modal reducer', () => {
     initialState = {
       isOpen: false,
       modalName: '',
-      modalOptions: {}
+      modalOptions: {},
     };
   });
 
@@ -26,7 +26,7 @@ describe('Modal reducer', () => {
 
       payload = {
         name: 'Awesome Modal',
-        someOption: 'Some option value'
+        someOption: 'Some option value',
       };
     });
 
@@ -40,8 +40,8 @@ describe('Modal reducer', () => {
           isOpen: true,
           modalName: 'Awesome Modal',
           modalOptions: {
-            someOption: 'Some option value'
-          }
+            someOption: 'Some option value',
+          },
         });
       });
     });
@@ -54,8 +54,8 @@ describe('Modal reducer', () => {
           isOpen: true,
           modalName: 'Awesome Modal',
           modalOptions: {
-            someOption: 'Some option value'
-          }
+            someOption: 'Some option value',
+          },
         };
       });
 

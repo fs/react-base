@@ -13,8 +13,8 @@ describe('Modal', () => {
         modal: {
           isOpen: true,
           modalName: 'todo',
-          modalOptions: {}
-        }
+          modalOptions: {},
+        },
       };
     });
 
@@ -34,8 +34,8 @@ describe('Modal', () => {
         modal: {
           isOpen: false,
           modalName: 'signin',
-          modalOptions: {}
-        }
+          modalOptions: {},
+        },
       };
     });
 
@@ -55,8 +55,8 @@ describe('Modal', () => {
         modal: {
           isOpen: false,
           modalName: 'signup',
-          modalOptions: {}
-        }
+          modalOptions: {},
+        },
       };
     });
 

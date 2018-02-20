@@ -12,7 +12,7 @@ const About = ({ children }) => {
       <article>
         <h1>{ i18n.t('about:title') }</h1>
         <p>{ i18n.t('about:text') }</p>
-        <Link to={ paths.aboutExtended(id) }>
+        <Link to={paths.aboutExtended(id)}>
           { i18n.t('about:details') }
         </Link>
         { children }

@@ -6,5 +6,5 @@ const createAppHistory = useRouterHistory(createBrowserHistory);
 
 export default createAppHistory({
   parseQueryString: qs.parse,
-  stringifyQuery: qs.stringify
+  stringifyQuery: qs.stringify,
 });

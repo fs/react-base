@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 
-const ModalComponent = ({ title, isOpen, closeModal, children }) => (
+const ModalComponent = ({
+  title, isOpen, closeModal, children,
+}) => (
   <Modal
     bsSize="small"
-    show={ isOpen }
-    onHide={ closeModal }
+    show={isOpen}
+    onHide={closeModal}
   >
     <Modal.Header closeButton>
       <h3 className="modal-title">
@@ -22,7 +24,7 @@ const ModalComponent = ({ title, isOpen, closeModal, children }) => (
 ModalComponent.propTypes = {
   closeModal: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
 };
 
 export default ModalComponent;

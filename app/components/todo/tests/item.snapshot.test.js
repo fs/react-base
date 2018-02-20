@@ -4,7 +4,7 @@ import TodoItem from '../item';
 
 describe('TodoItem', () => {
   let props;
-  const renderComponent = () => renderer.create(<TodoItem { ...props } />);
+  const renderComponent = () => renderer.create(<TodoItem {...props} />);
 
   beforeEach(() => {
     props = {
@@ -12,9 +12,9 @@ describe('TodoItem', () => {
       todo: {
         id: 1,
         isComplete: false,
-        name: 'Something to do'
+        name: 'Something to do',
       },
-      updateTodo: () => {}
+      updateTodo: () => {},
     };
   });
 

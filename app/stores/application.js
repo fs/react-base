@@ -5,7 +5,7 @@ import reducers from 'reducers';
 
 const store = createStore(
   reducers,
-  composeWithDevTools(applyMiddleware(thunkMiddleware))
+  composeWithDevTools(applyMiddleware(thunkMiddleware)),
 );
 
 if (module.hot) {

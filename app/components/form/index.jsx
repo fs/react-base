@@ -12,7 +12,7 @@ export default class Form extends Component {
     const { children, onSubmit } = this.props;
 
     return (
-      <form onSubmit={ onSubmit }>
+      <form onSubmit={onSubmit}>
         { children }
       </form>
     );
@@ -21,13 +21,13 @@ export default class Form extends Component {
 
 Form.propTypes = {
   errors: PropTypes.object,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
 };
 
 Form.childContextTypes = {
-  errors: PropTypes.object
+  errors: PropTypes.object,
 };
 
 Form.defaultProps = {
-  errors: {}
+  errors: {},
 };

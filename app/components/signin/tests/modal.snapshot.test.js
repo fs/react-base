@@ -8,14 +8,14 @@ jest.mock('components/modal', () => 'Modal');
 describe('SigninModal', () => {
   let props;
   let component;
-  const renderComponent = () => renderer.create(<SigninModal { ...props } />);
+  const renderComponent = () => renderer.create(<SigninModal {...props} />);
 
   beforeEach(() => {
     props = {
       closeModal: () => {},
       isOpen: true,
       session: fakeSession,
-      signinUser: () => {}
+      signinUser: () => {},
     };
   });
 
@@ -29,7 +29,7 @@ describe('SigninModal', () => {
 
       component.getInstance().setState({
         email: 'qwe',
-        password: 'asd'
+        password: 'asd',
       });
     });
 

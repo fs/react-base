@@ -4,7 +4,7 @@ import {
   Button,
   FormGroup,
   FormControl,
-  ControlLabel
+  ControlLabel,
 } from 'react-bootstrap';
 import i18n from 'services/i18n';
 import Modal from 'components/modal';
@@ -16,7 +16,7 @@ class SignupModal extends Component {
     email: '',
     password: '',
     passwordConfirmation: '',
-    errors: {}
+    errors: {},
   }
 
   setValue = ({ target }) => {
@@ -30,7 +30,7 @@ class SignupModal extends Component {
       name,
       email,
       password,
-      passwordConfirmation
+      passwordConfirmation,
     } = this.state;
 
     return (
@@ -48,7 +48,7 @@ class SignupModal extends Component {
     return password === passwordConfirmation;
   }
 
-  validationState = value => {
+  validationState = (value) => {
     const length = value.length;
 
     if (!length) return null;
@@ -56,13 +56,13 @@ class SignupModal extends Component {
     return length > 5 ? 'success' : 'error';
   }
 
-  nameValidationState = value => {
+  nameValidationState = (value) => {
     const length = value.trim().length;
 
     return length ? 'success' : null;
   }
 
-  passwordValidationState = value => {
+  passwordValidationState = (value) => {
     const length = value.length;
 
     if (!length) return null;
@@ -70,25 +70,27 @@ class SignupModal extends Component {
     return (this.isValidPassword() && length > 5) ? 'success' : 'error';
   }
 
-  signUp = async event => {
+  signUp = async (event) => {
     event.preventDefault();
 
     const {
       name,
       email,
       password,
-      passwordConfirmation
+      passwordConfirmation,
     } = this.state;
     const { signupUser, closeModal } = this.props;
 
     if (this.isFormValid()) {
       try {
-        await signupUser({ name, email, password, passwordConfirmation });
+        await signupUser({
+          name, email, password, passwordConfirmation,
+        });
         this.setState({
           name: '',
           email: '',
           password: '',
-          passwordConfirmation: ''
+          passwordConfirmation: '',
         });
         closeModal();
       } catch ({ errors }) {
@@ -102,71 +104,71 @@ class SignupModal extends Component {
       name,
       email,
       password,
-      passwordConfirmation
+      passwordConfirmation,
     } = this.state;
     const {
       isOpen,
       closeModal,
       session: {
-        isLoading
-      }
+        isLoading,
+      },
     } = this.props;
 
     return (
       <Modal
-        title={ i18n.t('modal:signup') }
-        isOpen={ isOpen }
-        closeModal={ closeModal }
+        title={i18n.t('modal:signup')}
+        isOpen={isOpen}
+        closeModal={closeModal}
       >
-        <Form onSubmit={ this.signUp }>
+        <Form onSubmit={this.signUp}>
           <FormGroup
             controlId="name"
-            validationState={ this.nameValidationState(name) }
+            validationState={this.nameValidationState(name)}
           >
             <ControlLabel>{ i18n.t('session:name') }</ControlLabel>
             <FormControl
               type="text"
               name="name"
-              onChange={ this.setValue }
+              onChange={this.setValue}
             />
           </FormGroup>
           <FormGroup
             controlId="email"
-            validationState={ this.validationState(email) }
+            validationState={this.validationState(email)}
           >
             <ControlLabel>{ i18n.t('session:email') }</ControlLabel>
             <FormControl
               type="text"
               name="email"
-              onChange={ this.setValue }
+              onChange={this.setValue}
             />
           </FormGroup>
           <FormGroup
             controlId="password"
-            validationState={ this.validationState(password) }
+            validationState={this.validationState(password)}
           >
             <ControlLabel>{ i18n.t('session:password') }</ControlLabel>
             <FormControl
               type="password"
               name="password"
-              onChange={ this.setValue }
+              onChange={this.setValue}
             />
           </FormGroup>
           <FormGroup
             controlId="passwordConfirmation"
-            validationState={ this.passwordValidationState(passwordConfirmation) }
+            validationState={this.passwordValidationState(passwordConfirmation)}
           >
             <ControlLabel>{ i18n.t('session:passwordConfirmation') }</ControlLabel>
             <FormControl
               type="password"
               name="passwordConfirmation"
-              onChange={ this.setValue }
+              onChange={this.setValue}
             />
           </FormGroup>
           <Button
             bsStyle="primary"
             type="submit"
-            disabled={ isLoading }
+            disabled={isLoading}
           >
             { i18n.t('session:submit') }
           </Button>
@@ -180,7 +182,7 @@ SignupModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   session: PropTypes.object.isRequired,
-  signupUser: PropTypes.func.isRequired
+  signupUser: PropTypes.func.isRequired,
 };
 
 export default SignupModal;

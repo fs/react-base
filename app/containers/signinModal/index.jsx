@@ -3,11 +3,11 @@ import { signinUser } from 'actions/session';
 import SigninModal from 'components/signin/modal';
 
 const mapStateToProps = state => ({
-  session: state.session
+  session: state.session,
 });
 
 const mapDispatchToProps = {
-  signinUser
+  signinUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SigninModal);

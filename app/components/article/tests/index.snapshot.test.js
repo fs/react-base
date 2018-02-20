@@ -4,11 +4,11 @@ import Article from '../';
 
 describe('Article', () => {
   let props;
-  const renderComponent = () => renderer.create(<Article { ...props } />);
+  const renderComponent = () => renderer.create(<Article {...props} />);
 
   beforeEach(() => {
     props = {
-      params: { id: '1' }
+      params: { id: '1' },
     };
   });
 

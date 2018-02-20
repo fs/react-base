@@ -7,15 +7,13 @@ const express = require('express');
 const compression = require('compression');
 const historyApiFallback = require('connect-history-api-fallback');
 const jsonServer = require('./json-server');
-const config = require('./config/application');
-const webpackDevConfig = require('./config/webpack_dev.config');
-const webpackBuildConfig = require('./config/webpack_build.config');
+const webpackConfig = require('./webpack.config');
 
-const { port } = config;
+const port = process.env.PORT || 8000;
 const server = express();
 
-if (config.env === 'development') {
-  const compiler = webpack(webpackDevConfig);
+if (process.env.NODE_ENV !== 'production') {
+  const compiler = webpack(webpackConfig);
   const webpackOptions = {
     stats: {
       assets: true,
@@ -25,14 +23,14 @@ if (config.env === 'development') {
       performance: true,
       timings: true,
       version: true,
-      warnings: true
+      warnings: true,
     },
     watchOptions: {
       aggregateTimeout: 300,
       poll: true,
-      ignored: /node_modules/
+      ignored: /node_modules/,
     },
-    publicPath: webpackDevConfig.output.publicPath
+    publicPath: webpackConfig.output.publicPath,
   };
 
   compiler.apply(new webpack.ProgressPlugin());
@@ -44,12 +42,15 @@ if (config.env === 'development') {
   });
   jsonServer.initialize(server);
 } else {
-  webpack(webpackBuildConfig, (err, stats) => {
-    if (err) return console.log(err);
+  webpack(webpackConfig, (err) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
 
     server.use(compression());
     server.use(historyApiFallback());
-    server.use(express.static(config.distDir));
+    server.use(express.static(webpackConfig.output.path));
     server.listen(port);
   });
 }

@@ -5,14 +5,14 @@ import Navigation from 'components/navigation';
 
 describe('Navigation', () => {
   let props;
-  const renderComponent = () => renderer.create(<Navigation { ...props } />);
+  const renderComponent = () => renderer.create(<Navigation {...props} />);
 
   beforeEach(() => {
     props = {
       ...fakeEmptySession,
       logout: () => {},
       signin: () => {},
-      signup: () => {}
+      signup: () => {},
     };
   });
 
@@ -24,7 +24,7 @@ describe('Navigation', () => {
     beforeEach(() => {
       props = {
         ...props,
-        ...fakeSession
+        ...fakeSession,
       };
     });
 

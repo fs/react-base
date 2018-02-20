@@ -5,11 +5,11 @@ import Todo from '../';
 
 describe('Todo', () => {
   let props;
-  const renderComponent = () => shallow(<Todo { ...props } />);
+  const renderComponent = () => shallow(<Todo {...props} />);
 
   beforeEach(() => {
     props = {
-      openModal: () => {}
+      openModal: () => {},
     };
   });
 

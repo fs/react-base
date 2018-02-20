@@ -7,11 +7,11 @@ jest.mock('containers/todo', () => 'TodoContainer');
 describe('Main', () => {
   let props;
   let component;
-  const renderComponent = () => shallow(<Main { ...props } />);
+  const renderComponent = () => shallow(<Main {...props} />);
 
   beforeEach(() => {
     props = {
-      loggedIn: false
+      loggedIn: false,
     };
   });
 
@@ -24,7 +24,7 @@ describe('Main', () => {
   context('when user is logged in', () => {
     beforeEach(() => {
       props = {
-        loggedIn: true
+        loggedIn: true,
       };
     });
 

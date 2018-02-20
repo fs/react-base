@@ -8,14 +8,14 @@ jest.mock('components/modal', () => 'Modal');
 describe('SignupModal', () => {
   let props;
   let component;
-  const renderComponent = () => renderer.create(<SignupModal { ...props } />);
+  const renderComponent = () => renderer.create(<SignupModal {...props} />);
 
   beforeEach(() => {
     props = {
       closeModal: () => { },
       isOpen: true,
       session: fakeSession,
-      signupUser: () => { }
+      signupUser: () => { },
     };
   });
 
@@ -31,7 +31,7 @@ describe('SignupModal', () => {
         name: 'qwe',
         email: 'qwe',
         password: 'asd',
-        passwordConfirmation: 'asd'
+        passwordConfirmation: 'asd',
       });
     });
 

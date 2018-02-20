@@ -8,8 +8,8 @@ const Article = ({ params }) => (
 
 Article.propTypes = {
   params: PropTypes.shape({
-    id: PropTypes.string
-  })
+    id: PropTypes.string,
+  }),
 };
 
 export default Article;

@@ -17,8 +17,8 @@ const getResources = () => {
       ...acc,
       [languageDomain]: {
         ...acc[languageDomain],
-        [fileName]: requireContext(value)
-      }
+        [fileName]: requireContext(value),
+      },
     };
   }, {});
 };
@@ -29,13 +29,13 @@ i18n
     fallbackLng: defaultLanguage,
 
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
 
     lookupLocalStorage: localizationKey,
     caches: ['localStorage'],
 
-    resources: getResources()
+    resources: getResources(),
   });
 
 if (!currentLanguage) {

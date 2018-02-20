@@ -3,7 +3,7 @@ import { createTodo } from 'actions/todos';
 import TodoModal from 'components/todo/modal';
 
 const mapDispatchToProps = {
-  createTodo
+  createTodo,
 };
 
 export default connect(null, mapDispatchToProps)(TodoModal);

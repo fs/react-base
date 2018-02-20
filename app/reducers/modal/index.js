@@ -4,7 +4,7 @@ import { OPEN_MODAL, CLOSE_MODAL } from 'actions/modal';
 const initialState = {
   isOpen: false,
   modalName: '',
-  modalOptions: {}
+  modalOptions: {},
 };
 
 export default handleActions({
@@ -14,10 +14,10 @@ export default handleActions({
     return {
       isOpen: true,
       modalName: name,
-      modalOptions: rest
+      modalOptions: rest,
     };
   },
   [CLOSE_MODAL]: state => ({
-    ...initialState
-  })
+    ...initialState,
+  }),
 }, initialState);

@@ -4,11 +4,11 @@ import TodoContainer from 'containers/todo';
 import Home from 'components/home';
 
 const Main = ({ loggedIn }) => (
-  loggedIn ? <TodoContainer/> : <Home/>
+  loggedIn ? <TodoContainer /> : <Home />
 );
 
 Main.propTypes = {
-  loggedIn: PropTypes.bool
+  loggedIn: PropTypes.bool,
 };
 
 export default Main;

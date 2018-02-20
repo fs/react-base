@@ -4,7 +4,7 @@ import {
   Button,
   FormGroup,
   FormControl,
-  ControlLabel
+  ControlLabel,
 } from 'react-bootstrap';
 import i18n from 'services/i18n';
 import Modal from 'components/modal';
@@ -13,7 +13,7 @@ import Form from 'components/form';
 class TodoModal extends Component {
   state = {
     name: '',
-    errors: {}
+    errors: {},
   }
 
   changeName = ({ target }) => {
@@ -30,7 +30,7 @@ class TodoModal extends Component {
     return length > 5 ? 'success' : 'error';
   }
 
-  createTodo = async event => {
+  createTodo = async (event) => {
     event.preventDefault();
 
     const { name } = this.state;
@@ -53,14 +53,14 @@ class TodoModal extends Component {
 
     return (
       <Modal
-        title={ i18n.t('modal:newTask') }
-        isOpen={ isOpen }
-        closeModal={ closeModal }
+        title={i18n.t('modal:newTask')}
+        isOpen={isOpen}
+        closeModal={closeModal}
       >
-        <Form onSubmit={ this.createTodo }>
+        <Form onSubmit={this.createTodo}>
           <FormGroup
             controlId="taskName"
-            validationState={ this.validationState() }
+            validationState={this.validationState()}
           >
             <ControlLabel>
               { i18n.t('todo:taskName') }: { name }
@@ -69,8 +69,8 @@ class TodoModal extends Component {
               type="text"
               name="name"
               placeholder="Task name..."
-              onChange={ this.changeName }
-              value={ name }
+              onChange={this.changeName}
+              value={name}
             />
           </FormGroup>
           <Button bsStyle="primary" type="submit">
@@ -85,7 +85,7 @@ class TodoModal extends Component {
 TodoModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   createTodo: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired
+  isOpen: PropTypes.bool.isRequired,
 };
 
 export default TodoModal;

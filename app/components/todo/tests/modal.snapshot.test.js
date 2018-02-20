@@ -7,13 +7,13 @@ jest.mock('components/modal', () => 'Modal');
 describe('TodoModal', () => {
   let props;
   let component;
-  const renderComponent = () => renderer.create(<TodoModal { ...props } />);
+  const renderComponent = () => renderer.create(<TodoModal {...props} />);
 
   beforeEach(() => {
     props = {
       closeModal: () => { },
       createTodo: () => { },
-      isOpen: true
+      isOpen: true,
     };
   });
 

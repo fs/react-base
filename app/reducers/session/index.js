@@ -5,22 +5,22 @@ import { LOAD_DATA, SET_USER, REMOVE_USER } from 'actions/session';
 const initialState = {
   isLoading: false,
   loggedIn: sessionStorage.loggedIn(),
-  currentUser: sessionStorage.currentUser()
+  currentUser: sessionStorage.currentUser(),
 };
 
 export default handleActions({
   [LOAD_DATA]: state => ({
     ...state,
-    isLoading: true
+    isLoading: true,
   }),
   [SET_USER]: (state, { payload }) => ({
     isLoading: false,
     loggedIn: true,
-    currentUser: payload
+    currentUser: payload,
   }),
   [REMOVE_USER]: state => ({
     isLoading: false,
     loggedIn: false,
-    currentUser: {}
-  })
+    currentUser: {},
+  }),
 }, initialState);

@@ -8,11 +8,9 @@ const getReducers = requireContext => (
 
     return {
       ...acc,
-      [domain]: requireContext(value).default
+      [domain]: requireContext(value).default,
     };
   }, {})
 );
 
-export default combineReducers(
-  getReducers(require.context('.', true, /.*^((?!\.test).)*\.js$/))
-);
+export default combineReducers(getReducers(require.context('.', true, /.*^((?!\.test).)*\.js$/)));

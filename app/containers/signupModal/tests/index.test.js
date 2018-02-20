@@ -11,11 +11,11 @@ describe('SignupModal', () => {
 
   beforeEach(() => {
     state = {
-      session: fakeSession
+      session: fakeSession,
     };
     props = {
       closeModal: () => { },
-      isOpen: true
+      isOpen: true,
     };
   });
 

@@ -5,14 +5,14 @@ export const paths = {
   about() { return '/about'; },
   signin() { return '/signin'; },
   signup() { return '/signup'; },
-  aboutExtended(id) { return `/about/extended/${id}`; }
+  aboutExtended(id) { return `/about/extended/${id}`; },
 };
 
 export function requireAuth(nextState, replace) {
   if (!currentUser.loggedIn()) {
     replace({
       pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
+      state: { nextPathname: nextState.location.pathname },
     });
   }
 }

@@ -17,5 +17,5 @@ export default {
   },
   async delete({ id }) {
     return await api.delete(`${this.urlRoot}/${id}`);
-  }
+  },
 };

@@ -7,11 +7,11 @@ import Article from 'components/article';
 import Application from 'containers/application';
 
 const ApplicationRouter = () => (
-  <Router history={ appHistory }>
-    <Route component={ Application }>
-      <Route path="/" component={ Main } />
-      <Route path="about" component={ About }>
-        <Route path="extended/:id" component={ Article } />
+  <Router history={appHistory}>
+    <Route component={Application}>
+      <Route path="/" component={Main} />
+      <Route path="about" component={About}>
+        <Route path="extended/:id" component={Article} />
       </Route>
       <Redirect from="*" to="/" />
     </Route>

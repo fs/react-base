@@ -5,13 +5,13 @@ import Modal from '../';
 
 describe('Modal', () => {
   let props;
-  const renderComponent = () => shallow(<Modal { ...props } />);
+  const renderComponent = () => shallow(<Modal {...props} />);
 
   beforeEach(() => {
     props = {
       closeModal: () => {},
       isOpen: true,
-      title: 'Test Modal'
+      title: 'Test Modal',
     };
   });
 

@@ -4,9 +4,11 @@ import { Link } from 'react-router';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import i18n from 'services/i18n';
 import { paths } from 'helpers/routes';
-import styles from './styles';
+import styles from './styles.css';
 
-const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
+const Navigation = ({
+  loggedIn, currentUser, logout, signin, signup,
+}) => {
   const logoutUser = () => {
     logout(currentUser);
   };
@@ -26,7 +28,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
           <NavItem>
             { currentUser.email }
           </NavItem>
-          <NavItem onClick={ logoutUser }>
+          <NavItem onClick={logoutUser}>
             { i18n.t('header:signOut') }
           </NavItem>
         </Nav>
@@ -35,10 +37,10 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
 
     return (
       <Nav pullRight>
-        <NavItem onClick={ signupUser }>
+        <NavItem onClick={signupUser}>
           { i18n.t('header:signUp') }
         </NavItem>
-        <NavItem onClick={ signinUser }>
+        <NavItem onClick={signinUser}>
           { i18n.t('header:signIn') }
         </NavItem>
       </Nav>
@@ -46,7 +48,7 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
   };
 
   return (
-    <Navbar className={ styles.panel }>
+    <Navbar className={styles.panel}>
       <Navbar.Header>
         <Navbar.Brand>
           { i18n.t('common:projectName') }
@@ -55,16 +57,16 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
       <ul className="nav navbar-nav">
         <li>
           <Link
-            to={ paths.home() }
-            activeClassName={ styles.linkActive }
+            to={paths.home()}
+            activeClassName={styles.linkActive}
           >
             { i18n.t('header:home') }
           </Link>
         </li>
         <li>
           <Link
-            to={ paths.about() }
-            activeClassName={ styles.linkActive }
+            to={paths.about()}
+            activeClassName={styles.linkActive}
           >
             { i18n.t('header:about') }
           </Link>
@@ -80,7 +82,7 @@ Navigation.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   logout: PropTypes.func.isRequired,
   signin: PropTypes.func.isRequired,
-  signup: PropTypes.func.isRequired
+  signup: PropTypes.func.isRequired,
 };
 
 export default Navigation;

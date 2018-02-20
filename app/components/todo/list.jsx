@@ -8,10 +8,10 @@ const TodoList = ({ todos, updateTodo, deleteTodo }) => (
     {
       todos.map(todo => (
         <TodoItem
-          key={ todo.id }
-          todo={ todo }
-          updateTodo={ updateTodo }
-          deleteTodo={ deleteTodo }
+          key={todo.id}
+          todo={todo}
+          updateTodo={updateTodo}
+          deleteTodo={deleteTodo}
         />
       ))
     }
@@ -20,14 +20,12 @@ const TodoList = ({ todos, updateTodo, deleteTodo }) => (
 
 TodoList.propTypes = {
   deleteTodo: PropTypes.func.isRequired,
-  todos: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.id,
-      isComplete: PropTypes.bool,
-      name: PropTypes.any
-    })
-  ).isRequired,
-  updateTodo: PropTypes.func.isRequired
+  todos: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.id,
+    isComplete: PropTypes.bool,
+    name: PropTypes.any,
+  })).isRequired,
+  updateTodo: PropTypes.func.isRequired,
 };
 
 export default TodoList;

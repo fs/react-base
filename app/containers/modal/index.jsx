@@ -9,7 +9,7 @@ import SignupModal from 'containers/signupModal';
 const MODALS = {
   todo: TodoModal,
   signin: SigninModal,
-  signup: SignupModal
+  signup: SignupModal,
 };
 
 const ModalContainer = ({ modal, closeModal }) => {
@@ -19,7 +19,7 @@ const ModalContainer = ({ modal, closeModal }) => {
     const params = { ...rest, closeModal };
     const CurrentModal = MODALS[modalName];
 
-    return <CurrentModal { ...params }/>;
+    return <CurrentModal {...params} />;
   }
 
   return null;
@@ -27,15 +27,15 @@ const ModalContainer = ({ modal, closeModal }) => {
 
 ModalContainer.propTypes = {
   closeModal: PropTypes.func.isRequired,
-  modal: PropTypes.object.isRequired
+  modal: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
-  modal: state.modal
+  modal: state.modal,
 });
 
 const mapDispatchToProps = {
-  closeModal
+  closeModal,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalContainer);

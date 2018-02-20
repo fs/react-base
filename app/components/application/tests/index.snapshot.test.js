@@ -6,18 +6,16 @@ import Application from '../';
 
 describe('Application', () => {
   let props;
-  const renderComponent = () => shallow(
-    <Application { ...props }>
-      <div />
-    </Application>
-  );
+  const renderComponent = () => shallow(<Application {...props}>
+    <div />
+                                        </Application>);
 
   beforeEach(() => {
     props = {
       logout: () => {},
       session: fakeSession,
       signin: () => {},
-      signup: () => {}
+      signup: () => {},
     };
   });
 

@@ -10,7 +10,7 @@ describe('Application', () => {
 
   beforeEach(() => {
     state = {
-      session: fakeSession
+      session: fakeSession,
     };
   });
 

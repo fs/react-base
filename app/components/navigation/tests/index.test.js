@@ -7,7 +7,7 @@ describe('Navigation', () => {
   const signin = jest.fn();
   const logout = jest.fn();
   let props;
-  const renderComponent = () => shallow(<Navigation { ...props } />);
+  const renderComponent = () => shallow(<Navigation {...props} />);
 
   beforeEach(() => {
     props = {
@@ -15,7 +15,7 @@ describe('Navigation', () => {
       signup,
       logout,
       loggedIn: false,
-      currentUser: {}
+      currentUser: {},
     };
   });
 
@@ -43,8 +43,8 @@ describe('Navigation', () => {
         currentUser: {
           id: 1,
           name: 'user',
-          email: 'user@example.com'
-        }
+          email: 'user@example.com',
+        },
       };
     });
 

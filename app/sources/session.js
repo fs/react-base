@@ -9,5 +9,5 @@ export default {
   },
   async logout({ id }) {
     return await api.delete(`${this.urlRoot}/${id}`, { withoutAuth: true });
-  }
+  },
 };

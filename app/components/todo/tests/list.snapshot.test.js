@@ -5,16 +5,16 @@ import TodoList from '../list';
 
 describe('TodoList', () => {
   let props;
-  const renderComponent = () => shallow(<TodoList { ...props } />);
+  const renderComponent = () => shallow(<TodoList {...props} />);
 
   beforeEach(() => {
     props = {
       deleteTodo: () => {},
       todos: [
         { id: 1, isComplete: false, name: 'Something to do 1' },
-        { id: 2, isComplete: false, name: 'Something to do 2' }
+        { id: 2, isComplete: false, name: 'Something to do 2' },
       ],
-      updateTodo: () => {}
+      updateTodo: () => {},
     };
   });
 

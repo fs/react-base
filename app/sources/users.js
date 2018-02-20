@@ -6,5 +6,5 @@ export default {
     return (
       await api.post(this.urlRoot, user, { withoutAuth: true })
     ).data;
-  }
+  },
 };
