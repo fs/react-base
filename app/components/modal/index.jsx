@@ -22,6 +22,7 @@ const ModalComponent = ({
 );
 
 ModalComponent.propTypes = {
+  children: PropTypes.node,
   closeModal: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,

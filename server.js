@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies,no-console */
 require('dotenv').config();
 
 const webpack = require('webpack');

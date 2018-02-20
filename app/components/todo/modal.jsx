@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -14,13 +15,13 @@ class TodoModal extends Component {
   state = {
     name: '',
     errors: {},
-  }
+  };
 
   changeName = ({ target }) => {
     const { name, value } = target;
 
     this.setState({ [name]: value });
-  }
+  };
 
   validationState = () => {
     const { length } = this.state.name;
@@ -28,7 +29,7 @@ class TodoModal extends Component {
     if (!length) return null;
 
     return length > 5 ? 'success' : 'error';
-  }
+  };
 
   createTodo = async (event) => {
     event.preventDefault();
@@ -45,7 +46,7 @@ class TodoModal extends Component {
         this.setState({ errors });
       }
     }
-  }
+  };
 
   render() {
     const { name } = this.state;

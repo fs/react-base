@@ -1,5 +1,6 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
 export function containerProps(component) {
   const componentProps = Object.keys(component.props());
@@ -9,7 +10,7 @@ export function containerProps(component) {
 }
 
 export function containerWithStore(Component, state = {}, props = {}) {
-  const fakeStore = configureStore()(state);
+  const fakeStore = configureStore([thunk])(state);
 
-  return <Component { ...props } store={ fakeStore } />;
+  return <Component {...props} store={fakeStore} />;
 }

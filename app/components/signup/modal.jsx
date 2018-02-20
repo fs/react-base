@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -17,13 +18,13 @@ class SignupModal extends Component {
     password: '',
     passwordConfirmation: '',
     errors: {},
-  }
+  };
 
   setValue = ({ target }) => {
     const { name, value } = target;
 
     this.setState({ [name]: value });
-  }
+  };
 
   isFormValid = () => {
     const {
@@ -40,35 +41,35 @@ class SignupModal extends Component {
       passwordConfirmation.length > 5 &&
       this.isValidPassword()
     );
-  }
+  };
 
   isValidPassword = () => {
     const { password, passwordConfirmation } = this.state;
 
     return password === passwordConfirmation;
-  }
+  };
 
   validationState = (value) => {
-    const length = value.length;
+    const { length } = value;
 
     if (!length) return null;
 
     return length > 5 ? 'success' : 'error';
-  }
+  };
 
   nameValidationState = (value) => {
-    const length = value.trim().length;
+    const { length } = value.trim();
 
     return length ? 'success' : null;
-  }
+  };
 
   passwordValidationState = (value) => {
-    const length = value.length;
+    const { length } = value;
 
     if (!length) return null;
 
     return (this.isValidPassword() && length > 5) ? 'success' : 'error';
-  }
+  };
 
   signUp = async (event) => {
     event.preventDefault();
@@ -97,7 +98,7 @@ class SignupModal extends Component {
         this.setState({ errors });
       }
     }
-  }
+  };
 
   render() {
     const {

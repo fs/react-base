@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { Grid } from 'react-bootstrap';
 import i18n from 'services/i18n';
@@ -19,6 +20,10 @@ const About = ({ children }) => {
       </article>
     </Grid>
   );
+};
+
+About.propTypes = {
+  children: PropTypes.node,
 };
 
 export default About;

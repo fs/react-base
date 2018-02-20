@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deleteTodo, updateTodo } from 'actions/todos';
+import {
+  deleteTodo as deleteTodoAction,
+  updateTodo as updateTodoAction,
+} from 'actions/todos';
 import TodoList from 'components/todo/list';
 
 const TodoListContainer = ({
@@ -26,8 +29,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  deleteTodo,
-  updateTodo,
+  deleteTodo: deleteTodoAction,
+  updateTodo: updateTodoAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoListContainer);

@@ -1,21 +1,21 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import SigninModal from '../modal';
-import fakeSession from 'mocks/fakeSession';
+import { fakeSession } from 'mocks/fakeSession';
+import SignupModal from '../modal';
 
 jest.mock('components/modal', () => 'Modal');
 
-describe('SigninModal', () => {
+describe('SignupModal', () => {
   let props;
   let component;
-  const renderComponent = () => renderer.create(<SigninModal {...props} />);
+  const renderComponent = () => renderer.create(<SignupModal {...props} />);
 
   beforeEach(() => {
     props = {
-      closeModal: () => {},
+      closeModal: () => { },
       isOpen: true,
       session: fakeSession,
-      signinUser: () => {},
+      signupUser: () => { },
     };
   });
 
@@ -28,8 +28,10 @@ describe('SigninModal', () => {
       component = renderComponent();
 
       component.getInstance().setState({
+        name: 'qwe',
         email: 'qwe',
         password: 'asd',
+        passwordConfirmation: 'asd',
       });
     });
 

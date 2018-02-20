@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import { containerWithStore, containerProps } from 'helpers/store';
-import fakeSession from 'mocks/fakeSession';
+import { fakeSession } from 'mocks/fakeSession';
 import Application from '../';
 
 describe('Application', () => {

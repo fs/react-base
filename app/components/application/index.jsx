@@ -31,6 +31,7 @@ const Application = ({
 };
 
 Application.propTypes = {
+  children: PropTypes.node,
   logout: PropTypes.func.isRequired,
   session: PropTypes.shape({
     loggedIn: PropTypes.bool,

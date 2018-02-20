@@ -9,7 +9,7 @@ const currentLanguage = storage.get(localizationKey);
 const getResources = () => {
   const requireContext = require.context('../locales', true, /\.json$/);
 
-  return requireContext.keys().reduce((acc, value, key) => {
+  return requireContext.keys().reduce((acc, value) => {
     const fileName = value.match(/.+\/(.+).json$/)[1];
     const languageDomain = value.match(/^\.\/(.+?)\/.+/)[1];
 

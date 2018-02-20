@@ -18,7 +18,7 @@ export default handleActions({
     loggedIn: true,
     currentUser: payload,
   }),
-  [REMOVE_USER]: state => ({
+  [REMOVE_USER]: () => ({
     isLoading: false,
     loggedIn: false,
     currentUser: {},

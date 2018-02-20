@@ -8,13 +8,13 @@ import config from 'config';
 const api = axios.create({ baseURL: config.apiTarget });
 
 api.interceptors.request.use(
-  (config) => {
-    if (config.withoutAuth) return config;
+  (axiosConfig) => {
+    if (axiosConfig.withoutAuth) return axiosConfig;
 
     return {
-      ...config,
+      ...axiosConfig,
       headers: {
-        ...config.headers,
+        ...axiosConfig.headers,
         'X-User-Email': currentUser.email,
         'X-User-Token': currentUser.token,
       },
