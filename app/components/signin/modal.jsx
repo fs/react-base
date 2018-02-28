@@ -1,10 +1,11 @@
+/* eslint-disable react/no-unused-state */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   Button,
   FormGroup,
   FormControl,
-  ControlLabel
+  ControlLabel,
 } from 'react-bootstrap';
 import i18n from 'services/i18n';
 import Modal from 'components/modal';
@@ -14,22 +15,22 @@ class SigninModal extends Component {
   state = {
     email: '',
     password: '',
-    errors: {}
-  }
+    errors: {},
+  };
 
   setValue = ({ target }) => {
     const { name, value } = target;
 
     this.setState({ [name]: value });
-  }
+  };
 
   isFormValid = () => {
     const { email, password } = this.state;
 
     return email.length > 5 && password.length > 5;
-  }
+  };
 
-  signIn = async event => {
+  signIn = async (event) => {
     event.preventDefault();
 
     const { email, password } = this.state;
@@ -44,15 +45,15 @@ class SigninModal extends Component {
         this.setState({ errors });
       }
     }
-  }
+  };
 
-  validationState = value => {
-    const length = value.length;
+  validationState = (value) => {
+    const { length } = value;
 
     if (!length) return null;
 
     return length > 5 ? 'success' : 'error';
-  }
+  };
 
   render() {
     const { email, password } = this.state;
@@ -60,20 +61,20 @@ class SigninModal extends Component {
       isOpen,
       closeModal,
       session: {
-        isLoading
-      }
+        isLoading,
+      },
     } = this.props;
 
     return (
       <Modal
-        title={ i18n.t('modal:signin') }
-        isOpen={ isOpen }
-        closeModal={ closeModal }
+        title={i18n.t('modal:signin')}
+        isOpen={isOpen}
+        closeModal={closeModal}
       >
-        <Form onSubmit={ this.signIn }>
+        <Form onSubmit={this.signIn}>
           <FormGroup
             controlId="email"
-            validationState={ this.validationState(email) }
+            validationState={this.validationState(email)}
           >
             <ControlLabel>
               { i18n.t('session:email') }
@@ -81,12 +82,12 @@ class SigninModal extends Component {
             <FormControl
               type="text"
               name="email"
-              onChange={ this.setValue }
+              onChange={this.setValue}
             />
           </FormGroup>
           <FormGroup
             controlId="password"
-            validationState={ this.validationState(password) }
+            validationState={this.validationState(password)}
           >
             <ControlLabel>
               { i18n.t('session:password') }
@@ -94,14 +95,14 @@ class SigninModal extends Component {
             <FormControl
               autoComplete="off"
               name="password"
-              onChange={ this.setValue }
+              onChange={this.setValue}
               type="password"
             />
           </FormGroup>
           <Button
             bsStyle="primary"
             type="submit"
-            disabled={ isLoading }
+            disabled={isLoading}
           >
             { i18n.t('session:submit') }
           </Button>
@@ -115,7 +116,7 @@ SigninModal.propTypes = {
   closeModal: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   session: PropTypes.object.isRequired,
-  signinUser: PropTypes.func.isRequired
+  signinUser: PropTypes.func.isRequired,
 };
 
 export default SigninModal;

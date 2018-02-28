@@ -4,10 +4,10 @@ module.exports = {
   apiTarget: 'http://react-base-api.herokuapp.com',
   storage: {
     sessionKey: 'user_session',
-    localizationKey: 'i18nextLng'
+    localizationKey: 'i18nextLng',
   },
   session: {
     tokenKey: 'authentication_token',
-    emailKey: 'email'
-  }
+    emailKey: 'email',
+  },
 };

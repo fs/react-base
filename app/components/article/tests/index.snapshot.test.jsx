@@ -5,17 +5,17 @@ import { routes, paths } from 'helpers/routes';
 import Article from '../';
 
 describe('Article', () => {
-  const renderComponent = () => renderer.create(
-    <MemoryRouter initialEntries={ [paths.aboutExtended({ id: '1' })] } >
+  const renderComponent = () => renderer.create((
+    <MemoryRouter initialEntries={[paths.aboutExtended({ id: '1' })]} >
       <Switch>
         <Route
           exact
-          path={ routes.aboutExtended }
-          component={ Article }
+          path={routes.aboutExtended}
+          component={Article}
         />
       </Switch>
     </MemoryRouter>
-  );
+  ));
 
   it('renders correctly', () => {
     expect(renderComponent().toJSON()).toMatchSnapshot();

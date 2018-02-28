@@ -5,10 +5,10 @@ module.exports = {
   apiPath: '/v1',
   storage: {
     sessionKey: 'user_session',
-    localizationKey: 'i18nextLng'
+    localizationKey: 'i18nextLng',
   },
   session: {
     tokenKey: 'authentication_token',
-    emailKey: 'email'
-  }
+    emailKey: 'email',
+  },
 };

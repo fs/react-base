@@ -8,11 +8,11 @@ describe('Navigation', () => {
   const signin = jest.fn();
   const logout = jest.fn();
   let props;
-  const renderComponent = () => shallow(
+  const renderComponent = () => shallow((
     <MemoryRouter>
-      <Navigation { ...props } />
+      <Navigation {...props} />
     </MemoryRouter>
-  )
+  ))
     .find(Navigation)
     .dive();
 
@@ -22,7 +22,7 @@ describe('Navigation', () => {
       signup,
       logout,
       loggedIn: false,
-      currentUser: {}
+      currentUser: {},
     };
   });
 
@@ -50,8 +50,8 @@ describe('Navigation', () => {
         currentUser: {
           id: 1,
           name: 'user',
-          email: 'user@example.com'
-        }
+          email: 'user@example.com',
+        },
       };
     });
 

@@ -11,18 +11,18 @@ class TodoContainer extends Component {
   }
 
   render() {
-    return <Todo openModal={ this.props.openModal } />;
+    return <Todo openModal={this.props.openModal} />;
   }
 }
 
 TodoContainer.propTypes = {
   fetchTodos: PropTypes.func.isRequired,
-  openModal: PropTypes.func.isRequired
+  openModal: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
   fetchTodos: () => dispatch(fetchTodos()),
-  openModal: () => dispatch(openModal({ name: 'todo' }))
+  openModal: () => dispatch(openModal({ name: 'todo' })),
 });
 
 export default connect(null, mapDispatchToProps)(TodoContainer);

@@ -1,4 +1,4 @@
-import 'stylesheets/application';
+import 'stylesheets/application.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
@@ -8,11 +8,11 @@ import store from 'stores/application';
 import appHistory from 'services/history';
 import Application from 'components/application';
 
-const renderComponent = Component => {
+const renderComponent = (Component) => {
   render(
     <AppContainer>
-      <Provider store={ store }>
-        <Router history={ appHistory }>
+      <Provider store={store}>
+        <Router history={appHistory}>
           <Component />
         </Router>
       </Provider>

@@ -8,27 +8,28 @@ import config from 'config';
 const api = axios.create({ baseURL: config.apiTarget });
 
 api.interceptors.request.use(
-  config => {
-    if (config.withoutAuth) return config;
+  (axiosConfig) => {
+    if (axiosConfig.withoutAuth) return axiosConfig;
 
     return {
-      ...config,
+      ...axiosConfig,
       headers: {
-        ...config.headers,
+        ...axiosConfig.headers,
         'X-User-Email': currentUser.email,
-        'X-User-Token': currentUser.token
-      }
+        'X-User-Token': currentUser.token,
+      },
     };
   },
-  error => Promise.reject(error)
+  error => Promise.reject(error),
 );
+
 
 api.interceptors.response.use(
   response => response,
-  error => {
+  (error) => {
     const {
       message,
-      response: errorResponse
+      response: errorResponse,
     } = error;
 
     if (errorResponse) {
@@ -37,14 +38,12 @@ api.interceptors.response.use(
       } else {
         Alert.error(errorResponse.data.error);
       }
-    } else {
-      if (message === 'Network Error') {
-        Alert.error(i18n.t('common:errorNetwork'));
-      }
+    } else if (message === 'Network Error') {
+      Alert.error(i18n.t('common:errorNetwork'));
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default api;

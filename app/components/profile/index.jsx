@@ -12,8 +12,8 @@ const Profile = ({ currentUser }) => (
 
 Profile.propTypes = {
   currentUser: PropTypes.shape({
-    email: PropTypes.string.isRequired
-  }).isRequired
+    email: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Profile;

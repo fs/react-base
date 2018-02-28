@@ -10,7 +10,7 @@ describe('TodoContainer', () => {
   beforeEach(() => {
     props = {
       fetchTodos: () => {},
-      openModal: () => {}
+      openModal: () => {},
     };
   });
 

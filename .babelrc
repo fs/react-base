@@ -19,7 +19,7 @@
       "plugins": [
         "transform-es2015-modules-commonjs",
         ["module-resolver", {
-          "root": ["./config/env"],
+          "root": ["./app/config/env"],
           "alias": {
             "config": "test"
           }

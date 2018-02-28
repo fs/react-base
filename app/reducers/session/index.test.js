@@ -2,7 +2,7 @@ import reducer from './';
 
 jest.mock('services/sessionStorage', () => ({
   loggedIn: () => true,
-  currentUser: () => ({ id: 1 })
+  currentUser: () => ({ id: 1 }),
 }));
 
 describe('Session reducer', () => {
@@ -17,7 +17,7 @@ describe('Session reducer', () => {
     initialState = {
       isLoading: false,
       loggedIn: true,
-      currentUser: { id: 1 }
+      currentUser: { id: 1 },
     };
   });
 
@@ -39,7 +39,7 @@ describe('Session reducer', () => {
         expect(callReducer()).toEqual({
           isLoading: true,
           loggedIn: true,
-          currentUser: { id: 1 }
+          currentUser: { id: 1 },
         });
       });
     });
@@ -51,11 +51,11 @@ describe('Session reducer', () => {
         state = {
           isLoading: true,
           loggedIn: false,
-          currentUser: {}
+          currentUser: {},
         };
 
         payload = {
-          name: 'User name'
+          name: 'User name',
         };
       });
 
@@ -63,7 +63,7 @@ describe('Session reducer', () => {
         expect(callReducer()).toEqual({
           isLoading: false,
           loggedIn: true,
-          currentUser: { name: 'User name' }
+          currentUser: { name: 'User name' },
         });
       });
     });
@@ -75,7 +75,7 @@ describe('Session reducer', () => {
         state = {
           isLoading: true,
           loggedIn: true,
-          currentUser: { name: 'User name' }
+          currentUser: { name: 'User name' },
         };
       });
 
@@ -83,7 +83,7 @@ describe('Session reducer', () => {
         expect(callReducer()).toEqual({
           isLoading: false,
           loggedIn: false,
-          currentUser: {}
+          currentUser: {},
         });
       });
     });

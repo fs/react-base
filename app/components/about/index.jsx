@@ -11,12 +11,12 @@ const About = () => {
   return (
     <Grid>
       <article>
-        <h1>{ i18n.t('about:title') }</h1>
-        <p>{ i18n.t('about:text') }</p>
-        <Link to={ paths.aboutExtended({ id }) }>
-          { i18n.t('about:details') }
+        <h1>{i18n.t('about:title')}</h1>
+        <p>{i18n.t('about:text')}</p>
+        <Link to={paths.aboutExtended({ id })}>
+          {i18n.t('about:details')}
         </Link>
-        <Route path={ routes.aboutExtended } component={ Article } />
+        <Route path={routes.aboutExtended} component={Article} />
       </article>
     </Grid>
   );

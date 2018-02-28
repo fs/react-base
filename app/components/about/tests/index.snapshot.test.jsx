@@ -4,11 +4,11 @@ import { MemoryRouter } from 'react-router-dom';
 import About from '../';
 
 describe('About', () => {
-  const renderComponent = () => renderer.create(
+  const renderComponent = () => renderer.create((
     <MemoryRouter>
       <About />
     </MemoryRouter>
-  );
+  ));
 
   it('renders correctly', () => {
     expect(renderComponent().toJSON()).toMatchSnapshot();

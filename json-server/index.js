@@ -1,5 +1,5 @@
 const jsonServer = require('json-server');
-const { apiPath } = require('../config/env/development');
+const { apiPath } = require('../app/config/env/development');
 
 module.exports = {
   initialize(server) {

@@ -1,21 +1,19 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import fakeSession from 'mocks/fakeSession';
-import SignupModal from '../modal';
+import TodoModal from '../modal';
 
 jest.mock('components/modal', () => 'Modal');
 
-describe('SignupModal', () => {
+describe('TodoModal', () => {
   let props;
   let component;
-  const renderComponent = () => renderer.create(<SignupModal { ...props } />);
+  const renderComponent = () => renderer.create(<TodoModal {...props} />);
 
   beforeEach(() => {
     props = {
       closeModal: () => { },
+      createTodo: () => { },
       isOpen: true,
-      session: fakeSession,
-      signupUser: () => { }
     };
   });
 
@@ -27,12 +25,7 @@ describe('SignupModal', () => {
     beforeEach(() => {
       component = renderComponent();
 
-      component.getInstance().setState({
-        name: 'qwe',
-        email: 'qwe',
-        password: 'asd',
-        passwordConfirmation: 'asd'
-      });
+      component.getInstance().setState({ email: 'qwe' });
     });
 
     it('renders form with validation errors', () => {

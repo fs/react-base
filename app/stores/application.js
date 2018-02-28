@@ -5,12 +5,12 @@ import reducers from 'reducers';
 
 const store = createStore(
   reducers,
-  composeWithDevTools(applyMiddleware(thunkMiddleware))
+  composeWithDevTools(applyMiddleware(thunkMiddleware)),
 );
 
 if (module.hot) {
   module.hot.accept('reducers', () => {
-    store.replaceReducer(require('reducers').default);
+    store.replaceReducer(reducers);
   });
 }
 

@@ -8,6 +8,6 @@ export default {
     ).data;
   },
   async logout({ id }) {
-    return await api.delete(`${this.urlRoot}/${id}`, { withoutAuth: true });
-  }
+    return api.delete(`${this.urlRoot}/${id}`, { withoutAuth: true });
+  },
 };

@@ -5,7 +5,7 @@ import TodoItem from '../item';
 describe('TodoItem', () => {
   let props;
   let component;
-  const renderComponent = () => mount(<TodoItem { ...props } />);
+  const renderComponent = () => mount(<TodoItem {...props} />);
 
   describe('callbacks', () => {
     const deleteTodo = jest.fn();
@@ -18,8 +18,8 @@ describe('TodoItem', () => {
         todo: {
           id: 1,
           isComplete: false,
-          name: 'Some Todo'
-        }
+          name: 'Some Todo',
+        },
       };
     });
 
@@ -30,7 +30,7 @@ describe('TodoItem', () => {
       expect(updateTodo).toHaveBeenCalledWith({
         id: 1,
         isComplete: true,
-        name: 'Some Todo'
+        name: 'Some Todo',
       });
     });
 
@@ -41,7 +41,7 @@ describe('TodoItem', () => {
       expect(deleteTodo).toHaveBeenCalledWith({
         id: 1,
         isComplete: false,
-        name: 'Some Todo'
+        name: 'Some Todo',
       });
     });
   });

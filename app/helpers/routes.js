@@ -6,13 +6,13 @@ export const routes = {
   profile: '/profile',
   signin: '/signin',
   signup: '/signup',
-  aboutExtended: '/about/extended/:id'
+  aboutExtended: '/about/extended/:id',
 };
 
 export const paths = {};
 
 Object.keys(routes)
-  .forEach(routeName => {
+  .forEach((routeName) => {
     paths[routeName] = pathToRegexp.compile(routes[routeName]);
   });
 

@@ -1,32 +1,33 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ListGroupItem } from 'react-bootstrap';
-import styles from './styles';
+import styles from './styles.css';
 
 const TodoItem = ({ todo, updateTodo, deleteTodo }) => {
   const toggle = () => {
     updateTodo({
       ...todo,
-      isComplete: !todo.isComplete
+      isComplete: !todo.isComplete,
     });
   };
 
-  const remove = event => {
+  const remove = (event) => {
     deleteTodo(todo);
     event.stopPropagation();
   };
 
   return (
     <ListGroupItem
-      className={ styles.todo }
-      onClick={ toggle }
+      className={styles.todo}
+      onClick={toggle}
     >
       <span>
         { todo.name }
       </span>
       <span
-        className={ `glyphicon glyphicon-trash ${styles.iconTrash}` }
-        onClick={ remove }
+        className={`glyphicon glyphicon-trash ${styles.iconTrash}`}
+        onClick={remove}
       />
     </ListGroupItem>
   );
@@ -37,9 +38,9 @@ TodoItem.propTypes = {
   todo: PropTypes.shape({
     id: PropTypes.number,
     isComplete: PropTypes.bool,
-    name: PropTypes.any
+    name: PropTypes.any,
   }).isRequired,
-  updateTodo: PropTypes.func.isRequired
+  updateTodo: PropTypes.func.isRequired,
 };
 
 export default TodoItem;

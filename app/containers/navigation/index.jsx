@@ -9,7 +9,7 @@ const mapStateToProps = state => state.session;
 const mapDispatchToProps = dispatch => ({
   logout: user => dispatch(logoutUser(user)),
   signin: () => dispatch(openModal({ name: 'signin' })),
-  signup: () => dispatch(openModal({ name: 'signup' }))
+  signup: () => dispatch(openModal({ name: 'signup' })),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Navigation));

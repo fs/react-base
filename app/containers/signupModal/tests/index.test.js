@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import { containerWithStore, containerProps } from 'helpers/store';
-import fakeSession from 'mocks/fakeSession';
+import { fakeSession } from 'mocks/fakeSession';
 import SignupModal from '../';
 
 describe('SignupModal', () => {
@@ -11,11 +11,11 @@ describe('SignupModal', () => {
 
   beforeEach(() => {
     state = {
-      session: fakeSession
+      session: fakeSession,
     };
     props = {
       closeModal: () => { },
-      isOpen: true
+      isOpen: true,
     };
   });
 

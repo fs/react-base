@@ -13,9 +13,9 @@ export default {
     ).data;
   },
   async update(todo) {
-    return await api.patch(`${this.urlRoot}/${todo.id}`, todo);
+    return api.patch(`${this.urlRoot}/${todo.id}`, todo);
   },
   async delete({ id }) {
-    return await api.delete(`${this.urlRoot}/${id}`);
-  }
+    return api.delete(`${this.urlRoot}/${id}`);
+  },
 };

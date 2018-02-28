@@ -15,24 +15,24 @@ describe('withAuth HOC', () => {
   const renderComponent = () => {
     const EnhancedComponent = () => containerWithStore(withAuth(WrappedComponent), state);
 
-    return mount(
-      <MemoryRouter initialEntries={ ['/protected'] } >
+    return mount((
+      <MemoryRouter initialEntries={['/protected']} >
         <Switch>
           <Route
             exact
-            path={ paths.home() }
-            component={ Home }
+            path={paths.home()}
+            component={Home}
           />
-          <Route path="/protected" component={ EnhancedComponent } />
+          <Route path="/protected" component={EnhancedComponent} />
         </Switch>
       </MemoryRouter>
-    );
+    ));
   };
 
   context('when authenticated', () => {
     beforeEach(() => {
       state = {
-        session: fakeSession
+        session: fakeSession,
       };
     });
 
@@ -46,7 +46,7 @@ describe('withAuth HOC', () => {
   context('when unauthenticated', () => {
     beforeEach(() => {
       state = {
-        session: fakeEmptySession
+        session: fakeEmptySession,
       };
     });
 

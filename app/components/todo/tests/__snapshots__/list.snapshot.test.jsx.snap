@@ -6,6 +6,7 @@ exports[`TodoList renders correctly 1`] = `
 >
   <TodoItem
     deleteTodo={[Function]}
+    key="1"
     todo={
       Object {
         "id": 1,
@@ -17,6 +18,7 @@ exports[`TodoList renders correctly 1`] = `
   />
   <TodoItem
     deleteTodo={[Function]}
+    key="2"
     todo={
       Object {
         "id": 2,

@@ -1,15 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import fakeSession from 'mocks/fakeSession';
-import Profile from '../';
+import Todo from '../';
 
-describe('Profile', () => {
+describe('Todo', () => {
   let props;
-  const renderComponent = () => shallow(<Profile { ...props } />);
+  const renderComponent = () => shallow(<Todo {...props} />);
 
   beforeEach(() => {
-    props = fakeSession;
+    props = {
+      openModal: () => {},
+    };
   });
 
   it('renders correctly', () => {

@@ -1,14 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { deleteTodo, updateTodo } from 'actions/todos';
+import {
+  deleteTodo as deleteTodoAction,
+  updateTodo as updateTodoAction,
+} from 'actions/todos';
 import TodoList from 'components/todo/list';
 
-const TodoListContainer = ({ isComplete, todos, updateTodo, deleteTodo }) => (
+const TodoListContainer = ({
+  isComplete, todos, updateTodo, deleteTodo,
+}) => (
   <TodoList
-    todos={ todos.filter(todo => todo.isComplete === isComplete) }
-    deleteTodo={ deleteTodo }
-    updateTodo={ updateTodo }
+    todos={todos.filter(todo => todo.isComplete === isComplete)}
+    deleteTodo={deleteTodo}
+    updateTodo={updateTodo}
   />
 );
 
@@ -16,16 +21,16 @@ TodoListContainer.propTypes = {
   deleteTodo: PropTypes.func.isRequired,
   isComplete: PropTypes.bool.isRequired,
   todos: PropTypes.array.isRequired,
-  updateTodo: PropTypes.func.isRequired
+  updateTodo: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  ...state.todos
+  ...state.todos,
 });
 
 const mapDispatchToProps = {
-  deleteTodo,
-  updateTodo
+  deleteTodo: deleteTodoAction,
+  updateTodo: updateTodoAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoListContainer);

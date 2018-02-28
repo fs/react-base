@@ -6,18 +6,18 @@ import Navigation from 'components/navigation';
 
 describe('Navigation', () => {
   let props;
-  const renderComponent = () => renderer.create(
+  const renderComponent = () => renderer.create((
     <MemoryRouter>
-      <Navigation { ...props } />
+      <Navigation {...props} />
     </MemoryRouter>
-  );
+  ));
 
   beforeEach(() => {
     props = {
       ...fakeEmptySession,
       logout: () => {},
       signin: () => {},
-      signup: () => {}
+      signup: () => {},
     };
   });
 
@@ -29,7 +29,7 @@ describe('Navigation', () => {
     beforeEach(() => {
       props = {
         ...props,
-        ...fakeSession
+        ...fakeSession,
       };
     });
 

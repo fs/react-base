@@ -11,7 +11,7 @@ describe('Todos reducer', () => {
   beforeEach(() => {
     initialState = {
       isLoading: false,
-      todos: []
+      todos: [],
     };
   });
 
@@ -32,7 +32,7 @@ describe('Todos reducer', () => {
       it('returns new state', () => {
         expect(callReducer()).toEqual({
           isLoading: true,
-          todos: []
+          todos: [],
         });
       });
     });
@@ -45,7 +45,7 @@ describe('Todos reducer', () => {
 
         payload = [{
           id: 1,
-          name: 'Awesome Todo'
+          name: 'Awesome Todo',
         }];
       });
 
@@ -54,8 +54,8 @@ describe('Todos reducer', () => {
           isLoading: false,
           todos: [{
             id: 1,
-            name: 'Awesome Todo'
-          }]
+            name: 'Awesome Todo',
+          }],
         });
       });
     });
@@ -66,12 +66,12 @@ describe('Todos reducer', () => {
 
         state.todos = [{
           id: 2,
-          name: 'Another Todo'
+          name: 'Another Todo',
         }];
 
         payload = {
           id: 1,
-          name: 'Awesome Todo'
+          name: 'Awesome Todo',
         };
       });
 
@@ -80,11 +80,11 @@ describe('Todos reducer', () => {
           isLoading: false,
           todos: [{
             id: 2,
-            name: 'Another Todo'
+            name: 'Another Todo',
           }, {
             id: 1,
-            name: 'Awesome Todo'
-          }]
+            name: 'Awesome Todo',
+          }],
         });
       });
     });
@@ -95,15 +95,15 @@ describe('Todos reducer', () => {
 
         state.todos = [{
           id: 1,
-          name: 'Awesome Todo'
+          name: 'Awesome Todo',
         }, {
           id: 2,
-          name: 'Another Todo'
+          name: 'Another Todo',
         }];
 
         payload = {
           id: 1,
-          name: 'Updated Todo'
+          name: 'Updated Todo',
         };
       });
 
@@ -112,11 +112,11 @@ describe('Todos reducer', () => {
           isLoading: false,
           todos: [{
             id: 1,
-            name: 'Updated Todo'
+            name: 'Updated Todo',
           }, {
             id: 2,
-            name: 'Another Todo'
-          }]
+            name: 'Another Todo',
+          }],
         });
       });
     });
@@ -127,15 +127,15 @@ describe('Todos reducer', () => {
 
         state.todos = [{
           id: 1,
-          name: 'Awesome Todo'
+          name: 'Awesome Todo',
         }, {
           id: 2,
-          name: 'Another Todo'
+          name: 'Another Todo',
         }];
 
         payload = {
           id: 1,
-          name: 'Awesome Todo'
+          name: 'Awesome Todo',
         };
       });
 
@@ -144,8 +144,8 @@ describe('Todos reducer', () => {
           isLoading: false,
           todos: [{
             id: 2,
-            name: 'Another Todo'
-          }]
+            name: 'Another Todo',
+          }],
         });
       });
     });

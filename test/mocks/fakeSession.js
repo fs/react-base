@@ -4,14 +4,14 @@ export const fakeSession = {
   currentUser: {
     email: 'test@test.com',
     password: 'password',
-    id: 1
-  }
+    id: 1,
+  },
 };
 
 export const fakeEmptySession = {
   isLoading: false,
   loggedIn: false,
-  currentUser: {}
+  currentUser: {},
 };
 
 export default fakeSession;

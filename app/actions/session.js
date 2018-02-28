@@ -14,7 +14,7 @@ export const setUser = createAction(SET_USER);
 export const removeUser = createAction(REMOVE_USER);
 
 export const signinUser = user =>
-  async dispatch => {
+  async (dispatch) => {
     dispatch(loadData());
 
     const result = await sessionSource.signin(user);
@@ -25,7 +25,7 @@ export const signinUser = user =>
   };
 
 export const signupUser = user =>
-  async dispatch => {
+  async (dispatch) => {
     dispatch(loadData());
 
     const result = await usersSource.create(user);
@@ -36,7 +36,7 @@ export const signupUser = user =>
   };
 
 export const logoutUser = user =>
-  async dispatch => {
+  async (dispatch) => {
     await sessionSource.logout(user);
     sessionStorage.remove();
     dispatch(removeUser());

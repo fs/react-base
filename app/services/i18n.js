@@ -9,7 +9,7 @@ const currentLanguage = storage.get(localizationKey);
 const getResources = () => {
   const requireContext = require.context('../locales', true, /\.json$/);
 
-  return requireContext.keys().reduce((acc, value, key) => {
+  return requireContext.keys().reduce((acc, value) => {
     const fileName = value.match(/.+\/(.+).json$/)[1];
     const languageDomain = value.match(/^\.\/(.+?)\/.+/)[1];
 
@@ -17,8 +17,8 @@ const getResources = () => {
       ...acc,
       [languageDomain]: {
         ...acc[languageDomain],
-        [fileName]: requireContext(value)
-      }
+        [fileName]: requireContext(value),
+      },
     };
   }, {});
 };
@@ -29,13 +29,13 @@ i18n
     fallbackLng: defaultLanguage,
 
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
 
     lookupLocalStorage: localizationKey,
     caches: ['localStorage'],
 
-    resources: getResources()
+    resources: getResources(),
   });
 
 if (!currentLanguage) {

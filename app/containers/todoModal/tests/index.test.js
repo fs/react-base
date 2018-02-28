@@ -10,7 +10,7 @@ describe('TodoModal', () => {
   beforeEach(() => {
     props = {
       closeModal: () => {},
-      isOpen: true
+      isOpen: true,
     };
   });
 

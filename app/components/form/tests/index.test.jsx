@@ -5,11 +5,11 @@ import Form from '../';
 describe('Form', () => {
   let props;
   let component;
-  const renderComponent = () => shallow(<Form { ...props } />);
+  const renderComponent = () => shallow(<Form {...props} />);
 
   beforeEach(() => {
     props = {
-      onSubmit: jest.fn()
+      onSubmit: jest.fn(),
     };
   });
 
