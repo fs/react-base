@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import i18n from 'services/i18n';
 import { paths } from 'helpers/routes';
 import styles from './styles';
+import NavItemLink from './navItemLink';
 
 const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
   const logoutUser = () => {
@@ -23,9 +23,9 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
     if (loggedIn) {
       return (
         <Nav pullRight>
-          <NavItem>
+          <NavItemLink to={ paths.profile() }>
             { currentUser.email }
-          </NavItem>
+          </NavItemLink>
           <NavItem onClick={ logoutUser }>
             { i18n.t('header:signOut') }
           </NavItem>
@@ -52,24 +52,14 @@ const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
           { i18n.t('common:projectName') }
         </Navbar.Brand>
       </Navbar.Header>
-      <ul className="nav navbar-nav">
-        <li>
-          <Link
-            to={ paths.home() }
-            activeClassName={ styles.linkActive }
-          >
-            { i18n.t('header:home') }
-          </Link>
-        </li>
-        <li>
-          <Link
-            to={ paths.about() }
-            activeClassName={ styles.linkActive }
-          >
-            { i18n.t('header:about') }
-          </Link>
-        </li>
-      </ul>
+      <Nav>
+        <NavItemLink to={ paths.home() } exact>
+          { i18n.t('header:home') }
+        </NavItemLink>
+        <NavItemLink to={ paths.about() }>
+          { i18n.t('header:about') }
+        </NavItemLink>
+      </Nav>
       { renderRightNav() }
     </Navbar>
   );

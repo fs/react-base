@@ -1,10 +1,3 @@
-import { useRouterHistory } from 'react-router';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
-import qs from 'qs';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-const createAppHistory = useRouterHistory(createBrowserHistory);
-
-export default createAppHistory({
-  parseQueryString: qs.parse,
-  stringifyQuery: qs.stringify
-});
+export default createBrowserHistory();

@@ -1,18 +1,19 @@
-import currentUser from 'services/currentUser';
+import pathToRegexp from 'path-to-regexp';
 
-export const paths = {
-  home() { return '/'; },
-  about() { return '/about'; },
-  signin() { return '/signin'; },
-  signup() { return '/signup'; },
-  aboutExtended(id) { return `/about/extended/${id}`; }
+export const routes = {
+  home: '/',
+  about: '/about',
+  profile: '/profile',
+  signin: '/signin',
+  signup: '/signup',
+  aboutExtended: '/about/extended/:id'
 };
 
-export function requireAuth(nextState, replace) {
-  if (!currentUser.loggedIn()) {
-    replace({
-      pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
-    });
-  }
-}
+export const paths = {};
+
+Object.keys(routes)
+  .forEach(routeName => {
+    paths[routeName] = pathToRegexp.compile(routes[routeName]);
+  });
+
+export default routes;

@@ -1,41 +1,21 @@
-import React, { cloneElement } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import ApplicationRoutes from 'components/applicationRoutes';
 import Alert from 'react-s-alert';
 import Modal from 'containers/modal';
-import Navigation from 'components/navigation';
+import Navigation from 'containers/navigation';
 import Footer from 'components/footer';
 import styles from './styles';
 
-const Application = ({ children, session, logout, signin, signup }) => {
-  const { loggedIn, currentUser } = session;
-
-  return (
-    <div className={ styles.layout }>
-      <main className={ styles.wrapper }>
-        <Navigation
-          currentUser={ currentUser }
-          loggedIn={ loggedIn }
-          logout={ logout }
-          signin={ signin }
-          signup={ signup }
-        />
-        { cloneElement(children, { loggedIn }) }
-      </main>
-      <Footer />
-      <Modal />
-      <Alert stack={{ limit: 3 }} html={ true } />
-    </div>
-  );
-};
-
-Application.propTypes = {
-  logout: PropTypes.func.isRequired,
-  session: PropTypes.shape({
-    loggedIn: PropTypes.bool,
-    currentUser: PropTypes.object
-  }).isRequired,
-  signin: PropTypes.func.isRequired,
-  signup: PropTypes.func.isRequired
-};
+const Application = () => (
+  <div className={ styles.layout }>
+    <main className={ styles.wrapper }>
+      <Navigation />
+      <ApplicationRoutes />
+    </main>
+    <Footer/>
+    <Modal/>
+    <Alert stack={{ limit: 3 }} html={ true } />
+  </div>
+);
 
 export default Application;
