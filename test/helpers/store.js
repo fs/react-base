@@ -4,7 +4,7 @@ import thunk from 'redux-thunk';
 
 export function containerProps(component) {
   const componentProps = Object.keys(component.props());
-  const rejectedProps = ['store', 'storeSubscription'];
+  const rejectedProps = ['store', 'storeSubscription', 'dispatch'];
 
   return componentProps.filter(item => !rejectedProps.includes(item));
 }

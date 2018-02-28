@@ -7,22 +7,8 @@ exports[`Application renders correctly 1`] = `
   <main
     className="wrapper"
   >
-    <Navigation
-      currentUser={
-        Object {
-          "email": "test@test.com",
-          "id": 1,
-          "password": "password",
-        }
-      }
-      loggedIn={true}
-      logout={[Function]}
-      signin={[Function]}
-      signup={[Function]}
-    />
-    <div
-      loggedIn={true}
-    />
+    <withRouter(Connect(Navigation)) />
+    <ApplicationRoutes />
   </main>
   <Footer />
   <Connect(ModalContainer) />

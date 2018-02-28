@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile renders correctly 1`] = `
+<Grid
+  bsClass="container"
+  componentClass="div"
+  fluid={false}
+>
+  <h1>
+    test@test.com
+  </h1>
+  <p>
+    This page created to demonstrate ability to protect route. This page available only for authenticated users.
+  </p>
+</Grid>
+`;

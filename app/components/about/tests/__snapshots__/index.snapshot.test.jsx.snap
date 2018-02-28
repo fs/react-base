@@ -12,8 +12,8 @@ exports[`About renders correctly 1`] = `
       Kick-start your new web application based on React and Redux technologies.
     </p>
     <a
+      href="/about/extended/test_id"
       onClick={[Function]}
-      style={Object {}}
     >
       show details...
     </a>

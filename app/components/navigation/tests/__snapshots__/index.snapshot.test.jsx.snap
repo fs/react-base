@@ -18,19 +18,36 @@ exports[`Navigation renders correctly 1`] = `
     </div>
     <ul
       className="nav navbar-nav"
+      role={null}
     >
-      <li>
+      <li
+        className="active"
+        role="presentation"
+        style={undefined}
+      >
         <a
+          aria-current="true"
+          className="active"
+          href="/"
           onClick={[Function]}
+          onKeyDown={[Function]}
           style={Object {}}
         >
           Home
         </a>
       </li>
-      <li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
         <a
+          aria-current={false}
+          className={undefined}
+          href="/about"
           onClick={[Function]}
-          style={Object {}}
+          onKeyDown={[Function]}
+          style={undefined}
         >
           About
         </a>
@@ -91,19 +108,36 @@ exports[`Navigation when user is logged in renders user navigations 1`] = `
     </div>
     <ul
       className="nav navbar-nav"
+      role={null}
     >
-      <li>
+      <li
+        className="active"
+        role="presentation"
+        style={undefined}
+      >
         <a
+          aria-current="true"
+          className="active"
+          href="/"
           onClick={[Function]}
+          onKeyDown={[Function]}
           style={Object {}}
         >
           Home
         </a>
       </li>
-      <li>
+      <li
+        className=""
+        role="presentation"
+        style={undefined}
+      >
         <a
+          aria-current={false}
+          className={undefined}
+          href="/about"
           onClick={[Function]}
-          style={Object {}}
+          onKeyDown={[Function]}
+          style={undefined}
         >
           About
         </a>
@@ -119,10 +153,12 @@ exports[`Navigation when user is logged in renders user navigations 1`] = `
         style={undefined}
       >
         <a
-          href="#"
+          aria-current={false}
+          className={undefined}
+          href="/profile"
           onClick={[Function]}
           onKeyDown={[Function]}
-          role="button"
+          style={undefined}
         >
           test@test.com
         </a>
