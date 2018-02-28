@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { paths } from 'helpers/routes';
 
 export default function withAuth(WrappedComponent) {
@@ -21,5 +21,5 @@ export default function withAuth(WrappedComponent) {
     }
   }
 
-  return withRouter(connect(state => state.session)(EnhancedComponent));
+  return connect(state => state.session)(EnhancedComponent);
 }
