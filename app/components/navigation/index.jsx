@@ -1,27 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink as Link, Route } from 'react-router-dom';
 import { Navbar, Nav, NavItem } from 'react-bootstrap';
 import i18n from 'services/i18n';
 import { paths } from 'helpers/routes';
 import styles from './styles';
-
-const NavItemLink = ({ to, exact, ...props }) => (
-  <Route path={ to } exact={ exact }>
-    {({ match }) => (
-      <NavItem
-        to={ to }
-        href={ to }
-        exact={ exact }
-        { ...props }
-        componentClass={ Link }
-        active={ !!match }
-      />
-    )}
-  </Route>
-);
-
-NavItemLink.propTypes = Link.propTypes;
+import NavItemLink from './navItemLink';
 
 const Navigation = ({ loggedIn, currentUser, logout, signin, signup }) => {
   const logoutUser = () => {
