@@ -20,7 +20,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "^9.0.0"
+    "node": ">=9.0.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
